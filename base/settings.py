@@ -28,7 +28,6 @@ print(
     f"{Colors.YELLOW}{SOURCE_DIR}{Colors.END}"
 )
 
-
 load_dotenv()
 
 SECRET_KEY = os.getenv("SECRET_KEY")
@@ -43,6 +42,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "src.api.apps.ApiConfig",
+    "rest_framework",
+    "portal",
     "django_bootstrap5",
     "crispy_forms",
     "crispy_bootstrap5",
