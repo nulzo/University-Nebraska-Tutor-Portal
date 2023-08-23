@@ -33,6 +33,11 @@ pytest-django = "^4.5.2"
 [tool.black]
 line-length = 88
 target-version = ['py39', 'py310', 'py311']
+extend-exclude = '''
+(
+    | settings.py
+)
+'''
 
 [tool.pytest.ini_options]
 DJANGO_SETTINGS_MODULE = "base.settings"
@@ -41,6 +46,10 @@ python_files = ["test_*.py", "*_test.py"]
 [tool.ruff]
 exclude = [".venv"]
 line-length = 100
+
+[tool.ruff.per-file-ignores]
+"__init__.py" = ["E402"]
+"settings.py" = ["E501"]
 
 [tool.mypy]
 plugins = ["mypy_django_plugin.main"]
@@ -51,10 +60,8 @@ django_settings_module = "base.settings"
 strict_settings = "True"
 
 [tool.djlint]
-ignore = "H031,H030"
+ignore = "H031,H030,H006"
 profile = "django"
-blank_line_after_tag = "load,extends,include"
-blank_line_before_tag = "load,extends,include"
 close_void_tags="True"
 
 [tool.autoflake]

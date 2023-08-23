@@ -5,17 +5,28 @@ Settings for University-Nebraska-Tutor-Portal project.
 import os
 import sys
 from pathlib import Path
-from utils.terminal_color import Colors
 
 from dotenv import load_dotenv
+
+from utils.terminal_color import Colors
+
 PROJECT_NAME = "University-Nebraska-Tutor-Portal"
 BASE_DIR = Path(__file__).resolve().parent.parent
 SOURCE_DIR = os.path.join(BASE_DIR, "src")
 sys.path.insert(0, SOURCE_DIR)
 
-print(f"\n{Colors.CYAN}LOADING PROJECT:\t{Colors.END} {Colors.YELLOW}{PROJECT_NAME}{Colors.END}")
-print(f"{Colors.CYAN}BASE DIRECTORY:\t\t{Colors.END} {Colors.YELLOW}{BASE_DIR}{Colors.END}")
-print(f"{Colors.CYAN}SOURCE DIRECTORY:\t{Colors.END} {Colors.YELLOW}{SOURCE_DIR}{Colors.END}")
+print(
+    f"\n{Colors.CYAN}LOADING PROJECT:\t{Colors.END}"
+    f"{Colors.YELLOW}{PROJECT_NAME}{Colors.END}"
+)
+print(
+    f"{Colors.CYAN}BASE DIRECTORY:\t\t{Colors.END}"
+    f"{Colors.YELLOW}{BASE_DIR}{Colors.END}"
+)
+print(
+    f"{Colors.CYAN}SOURCE DIRECTORY:\t{Colors.END}"
+    f"{Colors.YELLOW}{SOURCE_DIR}{Colors.END}"
+)
 
 
 load_dotenv()
@@ -80,10 +91,16 @@ DATABASES = {
 }
 
 SITE_ROOT = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
-STATIC_DIR = os.path.join(BASE_DIR, 'static')
+STATIC_DIR = os.path.join(BASE_DIR, "static")
 STATICFILES_DIRS = [STATIC_DIR]
-print(f"{Colors.CYAN}STATIC DIRECTORY:\t{Colors.END} {Colors.YELLOW}{STATIC_DIR}{Colors.END}")
-print(f"{Colors.CYAN}TEMPLATE DIRECTORY:\t{Colors.END} {Colors.YELLOW}{TEMPLATES[0].get('DIRS')[0]}{Colors.END}\n")
+print(
+    f"{Colors.CYAN}STATIC DIRECTORY:\t{Colors.END}"
+    f"{Colors.YELLOW}{STATIC_DIR}{Colors.END}"
+)
+print(
+    f"{Colors.CYAN}TEMPLATE DIRECTORY:\t{Colors.END}"
+    f"{Colors.YELLOW}{TEMPLATES[0].get('DIRS')[0]}{Colors.END}\n"
+)
 
 AUTH_PASSWORD_VALIDATORS = [
     {
