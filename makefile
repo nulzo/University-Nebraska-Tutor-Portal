@@ -54,9 +54,9 @@ wipe-db:
 	python manage.py createsuperuser --noinput
 
 
-.PHONY tailwind-watch: ## Rebuilt the output.css if changes made to tailwind
-tailwind-watch:
-	cd dev && npx run tailwind-watch && echo DONE && cd ..
+.PHONY watch: ## Rebuilt the output.css if changes made to tailwind
+watch:
+	cd dev && npm run tailwind-watch && echo DONE && cd ..
 
 
 .PHONY pre-commmit: ## Runs a precommit check
