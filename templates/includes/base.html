@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-theme="portal">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="{% static "css/output.css" %}">
+    <script src="https://cdn.jsdelivr.net/npm/theme-change@2.0.2/index.js"></script>
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+<body>
+<main>
+    <div class="window">
+        {% include "includes/sidebar.html" %}
+        {% block header %}{% endblock header %}
+        {% block content %}{% endblock content %}
+    </div>
+    {% block footer %}{% endblock footer %}
+</main>
+</body>
+</html>
