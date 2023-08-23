@@ -5,7 +5,7 @@ Settings for University-Nebraska-Tutor-Portal project.
 import os
 import sys
 from pathlib import Path
-from utils.COLORS import Colors
+from utils.terminal_color import Colors
 
 from dotenv import load_dotenv
 PROJECT_NAME = "University-Nebraska-Tutor-Portal"
