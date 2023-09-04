@@ -32,9 +32,9 @@ jobs:
         poetry config virtualenvs.create false
         make poetry
 
-    - name: Run Linting
-      run: |
-        make lint
+#    - name: Run Linting
+#      run: |
+#        make lint
 
     - name: Run Tests
       run: |

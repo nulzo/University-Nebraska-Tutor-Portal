@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.todo-title {
+cursor: pointer;
+}
+.completed-todo {
+text-decoration: line-through;
+}
+.tab-list > span {
+padding: 5px 8px;
+border: 1px solid rgb(7, 167, 68);
+border-radius: 10px;
+margin-right: 5px;
+cursor: pointer;
+}
+.tab-list > span.active {
+background-color: rgb(6, 139, 12);
+color: #fff;
+}
