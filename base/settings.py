@@ -12,7 +12,7 @@ from utils.terminal_color import Colors
 
 PROJECT_NAME = "University-Nebraska-Tutor-Portal"
 BASE_DIR = Path(__file__).resolve().parent.parent
-SOURCE_DIR = os.path.join(BASE_DIR, "src")
+SOURCE_DIR = os.path.join(BASE_DIR, "backend/../src")
 sys.path.insert(0, SOURCE_DIR)
 
 print(
@@ -42,13 +42,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "src.api.apps.ApiConfig",
     "rest_framework",
-    "portal",
-    "django_bootstrap5",
-    "crispy_forms",
-    "crispy_bootstrap5",
-    "bootstrap5",
+    "backend.src.portal",
+    "backend.src.api",
+    "corsheaders"
 ]
 
 MIDDLEWARE = [
@@ -59,7 +56,13 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
 ]
+
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:3000',
+)
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
 
@@ -93,7 +96,7 @@ DATABASES = {
 }
 
 SITE_ROOT = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
-STATIC_DIR = os.path.join(BASE_DIR, "static")
+STATIC_DIR = os.path.join(BASE_DIR, "../static")
 STATICFILES_DIRS = [STATIC_DIR]
 print(
     f"{Colors.CYAN}STATIC DIRECTORY:\t{Colors.END}"

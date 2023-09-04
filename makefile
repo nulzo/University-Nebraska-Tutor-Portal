@@ -14,7 +14,8 @@ DJLINT_FLAGS = --reformat --format-css
 
 .PHONY run: ## Start the server locally
 run:
-	python manage.py runserver
+	python manage.py runserver &
+	cd frontend; npm start
 
 
 .PHONY migrate: ## Perform migrations to the database
