@@ -18,19 +18,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
-# import views from todo
-from backend.src.portal import views
-
 # import routers from the REST framework
 # it is necessary for routing
 from rest_framework import routers
+
+# import views from todo
 from backend.src.portal import urls as portal
+from backend.src.portal import views
 
 router = routers.DefaultRouter()
 
-router.register(r'tasks', views.TodoView, 'task')
+router.register(r"tasks", views.TodoView, "task")
 
-urlpatterns = [path("admin/", admin.site.urls),
-               path("", include(portal)),
-               path('api/', include(router.urls))
-               ]
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path("", include(portal)),
+    path("api/", include(router.urls)),
+]

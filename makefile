@@ -1,7 +1,7 @@
 ## ========================== VARIABLES ==============================
 
 
-BUILD_DIR = src
+BUILD_DIR = backend/src
 PYLINT_FLAGS = --reports yes
 FLAKE8_FLAGS = --color always --count --statistics
 BLACK_FLAGS = --check --force-exclude .\base
@@ -31,7 +31,7 @@ poetry:
 
 .PHONY lint: ## Lint the codebase
 lint:
-	@ruff . && pylint ./$(BUILD_DIR) $(PYLINT_FLAGS) && djlint . --lint && autoflake -r . && flake8 . $(FLAKE8_FLAGS) && black . $(BLACK_FLAGS) && echo SUCCESS
+	ruff . && pylint ./$(BUILD_DIR) $(PYLINT_FLAGS) && djlint . --lint && autoflake -r . && flake8 . $(FLAKE8_FLAGS) && black . $(BLACK_FLAGS) && echo SUCCESS
 
 
 .PHONY format: ## Format the codebase

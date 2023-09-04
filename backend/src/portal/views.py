@@ -3,10 +3,10 @@ from django.shortcuts import render
 # import view sets from the REST framework
 from rest_framework import viewsets
 
+from .models import Example
+
 # import the TodoSerializer from the serializer file
 from .serializers import TodoSerializer
-
-from .models import Example
 
 
 # Create your views here.

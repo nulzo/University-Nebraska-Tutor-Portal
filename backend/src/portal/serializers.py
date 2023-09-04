@@ -1,5 +1,6 @@
 # import serializers from the REST framework
 from rest_framework import serializers
+
 from .models import Example
 
 
@@ -8,4 +9,4 @@ class TodoSerializer(serializers.ModelSerializer):
     # create a meta class
     class Meta:
         model = Example
-        fields = ('id', 'title', 'description', 'completed')
+        fields = ("id", "title", "description", "completed")
