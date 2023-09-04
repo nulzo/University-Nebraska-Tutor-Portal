@@ -7,6 +7,7 @@ FLAKE8_FLAGS = --color always --count --statistics
 BLACK_FLAGS = --check --force-exclude .\base
 AUTOFLAKE_FLAGS = --in-place --remove-unused-variables --remove-all-unused-imports
 DJLINT_FLAGS = --reformat --format-css
+BACKEND_DIR = backend
 
 
 ## ========================== PROCESSES ===============================
@@ -34,15 +35,15 @@ poetry:
 
 .PHONY lint: ## Lint the codebase
 lint:
-	ruff . && pylint ./$(BUILD_DIR) $(PYLINT_FLAGS) && djlint . --lint && autoflake -r . && flake8 . $(FLAKE8_FLAGS) && black . $(BLACK_FLAGS) && echo SUCCESS
+	ruff $(BACKEND_DIR)/. && pylint ./$(BUILD_DIR) $(PYLINT_FLAGS) && djlint $(BACKEND_DIR)/. --lint && autoflake -r $(BACKEND_DIR)/. && flake8 $(BACKEND_DIR)/. $(FLAKE8_FLAGS) && black $(BACKEND_DIR)/. $(BLACK_FLAGS) && echo SUCCESS
 
 
 .PHONY format: ## Format the codebase
 format:
-	isort .
-	autoflake -r . $(AUTOFLAKE_FLAGS)
-	black .
-	djlint . $(DJLINT_FLAGS)
+	isort $(BACKEND_DIR)/.
+	autoflake -r $(BACKEND_DIR)/. $(AUTOFLAKE_FLAGS)
+	black $(BACKEND_DIR)/.
+	djlint $(BACKEND_DIR)/. $(DJLINT_FLAGS)
 
 
 .PHONY test: ## Run tests
