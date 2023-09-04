@@ -106,6 +106,17 @@ jupyter = ["ipython (>=7.8.0)", "tokenize-rt (>=3.2.0)"]
 uvloop = ["uvloop (>=0.15.2)"]
 
 [[package]]
+name = "bruhcolor"
+version = "0.0.56"
+description = "256 Color Terminal Text Formatter"
+optional = false
+python-versions = "*"
+files = [
+    {file = "bruhcolor-0.0.56-py3-none-any.whl", hash = "sha256:3b1561c504d1e164a17a5eefcaf8c7100b6903773757bb84ad59194e1da89741"},
+    {file = "bruhcolor-0.0.56.tar.gz", hash = "sha256:2e77a59f01b95bfe7dc4aa2c6bab258eae1679669e04629a562099b3c435eb37"},
+]
+
+[[package]]
 name = "click"
 version = "8.1.7"
 description = "Composable command line interface toolkit"
@@ -1209,4 +1220,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "eb9cd8d6a2c7192997d703cce079c2914ed15534cc97ee6e569a9bb71b57d102"
+content-hash = "8fa5ab44710e0050c18749c79b891ce138853b3ae3672ae3333bdafc6e84e517"
