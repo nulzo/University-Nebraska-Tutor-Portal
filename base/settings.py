@@ -8,7 +8,7 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-from bruhcolor import bruhcolored, colors
+from bruhcolor import bruhcolored
 
 PROJECT_NAME = "University-Nebraska-Tutor-Portal"
 BASE_DIR = Path(__file__).resolve().parent.parent
