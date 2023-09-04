@@ -8,30 +8,34 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-from utils.terminal_color import Colors
+from bruhcolor import bruhcolored, colors
 
 PROJECT_NAME = "University-Nebraska-Tutor-Portal"
 BASE_DIR = Path(__file__).resolve().parent.parent
-SOURCE_DIR = os.path.join(BASE_DIR, "backend/../src")
+SOURCE_DIR = os.path.join(BASE_DIR, "backend/src")
 sys.path.insert(0, SOURCE_DIR)
 
-print(
-    f"\n{Colors.CYAN}LOADING PROJECT:\t{Colors.END}"
-    f"{Colors.YELLOW}{PROJECT_NAME}{Colors.END}"
-)
-print(
-    f"{Colors.CYAN}BASE DIRECTORY:\t\t{Colors.END}"
-    f"{Colors.YELLOW}{BASE_DIR}{Colors.END}"
-)
-print(
-    f"{Colors.CYAN}SOURCE DIRECTORY:\t{Colors.END}"
-    f"{Colors.YELLOW}{SOURCE_DIR}{Colors.END}"
-)
+print()
+print(bruhcolored("Loading Project:\t", color="light_magenta"), end=" ")
+print(bruhcolored(PROJECT_NAME, color="light_cyan", attrs=["bold"]))
+print(bruhcolored("Base Directory: \t", color="light_magenta"), end=" ")
+print(bruhcolored(BASE_DIR, color="light_cyan", attrs=["bold"]))
+print(bruhcolored("Source Directory:\t", color="light_magenta"), end=" ")
+print(bruhcolored(SOURCE_DIR, color="light_cyan", attrs=["bold"]))
+print()
 
 load_dotenv()
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = os.getenv("DEBUG")
+
+try:
+    if SECRET_KEY and DEBUG:
+        print(bruhcolored("Successfully Loaded Environment Variables", color="light_green", attrs=["bold"]))
+        print()
+except SyntaxError:
+    print(bruhcolored("Could Not Load Environment Variables", color="red", attrs=["bold"]))
+    print()
 
 ALLOWED_HOSTS: list[str] = []
 
@@ -69,7 +73,7 @@ ROOT_URLCONF = "base.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / "templates"],
+        "DIRS": [BASE_DIR / "backend/templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -94,16 +98,8 @@ DATABASES = {
 }
 
 SITE_ROOT = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
-STATIC_DIR = os.path.join(BASE_DIR, "../static")
+STATIC_DIR = os.path.join(BASE_DIR, "backend/static")
 STATICFILES_DIRS = [STATIC_DIR]
-print(
-    f"{Colors.CYAN}STATIC DIRECTORY:\t{Colors.END}"
-    f"{Colors.YELLOW}{STATIC_DIR}{Colors.END}"
-)
-print(
-    f"{Colors.CYAN}TEMPLATE DIRECTORY:\t{Colors.END}"
-    f"{Colors.YELLOW}{TEMPLATES[0].get('DIRS')[0]}{Colors.END}\n"
-)
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -127,10 +123,6 @@ TIME_ZONE = "America/Chicago"
 USE_I18N = True
 
 USE_TZ = True
-
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
-
-CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 STATIC_URL = "static/"
 
