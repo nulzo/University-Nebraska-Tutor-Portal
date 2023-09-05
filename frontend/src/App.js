@@ -1,7 +1,9 @@
 // import Component from the react module
 import React, { Component } from "react";
 import Modal from "./components/Modal";
+import Navbar from "./components/nav/Navbar"
 import axios from 'axios';
+import { Button } from 'react-daisyui'
 
 // create a class that extends the component
 class App extends Component {
@@ -90,6 +92,7 @@ renderItems = () => {
 		{item.title}
 		</span>
 		<span>
+			<Button color="primary">Edit</Button>
 		<button
 			onClick={() => this.editItem(item)}
 			className="btn btn-secondary mr-2"
@@ -138,6 +141,10 @@ handleDelete = (item) => {
 	.then((res) => this.refreshList());
 };
 
+renderNav = () => {
+
+}
+
 // Create item
 createItem = () => {
 	const item = { title: "", description: "", completed: false };
@@ -153,6 +160,7 @@ editItem = (item) => {
 render() {
 	return (
 	<main className="content">
+		<Navbar></Navbar>
 		<h1 className="text-success text-uppercase text-center my-4">
 		Example of CSLC Ticketing
 		</h1>

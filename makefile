@@ -61,7 +61,7 @@ wipe-db:
 
 .PHONY watch: ## Rebuilt the output.css if changes made to tailwind
 watch:
-	cd dev && npm run tailwind-watch && echo DONE && cd ..
+	cd frontend && npm run tailwind-watch && echo DONE && cd ..
 
 
 .PHONY pre-commmit: ## Runs a precommit check
