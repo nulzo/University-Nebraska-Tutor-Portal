@@ -13,10 +13,13 @@ BACKEND_DIR = backend
 ## ========================== PROCESSES ===============================
 
 
-.PHONY run: ## Start the server locally
-run:
-	python manage.py runserver &
-	cd frontend ; npm start
+.PHONY start-backend: ## Start the server locally
+start-backend:
+	python manage.py runserver
+
+.PHONY start-frontend:
+start-frontend:
+	cd frontend; npm start
 
 .PHONY kill:
 kill:

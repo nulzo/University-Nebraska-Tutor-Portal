@@ -5,7 +5,7 @@ class Navbar extends Component {
         return(
         <div className="navbar bg-base-100">
             <div className="flex-1">
-                <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                <a className="btn btn-ghost normal-case text-xl">CSLC Portal</a>
             </div>
             <div className="flex-none gap-2">
                 <div className="form-control">
@@ -16,7 +16,7 @@ class Navbar extends Component {
                         0
                     } className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full">
-                            <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg"/>
+                            <img src="public/UNO-logo.ico"/>
                         </div>
                     </label>
                     <ul tabIndex={
