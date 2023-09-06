@@ -17,9 +17,9 @@ BACKEND_DIR = backend
 start-backend:
 	python manage.py runserver
 
-.PHONY start-frontend:
-start-frontend:
-	cd frontend; npm start
+.PHONY start:
+start:
+	cd frontend && 	npx tailwindcss -i ./src/styles/input.css -o ./src/styles/output.css --watch&; npm start
 
 .PHONY kill:
 kill:

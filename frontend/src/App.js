@@ -4,6 +4,8 @@ import Modal from "./components/Modal";
 import Navbar from "./components/nav/Navbar"
 import axios from 'axios';
 import { Button } from 'react-daisyui'
+import outlineButton from "./components/buttons/OutlineButton";
+import OutlineButton from "./components/buttons/OutlineButton";
 
 // create a class that extends the component
 class App extends Component {
@@ -160,7 +162,8 @@ editItem = (item) => {
 render() {
 	return (
 	<main className="content">
-		<Navbar></Navbar>
+		<Navbar/>
+		<OutlineButton text={"Hello"} href={"/downloads"}></OutlineButton>
 		<h1 className="text-success text-uppercase text-center my-4">
 		Example of CSLC Ticketing
 		</h1>
