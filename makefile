@@ -1,7 +1,7 @@
 ## ========================== VARIABLES ==============================
 
 
-BUILD_DIR = backend/src
+BUILD_DIR = src
 PYLINT_FLAGS = --reports yes
 FLAKE8_FLAGS = --color always --count --statistics
 BLACK_FLAGS = --check --force-exclude .\base
@@ -13,14 +13,13 @@ BACKEND_DIR = backend
 ## ========================== PROCESSES ===============================
 
 
-.PHONY run: ## Start the server locally
-run:
-	python manage.py runserver &
-	cd frontend ; npm start
+.PHONY start-backend: ## Start the server locally
+start-backend:
+	python manage.py runserver
 
-.PHONY kill:
-kill:
-	killall runserver
+.PHONY start:
+start:
+	./scripts/run.sh 
 
 .PHONY migrate: ## Perform migrations to the database
 migrate:
@@ -35,7 +34,8 @@ poetry:
 
 .PHONY lint: ## Lint the codebase
 lint:
-	ruff $(BACKEND_DIR)/. && pylint ./$(BUILD_DIR) $(PYLINT_FLAGS) && djlint $(BACKEND_DIR)/. --lint && autoflake -r $(BACKEND_DIR)/. && flake8 $(BACKEND_DIR)/. $(FLAKE8_FLAGS) && black $(BACKEND_DIR)/. $(BLACK_FLAGS) && echo SUCCESS
+	ruff $(BACKEND_DIR)/. --fix;
+	ruff $(BACKEND_DIR)/. && pylint $(BACKEND_DIR)/. $(PYLINT_FLAGS) && djlint $(BACKEND_DIR)/. --lint && autoflake -r $(BACKEND_DIR)/. && flake8 $(BACKEND_DIR)/. $(FLAKE8_FLAGS) && black $(BACKEND_DIR)/. $(BLACK_FLAGS) && echo SUCCESS
 
 
 .PHONY format: ## Format the codebase
@@ -61,7 +61,7 @@ wipe-db:
 
 .PHONY watch: ## Rebuilt the output.css if changes made to tailwind
 watch:
-	cd dev && npm run tailwind-watch && echo DONE && cd ..
+	cd frontend && npm run tailwind-watch && echo DONE && cd ..
 
 
 .PHONY pre-commmit: ## Runs a precommit check
