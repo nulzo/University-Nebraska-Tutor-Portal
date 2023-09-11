@@ -1,0 +1,15 @@
+.ql-container.ql-snow {
+	height: 9rem;
+}
+
+.ql-snow .ql-editor pre.ql-syntax{
+	background-color: #f6f8fa;
+	color: #333;
+	overflow: hidden;
+}
+
+.ql-bubble .ql-editor pre.ql-syntax{
+	background-color: #f6f8fa;
+	color: #333;
+	overflow: hidden;
+}
