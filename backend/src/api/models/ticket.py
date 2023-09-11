@@ -1,7 +1,8 @@
 from django.db import models
-from .student import Student
-from .professor import Professor
+
 from .course import Course
+from .professor import Professor
+from .student import Student
 from .tutor import Tutor
 
 

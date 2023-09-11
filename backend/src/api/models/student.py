@@ -1,5 +1,4 @@
 from django.db import models
-from .course import Course
 
 
 # Create your models here.
