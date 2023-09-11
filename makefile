@@ -1,7 +1,7 @@
 ## ========================== VARIABLES ==============================
 
 
-BUILD_DIR = backend/src
+BUILD_DIR = src
 PYLINT_FLAGS = --reports yes
 FLAKE8_FLAGS = --color always --count --statistics
 BLACK_FLAGS = --check --force-exclude .\base
@@ -16,10 +16,12 @@ BACKEND_DIR = backend
 .PHONY start-backend: ## Start the server locally
 start-backend:
 	python manage.py runserver
+	& cd frontend; npx tailwindcss -i ./src/style/globals.css -o ./src/style/output.css --watch & cd frontend; npm start
 
 .PHONY start:
 start:
-	cd frontend && 	npx tailwindcss -i ./src/styles/input.css -o ./src/styles/output.css --watch&; npm start
+	python3 manage.py runserver
+	
 
 .PHONY kill:
 kill:
