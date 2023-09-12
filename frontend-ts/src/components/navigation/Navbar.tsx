@@ -1,21 +1,14 @@
+import MenuIcon from "../assets/MenuIcon";
+
 export default function Navbar() {
     return (
         <>
-            <nav className={"flex px-10 py-2 flex-wrap items-center bg-white w-full shadow-lg text-sm"}>
+            <nav className={"flex px-10 py-2 flex-wrap items-center bg-white w-full shadow-lg text-sm border-b"}>
                 <div className={"grid grid-cols-3 gap-4 w-full"}>
                     <div className={"left-sidebar flex col-span-1"}>
-                        <div className={"flex flex-wrap justify-items-start content-center"}>
+                        <div className={"flex flex-wrap lg:hidden justify-items-start content-center"}>
                             <div className={"tooltip tooltip-right font-thin text-gray-700"} data-tip="open sidebar">
-                                <svg fill="currentColor" width="24" height="24" viewBox="0 0 24 24"
-                                     xmlns="http://www.w3.org/2000/svg"
-                                     className={" transition ease-in-out hover:duration-150 hover:fill-red-600"}>
-
-                                    <path fillRule="evenodd"
-                                          d="M7.22 14.47L9.69 12 7.22 9.53a.75.75 0 111.06-1.06l3 3a.75.75 0 010 1.06l-3 3a.75.75 0 01-1.06-1.06z"/>
-                                    <path fillRule="evenodd"
-                                          d="M3.75 2A1.75 1.75 0 002 3.75v16.5c0 .966.784 1.75 1.75 1.75h16.5A1.75 1.75 0 0022 20.25V3.75A1.75 1.75 0 0020.25 2H3.75zM3.5 3.75a.25.25 0 01.25-.25H15v17H3.75a.25.25 0 01-.25-.25V3.75zm13 16.75v-17h3.75a.25.25 0 01.25.25v16.5a.25.25 0 01-.25.25H16.5z"
-                                          stroke="currentColor" strokeWidth="0"/>
-                                </svg>
+                                <MenuIcon/>
                             </div>
                         </div>
                     </div>
@@ -36,10 +29,10 @@ export default function Navbar() {
                                       stroke="none" fill="#fbfbfb" fillRule="evenodd"></path>
                             </g>
                         </svg>
-                        <span className={"px-2 flex flex-wrap content-center text-base"}>Computer Science Learning Center</span>
+                        <span className={"px-2 flex flex-wrap hidden lg:flex content-center text-base"}>Computer Science Learning Center</span>
 
                     </div>
-                    <div className={"flex items-center justify-end col-span-1"}>
+                    <div className={"flex items-center hidden sm:flex justify-end col-span-1"}>
                         <ul className={"flex items-center space-x-6"}>
                             <li className={"font-thin text-gray-700 transition ease-in-out hover:duration-150 hover:text-red-600"}>
                                 <a href={"/"}>Home</a>
@@ -70,7 +63,7 @@ export default function Navbar() {
                     </div>
                 </div>
             </nav>
-            <hr className={"h-px mt-0 bg-gray-400 border-0"}/>
+            {/* <hr className={"h-px mt-0 bg-gray-400 border-0"}/> */}
         </>
     );
 }

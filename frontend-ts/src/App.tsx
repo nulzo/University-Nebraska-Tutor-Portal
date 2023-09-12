@@ -1,18 +1,30 @@
 import "./style/output.css"
-import { Button } from './components/ui/button'
-import { Calendar } from "./components/ui/calendar"
-import H1 from "./components/typography/H1"
 import Navbar from "./components/navigation/Navbar"
+import { Sidebar } from "./components/navigation/Sidebar"
+
 
 function App() {
   return (
     <>
-    <Navbar></Navbar>
-    <H1 text="Hey!"/>
-      <Button>Shadcn Button</Button>
-      <Calendar></Calendar>
+      <Navbar></Navbar>
+      <div className="border-t">
+        <div className="bg-background">
+          <div className="grid lg:grid-cols-5">
+            <Sidebar className="hidden lg:block" />
+            <div className="col-span-3 lg:col-span-4 lg:border-l">
+              <div className="h-full px-4 py-6 lg:px-8">
+                <div className="flex items-center justify-between">
+                  <div className="space-y-1">
+                    
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
     </>
-  )
+  );
 }
 
 export default App
