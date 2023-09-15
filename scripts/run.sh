@@ -2,8 +2,7 @@
 
 python3 manage.py runserver &
 pid[0]=$!
-cd frontend-ts;
-npx tailwindcss -i ./src/style/globals.css -o ./src/style/output.css --watch &
+cd frontend-ts && npx tailwindcss -i ./src/style/globals.css -o ./src/style/output.css --watch &
 pid[1]=$!
 npm run dev &
 pid[2]=$!

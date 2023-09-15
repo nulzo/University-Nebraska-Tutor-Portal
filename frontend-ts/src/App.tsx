@@ -1,18 +1,46 @@
 import "./style/output.css"
-import { Button } from './components/ui/button'
-import { Calendar } from "./components/ui/calendar"
-import H1 from "./components/typography/H1"
 import Navbar from "./components/navigation/Navbar"
+import { Sidebar } from "./components/navigation/Sidebar"
+import { ReactNode } from "react";
+import { Callout, CalloutIcon, CalloutText, Theme } from "@radix-ui/themes";
+import { ExclamationTriangleIcon, InfoCircledIcon, StopIcon } from "@radix-ui/react-icons";
 
-function App() {
+
+function App({ children }: { children: ReactNode }) {
   return (
     <>
-    <Navbar></Navbar>
-    <H1 text="Hey!"/>
-      <Button>Shadcn Button</Button>
-      <Calendar></Calendar>
+      <Theme
+        accentColor="ruby"
+        grayColor="mauve"
+        panelBackground="translucent"
+        scaling="100%"
+        radius="small">
+        <Callout.Root color="yellow" className="text-center flex justify-center ">
+          <CalloutIcon>
+            <ExclamationTriangleIcon></ExclamationTriangleIcon>
+          </CalloutIcon>
+          <CalloutText className="text-center">
+            <strong>Alert:</strong> You are viewing a DEMO version of the application!
+          </CalloutText>
+        </Callout.Root>
+        <div className="bg-white">
+          <Navbar></Navbar>
+          <div className="border-t">
+            <div className="bg-background">
+              <div className="grid lg:grid-cols-5">
+                <Sidebar className="hidden lg:block" ></Sidebar>
+                <div className="col-span-3 lg:col-span-4 lg:border-l">
+                  <div className="h-full mx-10 px-4 py-6 lg:px-1">
+                        {children}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div >
+      </Theme>
     </>
-  )
+  );
 }
 
 export default App
