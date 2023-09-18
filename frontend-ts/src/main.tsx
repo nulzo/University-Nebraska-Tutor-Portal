@@ -9,6 +9,7 @@ import Tutors from './components/views/Tutors.tsx';
 import Zoom from './components/views/Zoom.tsx';
 import CreateTicket from './components/views/CreateTicket.tsx';
 import Hours from './components/views/Hours.tsx';
+import ViewTickets from './components/views/ViewTickets.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -21,7 +22,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Route path="zoom/" element={<App children={<Zoom/>} />} />
         <Route path="hours/" element={<App children={<Hours/>} />} />
         <Route path="tickets/create/" element={<App children={<CreateTicket/>} />} />
-        <Route path="tickets/view/" element={<App children={<InputForm/>} />} />
+        <Route path="tickets/view/" element={<App children={<ViewTickets/>} />} />
         <Route path="tickets/edit/" element={<App children={<InputForm/>} />} />
         <Route path="user/profile/" element={<App children={<InputForm/>} />} />
         <Route path="user/messages/" element={<App children={<InputForm/>} />} />

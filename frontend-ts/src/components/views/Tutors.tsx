@@ -1,18 +1,11 @@
-import * as React from "react"
-
-import { Button } from "@/components/ui/button"
 import {
     Card,
     CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
 } from "@/components/ui/card"
 import '@radix-ui/themes/styles.css';
 
 import CalendarIcon from "../assets/CalendarIcon"
-import { Avatar, Badge, Theme } from '@radix-ui/themes';
+import { Avatar, Badge } from '@radix-ui/themes';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import data from "../../data/tutors.json"
 import Header from "../typography/Header";

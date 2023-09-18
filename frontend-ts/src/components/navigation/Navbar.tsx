@@ -1,22 +1,27 @@
 import MenuIcon from "../assets/MenuIcon";
-import UNOIcon from "../assets/UNOIcon";
+import { Button } from "../ui/button";
+import SidebarPopout from "./SidebarPopout";
 
 export default function Navbar() {
+    function onClick(){
+        <SidebarPopout/>
+    }
     return (
         <>
             <nav className={"flex lg:hidden px-10 py-2 flex-wrap items-center bg-white w-full shadow-lg text-sm border-b"}>
                 <div className={"grid grid-cols-3 gap-4 w-full"}>
                     <div className={"left-sidebar flex col-span-1"}>
                         <div className={"flex flex-wrap justify-items-start content-center"}>
-                            <div className={"tooltip tooltip-right lg:hidden font-thin text-gray-700"} data-tip="open sidebar">
-                                <MenuIcon />
+                            <div className={"tooltip tooltip-right lg:hidden bg-white font-thin text-white"} data-tip="open sidebar">
+                                <Button onClick={onClick} className="bg-white hover:bg-secondary">
+                                    <MenuIcon />
+                                </Button>
                             </div>
                             {/* <span className={"px-2 flex flex-wrap hidden lg:flex content-center text-lg font-semibold tracking-tight"}>Computer Science Learning Center</span> */}
                         </div>
                     </div>
                     <div
                         className={"center-sidebar flex justify-center col-span-1 divide-x-[2px] outline-0 divide-gray-200"}>
-                        
                         <svg id="svg" version="1.1" xmlns="http://www.w3.org/2000/svg"
                             width="32" height="32"
                             viewBox="0, 0, 400,391" className={"mr-1 lg:hidden"}>
@@ -35,12 +40,6 @@ export default function Navbar() {
                     </div>
                     <div className={"flex items-center hidden sm:flex justify-end col-span-1"}>
                         <ul className={"flex items-center space-x-6"}>
-                            {/* <li className={"font-thin hidden text-gray-700 transition ease-in-out hover:duration-150 hover:text-red-600"}>
-                                <a href={"/"}>Home</a>
-                            </li>
-                            <li className={"font-thin hidden text-gray-700 transition ease-in-out hover:duration-150 hover:text-red-600"}>
-                                <a href={"/"}>Tutors</a>
-                            </li> */}
                             <li className={"font-thin text-gray-700 transition ease-in-out hover:duration-150 hover:text-red-600"}>
                                 <div className={"font-medium"}>
                                     <a href={"/"} className={"flex flex-wrap content-center [&>p]:flex group "}>

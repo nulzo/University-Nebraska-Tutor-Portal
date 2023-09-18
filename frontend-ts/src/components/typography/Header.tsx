@@ -30,6 +30,10 @@ function gets(key: string) {
     return (key in mappings ? mappings[key] : "")
 }
 
+function c(l:string){
+    
+}
+
 console.log(mappings["bold"])
 
 export default class Header extends Component<PropType> {

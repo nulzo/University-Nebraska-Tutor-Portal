@@ -12,7 +12,6 @@ import ZoomIcon from "../assets/ZoomIcon"
 import CalendarIcon from "../assets/CalendarIcon"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
-import UNOIcon from "../assets/UNOIcon"
 import { ScrollArea } from "@radix-ui/themes"
 
 
