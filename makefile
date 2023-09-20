@@ -20,6 +20,7 @@ start-backend:
 .PHONY start:
 start:
 	./scripts/run.sh 
+	npx tailwindcss --watch -i ./src/style/globals.css -o ./src/style/output.css
 
 .PHONY migrate: ## Perform migrations to the database
 migrate:

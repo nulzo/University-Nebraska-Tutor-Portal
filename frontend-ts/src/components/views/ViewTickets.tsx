@@ -1,8 +1,7 @@
 import Header from "../typography/Header";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../ui/card";
+import { Card, CardContent, CardTitle } from "../ui/card";
 import ticketData from "../../data/tickets.json"
 import { Badge } from "@radix-ui/themes";
-import CalendarIcon from "../assets/CalendarIcon";
 import { CalendarDaysIcon } from "lucide-react";
 
 export default function ViewTickets() {
