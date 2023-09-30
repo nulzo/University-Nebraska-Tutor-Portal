@@ -10,12 +10,15 @@ import Zoom from './components/views/Zoom.tsx';
 import CreateTicket from './components/views/CreateTicket.tsx';
 import Hours from './components/views/Hours.tsx';
 import ViewTickets from './components/views/ViewTickets.tsx';
+import Home from './components/views/Home.tsx';
+import Search from './components/views/Search.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App children={<Button/>} />} />
+        <Route path="/" element={<App children={<Home/>} />} />
+        <Route path="search/" element={<App children={<Search/>} />} />
         <Route path="dashboard/" element={<App children={<Dashboard/>} />} />
         <Route path="tutors/" element={<App children={<Tutors/>} />} />
         <Route path="about/" element={<App children={<InputForm/>} />} />

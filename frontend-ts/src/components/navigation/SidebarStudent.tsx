@@ -1,12 +1,9 @@
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import ProfileIcon from "../assets/ProfileIcon"
-import DashboardIcon from "../assets/DashboardIcon"
-import TutorsIcon from "../assets/TutorsIcon"
 import CreateIcon from "../assets/CreateIcon"
 import ViewIcon from "../assets/ViewIcon"
 import EditIcon from "../assets/EditIcon"
-import MessageIcon from "../assets/MessageIcon"
 import SettingsIcon from "../assets/SettingsIcon"
 import ZoomIcon from "../assets/ZoomIcon"
 import CalendarIcon from "../assets/CalendarIcon"
@@ -22,7 +19,7 @@ interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
 
 }
 
-export function Sidebar({ className }: SidebarProps) {
+export function SidebarStudent({ className }: SidebarProps) {
     const [isActive, setActive] = useState("Home");
 
     let navigate = useNavigate();
@@ -56,14 +53,6 @@ export function Sidebar({ className }: SidebarProps) {
                                     <h2 className={"mb-2 px-4 text-lg font-semibold tracking-tight"}>
                                         General
                                     </h2>
-                                    <Button variant={`${isActive === "Dashboard" ? 'secondary' : 'ghost'}`} className="w-full justify-start " onClick={() => routeChange("Dashboard", "/dashboard")}>
-                                        <DashboardIcon />
-                                        <span className="p-2">Dashboard</span>
-                                    </Button>
-                                    <Button variant={`${isActive === "Tutors" ? 'secondary' : 'ghost'}`} className="w-full justify-start " onClick={() => routeChange("Tutors", "/tutors")}>
-                                        <TutorsIcon />
-                                        <span className="p-2">Tutors</span>
-                                    </Button>
                                     <Button variant={`${isActive === "Zoom" ? 'secondary' : 'ghost'}`} className="w-full justify-start " onClick={() => routeChange("Zoom", "/zoom")}>
                                         <ZoomIcon />
                                         <span className="p-2">CSLC Zoom</span>
@@ -101,10 +90,6 @@ export function Sidebar({ className }: SidebarProps) {
                                         <Button variant={`${isActive === "Profile" ? 'secondary' : 'ghost'}`} className="w-full justify-start " onClick={() => routeChange("Profile", "/user/profile")}>
                                             <ProfileIcon />
                                             <span className="p-2">Profile</span>
-                                        </Button>
-                                        <Button variant={`${isActive === "Messages" ? 'secondary' : 'ghost'}`} className="w-full justify-start " onClick={() => routeChange("Messages", "/user/messages")}>
-                                            <MessageIcon />
-                                            <span className="p-2">Messages</span>
                                         </Button>
                                         <Button variant={`${isActive === "Settings" ? 'secondary' : 'ghost'}`} className="w-full justify-start " onClick={() => routeChange("Settings", "/user/settings")}>
                                             <SettingsIcon />
