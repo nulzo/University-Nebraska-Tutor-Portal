@@ -12,6 +12,7 @@ import ViewTickets from './components/views/ViewTickets.tsx';
 import Home from './components/views/Home.tsx';
 import Search from './components/views/Search.tsx';
 import TestAPI from './components/views/TestAPI.tsx';
+import TestViewTickets from './components/views/TestViewTicket.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -25,7 +26,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Route path="zoom/" element={<App children={<Zoom/>} />} />
         <Route path="hours/" element={<App children={<Hours/>} />} />
         <Route path="tickets/create/" element={<App children={<TestAPI/>} />} />
-        <Route path="tickets/view/" element={<App children={<ViewTickets/>} />} />
+        <Route path="tickets/view/" element={<App children={<TestViewTickets/>} />} />
         <Route path="tickets/edit/" element={<App children={<InputForm/>} />} />
         <Route path="user/profile/" element={<App children={<InputForm/>} />} />
         <Route path="user/messages/" element={<App children={<InputForm/>} />} />

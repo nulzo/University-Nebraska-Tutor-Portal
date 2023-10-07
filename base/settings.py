@@ -62,8 +62,8 @@ MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
 ]
 
-CORS_ORIGIN_ALLOW_ALL = False
-CORS_ORIGIN_WHITELIST = ("http://localhost:5173",)
+CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ORIGIN_WHITELIST = ("http://localhost:5173",)
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
 

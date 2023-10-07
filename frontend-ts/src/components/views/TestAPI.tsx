@@ -17,13 +17,27 @@ import Header from "../typography/Header"
 import { Toaster } from "../ui/toaster"
 import axios from "axios";
 import { Checkbox } from "../ui/checkbox"
+import { Navigate, useNavigate } from "react-router"
 
 const formSchema = z.object({
-    started: z.boolean().default(false),
+    claimed: z.boolean().default(false),
+    closed: z.boolean().default(false),
     description: z.string().min(2, {
         message: "Please enter a first name.",
     }),
     issuetype: z.string().min(2, {
+        message: "Please enter a first name.",
+    }),
+    professor: z.string().min(2, {
+        message: "Please enter a first name.",
+    }),
+    course: z.string().min(2, {
+        message: "Please enter a first name.",
+    }),
+    name: z.string().min(2, {
+        message: "Please enter a first name.",
+    }),
+    assignment: z.string().min(2, {
         message: "Please enter a first name.",
     }),
 })
@@ -32,15 +46,34 @@ export default function TestAPI() {
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            started: false,
+            claimed: false,
             issuetype: "",
-            description: ""
+            description: "",
+            professor: "",
+            course: "",
+            assignment: "",
+            name: ""
         },
     })
 
+    let navigate = useNavigate();
+
+    const routeChange = (path: string) => {
+        navigate(path);
+    }
+
     function onSubmit(values: z.infer<typeof formSchema>) {
-        console.log("GOT VALUES:", values.started, values.description, values.issuetype);
-        axios.post('http://localhost:8000/api/tasks/', { 'started': values.started, 'issue_type': values.issuetype, 'description': values.description })
+        axios.post('http://localhost:8000/api/tasks/', 
+        { 
+            'claimed': values.claimed, 
+            'issue_type': values.issuetype, 
+            'description': values.description,
+            'professor': values.professor,
+            'closed': values.closed,
+            'course': values.course,
+            'assignment':values.assignment,
+            'name':values.name
+        })
         .then(function (response) { console.log(response) })
         .catch(function (error) {
             if (error.response) {
@@ -49,13 +82,13 @@ export default function TestAPI() {
                 console.log(error.response.headers);
             }
         });
-        console.log(values)
         toast({
             title: <span className="text-green-700">Successfully Submitted Ticket!</span>,
             description: <><span className="font-base">Thanks, <span className="font-semibold">{values.started}.</span> A tutor will be with you shortly.</span></>,
             variant: "default",
             className: "border-green-700 shadow-lg"
         });
+        routeChange("/tickets/view")
         return (
             <div></div>
         )
@@ -72,11 +105,11 @@ export default function TestAPI() {
                         <div className="col-span-2 md:col-span-1">
                             <FormField
                                 control={form.control}
-                                name="started"
+                                name="claimed"
                                 render={({ field }) => (
                                     <>
                                         <FormLabel>
-                                            Select this to successfully submit
+                                            Select to test the claimed feature
                                         </FormLabel>
                                         <FormItem>
 
@@ -95,13 +128,87 @@ export default function TestAPI() {
                         <div className="col-span-2 md:col-span-1">
                             <FormField
                                 control={form.control}
-                                name="description"
+                                name="closed"
+                                render={({ field }) => (
+                                    <>
+                                        <FormLabel>
+                                            Select to test the closed feature
+                                        </FormLabel>
+                                        <FormItem>
+
+                                            <FormControl>
+                                                <Checkbox
+                                                    checked={field.value}
+                                                    onCheckedChange={field.onChange}
+                                                />
+                                            </FormControl>
+
+                                        </FormItem>
+                                    </>
+                                )}
+                            />
+                        </div>
+                        <div className="col-span-2 md:col-span-1">
+                            <FormField
+                                control={form.control}
+                                name="name"
                                 render={({ field }) => (
                                     <>
                                         <FormItem>
-                                            <FormLabel>Description</FormLabel>
+                                            <FormLabel>Name</FormLabel>
                                             <FormControl>
-                                                <Input placeholder="Your desc..." {...field} />
+                                                <Input placeholder="Your Full Name" {...field} />
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    </>
+                                )}
+                            />
+                        </div>
+                        <div className="col-span-2 md:col-span-1">
+                            <FormField
+                                control={form.control}
+                                name="course"
+                                render={({ field }) => (
+                                    <>
+                                        <FormItem>
+                                            <FormLabel>Course</FormLabel>
+                                            <FormControl>
+                                                <Input placeholder="Your Course" {...field} />
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    </>
+                                )}
+                            />
+                        </div>
+                        <div className="col-span-2 md:col-span-1">
+                            <FormField
+                                control={form.control}
+                                name="professor"
+                                render={({ field }) => (
+                                    <>
+                                        <FormItem>
+                                            <FormLabel>Professor</FormLabel>
+                                            <FormControl>
+                                                <Input placeholder="Your Professor" {...field} />
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    </>
+                                )}
+                            />
+                        </div>
+                        <div className="col-span-2 md:col-span-1">
+                            <FormField
+                                control={form.control}
+                                name="assignment"
+                                render={({ field }) => (
+                                    <>
+                                        <FormItem>
+                                            <FormLabel>Assignment</FormLabel>
+                                            <FormControl>
+                                                <Input placeholder="Your Assignment" {...field} />
                                             </FormControl>
                                             <FormMessage />
                                         </FormItem>
@@ -118,7 +225,7 @@ export default function TestAPI() {
                                         <FormItem>
                                             <FormLabel>Issue Type</FormLabel>
                                             <FormControl>
-                                                <Input placeholder="Your issue..." {...field} />
+                                                <Input placeholder="Your Issue" {...field} />
                                             </FormControl>
                                             <FormMessage />
                                         </FormItem>
@@ -126,6 +233,24 @@ export default function TestAPI() {
                                 )}
                             />
                         </div>
+                        <div className="col-span-2 md:col-span-1">
+                            <FormField
+                                control={form.control}
+                                name="description"
+                                render={({ field }) => (
+                                    <>
+                                        <FormItem>
+                                            <FormLabel>Description</FormLabel>
+                                            <FormControl>
+                                                <Input placeholder="Your description..." {...field} />
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    </>
+                                )}
+                            />
+                        </div>
+
                     </div>
                     <div className="flex justify-end">
                         <Button

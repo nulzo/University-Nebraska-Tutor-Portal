@@ -5,4 +5,4 @@ from .models.dummy import Dummy
 class BackendSerializer(serializers.ModelSerializer):
     class Meta:
         model = Dummy
-        fields = ("started", "issue_type", "description")
+        fields = ("claimed", "issue_type", "description", "closed", "name", "professor", "course", "assignment")
