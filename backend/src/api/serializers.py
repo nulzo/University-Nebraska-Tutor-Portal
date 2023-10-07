@@ -1,11 +1,8 @@
 from rest_framework import serializers
-
-from .models import Ticket
-
-# Serializer for the Django Models
+from .models.dummy import Dummy
 
 
 class BackendSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Ticket
-        fields = "name"
+        model = Dummy
+        fields = ("started", "issue_type", "description")

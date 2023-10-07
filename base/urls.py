@@ -23,15 +23,13 @@ from django.urls import include, path
 from rest_framework import routers
 
 # import views from todo
-from backend.src.portal import urls as portal
-from backend.src.portal import views
+from backend.src.api import views as routing
 
 router = routers.DefaultRouter()
 
-router.register(r"tasks", views.TodoView, "task")
+router.register(r"tasks", routing.backendView, "task")
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", include(portal)),
     path("api/", include(router.urls)),
 ]
