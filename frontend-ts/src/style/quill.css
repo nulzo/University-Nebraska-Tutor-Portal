@@ -1,0 +1,25 @@
+.ql-container.ql-snow {
+  height: 30vh;
+  resize: both;
+  border: hsl(20, 5.9%, 90%) solid 1px !important;
+  border-top: none !important;
+}
+
+.ql-toolbar {
+  border: hsl(20, 5.9%, 90%) solid 1px !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  border-radius: 5px;
+}
+
+.ql-snow .ql-editor pre.ql-syntax {
+  background-color: #f6f8fa;
+  color: #333;
+  overflow: hidden;
+}
+
+.ql-bubble .ql-editor pre.ql-syntax {
+  background-color: #f6f8fa;
+  color: #333;
+  overflow: hidden;
+}

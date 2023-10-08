@@ -4,16 +4,11 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/components/ui/tabs"
-import { Overview } from "../charts/Charts"
-import Header from "../typography/Header"
-import { cn } from "@/lib/utils"
+} from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Overview } from "../charts/Charts";
+import Header from "../typography/Header";
+import { cn } from "@/lib/utils";
 
 export default function DashboardPage() {
   return (
@@ -40,7 +35,18 @@ export default function DashboardPage() {
                   <CardTitle className="text-sm font-medium">
                     Total Tickets
                   </CardTitle>
-                  <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-stack-2" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="icon icon-tabler icon-tabler-stack-2"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="#2c3e50"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M12 4l-8 4l8 4l8 -4l-8 -4" />
                     <path d="M4 12l8 4l8 -4" />
@@ -59,7 +65,18 @@ export default function DashboardPage() {
                   <CardTitle className="text-sm font-medium">
                     Closed Tickets
                   </CardTitle>
-                  <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-browser-off" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="icon icon-tabler icon-tabler-browser-off"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="#2c3e50"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M8 4h11a1 1 0 0 1 1 1v11m-.288 3.702a1 1 0 0 1 -.712 .298h-14a1 1 0 0 1 -1 -1v-14c0 -.276 .112 -.526 .293 -.707" />
                     <path d="M4 8h4m4 0h8" />
@@ -75,8 +92,21 @@ export default function DashboardPage() {
               </Card>
               <Card className="w-[100%] md:w-full">
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                  <CardTitle className="text-sm font-medium">Success Tickets</CardTitle>
-                  <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-checkbox" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <CardTitle className="text-sm font-medium">
+                    Success Tickets
+                  </CardTitle>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="icon icon-tabler icon-tabler-checkbox"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="#2c3e50"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M9 11l3 3l8 -8" />
                     <path d="M20 12v6a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h9" />
@@ -127,18 +157,14 @@ export default function DashboardPage() {
               <Card className="w-100 sm:w-full sm:col-span-3">
                 <CardHeader>
                   <CardTitle>Recent Tickets</CardTitle>
-                  <CardDescription>
-                    Insert Ticket Data Here
-                  </CardDescription>
+                  <CardDescription>Insert Ticket Data Here</CardDescription>
                 </CardHeader>
-                <CardContent>
-                  placeholder text
-                </CardContent>
+                <CardContent>placeholder text</CardContent>
               </Card>
             </div>
           </TabsContent>
         </Tabs>
       </div>
     </>
-  )
+  );
 }

@@ -1,12 +1,24 @@
 # from django.shortcuts import render
-from rest_framework import generics
+from rest_framework import viewsets
 
-from .models import Ticket
-from .serializers import BackendSerializer
+from .models.dummy import Dummy
+from .models.hours import Hours
+from .models.professor import Professor
+from .serializers import BackendSerializer, HourSerializer, ProfessorSerializer
 
 # Create your views here.
 
 
-class BackendListView(generics.ListAPIView):
-    model = Ticket
+class backendView(viewsets.ModelViewSet):
     serializer_class = BackendSerializer
+    queryset = Dummy.objects.all()
+
+
+class hourView(viewsets.ModelViewSet):
+    serializer_class = HourSerializer
+    queryset = Hours.objects.all()
+
+
+class professorView(viewsets.ModelViewSet):
+    serializer_class = ProfessorSerializer
+    queryset = Professor.objects.all()
