@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import course, dummy, professor, student, ticket, tutor, hours
+from .models import course, dummy, hours, professor, student, ticket, tutor
 
 # Register your models here.
 admin.site.register(student.Student)

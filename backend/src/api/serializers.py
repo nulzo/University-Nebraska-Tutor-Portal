@@ -1,4 +1,5 @@
 from rest_framework import serializers
+
 from .models.dummy import Dummy
 from .models.hours import Hours
 from .models.professor import Professor
@@ -15,7 +16,7 @@ class BackendSerializer(serializers.ModelSerializer):
             "name",
             "professor",
             "course",
-            "assignment"
+            "assignment",
         )
 
 
@@ -43,8 +44,4 @@ class HourSerializer(serializers.ModelSerializer):
 class ProfessorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Professor
-        fields = (
-            "name",
-            "email",
-            "is_active"
-        )
+        fields = ("name", "email", "is_active")

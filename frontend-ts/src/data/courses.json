@@ -1,26 +1,26 @@
 [
-    {
-        "courses": [
-            "Introduction to Computer Science",
-            "Data Structures and Algorithms",
-            "Machine Learning Fundamentals",
-            "Web Development Bootcamp",
-            "Computer Networks and Security",
-            "Operating Systems",
-            "Databases and SQL",
-            "Artificial Intelligence",
-            "Software Engineering",
-            "Data Science and Big Data Analytics",
-            "Computer Graphics",
-            "Computer Vision",
-            "Natural Language Processing",
-            "Cybersecurity",
-            "Algorithms and Data Structures in C++",
-            "Game Development",
-            "Blockchain and Cryptocurrency",
-            "Cloud Computing",
-            "Robotics",
-            "Internet of Things (IoT)",
-        ]
-    }
+  {
+    "courses": [
+      "Introduction to Computer Science",
+      "Data Structures and Algorithms",
+      "Machine Learning Fundamentals",
+      "Web Development Bootcamp",
+      "Computer Networks and Security",
+      "Operating Systems",
+      "Databases and SQL",
+      "Artificial Intelligence",
+      "Software Engineering",
+      "Data Science and Big Data Analytics",
+      "Computer Graphics",
+      "Computer Vision",
+      "Natural Language Processing",
+      "Cybersecurity",
+      "Algorithms and Data Structures in C++",
+      "Game Development",
+      "Blockchain and Cryptocurrency",
+      "Cloud Computing",
+      "Robotics",
+      "Internet of Things (IoT)"
+    ]
+  }
 ]

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl" : "./src",
+    "baseUrl": "./src",
     "paths": {
       "@/*": ["./*"],
       "@/assets": ["./assets"],
@@ -9,7 +9,7 @@
       "@pages/*": ["./pages/*"],
       "@hooks/*": ["./hooks/*"],
       "@api/*": ["./api/*"],
-      "@utils/*": ["./utils/*"],
+      "@utils/*": ["./utils/*"]
     },
     "target": "ES2020",
     "useDefineForClassFields": true,

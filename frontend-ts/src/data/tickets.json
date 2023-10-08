@@ -1,50 +1,50 @@
 [
-    {
-        "name": "zachsnyder-datastructures",
-        "status": "closed",
-        "professor": "Tom Smith",
-        "student-name": "Zach Snyder",
-        "course": "Data Structures",
-        "date": "Sept. 13th 2023"
-    },
-    {
-        "name": "zachsnyder-discretemath",
-        "status": "open",
-        "professor": "Bob Adams",
-        "student-name": "Zach Snyder",
-        "course": "Discrete Math",
-        "date": "Sept. 13th 2023"
-    },
-    {
-        "name": "zachsnyder-digitaldesign",
-        "status": "unclaimed",
-        "professor": "Jose Santos",
-        "student-name": "Zach Snyder",
-        "course": "Digital Design",
-        "date": "Sept. 13th 2023"
-    },
-    {
-        "name": "zachsnyder-introtoc",
-        "status": "closed",
-        "professor": "Tom Smith",
-        "student-name": "Zach Snyder",
-        "course": "Intro To C",
-        "date": "Sept. 13th 2023"
-    },
-    {
-        "name": "zachsnyder-cstwo",
-        "status": "closed",
-        "professor": "Kyle Reestman",
-        "student-name": "Zach Snyder",
-        "course": "Computer Science Two",
-        "date": "Sept. 13th 2023"
-    },
-    {
-        "name": "zachsnyder-algorithms",
-        "status": "closed",
-        "professor": "Brian Ricks",
-        "student-name": "Zach Snyder",
-        "course": "Data Structures",
-        "date": "Sept. 13th 2023"
-    }
+  {
+    "name": "zachsnyder-datastructures",
+    "status": "closed",
+    "professor": "Tom Smith",
+    "student-name": "Zach Snyder",
+    "course": "Data Structures",
+    "date": "Sept. 13th 2023"
+  },
+  {
+    "name": "zachsnyder-discretemath",
+    "status": "open",
+    "professor": "Bob Adams",
+    "student-name": "Zach Snyder",
+    "course": "Discrete Math",
+    "date": "Sept. 13th 2023"
+  },
+  {
+    "name": "zachsnyder-digitaldesign",
+    "status": "unclaimed",
+    "professor": "Jose Santos",
+    "student-name": "Zach Snyder",
+    "course": "Digital Design",
+    "date": "Sept. 13th 2023"
+  },
+  {
+    "name": "zachsnyder-introtoc",
+    "status": "closed",
+    "professor": "Tom Smith",
+    "student-name": "Zach Snyder",
+    "course": "Intro To C",
+    "date": "Sept. 13th 2023"
+  },
+  {
+    "name": "zachsnyder-cstwo",
+    "status": "closed",
+    "professor": "Kyle Reestman",
+    "student-name": "Zach Snyder",
+    "course": "Computer Science Two",
+    "date": "Sept. 13th 2023"
+  },
+  {
+    "name": "zachsnyder-algorithms",
+    "status": "closed",
+    "professor": "Brian Ricks",
+    "student-name": "Zach Snyder",
+    "course": "Data Structures",
+    "date": "Sept. 13th 2023"
+  }
 ]

@@ -1,5 +1,3 @@
-export default function SidebarPopout(){
-    return(
-        <h1>t</h1>
-    )
+export default function SidebarPopout() {
+  return <h1>t</h1>;
 }

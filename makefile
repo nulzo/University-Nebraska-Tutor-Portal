@@ -35,7 +35,7 @@ poetry:
 
 .PHONY lint: ## Lint the codebase
 lint:
-	ruff $(BACKEND_DIR)/. --fix;
+	ruff $(BACKEND_DIR)/. 
 	ruff $(BACKEND_DIR)/. && pylint $(BACKEND_DIR)/. $(PYLINT_FLAGS) && djlint $(BACKEND_DIR)/. --lint && autoflake -r $(BACKEND_DIR)/. && flake8 $(BACKEND_DIR)/. $(FLAKE8_FLAGS) && black $(BACKEND_DIR)/. $(BLACK_FLAGS) && echo SUCCESS
 
 
