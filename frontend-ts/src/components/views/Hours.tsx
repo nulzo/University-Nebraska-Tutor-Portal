@@ -7,101 +7,94 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table"
-import { Badge } from "@radix-ui/themes"
-import { useEffect, useState } from "react";
+import { Component } from "react";
 import Header from "../typography/Header";
+import axios from "axios";
+import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 
-const hours = [
-    {
-        day: "Monday",
-        open: "09:00",
-        close: "20:00",
-        color: ""
-    },
-    {
-        day: "Tuesday",
-        open: "09:00",
-        close: "20:00",
-        color: ""
-    },
-    {
-        day: "Wednesday",
-        open: "09:00",
-        close: "20:00",
-        color: ""
-    },
-    {
-        day: "Thursday",
-        open: "09:00",
-        close: "20:00",
-        color: ""
-    },
-    {
-        day: "Friday",
-        open: "09:00",
-        close: "20:00",
-        color: ""
-    },
-    {
-        day: "Saturday",
-        open: "10:30",
-        close: "14:30",
-        color: ""
-    },
-    {
-        day: "Sunday",
-        open: "Closed",
-        close: "Closed",
-        color: "red"
-    },
-]
+export default class Hours extends Component {
 
-export default function Hours() {
-    const [date, setDate] = useState(new Date());
+    constructor(props: any) {
+        super(props);
+        this.state = {
+            data: [],
+            isLoading: true
+        };
+    }
 
-    let d = new Date(new Date().toLocaleString("en-US", { timeZone: "CST" }));
+    componentDidMount(): void {
+        axios.get("http://localhost:8000/api/hours/").then((res) => { this.setState({ data: res.data, isLoading: false }) });
+    }
 
-    useEffect(() => {
-        const intervalId = setInterval(() => {
-            setDate(new Date(new Date().toLocaleString("en-US", { timeZone: "CST" })));
-        }, 1000)
-        return () => clearInterval(intervalId);
-    }, [])
-
-    return (
-        <>
-            <Header
-                text="Hours of Operation"
-                subtext={
-                    <>
-                        <p>The current time at the <span className="font-semibold text-gray-700">CSLC</span> is <span className="font-bold text-gray-900">{String(date.getHours()).padStart(2, "0")}:{String(date.getMinutes()).padStart(2, "0")}:{String(date.getSeconds()).padStart(2, "0")}</span></p>
-                        <p> We are currently: {(d.getHours() >= 9 && d.getHours() <= 20) && <Badge color="green">Open</Badge> || <Badge size="1" color="red">Closed</Badge>} </p>
-                    </>
-                } />
-            <div className="flex sm:block md:flex w-100">
-                <div className="flex-1 space-y-2 w-full">
-                    <Table className="shadow-lg border">
-                        <TableCaption className="text-gray-400">Holidays <em>may</em> impact times shown.</TableCaption>
-                        <TableHeader className="bg-gray-100">
-                            <TableRow>
-                                <TableHead className="pl-5 w-3/4">Day</TableHead>
-                                <TableHead className="w-1/8">Open</TableHead>
-                                <TableHead className="w-1/8">Close</TableHead>
-
-                            </TableRow>
-                        </TableHeader>
-                        <TableBody>
-                            {hours.map((day) => (
-                                <TableRow key={day.day}>
-                                    <TableCell className="pl-5 font-medium">{day.day}</TableCell>
-                                    <TableCell>{day.color == "red" ? <span className="font-semibold text-red-700"> {day.open}</span> : <span> {day.open}</span>}</TableCell>
-                                    <TableCell>{day.color == "red" ? <span className="font-semibold text-red-700"> {day.close}</span> : <span> {day.close}</span>}</TableCell>
-                                </TableRow>
-                            ))}
-                        </TableBody>
-                    </Table>
-                </div>
-            </div>
-        </>
-    )
+    render() {
+        if (!this.state.isLoading) {
+            let hours_of_operation = this.state.data[0];
+            console.log(hours_of_operation);
+            return (
+                <>
+                    <Header />
+                    <div className="flex sm:block md:flex w-100">
+                        <div className="flex-1 space-y-2 w-full">
+                            <Card>
+                                <CardHeader>
+                                    <CardTitle>
+                                        CSLC Hours of Operation
+                                    </CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <Table className="">
+                                        <TableHeader className="bg-gray-100">
+                                            <TableRow>
+                                                <TableHead className="pl-5 w-3/4">Day</TableHead>
+                                                <TableHead className="w-1/8 text-center">Open</TableHead>
+                                                <TableHead className="pr-5 text-right">Close</TableHead>
+                                            </TableRow>
+                                        </TableHeader>
+                                        <TableBody>
+                                            <TableRow key={hours_of_operation.mondayClose}>
+                                                <TableCell className="pl-5 font-medium">Monday</TableCell>
+                                                <TableCell className="font-medium text-center">{hours_of_operation.mondayOpen}</TableCell>
+                                                <TableCell className="pr-5 font-medium text-right">{hours_of_operation.mondayClose}</TableCell>
+                                            </TableRow>
+                                            <TableRow key={hours_of_operation.tuesdayClose}>
+                                                <TableCell className="pl-5 font-medium">Tuesday</TableCell>
+                                                <TableCell className="font-medium text-center">{hours_of_operation.tuesdayOpen}</TableCell>
+                                                <TableCell className="pr-5 font-medium text-right">{hours_of_operation.tuesdayClose}</TableCell>
+                                            </TableRow>
+                                            <TableRow key={hours_of_operation.wednesdayClose}>
+                                                <TableCell className="pl-5 font-medium">Wednesday</TableCell>
+                                                <TableCell className="font-medium text-center">{hours_of_operation.wednesdayOpen}</TableCell>
+                                                <TableCell className="pr-5 font-medium text-right">{hours_of_operation.wednesdayClose}</TableCell>
+                                            </TableRow>
+                                            <TableRow key={hours_of_operation.mondayClose}>
+                                                <TableCell className="pl-5 font-medium">Thursday</TableCell>
+                                                <TableCell className="font-medium text-center">{hours_of_operation.thursdayOpen}</TableCell>
+                                                <TableCell className="pr-5 font-medium text-right">{hours_of_operation.thursdayClose}</TableCell>
+                                            </TableRow>
+                                            <TableRow key={hours_of_operation.mondayClose}>
+                                                <TableCell className="pl-5 font-medium">Friday</TableCell>
+                                                <TableCell className="font-medium text-center">{hours_of_operation.fridayOpen}</TableCell>
+                                                <TableCell className="pr-5 font-medium text-right">{hours_of_operation.fridayClose}</TableCell>
+                                            </TableRow>
+                                            <TableRow key={hours_of_operation.mondayClose}>
+                                                <TableCell className="pl-5 font-medium">Saturday</TableCell>
+                                                <TableCell className="font-medium text-center">{hours_of_operation.saturdayOpen}</TableCell>
+                                                <TableCell className="pr-5 font-medium text-right">{hours_of_operation.saturdayClose}</TableCell>
+                                            </TableRow>
+                                            <TableRow key={hours_of_operation.sundayOpen}>
+                                                <TableCell className="pl-5 font-medium">Sunday</TableCell>
+                                                <TableCell className="font-medium text-center">{hours_of_operation.sundayOpen}</TableCell>
+                                                <TableCell className="pr-5 font-medium text-right">{hours_of_operation.sundayClose}</TableCell>
+                                            </TableRow>
+                                        </TableBody>
+                                    </Table>
+                                </CardContent>
+                            </Card>
+                            <div className="text-gray-400 text-center">Holidays <em>may</em> impact times shown.</div>
+                        </div>
+                    </div>
+                </>
+            )
+        }
+    }
 }

@@ -14,7 +14,7 @@ export default class UnclaimedTicket extends Component<any> {
                 <Card className="w-full relative">
                     <CardHeader>
                         <div className="absolute right-5 top-3 m-0 p-0">
-                            <Badge color="ruby" radius="medium" variant="surface" className="flex justify-end">Unclaimed</Badge>
+                            <Badge color="orange" radius="medium" variant="surface" className="flex justify-end">Unclaimed!</Badge>
                         </div>
                         <CardTitle className="space-y-1 m-0 p-0">
                             <div className="flex">

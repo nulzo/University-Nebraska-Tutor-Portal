@@ -6,6 +6,8 @@ import { ReactNode, useEffect, useState } from "react";
 import { Callout, CalloutIcon, CalloutText, Link, Theme } from "@radix-ui/themes";
 import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
 import { SidebarStudent } from "./components/navigation/SidebarStudent";
+import { ToastContainer } from 'react-toastify';
+import { Toaster } from "./components/ui/toaster";
 
 
 function App({ children }: { children: ReactNode }) {
@@ -96,11 +98,13 @@ function App({ children }: { children: ReactNode }) {
                   <div className="h-full mx-10 px-4 py-6 lg:px-1">
                     {children}
                   </div>
+                  <Toaster />
                 </div>
               </div>
             </div>
           </div>
         </div >
+
       </Theme>
     </>
   );

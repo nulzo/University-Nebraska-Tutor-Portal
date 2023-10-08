@@ -28,6 +28,8 @@ from backend.src.api import views as routing
 router = routers.DefaultRouter()
 
 router.register(r"tasks", routing.backendView, "task")
+router.register(r"hours", routing.hourView, "hours")
+router.register(r"professor", routing.professorView, "professor")
 
 urlpatterns = [
     path("admin/", admin.site.urls),

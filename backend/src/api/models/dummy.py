@@ -14,4 +14,3 @@ class Dummy(models.Model):
 
     def __str__(self):
         return "Ticket: " + str(self.id)
-    

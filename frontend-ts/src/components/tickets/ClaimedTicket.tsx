@@ -14,7 +14,7 @@ export default class ClaimedTicket extends Component<any> {
                 <Card className="w-full relative">
                     <CardHeader>
                         <div className="absolute right-5 top-3 m-0 p-0">
-                            <Badge color="cyan" variant="surface" radius="medium" className="flex justify-end">In Progress</Badge>
+                            <Badge color="cyan" variant="surface" radius="medium" className="flex justify-end">Open</Badge>
                         </div>
                         <CardTitle className="space-y-1 m-0 p-0">
                             <div className="flex">

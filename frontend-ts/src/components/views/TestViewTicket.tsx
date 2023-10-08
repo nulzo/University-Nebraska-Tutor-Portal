@@ -28,7 +28,7 @@ export default class TestViewTickets extends Component<myState> {
                         Unclaimed Tickets
                     </div>
                     <div className="text-center font-bold text-lg">
-                        Claimed Tickets
+                        Open Tickets
                     </div>
                     <div className="text-center font-bold text-lg">
                         Closed Tickets
@@ -61,8 +61,8 @@ export default class TestViewTickets extends Component<myState> {
                             {Object.entries(this.state.data).map(([key, val]) => (
                                 <>
 
-                                    {val.claimed == true &&
-                                        <div className="pt-2">
+                                    {val.claimed == true && val.closed == false &&
+                                        < div className="pt-2">
                                             <ClaimedTicket
                                                 student={val.name}
                                                 course={val.course}
@@ -72,7 +72,7 @@ export default class TestViewTickets extends Component<myState> {
                                                 starttime="12:30pm, 7th October 2023"
                                                 editedtime="12:34pm, 7th October 2023"
                                             />
-                                        </div>
+                                        </div >
                                     }
                                 </>
                             ))}
@@ -99,7 +99,7 @@ export default class TestViewTickets extends Component<myState> {
                             ))}
                         </div>
                     </div>
-                </div>
+                </div >
             </>
         )
     }
