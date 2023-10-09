@@ -3,6 +3,8 @@ from rest_framework import serializers
 from .models.dummy import Dummy
 from .models.hours import Hours
 from .models.professor import Professor
+from .models.course import Course
+from .models.student import Student
 
 
 class BackendSerializer(serializers.ModelSerializer):
@@ -45,3 +47,8 @@ class ProfessorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Professor
         fields = ("name", "email", "is_active")
+
+
+class CourseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Course

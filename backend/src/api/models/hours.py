@@ -2,7 +2,7 @@ from django.db import models
 
 
 # Create your models here.
-class Hours(models.Model):
+class CSLC_Hours(models.Model):
     mondayOpen = models.TimeField()
     mondayClose = models.TimeField()
     tuesdayOpen = models.TimeField()
@@ -29,4 +29,4 @@ class Hours(models.Model):
         return "CSLC Hours"
 
     class Meta:
-        verbose_name_plural = "Hours"
+        verbose_name_plural = "CSLC_Hours"

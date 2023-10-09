@@ -1,13 +1,14 @@
 from django.db import models
 
 from .professor import Professor
+from .sections import Section
 
 
 # Create your models here.
 class Course(models.Model):
-    professor = models.ForeignKey(Professor, on_delete=models.PROTECT)
-    course_name = models.CharField(max_length=100)
-    course_id = models.CharField(max_length=25)
+    course_department = models.CharField(max_length=10, blank=False, default="CSCI")
+    course_name = models.CharField(max_length=100, blank=False)
+    course_id = models.CharField(max_length=25, blank=False)
     is_active = models.BooleanField(default=True, null=False)
 
     def __str__(self):
