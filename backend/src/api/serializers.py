@@ -1,12 +1,12 @@
 from rest_framework import serializers
 
-from .models.dummy import Dummy
-from .models.cslc_hours import CSLC_Hours
-from .models.professor import Professor
 from .models.course import Course
-from .models.user import User
-from .models.ticket import Ticket
+from .models.cslc_hours import CSLC_Hours
+from .models.dummy import Dummy
 from .models.messages import Messages
+from .models.professor import Professor
+from .models.ticket import Ticket
+from .models.user import User
 from .models.work_hours import WorkingHours
 
 
@@ -75,7 +75,7 @@ class TicketSerializer(serializers.ModelSerializer):
             "was_reopened",
             "was_successful",
             "description",
-            "comments"
+            "comments",
         )
 
 
@@ -93,20 +93,14 @@ class UserSerializer(serializers.ModelSerializer):
             "is_admin",
             "user_bio",
             "email",
-            "MSOID"
+            "MSOID",
         )
 
 
 class SectionSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = (
-            "section_number",
-            "modality",
-            "professor",
-            "tickets",
-            "course"
-        )
+        fields = ("section_number", "modality", "professor", "tickets", "course")
 
 
 class MessageSerializer(serializers.ModelSerializer):
@@ -117,7 +111,7 @@ class MessageSerializer(serializers.ModelSerializer):
             "message_header",
             "message_body",
             "from_date",
-            "to_date"
+            "to_date",
         )
 
 
@@ -139,5 +133,5 @@ class TutorHourSerializer(serializers.ModelSerializer):
             "saturdayIn",
             "saturdayOut",
             "sundayIn",
-            "sundayOut"
+            "sundayOut",
         )

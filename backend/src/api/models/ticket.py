@@ -1,8 +1,8 @@
 from django.db import models
 
 from .course import Course
-from .professor import Professor
 from .issue import Issues
+from .professor import Professor
 
 
 class TicketManager(models.Manager):

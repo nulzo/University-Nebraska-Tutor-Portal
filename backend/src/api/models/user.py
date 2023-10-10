@@ -9,7 +9,13 @@ class StudentManager(models.Manager):
         return super().get_queryset().filter(is_tutor=False).filter(is_admin=False)
 
     def get_student(self, name: str):
-        return super().get_queryset().filter(is_tutor=False).filter(is_admin=False).filter(name)
+        return (
+            super()
+            .get_queryset()
+            .filter(is_tutor=False)
+            .filter(is_admin=False)
+            .filter(name)
+        )
 
 
 class TutorManager(models.Manager):
@@ -30,9 +36,11 @@ class AdminManager(models.Manager):
 
 class User(models.Model):
     courses_tutoring = models.ManyToManyField(
-        Course, related_name="usertocoursetutored", blank=True, null=True)
+        Course, related_name="usertocoursetutored", blank=True, null=True
+    )
     courses_taken = models.ManyToManyField(
-        Course, related_name="usertocoursetaken", blank=True, null=True)
+        Course, related_name="usertocoursetaken", blank=True, null=True
+    )
     tickets = models.ForeignKey(Ticket, on_delete=models.PROTECT, blank=True, null=True)
     name = models.CharField(max_length=100)
     is_active = models.BooleanField(default=False)

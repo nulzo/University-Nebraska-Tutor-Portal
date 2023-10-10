@@ -1,7 +1,9 @@
 from django.db import models
+
+from .course import Course
+
 # from .professor import Professor
 from .ticket import Ticket
-from .course import Course
 
 
 class SectionManager(models.Manager):
@@ -25,15 +27,20 @@ class HybridSectionManager(models.Manager):
 
 
 class Section(models.Model):
-    MODALITY_CHOICES = (
-        ("Online", "850"),
-        ("In-Person", "001"),
-        ("Hybrid", "002")
+    MODALITY_CHOICES = (("Online", "850"), ("In-Person", "001"), ("Hybrid", "002"))
+    section_number = models.CharField(
+        default="001", blank=False, null=False, max_length=15
     )
-    section_number = models.CharField(default="001", blank=False, null=False, max_length=15)
-    modality = models.CharField(null=False, blank=False, default="In-Person",
-                                max_length=10, choices=MODALITY_CHOICES)
-    professor = models.ForeignKey("api.Professor", on_delete=models.PROTECT, null=True, blank=True)
+    modality = models.CharField(
+        null=False,
+        blank=False,
+        default="In-Person",
+        max_length=10,
+        choices=MODALITY_CHOICES,
+    )
+    professor = models.ForeignKey(
+        "api.Professor", on_delete=models.PROTECT, null=True, blank=True
+    )
     tickets = models.ForeignKey(Ticket, on_delete=models.PROTECT, null=True, blank=True)
     course = models.ForeignKey(Course, on_delete=models.PROTECT, null=True, blank=True)
 

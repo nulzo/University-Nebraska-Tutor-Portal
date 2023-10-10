@@ -1,8 +1,8 @@
 # from django.shortcuts import render
 from rest_framework import viewsets
 
-from .models.dummy import Dummy
 from .models.cslc_hours import CSLC_Hours
+from .models.dummy import Dummy
 from .models.professor import Professor
 from .serializers import BackendSerializer, HourSerializer, ProfessorSerializer
 

@@ -1,6 +1,16 @@
 from django.contrib import admin
 
-from .models import course, cslc_hours, dummy, professor, ticket, user, sections, messages, issue
+from .models import (
+    course,
+    cslc_hours,
+    dummy,
+    issue,
+    messages,
+    professor,
+    sections,
+    ticket,
+    user,
+)
 
 # Register your models here.
 admin.site.register(ticket.Ticket)
