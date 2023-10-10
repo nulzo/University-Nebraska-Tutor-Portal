@@ -10,8 +10,10 @@ class Issues(models.Model):
     problem_type = models.CharField(max_length=25, null=False, blank=False)
     severity = models.CharField(
         max_length=1,
-        choices=[("1", "1"), ("2", "2"), ("3", "3"),
-                 ("4", "4"), ("5", "5")],
+        choices=[
+            ("1", "1"), ("2", "2"), ("3", "3"),
+            ("4", "4"), ("5", "5")
+        ],
         default="1")
 
     def __str__(self):
@@ -20,4 +22,4 @@ class Issues(models.Model):
     issue = IssueManager()
 
     class Meta:
-        verbose_plural_name = "issue_types"
+        verbose_name_plural = "issue_types"

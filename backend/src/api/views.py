@@ -2,7 +2,7 @@
 from rest_framework import viewsets
 
 from .models.dummy import Dummy
-from .models.hours import Hours
+from .models.cslc_hours import CSLC_Hours
 from .models.professor import Professor
 from .serializers import BackendSerializer, HourSerializer, ProfessorSerializer
 
@@ -16,7 +16,7 @@ class backendView(viewsets.ModelViewSet):
 
 class hourView(viewsets.ModelViewSet):
     serializer_class = HourSerializer
-    queryset = Hours.objects.all()
+    queryset = CSLC_Hours.objects.all()
 
 
 class professorView(viewsets.ModelViewSet):

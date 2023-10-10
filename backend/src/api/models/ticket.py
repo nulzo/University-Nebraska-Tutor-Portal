@@ -2,22 +2,31 @@ from django.db import models
 
 from .course import Course
 from .professor import Professor
-from .student import Student
-from .tutor import Tutor
+from .issue import Issues
 
 
-# Create your models here.
+class TicketManager(models.Manager):
+    def get_all(self):
+        return super().get_queryset()
+
+    def get_student(self, student: str):
+        return super().get_queryset().filter(student=student)
+
+    def get_professor(self, professor: str):
+        return super().get_queryset().filter(professor=professor)
+
+    def get_tutor(self, professor: str):
+        return super().get_queryset().filter(professor=professor)
+
+
 class Ticket(models.Model):
-    student = models.ForeignKey(Student, null=True, on_delete=models.PROTECT)
     professor = models.ForeignKey(Professor, null=True, on_delete=models.PROTECT)
     course = models.ForeignKey(Course, null=True, on_delete=models.PROTECT)
-    tutor = models.ForeignKey(Tutor, null=True, on_delete=models.PROTECT)
-    issue = models.ForeignKey(Issue)
-    email = models.CharField(blank=False)
-    name = models.CharField(blank=False)
+    issue = models.ForeignKey(Issues, null=True, on_delete=models.PROTECT)
+    email = models.CharField(blank=False, max_length=30)
+    name = models.CharField(blank=False, max_length=50)
     completed = models.BooleanField(default=False)
     started = models.BooleanField(default=False)
-    issue_type = models.CharField(max_length=100)
     start_time = models.DateTimeField(null=True, blank=True)
     end_time = models.DateTimeField(null=True, blank=True)
     was_reopened = models.BooleanField(default=False)
@@ -26,4 +35,4 @@ class Ticket(models.Model):
     comments = models.CharField(max_length=255)
 
     def __str__(self):
-        return self.student.name + " - " + self.course.course_name
+        return self.name + " - " + self.course.course_name

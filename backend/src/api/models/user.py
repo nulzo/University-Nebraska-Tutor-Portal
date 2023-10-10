@@ -29,9 +29,11 @@ class AdminManager(models.Manager):
 
 
 class User(models.Model):
-    courses_tutoring = models.ManyToManyField(Course)
-    courses_taken = models.ManyToManyField(Course)
-    tickets = models.ForeignKey(Ticket, on_delete=models.PROTECT)
+    courses_tutoring = models.ManyToManyField(
+        Course, related_name="usertocoursetutored", blank=True, null=True)
+    courses_taken = models.ManyToManyField(
+        Course, related_name="usertocoursetaken", blank=True, null=True)
+    tickets = models.ForeignKey(Ticket, on_delete=models.PROTECT, blank=True, null=True)
     name = models.CharField(max_length=100)
     is_active = models.BooleanField(default=False)
     is_working = models.BooleanField(default=False)
