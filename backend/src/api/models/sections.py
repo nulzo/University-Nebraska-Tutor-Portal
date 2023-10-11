@@ -2,9 +2,6 @@ from django.db import models
 
 from .course import Course
 
-# from .professor import Professor
-from .ticket import Ticket
-
 
 class SectionManager(models.Manager):
     def get_all(self):
@@ -41,7 +38,6 @@ class Section(models.Model):
     professor = models.ForeignKey(
         "api.Professor", on_delete=models.PROTECT, null=True, blank=True
     )
-    tickets = models.ForeignKey(Ticket, on_delete=models.PROTECT, null=True, blank=True)
     course = models.ForeignKey(Course, on_delete=models.PROTECT, null=True, blank=True)
 
     online = OnlineSectionManager()

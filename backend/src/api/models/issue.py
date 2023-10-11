@@ -17,7 +17,7 @@ class Issues(models.Model):
     def __str__(self):
         return self.problem_type
 
-    issue = IssueManager()
+    # issue = IssueManager()
 
     class Meta:
         verbose_name_plural = "issue_types"

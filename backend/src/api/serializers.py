@@ -8,6 +8,7 @@ from .models.professor import Professor
 from .models.ticket import Ticket
 from .models.user import User
 from .models.work_hours import WorkingHours
+from .models.issue import Issues
 
 
 class BackendSerializer(serializers.ModelSerializer):
@@ -49,7 +50,7 @@ class HourSerializer(serializers.ModelSerializer):
 class ProfessorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Professor
-        fields = ("name", "email", "is_active")
+        fields = '__all__'
 
 
 class CourseSerializer(serializers.ModelSerializer):
@@ -60,41 +61,43 @@ class CourseSerializer(serializers.ModelSerializer):
 class TicketSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ticket
-        fields = (
-            "student",
-            "professor",
-            "course",
-            "tutor",
-            "issue",
-            "email",
-            "name",
-            "completed",
-            "started",
-            "start_time",
-            "end_time",
-            "was_reopened",
-            "was_successful",
-            "description",
-            "comments",
-        )
+        fields = '__all__'
+        # fields = (
+        #     "student",
+        #     "professor",
+        #     "course",
+        #     "tutor",
+        #     "issue",
+        #     "email",
+        #     "name",
+        #     "completed",
+        #     "started",
+        #     "start_time",
+        #     "end_time",
+        #     "was_reopened",
+        #     "was_successful",
+        #     "description",
+        #     "comments",
+        # )
 
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = (
-            "courses_tutoring",
-            "courses_taken",
-            "tickets",
-            "name",
-            "is_active",
-            "is_working",
-            "is_tutor",
-            "is_admin",
-            "user_bio",
-            "email",
-            "MSOID",
-        )
+        fields = '__all__'
+        # fields = (
+        #     "courses_tutoring",
+        #     "courses_taken",
+        #     "tickets",
+        #     "name",
+        #     "is_active",
+        #     "is_working",
+        #     "is_tutor",
+        #     "is_admin",
+        #     "user_bio",
+        #     "email",
+        #     "MSOID",
+        # )
 
 
 class SectionSerializer(serializers.ModelSerializer):
@@ -134,4 +137,12 @@ class TutorHourSerializer(serializers.ModelSerializer):
             "saturdayOut",
             "sundayIn",
             "sundayOut",
+        )
+
+class IssueSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Issues
+        fields = (
+            'problem_type',
+            'severity'
         )
