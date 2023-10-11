@@ -4,7 +4,8 @@ from django.db import models
 class ProfessorManager(models.Manager):
     def get_professors(self):
         return super().get_queryset().all()
-    def get_professor(self, professor:str):
+
+    def get_professor(self, professor: str):
         return super().get_queryset().filter(professor=professor)
 
 

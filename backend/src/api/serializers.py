@@ -3,12 +3,12 @@ from rest_framework import serializers
 from .models.course import Course
 from .models.cslc_hours import CSLC_Hours
 from .models.dummy import Dummy
+from .models.issue import Issues
 from .models.messages import Messages
 from .models.professor import Professor
 from .models.ticket import Ticket
 from .models.user import User
 from .models.work_hours import WorkingHours
-from .models.issue import Issues
 
 
 class BackendSerializer(serializers.ModelSerializer):
@@ -50,7 +50,7 @@ class HourSerializer(serializers.ModelSerializer):
 class ProfessorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Professor
-        fields = '__all__'
+        fields = "__all__"
 
 
 class CourseSerializer(serializers.ModelSerializer):
@@ -61,7 +61,7 @@ class CourseSerializer(serializers.ModelSerializer):
 class TicketSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ticket
-        fields = '__all__'
+        fields = "__all__"
         # fields = (
         #     "student",
         #     "professor",
@@ -84,7 +84,7 @@ class TicketSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = '__all__'
+        fields = "__all__"
         # fields = (
         #     "courses_tutoring",
         #     "courses_taken",
@@ -139,10 +139,8 @@ class TutorHourSerializer(serializers.ModelSerializer):
             "sundayOut",
         )
 
+
 class IssueSerializer(serializers.ModelSerializer):
     class Meta:
         model = Issues
-        fields = (
-            'problem_type',
-            'severity'
-        )
+        fields = ("problem_type", "severity")
