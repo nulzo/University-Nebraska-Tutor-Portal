@@ -28,29 +28,6 @@ import {
   SelectGroup,
 } from "../ui/select";
 
-const courses = [
-  "Introduction to Computer Science",
-  "Data Structures and Algorithms",
-  "Machine Learning Fundamentals",
-  "Web Development Bootcamp",
-  "Computer Networks and Security",
-  "Operating Systems",
-  "Databases and SQL",
-  "Artificial Intelligence",
-  "Software Engineering",
-  "Data Science and Big Data Analytics",
-  "Computer Graphics",
-  "Computer Vision",
-  "Natural Language Processing",
-  "Cybersecurity",
-  "Algorithms and Data Structures in C++",
-  "Game Development",
-  "Blockchain and Cryptocurrency",
-  "Cloud Computing",
-  "Robotics",
-  "Internet of Things (IoT)",
-];
-
 const issue = ["Homework", "Exam Prep", "Confused", "Other"];
 
 const formSchema = z.object({
@@ -77,16 +54,34 @@ const formSchema = z.object({
 });
 
 export default function TestAPI() {
-  const [professors, setProfessors] = useState(null);
+  const [professors, setProfessors] = useState({});
+  const [courses, setCourses] = useState({});
   const [isLoading, setLoading] = useState(true);
+  const [isLoadingC, setLoadingC] = useState(true);
 
   useEffect(() => {
     getProfessors();
   }, []);
 
+  useEffect(() => {
+    getCourses();
+  }, []);
+
+  const getCourses = (): void => {
+    axios
+      .get("http://localhost:8000/api/sections/")
+      .then((res) => {
+        setCourses(res);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(() => setLoadingC(false));
+  }
+
   const getProfessors = (): void => {
     axios
-      .get("http://localhost:8000/api/professor/")
+      .get("http://localhost:8000/api/professors/")
       .then((res) => {
         setProfessors(res);
       })
@@ -162,13 +157,21 @@ export default function TestAPI() {
 
   const { toast } = useToast();
 
-  if (isLoading) {
+  if (isLoading || isLoadingC)  {
     return <h1>Hello</h1>;
   } else {
+    console.log(courses)
+    const core = courses.data 
+    const corse_array=[]
+    for (let i = 0; i < 1; i++) {
+      corse_array.push(core[i].course);
+    }
+    console.log(corse_array)
     const prof = professors.data;
+    let count = Object.keys(prof).length
     const profArray = [];
-    for (let i = 0; i < 20; i++) {
-      profArray.push(prof[i].name);
+    for (let i = 0; i < count; i++) {
+      profArray.push(prof[i].full_name);
     }
     console.log(profArray);
 
@@ -263,7 +266,7 @@ export default function TestAPI() {
                           </FormControl>
                           <SelectContent>
                             <SelectGroup>
-                              {courses.map((val) => (
+                            {corse_array.map((val) => (
                                 <SelectItem value={val}>{val}</SelectItem>
                               ))}
                             </SelectGroup>

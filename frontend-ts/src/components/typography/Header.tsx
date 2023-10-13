@@ -1,4 +1,3 @@
-import { Flex, Heading } from "@radix-ui/themes";
 import { Component } from "react";
 
 type PropType = {
@@ -26,26 +25,18 @@ const mappings: { [key: string]: any } = {
   white: "text-stone-50",
 };
 
-function gets(key: string) {
-  return key in mappings ? mappings[key] : "";
-}
-
-function c(l: string) {}
-
-console.log(mappings["bold"]);
-
 export default class Header extends Component<PropType> {
   render() {
     return (
       <div className="mt-8 flex text-center pb-6 sm:text-start sm:block justify-center">
-        <Flex direction="column" gap="3">
-          <Heading size={"8"}>{this.props.text!}</Heading>
-          <Heading size={"5"} weight={"light"}>
-            <span className="items-center text-gray-500">
+        <div className="flex flex-col gap-3">
+          <h1 className="text-3xl font-semibold">{this.props.text!}</h1>
+          <h2>
+            <span className="items-center text-gray-500 font-light">
               {this.props.subtext!}
             </span>
-          </Heading>
-        </Flex>
+          </h2>
+        </div>
       </div>
     );
   }

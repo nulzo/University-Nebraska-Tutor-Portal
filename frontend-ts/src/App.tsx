@@ -2,33 +2,18 @@ import "./style/output.css";
 import Navbar from "./components/navigation/Navbar";
 import { Sidebar } from "./components/navigation/Sidebar";
 import { SidebarAdmin } from "./components/navigation/SidebarAdmin";
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode } from "react";
 import {
   Callout,
   CalloutIcon,
   CalloutText,
-  Link,
   Theme,
 } from "@radix-ui/themes";
 import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
 import { SidebarStudent } from "./components/navigation/SidebarStudent";
-import { ToastContainer } from "react-toastify";
 import { Toaster } from "./components/ui/toaster";
 
 function App({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState("Student");
-
-  useEffect(() => {
-    window.localStorage.setItem("user", user);
-  }, [user]);
-
-  useEffect(() => {
-    const u = window.localStorage.getItem("user") || "{}";
-    console.log(u);
-    setUser(u);
-  }, []);
-
-  console.log(user);
   return (
     <>
       <Theme
@@ -48,39 +33,6 @@ function App({ children }: { children: ReactNode }) {
           <CalloutText className="flex">
             <strong>Alert:</strong> You are viewing a DEMO version of the
             application!
-            <div className="flex px-4 space-x-0.5">
-              <p>View As:</p>
-
-              {user === "Student" ? (
-                <Link className="font-bold" onClick={() => setUser("Student")}>
-                  Student
-                </Link>
-              ) : (
-                <Link className="" onClick={() => setUser("Student")}>
-                  Student
-                </Link>
-              )}
-              <p>,</p>
-              {user === "Tutor" ? (
-                <Link className="font-bold" onClick={() => setUser("Tutor")}>
-                  Tutor
-                </Link>
-              ) : (
-                <Link className="" onClick={() => setUser("Tutor")}>
-                  Tutor
-                </Link>
-              )}
-              <p>, or</p>
-              {user === "Admin" ? (
-                <Link className="font-bold" onClick={() => setUser("Admin")}>
-                  Admin
-                </Link>
-              ) : (
-                <Link className="" onClick={() => setUser("Admin")}>
-                  Admin
-                </Link>
-              )}
-            </div>
           </CalloutText>
         </Callout.Root>
         <div className="bg-white">

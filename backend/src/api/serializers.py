@@ -9,6 +9,7 @@ from .models.professor import Professor
 from .models.ticket import Ticket
 from .models.user import User
 from .models.work_hours import WorkingHours
+from .models.sections import Section
 
 
 class BackendSerializer(serializers.ModelSerializer):
@@ -102,8 +103,8 @@ class UserSerializer(serializers.ModelSerializer):
 
 class SectionSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
-        fields = ("section_number", "modality", "professor", "tickets", "course")
+        model = Section
+        fields = '__all__'
 
 
 class MessageSerializer(serializers.ModelSerializer):

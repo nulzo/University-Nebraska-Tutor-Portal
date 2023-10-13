@@ -17,6 +17,8 @@ pytest = "^7.4.0"
 djangorestframework = "^3.14.0"
 django-cors-headers = "^4.2.0"
 bruhcolor = "^0.0.56"
+websockets = "^11.0.3"
+channels = {extras = ["daphne"], version = "^4.0.0"}
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4.0"

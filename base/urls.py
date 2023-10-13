@@ -64,14 +64,14 @@ urlpatterns = [
     # path("api/tutors/hours/<str:tutor_pk>"),
 
     # Professor URLS
-    # path("api/professors/", view=routing.ProfessorListView.as_view(), name="Professor List View"),
-    # path("api/professors/<str:professor_pk>", view=routing.ProfessorDetailView.as_view(), name="Professor Detail View"),
+    path("api/professors/", view=routing.ProfessorListView.as_view(), name="Professor List View"),
+    path("api/professors/<str:professor_pk>", view=routing.ProfessorDetailView.as_view(), name="Professor Detail View"),
     # path("api/professors/<str:course_pk>", view=routing.MessageViewSet.as_view()),
     # path("api/professors/active/"),
     # path("api/professors/inactive/"),
     
     # Section URLS
-    # path("api/sections"),
+    path("api/sections/", view=routing.SectionListView.as_view(), name="Section List View"),
     # path("api/sections/<str:section_id>"),
     # path("api/sections/online"),
     # path("api/sections/in-person"),

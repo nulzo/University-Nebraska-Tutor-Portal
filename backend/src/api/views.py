@@ -15,6 +15,7 @@ from .models.messages import Messages
 from .models.professor import Professor
 from .models.ticket import Ticket
 from .models.user import User
+from .models.sections import Section
 from .serializers import (
     HourSerializer,
     IssueSerializer,
@@ -22,6 +23,7 @@ from .serializers import (
     ProfessorSerializer,
     TicketSerializer,
     UserSerializer,
+    SectionSerializer
 )
 
 # -------------------------- CONFIG ---------------------------
@@ -409,3 +411,21 @@ class CSLCHoursViewset(APIView):
 
     def delete(self, request, pk=None):
         pass
+
+# -------------------------- SECTIONS --------------------------
+
+class SectionListView(APIView):
+    serializer_class = SectionSerializer
+    renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
+
+    def get(self, request):
+        queryset = Section.sections.get_all()
+        serializer = SectionSerializer(queryset, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = SectionSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.data)
