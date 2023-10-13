@@ -28,6 +28,7 @@ load_dotenv()
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = os.getenv("DEBUG")
+RUN_SERVER_PORT = 6969
 
 try:
     if SECRET_KEY and DEBUG:
