@@ -34,13 +34,21 @@ migrate:
 	python manage.py makemigrations
 	python manage.py migrate
 
-.PHONY lint: ## Lint the codebase
+.PHONY lint:
 lint:
+	./scripts/linter.sh
+
+.PHONY format:
+format:
+	./scripts/formatter.sh
+
+.PHONY fflint: ## Lint the codebase
+fflint:
 	ruff $(BACKEND_DIR)/. 
 	ruff $(BACKEND_DIR)/. && pylint $(BACKEND_DIR)/. $(PYLINT_FLAGS) && djlint $(BACKEND_DIR)/. --lint && autoflake -r $(BACKEND_DIR)/. && flake8 $(BACKEND_DIR)/. $(FLAKE8_FLAGS) && black $(BACKEND_DIR)/. $(BLACK_FLAGS) && echo SUCCESS
 
-.PHONY format: ## Format the codebase
-format:
+.PHONY ddformat: ## Format the codebase
+ddformat:
 	isort $(BACKEND_DIR)/.
 	autoflake -r $(BACKEND_DIR)/. $(AUTOFLAKE_FLAGS)
 	black $(BACKEND_DIR)/.
