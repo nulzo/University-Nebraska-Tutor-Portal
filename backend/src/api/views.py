@@ -1,4 +1,5 @@
 # from django.shortcuts import render
+
 from django.http import Http404
 from rest_framework import status
 from rest_framework.renderers import (
@@ -13,19 +14,20 @@ from .models.cslc_hours import CSLC_Hours
 from .models.issue import Issues
 from .models.messages import Messages
 from .models.professor import Professor
+from .models.sections import Section
 from .models.ticket import Ticket
 from .models.user import User
-from .models.sections import Section
 from .serializers import (
     HourSerializer,
     IssueSerializer,
     MessageSerializer,
     ProfessorSerializer,
+    SectionSerializer,
     TicketSerializer,
     UserSerializer,
-    SectionSerializer
 )
 
+# fmt: off
 # -------------------------- CONFIG ---------------------------
 
 
@@ -83,8 +85,7 @@ class StudentTicketDetailView(APIView):
     serializer_class = TicketSerializer
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
     name = "Access a Students Tickets"
-    description = """ Query the database to return a payload consisting of a students submitted tickets. This takes a users NUID in as the parameter. 
-	"""
+    description = """ Query the database to return a payload consisting of a students submitted tickets. This takes a users NUID in as the parameter. """
 
     def get(self, request, student_pk: str):
         queryset = Ticket.ticket.get_student(student_pk)
@@ -98,8 +99,7 @@ class SectionTicketDetailView(APIView):
     serializer_class = TicketSerializer
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
     name = "Access a Sections Tickets"
-    description = """ Query the database to return a payload consisting of all tickets from a given section. This takes a sections ID in as the parameter. 
-	"""
+    description = """ Query the database to return a payload consisting of all tickets from a given section. This takes a sections ID in as the parameter. """
 
     def get(self, request, section_pk: str):
         queryset = Ticket.ticket.get_section(section_pk)
@@ -113,8 +113,7 @@ class ProfessorTicketDetailView(APIView):
     serializer_class = TicketSerializer
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
     name = "Access a Professors Tickets"
-    description = """ Query the database to return a payload consisting of all tickets referencing a given professor. This takes a professors ID in as the parameter. 
-	"""
+    description = """ Query the database to return a payload consisting of all tickets referencing a given professor. This takes a professors ID in as the parameter. """
 
     def get(self, request, professor_pk: str):
         queryset = Ticket.ticket.get_professor(professor=professor_pk)
@@ -128,8 +127,7 @@ class TutorTicketDetailView(APIView):
     serializer_class = TicketSerializer
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
     name = "Access a Tickets Attributed to a Tutor"
-    description = """ Query the database to return a payload consisting of all tickets referencing a tutor. This takes a tutors NUID in as the parameter. 
-	"""
+    description = """ Query the database to return a payload consisting of all tickets referencing a tutor. This takes a tutors NUID in as the parameter. """
 
     def get(self, request, tutor_pk: str):
         queryset = Ticket.ticket.get_tutor(tutor_pk)
@@ -143,8 +141,7 @@ class CourseTicketDetailView(APIView):
     serializer_class = TicketSerializer
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
     name = "Access Tickets Attributed to a Course"
-    description = """ Query the database to return a payload consisting of all tickets referencing a tutor. This takes a tutors NUID in as the parameter. 
-	"""
+    description = """ Query the database to return a payload consisting of all tickets referencing a tutor. This takes a tutors NUID in as the parameter. """
 
     def get(self, request, course_pk: str):
         queryset = Ticket.ticket.get_course(course_pk)
@@ -158,8 +155,7 @@ class CompletedTicketListView(APIView):
     serializer_class = TicketSerializer
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
     name = "Access Completed Tickets"
-    description = """ Query the database to return a payload consisting of all tickets that have been completed. This takes a tutors NUID in as the parameter. 
-	"""
+    description = """ Query the database to return a payload consisting of all tickets that have been completed. This takes a tutors NUID in as the parameter. """
 
     def get(self, request):
         queryset = Ticket.ticket.get_completed()
@@ -173,8 +169,7 @@ class ActiveTicketListView(APIView):
     serializer_class = TicketSerializer
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
     name = "Access Completed Tickets"
-    description = """ Query the database to return a payload consisting of all tickets that have been completed. This takes a tutors NUID in as the parameter. 
-	"""
+    description = """ Query the database to return a payload consisting of all tickets that have been completed. This takes a tutors NUID in as the parameter. """
 
     def get(self, request):
         queryset = Ticket.ticket.get_completed()
@@ -188,8 +183,7 @@ class CompletedTicketListView(APIView):
     serializer_class = TicketSerializer
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
     name = "Access Completed Tickets"
-    description = """ Query the database to return a payload consisting of all tickets that have been completed. This takes a tutors NUID in as the parameter. 
-	"""
+    description = """ Query the database to return a payload consisting of all tickets that have been completed. This takes a tutors NUID in as the parameter. """
 
     def get(self, request):
         queryset = Ticket.ticket.get_completed()
@@ -203,8 +197,7 @@ class SuccessfulTicketListView(APIView):
     serializer_class = TicketSerializer
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
     name = "Access Completed Tickets"
-    description = """ Query the database to return a payload consisting of all tickets that have been completed. This takes a tutors NUID in as the parameter. 
-	"""
+    description = """ Query the database to return a payload consisting of all tickets that have been completed. This takes a tutors NUID in as the parameter. """
 
     def get(self, request):
         queryset = Ticket.ticket.get_completed()
@@ -218,8 +211,7 @@ class UnclaimedTicketListView(APIView):
     serializer_class = TicketSerializer
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
     name = "Access Unclaimed Tickets"
-    description = """ Query the database to return a payload consisting of all tickets that have been completed. This takes a tutors NUID in as the parameter. 
-	"""
+    description = """ Query the database to return a payload consisting of all tickets that have been completed. This takes a tutors NUID in as the parameter. """
 
     def get(self, request):
         queryset = Ticket.ticket.get_unclaimed()
@@ -412,7 +404,9 @@ class CSLCHoursViewset(APIView):
     def delete(self, request, pk=None):
         pass
 
+
 # -------------------------- SECTIONS --------------------------
+
 
 class SectionListView(APIView):
     serializer_class = SectionSerializer
@@ -429,3 +423,4 @@ class SectionListView(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.data)
+# fmt: on

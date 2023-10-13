@@ -41,6 +41,7 @@ lint:
 .PHONY format:
 format:
 	./scripts/formatter.sh
+	echo done
 
 .PHONY fflint: ## Lint the codebase
 fflint:
