@@ -1,19 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
 // import App from "./App.tsx";
-import { BrowserRouter, Routes, Route, createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 // import InputForm from "./components/views/Login.tsx";
 import Dashboard from "./components/views/Dashboard.tsx";
 // import Tutors from "./components/views/Tutors.tsx";
 
-import CreateTicket from "./components/views/CreateTicket.tsx";
+// import CreateTicket from "./components/views/CreateTicket.tsx";
 // import Hours from "./components/views/Hours.tsx";
 // import ViewTickets from "./components/views/ViewTickets.tsx";
 import Home from "./components/views/Home.tsx";
 import Search from "./components/views/Search.tsx";
 import TestAPI from "./components/views/TestAPI.tsx";
 import TestViewTickets from "./components/views/TestViewTicket.tsx";
-import GenerateData from "./components/views/GenerateFakeData.tsx";
+// import GenerateData from "./components/views/GenerateFakeData.tsx";
 import Root, { loader as rootLoader } from "./Root.tsx";
 import ErrorView from "./views/ErrorView.tsx";
 import Zoom from "./views/ZoomView.tsx";
@@ -51,11 +51,11 @@ const router = createBrowserRouter([
       },
       {
         path: "tickets/view",
-        element: <TestViewTickets/>
+        element: <TestViewTickets data={""}/>
       }
     ]
   }
-])
+]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

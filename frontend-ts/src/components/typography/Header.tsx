@@ -9,22 +9,6 @@ type PropType = {
   subtextweight?: string;
 };
 
-const mappings: { [key: string]: any } = {
-  bold: "font-bold",
-  semibold: "font-semibold",
-  regular: "font-base",
-  light: "font-light",
-  thin: "font-thin",
-  heading: "text-2xl",
-  subheading: "text-lg",
-  extralarge: "text-4xl",
-  tight: "tracking-tight",
-  wide: "tracking-wide",
-  red: "text-red-600",
-  black: "text-stone-950",
-  white: "text-stone-50",
-};
-
 export default class Header extends Component<PropType> {
   render() {
     return (

@@ -77,7 +77,7 @@ export default function TestAPI() {
         console.log(error);
       })
       .finally(() => setLoadingC(false));
-  }
+  };
 
   const getProfessors = (): void => {
     axios
@@ -160,15 +160,15 @@ export default function TestAPI() {
   if (isLoading || isLoadingC)  {
     return <h1>Hello</h1>;
   } else {
-    console.log(courses)
-    const core = courses.data 
-    const corse_array=[]
+    console.log(courses);
+    const core = courses.data; 
+    const corse_array=[];
     for (let i = 0; i < 1; i++) {
       corse_array.push(core[i].course);
     }
-    console.log(corse_array)
+    console.log(corse_array);
     const prof = professors.data;
-    let count = Object.keys(prof).length
+    const count = Object.keys(prof).length;
     const profArray = [];
     for (let i = 0; i < count; i++) {
       profArray.push(prof[i].full_name);
@@ -266,7 +266,7 @@ export default function TestAPI() {
                           </FormControl>
                           <SelectContent>
                             <SelectGroup>
-                            {corse_array.map((val) => (
+                              {corse_array.map((val) => (
                                 <SelectItem value={val}>{val}</SelectItem>
                               ))}
                             </SelectGroup>

@@ -29,9 +29,9 @@ export function Sidebar({ className }: SidebarProps) {
     navigate(path);
   };
 
-  const currentPath = window.location.pathname
-  console.log(currentPath)
-  console.log()
+  const currentPath = window.location.pathname;
+  console.log(currentPath);
+  console.log();
 
   return (
     <div className="hidden lg:flex">

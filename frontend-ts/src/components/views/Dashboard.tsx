@@ -8,7 +8,6 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Overview } from "../charts/Charts";
 import Header from "../typography/Header";
-import { cn } from "@/lib/utils";
 
 export default function DashboardPage() {
   return (

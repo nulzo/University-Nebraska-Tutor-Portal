@@ -5,12 +5,13 @@ module.exports = {
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react-hooks/recommended",
+
   ],
   ignorePatterns: ["dist", ".eslintrc.cjs"],
   parser: "@typescript-eslint/parser",
   plugins: ["react-refresh"],
   rules: {
-    "indent": ["error", 4], // Use 2 spaces for indentation
+    "indent": ["error", 2],
     "linebreak-style": ["error", "unix"], // Use Unix line endings
     "quotes": ["error", "double"], // Use single quotes
     "semi": ["error", "always"], // Require semicolons at the end of statements
