@@ -1,11 +1,23 @@
 from django.db import models
 
 
-# Create your models here.
+class ProfessorManager(models.Manager):
+    def get_professors(self):
+        return super().get_queryset().all()
+
+    def get_professor(self, professor: str):
+        return super().get_queryset().filter(professor=professor)
+
+
 class Professor(models.Model):
-    name = models.CharField(max_length=100)
+    first_name = models.CharField(max_length=25)
+    last_name = models.CharField(max_length=30)
+    full_name = models.CharField(max_length=100)
     email = models.CharField(max_length=100)
     is_active = models.BooleanField(default=True)
+    sections = models.ManyToManyField("api.Section", related_name="professortosection")
+
+    professor = ProfessorManager()
 
     def __str__(self):
-        return self.name
+        return self.full_name

@@ -6,7 +6,10 @@ __pycache__
 db.sqlite3
 media
 
-# Jetbrains shit
+# Shell
+nohup.out
+
+# Jetbrains
 .idea
 idea
 

@@ -5,4 +5,5 @@ disable=
     C0116, # missing function-docstring
     R0903,
 
-ignore = tests.py, urls.py, migrations, __init__.py, models
+ignore=migrations,pyproject,poetry,nohup
+ignore-paths=^.*/\.migrations

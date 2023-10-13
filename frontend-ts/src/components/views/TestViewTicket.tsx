@@ -32,7 +32,7 @@ export default class TestViewTickets extends Component<myState> {
         <div className="divide-x-[1px] divide-gray-100 grid grid-cols-3 w-100">
           <div className="col-span-1 m-4">
             <div>
-              {Object.entries(this.state.data).map(([key, val]) => (
+              {Object.entries(this.state.data).map(([_, val]:any) => (
                 <>
                   {val.claimed == false && val.closed == false && (
                     <div className="pt-2">
@@ -53,7 +53,7 @@ export default class TestViewTickets extends Component<myState> {
           </div>
           <div className="col-span-1 px-4 pt-4 pb-4">
             <div className="">
-              {Object.entries(this.state.data).map(([key, val]) => (
+              {Object.entries(this.state.data).map(([key, val]:any) => (
                 <>
                   {val.claimed == true && val.closed == false && (
                     <div className="pt-2">
@@ -74,7 +74,7 @@ export default class TestViewTickets extends Component<myState> {
           </div>
           <div className="col-span-1 px-4 pt-4 pb-4">
             <div className="">
-              {Object.entries(this.state.data).map(([key, val]) => (
+              {Object.entries(this.state.data).map(([key, val]:any) => (
                 <>
                   {val.closed == true && (
                     <div className="pt-2">

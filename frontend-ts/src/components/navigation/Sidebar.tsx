@@ -15,6 +15,7 @@ import { useNavigate } from "react-router-dom";
 import { ScrollArea } from "@radix-ui/themes";
 import HomeIcon from "../assets/HomeIcon";
 import SearchIcon from "../assets/SearchIcon";
+import { Link } from "react-router-dom";
 
 interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {}
 
@@ -27,6 +28,10 @@ export function Sidebar({ className }: SidebarProps) {
     setActive(active);
     navigate(path);
   };
+
+  const currentPath = window.location.pathname;
+  console.log(currentPath);
+  console.log();
 
   return (
     <div className="hidden lg:flex">
@@ -48,7 +53,7 @@ export function Sidebar({ className }: SidebarProps) {
                   <Button
                     variant={`${isActive === "Home" ? "secondary" : "ghost"}`}
                     className="w-full justify-start "
-                    onClick={() => routeChange("Home", "/")}
+                    onClick={() => routeChange("Home", "/home")}
                   >
                     <HomeIcon />
                     <span className="p-2">Home</span>
@@ -68,6 +73,7 @@ export function Sidebar({ className }: SidebarProps) {
                   >
                     General
                   </h2>
+          
                   <Button
                     variant={`${
                       isActive === "Dashboard" ? "secondary" : "ghost"
@@ -119,7 +125,7 @@ export function Sidebar({ className }: SidebarProps) {
                       <span className="p-2">Create Ticket</span>
                     </Button>
                     <Button
-                      variant={`${isActive === "View" ? "secondary" : "ghost"}`}
+                      variant={`${currentPath === "/tickets/view" ? "secondary" : "ghost"}`}
                       className="w-full justify-start "
                       onClick={() => routeChange("View", "/tickets/view")}
                     >

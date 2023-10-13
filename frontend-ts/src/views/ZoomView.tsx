@@ -1,13 +1,15 @@
-import { Badge, Link } from "@radix-ui/themes";
-import { Divider } from "react-daisyui";
-import { Card, CardContent } from "../ui/card";
-import Header from "../typography/Header";
+import { Card, CardContent } from "@/components/ui/card";
+import Header from "@/components/typography/Header";
+import {Badge}  from "@/components/ui/badge";
 
 export default function Zoom() {
+  
   function onClick() {
     window.open("https://unomaha.zoom.us/s/94531042940");
   }
+
   const tutorCount = 0;
+
   return (
     <>
       <Header
@@ -24,13 +26,13 @@ export default function Zoom() {
           </>
         }
       />
-      <Card className="shadow-lg">
+      <Card className="">
         <CardContent>
           <p className="pt-4 flex justify-end">
             {tutorCount !== 0 ? (
               <Badge color="green">{tutorCount} tutors online</Badge>
             ) : (
-              <Badge color="red">{tutorCount} tutors online</Badge>
+              <Badge variant={"red_outline"}>0 tutors online</Badge>
             )}
           </p>
           <div>
@@ -50,11 +52,11 @@ export default function Zoom() {
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
-                  stroke-width="1.5"
+                  strokeWidth="1.5"
                   stroke="#ffffff"
                   fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
                   <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                   <path d="M17.011 9.385v5.128l3.989 3.487v-12z" />
@@ -66,12 +68,12 @@ export default function Zoom() {
             <br />
           </div>
           <div className="flex flex-wrap justify-center">
-            <Link onClick={onClick} color="indigo">
+            <a onClick={onClick} >
               https://unomaha.zoom.us/j/94531042940
-            </Link>
+            </a>
           </div>
           <div className="flex text-center justify-center ">
-            <Divider className="py-4 w-3/4"> OR </Divider>
+            or
           </div>
           <div>
             <h3 className="text-xl pb-2 text-center font-bold tracking-tight">
