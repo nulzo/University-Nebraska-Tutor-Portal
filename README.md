@@ -8,11 +8,15 @@
 
  <div>
 
+ <h4 style="text-align: center;"> Github </h4>
+
  <div style="display: flex; justify-content: center;">
 
 [![GitHub Integration](https://img.shields.io/github/actions/workflow/status/nulzo/University-Nebraska-Tutor-Portal/.github%2Fworkflows%2Fintegration.yml)](https://github.com/nulzo/University-Nebraska-Tutor-Portal) [![GitHub Issues](https://img.shields.io/github/issues/nulzo/University-Nebraska-Tutor-Portal)](https://github.com/nulzo/University-Nebraska-Tutor-Portal) [![Version](https://img.shields.io/badge/Version-Alpha%200.0.1-E963DD)](https://github.com/nulzo/University-Nebraska-Tutor-Portal)
 
 </div>
+
+<h4 style="text-align: center;"> Backend </h4>
 
 <div style="display: flex; justify-content: center;">
 
@@ -20,17 +24,23 @@
 
 </div>
 
+<h4 style="text-align: center;"> Frontend </h4>
+
 <div style="display: flex; justify-content: center;">
 
 [![React](https://img.shields.io/badge/React-18.2.0-0FABC0?logo=react&logoColor=white)](https://github.com/nulzo/University-Nebraska-Tutor-Portal) [![Typescript](https://img.shields.io/badge/Typescript-5.2.2-3178C6?logo=typescript&logoColor=white)](https://github.com/nulzo/University-Nebraska-Tutor-Portal) [![npm version](https://img.shields.io/badge/npm-9.6.7-1487C1.svg?style=flat&logo=nodedotjs&logoColor=white)]() ![Static Badge](https://img.shields.io/badge/ESlint-linting-ffffff)
 
 </div>
 
+<h4 style="text-align: center;"> Project </h4>
+
 <div style="display: flex; justify-content: center;">
 
 [![Coverage](https://img.shields.io/codecov/c/github/nulzo/University-Nebraska-Tutor-Portal/main)](https://github.com/nulzo/University-Nebraska-Tutor-Portal) [![Up](https://img.shields.io/website/http/www.website.com/path/to/page.html.svg)](https://github.com/nulzo/University-Nebraska-Tutor-Portal) [![commits](https://img.shields.io/github/commit-activity/w/nulzo/University-Nebraska-Tutor-Portal?logo=github)]()
 
 </div>
+
+<h4 style="text-align: center;"> Contributors </h4>
 
 <div style="display: flex; justify-content: center;">
 
