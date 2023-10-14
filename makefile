@@ -1,13 +1,21 @@
-## ========================== VARIABLES ==============================
-
-
-BUILD_DIR = src
-PYLINT_FLAGS = --reports yes
-FLAKE8_FLAGS = --color always --count --statistics
-BLACK_FLAGS = --check --force-exclude .\base
-AUTOFLAKE_FLAGS = --in-place --remove-unused-variables --remove-all-unused-imports
-DJLINT_FLAGS = --reformat --format-css
-BACKEND_DIR = backend
+## Author	: Nolan Gregory
+## Date		: October 14th, 2023
+## Desc.	: This make file is used by the integration to run the various
+##			  scripts for the application. It can be used by the developers
+##			  too, just run `make <command>`, assuming you have make installed.
+## Commands	:
+##			  - make build: 	Run only once. Builds the project from scratch and
+##								installs dependencies.
+##
+##			  - make run-dev: 	Run the dev servers.
+##
+##			  - make delete-db: Deletes the database and migration files.
+##
+##			  - make lint: 		Lints the codebase.
+##
+##			  - make format: 	Formats the codebase.
+##
+##			  - make test: 		Runs the test cases.
 
 
 ## ========================== PROCESSES ===============================
@@ -41,7 +49,6 @@ lint:
 .PHONY format:
 format:
 	./scripts/formatter.sh
-	echo done
 
 .PHONY test: ## Run tests
 test:

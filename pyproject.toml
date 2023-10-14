@@ -32,7 +32,6 @@ ruff = "^0.0.282"
 pylint = "^3.0"
 yapf = "^0.40.1"
 autoflake = "^2.2.0"
-djlint = "^1.32.1"
 django-stubs = "^1.2.0"
 pytest-django = "^4.5.2"
 
