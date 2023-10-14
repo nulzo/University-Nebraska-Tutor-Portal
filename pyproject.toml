@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "University-Nebraska-Tutor-Portal"
 version = "0.0.1"
-description = ""
+description = "Application to facilitate communication between students and tutors by allowing students to create, manage, and track tickets for tutoring assistance."
 authors = ["Nolan Gregory <nolangregory@unomaha.edu>"]
 readme = "README.md"
 
@@ -32,7 +32,6 @@ ruff = "^0.0.282"
 pylint = "^3.0"
 yapf = "^0.40.1"
 autoflake = "^2.2.0"
-djlint = "^1.32.1"
 django-stubs = "^1.2.0"
 pytest-django = "^4.5.2"
 
