@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "University-Nebraska-Tutor-Portal"
-version = "0.0.1"
-description = ""
+version = "ALPHA 0.0.1"
+description = "Application to facilitate communication between students and tutors by allowing students to create, manage, and track tickets for tutoring assistance."
 authors = ["Nolan Gregory <nolangregory@unomaha.edu>"]
 readme = "README.md"
 
