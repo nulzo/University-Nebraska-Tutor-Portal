@@ -50,6 +50,8 @@
     "daisyui": "^3.7.4",
     "date-fns": "^2.30.0",
     "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.3",
     "highlight.js": "^11.8.0",
     "lucide-react": "^0.277.0",
     "prettier": "^3.0.3",
