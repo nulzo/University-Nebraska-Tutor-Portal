@@ -18,40 +18,46 @@ import Root, { loader as rootLoader } from "./Root.tsx";
 import ErrorView from "./views/ErrorView.tsx";
 import Zoom from "./views/ZoomView.tsx";
 import WebsocketView from "./views/WebsocketView.tsx";
+import DownloadView from "./views/DownloadView.tsx";
+import "./style/globals.css"
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root/>,
-    errorElement: <ErrorView/>,
-    loader: rootLoader,
+    element: <Root />,
+    errorElement: <ErrorView />,
     children: [
-      {path: "home/",
-        element: <Home/>,
+      {
+        path: "home/",
+        element: <Home />,
       },
       {
         path: "search/",
-        element: <Search/>
+        element: <Search />
       },
       {
         path: "dashboard/",
-        element: <Dashboard/>
+        element: <Dashboard />
       },
       {
         path: "tutors/",
-        element: <WebsocketView/>
+        element: <WebsocketView />
       },
       {
         path: "zoom/",
-        element: <Zoom/>
+        element: <Zoom />
       },
       {
         path: "tickets/create",
-        element: <TestAPI/>
+        element: <TestAPI />
       },
       {
         path: "tickets/view",
-        element: <TestViewTickets data={""}/>
+        element: <TestViewTickets data={""} />
+      },
+      {
+        path: "user/settings",
+        element: <DownloadView />
       }
     ]
   }
@@ -59,7 +65,7 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+    <RouterProvider router={router} />
     {/* <BrowserRouter>
       <Routes>
         <Route path="/" element={<App children={<Home />} />} />

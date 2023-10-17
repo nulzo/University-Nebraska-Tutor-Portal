@@ -9,15 +9,6 @@ import {
   useLoaderData,
 } from "react-router-dom";
 
-export async function loader() {
-  const data = {};
-  axios.get("http://localhost:8000/api/tickets/").then((res) => {
-    return res;
-  });
-  console.log();
-  return { data };
-}
-
 export default function Root() {
   return (
     <>
