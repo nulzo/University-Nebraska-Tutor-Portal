@@ -63,23 +63,6 @@ class TicketSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ticket
         fields = "__all__"
-        # fields = (
-        #     "student",
-        #     "professor",
-        #     "course",
-        #     "tutor",
-        #     "issue",
-        #     "email",
-        #     "name",
-        #     "completed",
-        #     "started",
-        #     "start_time",
-        #     "end_time",
-        #     "was_reopened",
-        #     "was_successful",
-        #     "description",
-        #     "comments",
-        # )
 
 
 class UserSerializer(serializers.ModelSerializer):
