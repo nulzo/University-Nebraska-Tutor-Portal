@@ -1,5 +1,3 @@
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
 import ProfileIcon from "../assets/ProfileIcon";
 import DashboardIcon from "../assets/DashboardIcon";
 import TutorsIcon from "../assets/TutorsIcon";
@@ -10,33 +8,141 @@ import MessageIcon from "../assets/MessageIcon";
 import SettingsIcon from "../assets/SettingsIcon";
 import ZoomIcon from "../assets/ZoomIcon";
 import CalendarIcon from "../assets/CalendarIcon";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { ScrollArea } from "@radix-ui/themes";
 import HomeIcon from "../assets/HomeIcon";
 import SearchIcon from "../assets/SearchIcon";
-import { Link } from "react-router-dom";
+import Navlink from "./Navlink";
+import BlameIcon from "../assets/BlameIcon";
+import SpeakerIcon from "../assets/SpeakerIcon";
+import DownloadIcon from "../assets/DownloadIcon";
+import ScheduleIcon from "../assets/ScheduleIcon";
+import ClockIcon from "../assets/ClockIcon";
+import TicketIcon from "../assets/TicketIcon";
 
-interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {}
+const isAdmin = true;
+const isTutor = true;
+const isStudent = false;
 
-export function Sidebar({ className }: SidebarProps) {
-  const [isActive, setActive] = useState("Home");
-
+export function Sidebar() {
+  const [path, setPath] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
 
-  const routeChange = (active: string, path: string) => {
-    setActive(active);
-    navigate(path);
-  };
+  useEffect(() => {
+    setPath(location.pathname);
+  }, [location]);
 
-  const currentPath = window.location.pathname;
-  console.log(currentPath);
-  console.log();
+  function HomeSection() {
+    return (
+      <div className="px-3 py-2 space-y-1">
+        <h2 className={"mb-2 px-4 text-lg font-semibold tracking-tight"} />
+        <Navlink className="w-full justify-start" isActive={path === "/home" ? true : false} onClick={() => navigate("/home")} text="Home" icon={<HomeIcon />} />
+        <Navlink className="w-full justify-start" isActive={path === "/search" ? true : false} onClick={() => navigate("/search")} text="Search" icon={<SearchIcon />} />
+      </div>
+    )
+  }
+
+  function AdminSection() {
+    return (
+      <div className="px-3 py-2">
+        <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
+          Admin Panel
+        </h2>
+        <div className="space-y-1">
+          <Navlink className="w-full justify-start" isActive={path === "/blame" ? true : false} onClick={() => navigate("/blame")} text="Blame" icon={<BlameIcon />} />
+          <Navlink className="w-full justify-start" isActive={path === "/announcements" ? true : false} onClick={() => navigate("/announcements")} text="Announcement" icon={<SpeakerIcon />} />
+          <Navlink className="w-full justify-start" isActive={path === "/admin-settings" ? true : false} onClick={() => navigate("/admin-settings")} text="Admin Settings" icon={<SettingsIcon />} />
+          <Navlink className="w-full justify-start" isActive={path === "/download" ? true : false} onClick={() => navigate("/download")} text="Download Data" icon={<DownloadIcon />} />
+          <Navlink className="w-full justify-start" isActive={path === "/student-view" ? true : false} onClick={() => navigate("/download")} text="Student View" icon={<ViewIcon />} />
+        </div>
+      </div>
+    )
+  }
+
+  function GeneralSection() {
+    return (
+      <div className="px-3 py-2 space-y-1">
+        <h2 className={"mb-2 px-4 text-lg font-semibold tracking-tight"} >
+          General
+        </h2>
+        <div className="space-y-1">
+          <Navlink className="w-full justify-start" isActive={path === "/zoom" ? true : false} onClick={() => navigate("/zoom")} text="Join Zoom" icon={<ZoomIcon />} />
+          <Navlink className="w-full justify-start" isActive={path === "/hours" ? true : false} onClick={() => navigate("/hours")} text="CSLC Hours" icon={<CalendarIcon />} />
+          <Navlink className="w-full justify-start" isActive={path === "/tutors" ? true : false} onClick={() => navigate("/tutors")} text="CSLC Tutors" icon={<TutorsIcon />} />
+        </div>
+      </div>
+    )
+  }
+
+  function TutorSection() {
+    return (
+      <div className="px-3 py-2 space-y-1">
+        <h2 className={"mb-2 px-4 text-lg font-semibold tracking-tight"} >
+          Tutor Panel
+        </h2>
+        <Navlink className="w-full justify-start" isActive={path === "/dashboard" ? true : false} onClick={() => navigate("/dashboard")} text="Dashboard" icon={<DashboardIcon />} />
+        <Navlink className="w-full justify-start" isActive={path === "/hours" ? true : false} onClick={() => navigate("/hours")} text="Tickets" icon={<TicketIcon />} />
+        <Navlink className="w-full justify-start" isActive={path === "/dashboard" ? true : false} onClick={() => navigate("/dashboard")} text="Schedule" icon={<ScheduleIcon />} />
+        <Navlink className="w-full justify-start" isActive={path === "/zoom" ? true : false} onClick={() => navigate("/zoom")} text="Zoom" icon={<ZoomIcon />} />
+        <Navlink className="w-full justify-start" isActive={path === "/hours" ? true : false} onClick={() => navigate("/hours")} text="Hours" icon={<ClockIcon />} />
+        <Navlink className="w-full justify-start" isActive={path === "/hours" ? true : false} onClick={() => navigate("/hours")} text="View Tickets" icon={<ViewIcon />} />
+      </div>
+    )
+  }
+
+  function TicketSection() {
+    return (
+      <div className="px-3 py-2">
+        <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
+          Tickets
+        </h2>
+        <div className="space-y-1">
+          <Navlink className="w-full justify-start" isActive={path === "/create" ? true : false} onClick={() => navigate("/create")} text="Create Ticket" icon={<CreateIcon />} />
+          <Navlink className="w-full justify-start" isActive={path === "/view" ? true : false} onClick={() => navigate("/view")} text="View Tickets" icon={<ViewIcon />} />
+          <Navlink className="w-full justify-start" isActive={path === "/edit" ? true : false} onClick={() => navigate("/edit")} text="Edit Tickets" icon={<EditIcon />} />
+        </div>
+      </div>
+    )
+  }
+
+  function AccountSettings() {
+    return (
+      <div className="px-3 py-2">
+        <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
+          Account
+        </h2>
+        <div className="space-y-1">
+          <Navlink className="w-full justify-start" isActive={path === "/profile" ? true : false} onClick={() => navigate("/profile")} text="Profile" icon={<ProfileIcon />} />
+          <Navlink className="w-full justify-start" isActive={path === "/messages" ? true : false} onClick={() => navigate("/messages")} text="Message" icon={<MessageIcon />} />
+          <Navlink className="w-full justify-start" isActive={path === "/settings" ? true : false} onClick={() => navigate("/settings")} text="Settings" icon={<SettingsIcon />} />
+        </div>
+      </div>
+    )
+  }
+
+  if (!isTutor && !isAdmin && !isStudent) {
+    return (
+      <aside className="h-screen sticky top-0">
+        <div className="text-center text-lg pt-[25vh]">
+          <div className="font-light text-foreground">
+            <p>You are not</p>
+            <p>logged in :(</p>
+          </div>
+          <div className="font-light text-foreground pt-5">
+            <p>Please, log in</p>
+            <a href="/" className="text-red-600 underline hover:font-medium">here</a>
+          </div>
+        </div>
+      </aside>
+    )
+  }
 
   return (
-    <div className="hidden lg:flex">
+    <div className="hidden lg:flex text-foreground">
       <aside className="h-screen sticky top-0">
-        <div className={cn("pb-12", className)}>
+        <div className="hidden lg:block pb-12">
           <div className="space-y-4">
             <ScrollArea
               size="1"
@@ -46,145 +152,20 @@ export function Sidebar({ className }: SidebarProps) {
               scrollbars="vertical"
             >
               <div>
-                <div className="px-3 py-2 space-y-1">
-                  <h2
-                    className={"mb-2 px-4 text-lg font-semibold tracking-tight"}
-                  ></h2>
-                  <Button
-                    variant={`${isActive === "Home" ? "secondary" : "ghost"}`}
-                    className="w-full justify-start "
-                    onClick={() => routeChange("Home", "/home")}
-                  >
-                    <HomeIcon />
-                    <span className="p-2">Home</span>
-                  </Button>
-                  <Button
-                    variant={`${isActive === "Search" ? "secondary" : "ghost"}`}
-                    className="w-full justify-start "
-                    onClick={() => routeChange("Search", "/search")}
-                  >
-                    <SearchIcon />
-                    <span className="p-2">Search</span>
-                  </Button>
-                </div>
-                <div className="px-3 py-2 space-y-1">
-                  <h2
-                    className={"mb-2 px-4 text-lg font-semibold tracking-tight"}
-                  >
-                    General
-                  </h2>
-          
-                  <Button
-                    variant={`${
-                      isActive === "Dashboard" ? "secondary" : "ghost"
-                    }`}
-                    className="w-full justify-start "
-                    onClick={() => routeChange("Dashboard", "/dashboard")}
-                  >
-                    <DashboardIcon />
-                    <span className="p-2">Dashboard</span>
-                  </Button>
-                  <Button
-                    variant={`${isActive === "Tutors" ? "secondary" : "ghost"}`}
-                    className="w-full justify-start "
-                    onClick={() => routeChange("Tutors", "/tutors")}
-                  >
-                    <TutorsIcon />
-                    <span className="p-2">Tutors</span>
-                  </Button>
-                  <Button
-                    variant={`${isActive === "Zoom" ? "secondary" : "ghost"}`}
-                    className="w-full justify-start "
-                    onClick={() => routeChange("Zoom", "/zoom")}
-                  >
-                    <ZoomIcon />
-                    <span className="p-2">CSLC Zoom</span>
-                  </Button>
-                  <Button
-                    variant={`${isActive === "Hours" ? "secondary" : "ghost"}`}
-                    className="w-full justify-start "
-                    onClick={() => routeChange("Hours", "/hours")}
-                  >
-                    <CalendarIcon />
-                    <span className="p-2">CSLC Hours</span>
-                  </Button>
-                </div>
-                <div className="px-3 py-2">
-                  <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
-                    Tickets
-                  </h2>
-                  <div className="space-y-1">
-                    <Button
-                      variant={`${
-                        isActive === "Create" ? "secondary" : "ghost"
-                      }`}
-                      className="w-full justify-start "
-                      onClick={() => routeChange("Create", "/tickets/create")}
-                    >
-                      <CreateIcon />
-                      <span className="p-2">Create Ticket</span>
-                    </Button>
-                    <Button
-                      variant={`${currentPath === "/tickets/view" ? "secondary" : "ghost"}`}
-                      className="w-full justify-start "
-                      onClick={() => routeChange("View", "/tickets/view")}
-                    >
-                      <ViewIcon />
-                      <span className="p-2">View Tickets</span>
-                    </Button>
-                    <Button
-                      variant={`${isActive === "Edit" ? "secondary" : "ghost"}`}
-                      className="w-full justify-start "
-                      onClick={() => routeChange("Edit", "/tickets/edit")}
-                    >
-                      <EditIcon />
-                      <span className="p-2">Edit Tickets</span>
-                    </Button>
-                  </div>
-                </div>
-
-                <div className="px-3 py-2">
-                  <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
-                    Account
-                  </h2>
-                  <div className="space-y-1">
-                    <Button
-                      variant={`${
-                        isActive === "Profile" ? "secondary" : "ghost"
-                      }`}
-                      className="w-full justify-start "
-                      onClick={() => routeChange("Profile", "/user/profile")}
-                    >
-                      <ProfileIcon />
-                      <span className="p-2">Profile</span>
-                    </Button>
-                    <Button
-                      variant={`${
-                        isActive === "Messages" ? "secondary" : "ghost"
-                      }`}
-                      className="w-full justify-start "
-                      onClick={() => routeChange("Messages", "/user/messages")}
-                    >
-                      <MessageIcon />
-                      <span className="p-2">Messages</span>
-                    </Button>
-                    <Button
-                      variant={`${
-                        isActive === "Settings" ? "secondary" : "ghost"
-                      }`}
-                      className="w-full justify-start "
-                      onClick={() => routeChange("Settings", "/user/settings")}
-                    >
-                      <SettingsIcon />
-                      <span className="p-2">Settings</span>
-                    </Button>
-                  </div>
-                </div>
+                <HomeSection />
+                {/* If the user is an admin */}
+                {isAdmin && <AdminSection />}
+                {/* If the user is a tutor */}
+                {isTutor && <TutorSection />}
+                {/* If the user is a student */}
+                {isStudent && <GeneralSection />}
+                {isStudent && <TicketSection />}
+                <AccountSettings />
               </div>
             </ScrollArea>
           </div>
-        </div>
-      </aside>
-    </div>
+        </div >
+      </aside >
+    </div >
   );
 }

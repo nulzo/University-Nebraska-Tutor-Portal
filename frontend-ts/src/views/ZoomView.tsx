@@ -1,9 +1,9 @@
 import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/typography/Header";
-import {Badge}  from "@/components/ui/badge";
+import { Badge } from "@/components/ui/badge";
 
 export default function Zoom() {
-  
+
   function onClick() {
     window.open("https://unomaha.zoom.us/s/94531042940");
   }
@@ -26,13 +26,13 @@ export default function Zoom() {
           </>
         }
       />
-      <Card className="">
+      <Card className="text-foreground">
         <CardContent>
-          <p className="pt-4 flex justify-end">
+          <p className="pt-4 flex justify-end text-foreground">
             {tutorCount !== 0 ? (
-              <Badge color="green">{tutorCount} tutors online</Badge>
+              <Badge color="green" className="text-foreground">{tutorCount} tutors online</Badge>
             ) : (
-              <Badge variant={"red_outline"}>0 tutors online</Badge>
+              <Badge variant={"red_outline"} className="text-foreground">0 tutors online</Badge>
             )}
           </p>
           <div>
