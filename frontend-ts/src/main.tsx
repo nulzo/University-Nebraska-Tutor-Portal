@@ -15,7 +15,7 @@ import GenerateData from "./components/views/GenerateFakeData.tsx";
 import Root from "./Root.tsx";
 import ErrorView from "./views/ErrorView.tsx";
 import Zoom from "./views/ZoomView.tsx";
-import DownloadView from "./views/DownloadView.tsx";
+import DownloadView from "./views/admin/AdminDownloadView.tsx";
 import "./style/globals.css"
 import CreateTicketView from "./views/CreateTicketView.tsx";
 import { SettingsView } from "./views/SettingsView.tsx";
@@ -23,6 +23,8 @@ import TicketView from "./views/TicketView.tsx";
 import ScheduleView from "./views/ScheduleView.tsx";
 import ProfileView from "./views/ProfileView.tsx";
 import MessageView from "./views/MessageView.tsx";
+import AdminAnnouncements from "./views/admin/AdminAnnouncements.tsx";
+import AdminSettings from "./views/admin/AdminSettings.tsx";
 
 const router = createBrowserRouter([
   {
@@ -72,11 +74,11 @@ const router = createBrowserRouter([
       },
       {
         path: "announcements/",
-        element: <ErrorView />
+        element: <AdminAnnouncements />
       },
       {
         path: "admin-settings/",
-        element: <ErrorView />
+        element: <AdminSettings />
       },
       {
         path: "download/",

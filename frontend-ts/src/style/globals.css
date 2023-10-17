@@ -6,6 +6,11 @@
 
 @layer base {
   :root {
+    --online: 129 64% 67%;
+    --alert: 45 100% 50%;
+    --warning: 1 100% 46%;
+    --info: 239 100% 50%;
+    --fortutor: 310 64% 32%;
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
@@ -29,6 +34,11 @@
   }
 
   .dark {
+    --online: 129 64% 67%;
+    --alert: 45 100% 50%;
+    --warning: 0 100% 66%;
+    --info: 203 100% 65%;
+    --fortutor: 311 64% 67%;
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
     --card: 222.2 84% 4.9%;

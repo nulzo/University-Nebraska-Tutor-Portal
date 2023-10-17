@@ -31,6 +31,7 @@ import { CalendarIcon, CaretSortIcon, CheckIcon } from "@radix-ui/react-icons";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils"
 import { Command, CommandEmpty, CommandGroup, CommandItem } from "@/components/ui/command";
+import Header from "@/components/typography/Header";
 
 const items = [
     {
@@ -152,7 +153,7 @@ const getDate = () => {
     return file;
 }
 
-export default function DownloadView() {
+export default function AdminDownloadView() {
 
     const [filename, setFilename] = useState(getDate);
     const [extension, setExtension] = useState("csv");
@@ -218,6 +219,7 @@ export default function DownloadView() {
 
     return (
         <>
+            <Header text="Download Tutoring Portal History" subtext="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
             <Tabs defaultValue="download" className="space-y-4">
                 <TabsList>
                     <TabsTrigger value="download">Download</TabsTrigger>
