@@ -1,6 +1,6 @@
 export default function SpeakerIcon() {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-speakerphone" width="20" height="20" viewBox="0 0 24 24" strokeWidth="1" stroke="#2c3e50" fill="none" strokeLinecap="round" strokeLinejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" className="stroke-foreground" width="20" height="20" viewBox="0 0 24 24" strokeWidth="1" fill="none" strokeLinecap="round" strokeLinejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
             <path d="M18 8a3 3 0 0 1 0 6" />
             <path d="M10 8v11a1 1 0 0 1 -1 1h-1a1 1 0 0 1 -1 -1v-5" />

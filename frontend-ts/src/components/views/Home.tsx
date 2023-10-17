@@ -11,7 +11,7 @@ import { Badge, Link } from "@radix-ui/themes";
 
 export default function Home() {
   return (
-    <div>
+    <div className="text-foreground">
       <Header text="Welcome back, Nolan."></Header>
       <div className="flex flex-col sm:block space-y-4">
         <div className="grid gap-4">
@@ -76,7 +76,7 @@ export default function Home() {
               <CardDescription>Insert Ticket Data Here</CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="italic text-sm text-stone-400 justify-center text-center align-center">
+              <div className="italic text-sm  text-foreground justify-center text-center align-center">
                 <p>No ticket data in last 30 days...</p>
               </div>
             </CardContent>

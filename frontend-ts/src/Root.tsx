@@ -6,8 +6,8 @@ import { Toaster } from "./components/ui/toaster";
 export default function Root() {
   return (
     <>
-      <div className="">
-        <Navbar></Navbar>
+      <div className="dark">
+        <Navbar />
         <div className="border-t">
           <div className="bg-background">
             <div className="grid lg:grid-cols-5">

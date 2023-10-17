@@ -19,6 +19,10 @@ import DownloadView from "./views/DownloadView.tsx";
 import "./style/globals.css"
 import CreateTicketView from "./views/CreateTicketView.tsx";
 import { SettingsView } from "./views/SettingsView.tsx";
+import TicketView from "./views/TicketView.tsx";
+import ScheduleView from "./views/ScheduleView.tsx";
+import ProfileView from "./views/ProfileView.tsx";
+import MessageView from "./views/MessageView.tsx";
 
 const router = createBrowserRouter([
   {
@@ -81,6 +85,22 @@ const router = createBrowserRouter([
       {
         path: "settings/",
         element: <SettingsView />
+      },
+      {
+        path: "tickets/",
+        element: <TicketView />
+      },
+      {
+        path: "schedule/",
+        element: <ScheduleView />
+      },
+      {
+        path: "profile/",
+        element: <ProfileView />
+      },
+      {
+        path: "messages/",
+        element: <MessageView />
       }
     ]
   }

@@ -38,8 +38,8 @@ export function Sidebar() {
     return (
       <div className="px-3 py-2 space-y-1">
         <h2 className={"mb-2 px-4 text-lg font-semibold tracking-tight"} />
-        <Navlink className="w-full justify-start" isActive={path === "/home" ? true : false} onClick={() => navigate("/home")} text="Home" icon={<HomeIcon />} />
-        <Navlink className="w-full justify-start" isActive={path === "/search" ? true : false} onClick={() => navigate("/search")} text="Search" icon={<SearchIcon />} />
+        <Navlink className="w-full justify-start" isActive={path === "/home" ? true : false} onClick={() => navigate("/home")} text="Home" icon={<HomeIcon color="#f8fafc" stroke="1.5" />} />
+        <Navlink className="w-full justify-start" isActive={path === "/search" ? true : false} onClick={() => navigate("/search")} text="Search" icon={<SearchIcon color="#f8fafc" stroke="1.5" />} />
       </div>
     )
   }
@@ -83,11 +83,10 @@ export function Sidebar() {
           Tutor Panel
         </h2>
         <Navlink className="w-full justify-start" isActive={path === "/dashboard" ? true : false} onClick={() => navigate("/dashboard")} text="Dashboard" icon={<DashboardIcon />} />
-        <Navlink className="w-full justify-start" isActive={path === "/hours" ? true : false} onClick={() => navigate("/hours")} text="Tickets" icon={<TicketIcon />} />
-        <Navlink className="w-full justify-start" isActive={path === "/dashboard" ? true : false} onClick={() => navigate("/dashboard")} text="Schedule" icon={<ScheduleIcon />} />
+        <Navlink className="w-full justify-start" isActive={path === "/tickets" ? true : false} onClick={() => navigate("/tickets")} text="Tickets" icon={<TicketIcon />} />
+        <Navlink className="w-full justify-start" isActive={path === "/schedule" ? true : false} onClick={() => navigate("/schedule")} text="Schedule" icon={<ScheduleIcon />} />
         <Navlink className="w-full justify-start" isActive={path === "/zoom" ? true : false} onClick={() => navigate("/zoom")} text="Zoom" icon={<ZoomIcon />} />
         <Navlink className="w-full justify-start" isActive={path === "/hours" ? true : false} onClick={() => navigate("/hours")} text="Hours" icon={<ClockIcon />} />
-        <Navlink className="w-full justify-start" isActive={path === "/hours" ? true : false} onClick={() => navigate("/hours")} text="View Tickets" icon={<ViewIcon />} />
       </div>
     )
   }
