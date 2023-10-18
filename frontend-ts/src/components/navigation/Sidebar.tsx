@@ -10,7 +10,7 @@ import ZoomIcon from "../assets/ZoomIcon";
 import CalendarIcon from "../assets/CalendarIcon";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { ScrollArea } from "@radix-ui/themes";
+import { ScrollArea } from "../ui/scroll-area";
 import HomeIcon from "../assets/HomeIcon";
 import SearchIcon from "../assets/SearchIcon";
 import Navlink from "./Navlink";
@@ -19,7 +19,6 @@ import SpeakerIcon from "../assets/SpeakerIcon";
 import DownloadIcon from "../assets/DownloadIcon";
 import ScheduleIcon from "../assets/ScheduleIcon";
 import ClockIcon from "../assets/ClockIcon";
-import TicketIcon from "../assets/TicketIcon";
 import { BugIcon, DatabaseZapIcon, LayoutPanelLeftIcon, PackageOpenIcon } from "lucide-react";
 
 const isAdmin = true;
@@ -157,16 +156,12 @@ export function Sidebar() {
   return (
     <div className="hidden lg:flex text-foreground">
       <aside className="h-screen sticky top-0">
-        <div className="hidden lg:block pb-12">
+        <div className="hidden lg:block">
           <div className="space-y-4">
             <ScrollArea
-              size="1"
-              style={{ height: "90vh" }}
-              className="h-full py-4"
-              type="auto"
-              scrollbars="vertical"
+              className=" overflow-y-auto py-4 h-screen"
             >
-              <div>
+              <div className="">
                 <HomeSection />
                 {/* If the user is an admin */}
                 {isAdmin && <AdminSection />}
