@@ -12,6 +12,11 @@ jobs:
     steps:
       - name: Set up build
         run: |
+          echo $GITHUB_WORKSPACE
+          echo ${{ github.workspace }} 
+          echo pwd
+          pwd
+          cwd
           make build
   build:
     runs-on: ubuntu-latest
