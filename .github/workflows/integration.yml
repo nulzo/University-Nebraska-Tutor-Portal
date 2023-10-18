@@ -12,8 +12,6 @@ jobs:
     steps:
       - name: Set up build
         run: |
-          cd ..
-          cd ..
           make build
   build:
     runs-on: ubuntu-latest
