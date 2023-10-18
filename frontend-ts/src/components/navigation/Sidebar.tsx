@@ -20,6 +20,7 @@ import DownloadIcon from "../assets/DownloadIcon";
 import ScheduleIcon from "../assets/ScheduleIcon";
 import ClockIcon from "../assets/ClockIcon";
 import TicketIcon from "../assets/TicketIcon";
+import { BugIcon, DatabaseZapIcon, LayoutPanelLeftIcon, PackageOpenIcon } from "lucide-react";
 
 const isAdmin = true;
 const isTutor = true;
@@ -51,11 +52,11 @@ export function Sidebar() {
           Admin Panel
         </h2>
         <div className="space-y-1">
-          <Navlink className="w-full justify-start" isActive={path === "/blame" ? true : false} onClick={() => navigate("/blame")} text="Blame" icon={<BlameIcon />} />
-          <Navlink className="w-full justify-start" isActive={path === "/announcements" ? true : false} onClick={() => navigate("/announcements")} text="Announcement" icon={<SpeakerIcon />} />
-          <Navlink className="w-full justify-start" isActive={path === "/admin-settings" ? true : false} onClick={() => navigate("/admin-settings")} text="Admin Settings" icon={<SettingsIcon />} />
+          <Navlink className="w-full justify-start" isActive={path === "/admin-dashboard" ? true : false} onClick={() => navigate("/admin-dashboard")} text="Dashboard" icon={<DashboardIcon />} />
+          <Navlink className="w-full justify-start" isActive={path === "/announcements" ? true : false} onClick={() => navigate("/announcements")} text="Announcements" icon={<SpeakerIcon />} />
           <Navlink className="w-full justify-start" isActive={path === "/download" ? true : false} onClick={() => navigate("/download")} text="Download Data" icon={<DownloadIcon />} />
-          <Navlink className="w-full justify-start" isActive={path === "/student-view" ? true : false} onClick={() => navigate("/download")} text="Student View" icon={<ViewIcon />} />
+          <Navlink className="w-full justify-start" isActive={path === "/blame" ? true : false} onClick={() => navigate("/blame")} text="Blame" icon={<BlameIcon />} />
+          <Navlink className="w-full justify-start" isActive={path === "/admin-settings" ? true : false} onClick={() => navigate("/admin-settings")} text="Admin Settings" icon={<SettingsIcon />} />
         </div>
       </div>
     )
@@ -82,8 +83,7 @@ export function Sidebar() {
         <h2 className={"mb-2 px-4 text-lg font-semibold tracking-tight"} >
           Tutor Panel
         </h2>
-        <Navlink className="w-full justify-start" isActive={path === "/dashboard" ? true : false} onClick={() => navigate("/dashboard")} text="Dashboard" icon={<DashboardIcon />} />
-        <Navlink className="w-full justify-start" isActive={path === "/tickets" ? true : false} onClick={() => navigate("/tickets")} text="Tickets" icon={<TicketIcon />} />
+        <Navlink className="w-full justify-start" isActive={path === "/dashboard" ? true : false} onClick={() => navigate("/dashboard")} text="Dashboard" icon={<LayoutPanelLeftIcon viewBox="0 0 24 24" strokeWidth={1.5} width={20} height={20} />} />
         <Navlink className="w-full justify-start" isActive={path === "/schedule" ? true : false} onClick={() => navigate("/schedule")} text="Schedule" icon={<ScheduleIcon />} />
         <Navlink className="w-full justify-start" isActive={path === "/zoom" ? true : false} onClick={() => navigate("/zoom")} text="Zoom" icon={<ZoomIcon />} />
         <Navlink className="w-full justify-start" isActive={path === "/hours" ? true : false} onClick={() => navigate("/hours")} text="Hours" icon={<ClockIcon />} />
@@ -119,6 +119,22 @@ export function Sidebar() {
         </div>
       </div>
     )
+  }
+
+  function DevSettings() {
+    return (
+      <div className="px-3 py-2">
+        <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
+          Development Panel
+        </h2>
+        <div className="space-y-1">
+          <Navlink className="w-full justify-start" isActive={path === "/generate" ? true : false} onClick={() => navigate("/generate")} text="Generate" icon={< DatabaseZapIcon width={20} height={20} viewBox="0 0 24 24" strokeWidth={1.5} />} />
+          <Navlink className="w-full justify-start" isActive={path === "/test-api" ? true : false} onClick={() => navigate("/test-api")} text="Test API" icon={< BugIcon width={20} height={20} viewBox="0 0 24 24" strokeWidth={1.5} />} />
+          <Navlink className="w-full justify-start" isActive={path === "/sandbox" ? true : false} onClick={() => navigate("/sandbox")} text="Sandbox" icon={< PackageOpenIcon width={20} height={20} viewBox="0 0 24 24" strokeWidth={1.5} />} />
+        </div>
+      </div>
+    )
+
   }
 
   if (!isTutor && !isAdmin && !isStudent) {
@@ -160,6 +176,7 @@ export function Sidebar() {
                 {isStudent && <GeneralSection />}
                 {isStudent && <TicketSection />}
                 <AccountSettings />
+                <DevSettings />
               </div>
             </ScrollArea>
           </div>

@@ -6,7 +6,7 @@ import { Toaster } from "./components/ui/toaster";
 export default function Root() {
   return (
     <>
-      <div className="">
+      <div className="dark">
         <Navbar />
         <div className="border-t">
           <div className="bg-background">

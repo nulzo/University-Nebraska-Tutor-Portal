@@ -25,6 +25,9 @@ import ProfileView from "./views/ProfileView.tsx";
 import MessageView from "./views/MessageView.tsx";
 import AdminAnnouncements from "./views/admin/AdminAnnouncements.tsx";
 import AdminSettings from "./views/admin/AdminSettings.tsx";
+import TutorDashboard from "./views/tutor/TutorDashboardView.tsx";
+import DevAPIView from "./views/development/DevAPIView.tsx";
+import DevGenerateData from "./views/development/DevGenerateData.tsx";
 
 const router = createBrowserRouter([
   {
@@ -41,7 +44,7 @@ const router = createBrowserRouter([
         element: <Search />
       },
       {
-        path: "dashboard/",
+        path: "admin-dashboard/",
         element: <Dashboard />
       },
       {
@@ -103,6 +106,22 @@ const router = createBrowserRouter([
       {
         path: "messages/",
         element: <MessageView />
+      },
+      {
+        path: "dashboard/",
+        element: <TutorDashboard />
+      },
+      {
+        path: "generate/",
+        element: <DevGenerateData />
+      },
+      {
+        path: "test-api/",
+        element: <DevAPIView />
+      },
+      {
+        path: "sandbox/",
+        element: <DevAPIView />
       }
     ]
   }
