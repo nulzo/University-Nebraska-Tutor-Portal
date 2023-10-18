@@ -13,7 +13,8 @@ jobs:
       - name: Set up build
         run: |
           cd ..
-          bash ./scripts/build.sh
+          ls
+          bash scripts/build.sh
   build:
     runs-on: ubuntu-latest
     strategy:
