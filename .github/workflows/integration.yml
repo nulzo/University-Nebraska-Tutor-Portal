@@ -11,7 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set up build
-        run: bash ./scripts/build.sh
+        run: |
+          cd ..
+          bash ./scripts/build.sh
   build:
     runs-on: ubuntu-latest
     strategy:
