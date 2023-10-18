@@ -10,13 +10,12 @@ jobs:
   setup:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - name: Set up build
         run: |
           echo $GITHUB_WORKSPACE
           echo ${{ github.workspace }} 
-          echo pwd
-          pwd
-          cwd
+          ls
           make build
   build:
     runs-on: ubuntu-latest
