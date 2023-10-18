@@ -1,7 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: ["class"],
+  darkMode: "class",
   content: [
+    "./index.html",
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
@@ -17,6 +18,11 @@ module.exports = {
     },
     extend: {
       colors: {
+        info: "hsl(var(--info))",
+        alert: "hsl(var(--alert))",
+        warning: "hsl(var(--warning))",
+        fortutor: "hsl(var(--fortutor))",
+        online: "hsl(var(--online))",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

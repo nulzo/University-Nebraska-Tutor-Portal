@@ -1,6 +1,5 @@
 import MenuIcon from "../assets/MenuIcon";
 import { Button } from "../ui/button";
-import SidebarPopout from "./SidebarPopout";
 
 export default function Navbar() {
   function onClick() {

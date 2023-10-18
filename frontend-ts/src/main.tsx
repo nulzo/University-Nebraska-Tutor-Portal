@@ -5,53 +5,123 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 // import InputForm from "./components/views/Login.tsx";
 import Dashboard from "./components/views/Dashboard.tsx";
 // import Tutors from "./components/views/Tutors.tsx";
-
 // import CreateTicket from "./components/views/CreateTicket.tsx";
-// import Hours from "./components/views/Hours.tsx";
-// import ViewTickets from "./components/views/ViewTickets.tsx";
+import Hours from "./components/views/Hours.tsx";
+import ViewTickets from "./components/views/ViewTickets.tsx";
 import Home from "./components/views/Home.tsx";
 import Search from "./components/views/Search.tsx";
-import TestAPI from "./components/views/TestAPI.tsx";
 import TestViewTickets from "./components/views/TestViewTicket.tsx";
-// import GenerateData from "./components/views/GenerateFakeData.tsx";
-import Root, { loader as rootLoader } from "./Root.tsx";
+import GenerateData from "./components/views/GenerateFakeData.tsx";
+import Root from "./Root.tsx";
 import ErrorView from "./views/ErrorView.tsx";
 import Zoom from "./views/ZoomView.tsx";
-import WebsocketView from "./views/WebsocketView.tsx";
+import DownloadView from "./views/admin/AdminDownloadView.tsx";
+import "./style/globals.css"
+import CreateTicketView from "./views/CreateTicketView.tsx";
+import { SettingsView } from "./views/SettingsView.tsx";
+import TicketView from "./views/TicketView.tsx";
+import ScheduleView from "./views/ScheduleView.tsx";
+import ProfileView from "./views/ProfileView.tsx";
+import MessageView from "./views/MessageView.tsx";
+import AdminAnnouncements from "./views/admin/AdminAnnouncements.tsx";
+import AdminSettings from "./views/admin/AdminSettings.tsx";
+import TutorDashboard from "./views/tutor/TutorDashboardView.tsx";
+import DevAPIView from "./views/development/DevAPIView.tsx";
+import DevGenerateData from "./views/development/DevGenerateData.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root/>,
-    errorElement: <ErrorView/>,
-    loader: rootLoader,
+    element: <Root />,
+    errorElement: <ErrorView />,
     children: [
-      {path: "home/",
-        element: <Home/>,
+      {
+        path: "home/",
+        element: <Home />,
       },
       {
         path: "search/",
-        element: <Search/>
+        element: <Search />
       },
       {
-        path: "dashboard/",
-        element: <Dashboard/>
+        path: "admin-dashboard/",
+        element: <Dashboard />
       },
       {
         path: "tutors/",
-        element: <WebsocketView/>
+        element: <ViewTickets />
       },
       {
         path: "zoom/",
-        element: <Zoom/>
+        element: <Zoom />
       },
       {
-        path: "tickets/create",
-        element: <TestAPI/>
+        path: "hours/",
+        element: <Hours />
       },
       {
-        path: "tickets/view",
-        element: <TestViewTickets data={""}/>
+        path: "create/",
+        element: <CreateTicketView />
+      },
+      {
+        path: "view/",
+        element: <TestViewTickets data={""} />
+      },
+      {
+        path: "edit/",
+        element: <GenerateData />
+      },
+      {
+        path: "blame/",
+        element: <ErrorView />
+      },
+      {
+        path: "announcements/",
+        element: <AdminAnnouncements />
+      },
+      {
+        path: "admin-settings/",
+        element: <AdminSettings />
+      },
+      {
+        path: "download/",
+        element: <DownloadView />
+      },
+      {
+        path: "settings/",
+        element: <SettingsView />
+      },
+      {
+        path: "tickets/",
+        element: <TicketView />
+      },
+      {
+        path: "schedule/",
+        element: <ScheduleView />
+      },
+      {
+        path: "profile/",
+        element: <ProfileView />
+      },
+      {
+        path: "messages/",
+        element: <MessageView />
+      },
+      {
+        path: "dashboard/",
+        element: <TutorDashboard />
+      },
+      {
+        path: "generate/",
+        element: <DevGenerateData />
+      },
+      {
+        path: "test-api/",
+        element: <DevAPIView />
+      },
+      {
+        path: "sandbox/",
+        element: <DevAPIView />
       }
     ]
   }
@@ -59,41 +129,6 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
-    {/* <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App children={<Home />} />} />
-        <Route path="search/" element={<App children={<Search />} />} />
-        <Route path="dashboard/" element={<App children={<Dashboard />} />} />
-        <Route path="tutors/" element={<App children={<Tutors />} />} />
-        <Route path="about/" element={<App children={<InputForm />} />} />
-        <Route path="zoom/" element={<App children={<Zoom />} />} />
-        <Route path="hours/" element={<App children={<Hours />} />} />
-        <Route
-          path="tickets/create/"
-          element={<App children={<TestAPI />} />}
-        />
-        <Route
-          path="tickets/view/"
-          element={<App children={<TestViewTickets />} />}
-        />
-        <Route
-          path="tickets/edit/"
-          element={<App children={<InputForm />} />}
-        />
-        <Route
-          path="user/profile/"
-          element={<App children={<InputForm />} />}
-        />
-        <Route
-          path="user/messages/"
-          element={<App children={<InputForm />} />}
-        />
-        <Route
-          path="user/settings/"
-          element={<App children={<GenerateData />} />}
-        />
-      </Routes>
-    </BrowserRouter> */}
+    <RouterProvider router={router} />
   </React.StrictMode>,
 );

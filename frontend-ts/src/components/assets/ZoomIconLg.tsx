@@ -2,12 +2,11 @@ export default function ZoomIconLg() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className="icon icon-tabler icon-tabler-brand-zoom"
+      className="stroke-foreground"
       width="32"
       height="32"
       viewBox="0 0 24 24"
       strokeWidth="1.5"
-      stroke="#2c3e50"
       fill="none"
       strokeLinecap="round"
       strokeLinejoin="round"
