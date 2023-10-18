@@ -24,7 +24,7 @@ echo - This script should ONLY be run ONCE - either right after you clone projec
 echo - This script will erase database information, rewrite .env files, and potentially delete your dev progress!
 echo - This script will install all packages, apply all database schemas, and automatically build the project for you.; echo
 echo By running this, you understand when this script should be run and when it should not be run.; echo
-read -p "Run script and build project? (Y/N): " confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
+# read -p "Run script and build project? (Y/N): " confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
 
 # First, we must check that the user has poetry on their system and install if not
 poetry --version || curl -sSL https://install.python-poetry.org | python3 -
