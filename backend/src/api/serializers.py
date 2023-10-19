@@ -49,6 +49,8 @@ class HourSerializer(serializers.ModelSerializer):
 
 
 class ProfessorSerializer(serializers.ModelSerializer):
+    full_name = serializers.StringRelatedField(many=True)
+
     class Meta:
         model = Professor
         fields = "__all__"
@@ -57,9 +59,16 @@ class ProfessorSerializer(serializers.ModelSerializer):
 class CourseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Course
+        fields = "__all__"
 
 
 class TicketSerializer(serializers.ModelSerializer):
+    professor = serializers.StringRelatedField()
+    section = serializers.StringRelatedField()
+    issue = serializers.StringRelatedField()
+    student = serializers.StringRelatedField()
+    tutor = serializers.StringRelatedField()
+
     class Meta:
         model = Ticket
         fields = "__all__"
@@ -69,19 +78,6 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = "__all__"
-        # fields = (
-        #     "courses_tutoring",
-        #     "courses_taken",
-        #     "tickets",
-        #     "name",
-        #     "is_active",
-        #     "is_working",
-        #     "is_tutor",
-        #     "is_admin",
-        #     "user_bio",
-        #     "email",
-        #     "MSOID",
-        # )
 
 
 class SectionSerializer(serializers.ModelSerializer):

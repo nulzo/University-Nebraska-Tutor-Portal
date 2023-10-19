@@ -15,7 +15,6 @@ class Professor(models.Model):
     full_name = models.CharField(max_length=100)
     email = models.CharField(max_length=100)
     is_active = models.BooleanField(default=True)
-    sections = models.ManyToManyField("api.Section", related_name="professortosection")
 
     professor = ProfessorManager()
 
