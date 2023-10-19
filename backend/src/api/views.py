@@ -17,6 +17,7 @@ from .models.professor import Professor
 from .models.sections import Section
 from .models.ticket import Ticket
 from .models.user import User
+from .models.course import Course
 from .serializers import (
     HourSerializer,
     IssueSerializer,
@@ -25,6 +26,7 @@ from .serializers import (
     SectionSerializer,
     TicketSerializer,
     UserSerializer,
+    CourseSerializer,
 )
 
 # fmt: off
@@ -169,10 +171,10 @@ class ActiveTicketListView(APIView):
     serializer_class = TicketSerializer
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
     name = "Access Completed Tickets"
-    description = """ Query the database to return a payload consisting of all tickets that have been completed. This takes a tutors NUID in as the parameter. """
+    description = """ Query the database to return a payload consisting of all tickets that have are active. """
 
     def get(self, request):
-        queryset = Ticket.ticket.get_completed()
+        queryset = Ticket.ticket.get_active()
         if len(queryset) > 0:
             serializer = TicketSerializer(queryset, many=True)
             return Response(serializer.data)
@@ -303,7 +305,8 @@ class ProfessorListView(APIView):
         return Response(serializer.data)
 
     def post(self, request, format=None):
-        serializer = ProfessorSerializer(request.data)
+        data = Professor.professor.get_professors()
+        serializer = ProfessorSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -423,4 +426,66 @@ class SectionListView(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.data)
+
+
+# -------------------------- COURSES --------------------------
+
+
+class CourseListView(APIView):
+    serializer_class = CourseSerializer
+    renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
+
+    def get(self, request):
+        queryset = Course.objects.all()
+        serializer = CourseSerializer(queryset, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = CourseSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.data)
+
+
+# -------------------------- USERS --------------------------
+
+
+class StudentListView(APIView):
+    serializer_class = UserSerializer
+    renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
+
+    def get(self, request):
+        queryset = User.student.get_students()
+        serializer = UserSerializer(queryset, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = UserSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.data)
+
+class StudentDetailView(APIView):
+    def query_obj(self, pk: str):
+        try:
+            return User.student.get_student(pk=pk)
+        except User.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk: str | None = None):
+        data = self.query_obj(pk)
+        serializer = UserSerializer(data)
+        return Response(serializer.data)
+
+    def put(self, request, pk=None):
+        modified = self.query_obj(pk)
+        serializer = UserSerializer(modified, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
 # fmt: on
