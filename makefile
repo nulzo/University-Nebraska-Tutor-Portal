@@ -46,6 +46,10 @@ migrate:
 lint:
 	./scripts/linter.sh
 
+.PHONY kill:
+kill:
+	./scripts/killservers.sh
+
 .PHONY format:
 format:
 	./scripts/formatter.sh

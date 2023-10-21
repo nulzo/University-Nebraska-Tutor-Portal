@@ -23,7 +23,7 @@ import { BugIcon, DatabaseZapIcon, LayoutPanelLeftIcon, PackageOpenIcon } from "
 
 const isAdmin = true;
 const isTutor = true;
-const isStudent = false;
+const isStudent = true;
 
 export function Sidebar() {
   const [path, setPath] = useState("");

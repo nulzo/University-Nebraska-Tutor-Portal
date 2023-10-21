@@ -187,21 +187,17 @@ export default function TutorDashboard() {
                             ))}
                         </CardContent>
                     </TabsContent>
-                    <TabsContent value="closed" className="space-y-4">
-                        <Card>
-                            <CardHeader>
-                                <Label className="text-base">Closed Tickets</Label>
-                                <CardDescription>
-                                    Below are closed tickets. Tickets will stay on this page for 24hrs after they are closed.
-                                </CardDescription>
-                            </CardHeader>
-                            <CardContent>
-
-                            </CardContent>
-                            <CardFooter>
-
-                            </CardFooter>
-                        </Card>
+                    <TabsContent value="closed" className="">
+                        <Label className="text-base text-foreground">Closed Tickets</Label>
+                        <CardDescription>
+                            Tickets that have been opened, but are not yet closed. Please ensure you close all opened tickets.
+                        </CardDescription>
+                        <Separator className="mb-4 mt-2" />
+                        <CardContent className="space-y-4">
+                            {!loadingOpened && openTickets.data && openTickets.data.map((openTickets: any) => (
+                                <Ticket name={openTickets.student} tutor={openTickets.tutor} professor={openTickets.professor} description={openTickets.description} section={openTickets.section} started={openTickets.started} completed={openTickets.completed} start_time={openTickets.start_time} type={"opened"} />
+                            ))}
+                        </CardContent>
                     </TabsContent>
                 </Tabs>
             </div>

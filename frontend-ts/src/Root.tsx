@@ -2,8 +2,15 @@ import { Outlet } from "react-router-dom";
 import { Sidebar } from "./components/navigation/Sidebar";
 import Navbar from "./components/navigation/Navbar";
 import { Toaster } from "./components/ui/toaster";
+import { useEffect } from "react";
 
 export default function Root() {
+  useEffect(() => {
+    const theme = localStorage.getItem('theme');
+    if (theme) {
+      document.getElementById("root")?.classList.add('theme', theme);
+    }
+  }, []);
   return (
     <>
       <div className="">

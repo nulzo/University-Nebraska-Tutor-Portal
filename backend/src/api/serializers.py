@@ -2,7 +2,6 @@ from rest_framework import serializers
 
 from .models.course import Course
 from .models.cslc_hours import CSLC_Hours
-from .models.dummy import Dummy
 from .models.issue import Issues
 from .models.messages import Messages
 from .models.professor import Professor
@@ -10,21 +9,6 @@ from .models.sections import Section
 from .models.ticket import Ticket
 from .models.user import User
 from .models.work_hours import WorkingHours
-
-
-class BackendSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Dummy
-        fields = (
-            "claimed",
-            "issue_type",
-            "description",
-            "closed",
-            "name",
-            "professor",
-            "course",
-            "assignment",
-        )
 
 
 class HourSerializer(serializers.ModelSerializer):
@@ -49,7 +33,7 @@ class HourSerializer(serializers.ModelSerializer):
 
 
 class ProfessorSerializer(serializers.ModelSerializer):
-    full_name = serializers.StringRelatedField(many=True)
+    # full_name = serializers.StringRelatedField()
 
     class Meta:
         model = Professor
@@ -63,11 +47,11 @@ class CourseSerializer(serializers.ModelSerializer):
 
 
 class TicketSerializer(serializers.ModelSerializer):
-    professor = serializers.StringRelatedField()
-    section = serializers.StringRelatedField()
-    issue = serializers.StringRelatedField()
-    student = serializers.StringRelatedField()
-    tutor = serializers.StringRelatedField()
+    # professor = serializers.StringRelatedField()
+    # section = serializers.StringRelatedField()
+    # issue = serializers.StringRelatedField()
+    # student = serializers.StringRelatedField()
+    # tutor = serializers.StringRelatedField()
 
     class Meta:
         model = Ticket
