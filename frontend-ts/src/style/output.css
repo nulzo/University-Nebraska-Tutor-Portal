@@ -1255,14 +1255,6 @@ body {
   width: max-content;
 }
 
-.w-1 {
-  width: 0.25rem;
-}
-
-.w-10 {
-  width: 2.5rem;
-}
-
 .min-w-\[8rem\] {
   min-width: 8rem;
 }
@@ -1559,10 +1551,6 @@ body {
   overflow-x: hidden;
 }
 
-.overscroll-contain {
-  overscroll-behavior: contain;
-}
-
 .overscroll-none {
   overscroll-behavior: none;
 }
@@ -1749,6 +1737,10 @@ body {
   background-color: hsl(var(--border));
 }
 
+.bg-border\/25 {
+  background-color: hsl(var(--border) / 0.25);
+}
+
 .bg-card {
   background-color: hsl(var(--card));
 }
@@ -1816,22 +1808,6 @@ body {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-border\/50 {
-  background-color: hsl(var(--border) / 0.5);
-}
-
-.bg-white\/50 {
-  background-color: rgb(255 255 255 / 0.5);
-}
-
-.bg-border\/75 {
-  background-color: hsl(var(--border) / 0.75);
-}
-
-.bg-border\/25 {
-  background-color: hsl(var(--border) / 0.25);
-}
-
 .fill-primary {
   fill: hsl(var(--primary));
 }
@@ -1886,22 +1862,6 @@ body {
 
 .p-\[1px\] {
   padding: 1px;
-}
-
-.p-\[2px\] {
-  padding: 2px;
-}
-
-.p-\[10px\] {
-  padding: 10px;
-}
-
-.p-\[0px\] {
-  padding: 0px;
-}
-
-.p-10 {
-  padding: 2.5rem;
 }
 
 .px-1 {
@@ -2526,63 +2486,6 @@ body {
 
 .ease-in-out {
   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.scrollbar-thin {
-  scrollbar-color: var(--scrollbar-thumb, initial) var(--scrollbar-track, initial);
-}
-
-.scrollbar-thin::-webkit-scrollbar-track {
-  background-color: var(--scrollbar-track);
-  border-radius: var(--scrollbar-track-radius);
-}
-
-.scrollbar-thin::-webkit-scrollbar-track:hover {
-  background-color: var(--scrollbar-track-hover, var(--scrollbar-track));
-}
-
-.scrollbar-thin::-webkit-scrollbar-track:active {
-  background-color: var(--scrollbar-track-active, var(--scrollbar-track-hover, var(--scrollbar-track)));
-}
-
-.scrollbar-thin::-webkit-scrollbar-thumb {
-  background-color: var(--scrollbar-thumb);
-  border-radius: var(--scrollbar-thumb-radius);
-}
-
-.scrollbar-thin::-webkit-scrollbar-thumb:hover {
-  background-color: var(--scrollbar-thumb-hover, var(--scrollbar-thumb));
-}
-
-.scrollbar-thin::-webkit-scrollbar-thumb:active {
-  background-color: var(--scrollbar-thumb-active, var(--scrollbar-thumb-hover, var(--scrollbar-thumb)));
-}
-
-.scrollbar-thin::-webkit-scrollbar-corner {
-  background-color: var(--scrollbar-corner);
-  border-radius: var(--scrollbar-corner-radius);
-}
-
-.scrollbar-thin::-webkit-scrollbar-corner:hover {
-  background-color: var(--scrollbar-corner-hover, var(--scrollbar-corner));
-}
-
-.scrollbar-thin::-webkit-scrollbar-corner:active {
-  background-color: var(--scrollbar-corner-active, var(--scrollbar-corner-hover, var(--scrollbar-corner)));
-}
-
-.scrollbar-thin {
-  scrollbar-width: thin;
-}
-
-.scrollbar-thin::-webkit-scrollbar {
-  display: block;
-  width: 8px;
-  height: 8px;
-}
-
-.scrollbar-thumb-muted {
-  --scrollbar-thumb: hsl(var(--muted)) !important;
 }
 
 .file\:border-0::file-selector-button {

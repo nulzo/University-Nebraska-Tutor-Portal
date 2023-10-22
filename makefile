@@ -62,3 +62,7 @@ test:
 poetry:
 	poetry shell
 	poetry install
+
+.PHONY win-run-dev:
+win-run-dev:
+	scripts\rundev.bat
