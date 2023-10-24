@@ -37,6 +37,7 @@ import {
 import { toast } from "@/components/ui/use-toast";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import useGet from "@/API/useGet";
 
 const languages = [
   { label: "English", value: "English" },
@@ -132,7 +133,7 @@ export default function TicketForm() {
   }, []);
 
   useEffect(() => {
-    getProfessors();
+    useProfessors();
   }, [])
 
   function onSubmit(data: z.infer<typeof FormSchema>) {

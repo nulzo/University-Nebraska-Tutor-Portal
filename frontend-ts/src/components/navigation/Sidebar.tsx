@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import Navlink from "@/components/navigation/Navlink";
-import { BugIcon, CalendarClockIcon, CalendarDaysIcon, DatabaseZapIcon, LayoutPanelLeftIcon, MessagesSquareIcon, PackageOpenIcon, PlusSquareIcon, UserIcon, UsersIcon, SearchIcon, SettingsIcon, HomeIcon, MegaphoneIcon, DownloadIcon, BirdIcon, LayoutIcon } from "lucide-react";
+import { BugIcon, CalendarClockIcon, CalendarDaysIcon, DatabaseZapIcon, MessagesSquareIcon, PackageOpenIcon, PlusSquareIcon, UserIcon, UsersIcon, SearchIcon, SettingsIcon, HomeIcon, MegaphoneIcon, DownloadIcon, BirdIcon, LayoutIcon } from "lucide-react";
 
 const isAdmin = true;
 const isTutor = false;
