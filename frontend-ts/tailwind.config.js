@@ -18,6 +18,7 @@ module.exports = {
     },
     extend: {
       colors: {
+        zoom: "hsl(var(--zoom))",
         info: "hsl(var(--info))",
         alert: "hsl(var(--alert))",
         warning: "hsl(var(--warning))",

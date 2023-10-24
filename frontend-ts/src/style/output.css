@@ -611,6 +611,7 @@ select {
 }
 
 :root {
+  --zoom: 213 100% 59%;
   --online: 129 64% 67%;
   --alert: 45 100% 50%;
   --warning: 1 100% 46%;
@@ -639,6 +640,7 @@ select {
 }
 
 .dark {
+  --zoom: 213 100% 59%;
   --online: 129 64% 67%;
   --alert: 45 100% 50%;
   --warning: 0 100% 66%;
@@ -880,10 +882,6 @@ body {
   right: 5rem;
 }
 
-.right-3 {
-  right: 0.75rem;
-}
-
 .right-4 {
   right: 1rem;
 }
@@ -902,10 +900,6 @@ body {
 
 .top-2 {
   top: 0.5rem;
-}
-
-.top-2\.5 {
-  top: 0.625rem;
 }
 
 .top-3 {
@@ -1023,6 +1017,10 @@ body {
 
 .mt-0 {
   margin-top: 0px;
+}
+
+.mt-1 {
+  margin-top: 0.25rem;
 }
 
 .mt-2 {
@@ -1145,8 +1143,8 @@ body {
   max-height: 100vh;
 }
 
-.min-h-\[100px\] {
-  min-height: 100px;
+.min-h-\[15vh\] {
+  min-height: 15vh;
 }
 
 .min-h-\[60px\] {
@@ -1221,6 +1219,14 @@ body {
   width: 200px;
 }
 
+.w-\[240px\] {
+  width: 240px;
+}
+
+.w-\[250px\] {
+  width: 250px;
+}
+
 .w-\[300px\] {
   width: 300px;
 }
@@ -1250,21 +1256,12 @@ body {
   width: 100%;
 }
 
-.w-max {
-  width: -moz-max-content;
-  width: max-content;
-}
-
 .min-w-\[8rem\] {
   min-width: 8rem;
 }
 
 .min-w-\[var\(--radix-select-trigger-width\)\] {
   min-width: var(--radix-select-trigger-width);
-}
-
-.max-w-\[50vw\] {
-  max-width: 50vw;
 }
 
 .max-w-lg {
@@ -1335,12 +1332,6 @@ body {
 
 .scroll-m-20 {
   scroll-margin: 5rem;
-}
-
-.appearance-none {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
 }
 
 .grid-cols-1 {
@@ -1459,12 +1450,6 @@ body {
   margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
-.space-x-5 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(1.25rem * var(--tw-space-x-reverse));
-  margin-left: calc(1.25rem * calc(1 - var(--tw-space-x-reverse)));
-}
-
 .space-x-6 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(1.5rem * var(--tw-space-x-reverse));
@@ -1475,6 +1460,12 @@ body {
   --tw-space-y-reverse: 0;
   margin-top: calc(0px * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(0px * var(--tw-space-y-reverse));
+}
+
+.space-y-0\.5 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.125rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.125rem * var(--tw-space-y-reverse));
 }
 
 .space-y-1 > :not([hidden]) ~ :not([hidden]) {
@@ -1808,6 +1799,10 @@ body {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-zoom {
+  background-color: hsl(var(--zoom));
+}
+
 .fill-primary {
   fill: hsl(var(--primary));
 }
@@ -1822,10 +1817,6 @@ body {
 
 .stroke-info {
   stroke: hsl(var(--info));
-}
-
-.stroke-muted-foreground {
-  stroke: hsl(var(--muted-foreground));
 }
 
 .stroke-online {
@@ -2260,6 +2251,10 @@ body {
   color: hsl(var(--muted-foreground));
 }
 
+.text-muted-foreground\/50 {
+  color: hsl(var(--muted-foreground) / 0.5);
+}
+
 .text-popover-foreground {
   color: hsl(var(--popover-foreground));
 }
@@ -2303,6 +2298,10 @@ body {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-zoom {
+  color: hsl(var(--zoom));
 }
 
 .underline {
@@ -2835,6 +2834,21 @@ body {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.hover\:bg-\[\#227997\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(34 121 151 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-\[\#2A7FE6\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(42 127 230 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-\[\#297EE5\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(41 126 229 / var(--tw-bg-opacity));
+}
+
 .hover\:font-medium:hover {
   font-weight: 500;
 }
@@ -3270,6 +3284,14 @@ body {
 .\[\&\>\[role\=checkbox\]\]\:translate-y-\[2px\]>[role=checkbox] {
   --tw-translate-y: 2px;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.\[\&\>div\>svg\]\:hover\:stroke-red-700:hover>div>svg {
+  stroke: #b91c1c;
+}
+
+.\[\&\>div\>svg\]\:hover\:stroke-zoom:hover>div>svg {
+  stroke: hsl(var(--zoom));
 }
 
 .\[\&\>p\]\:flex>p {
