@@ -46,6 +46,10 @@ migrate:
 lint:
 	./scripts/linter.sh
 
+.PHONY kill:
+kill:
+	./scripts/killservers.sh
+
 .PHONY format:
 format:
 	./scripts/formatter.sh
@@ -58,3 +62,7 @@ test:
 poetry:
 	poetry shell
 	poetry install
+
+.PHONY win-run-dev:
+win-run-dev:
+	scripts\rundev.bat

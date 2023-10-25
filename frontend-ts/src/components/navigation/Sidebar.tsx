@@ -1,30 +1,17 @@
-import ProfileIcon from "../assets/ProfileIcon";
-import DashboardIcon from "../assets/DashboardIcon";
-import TutorsIcon from "../assets/TutorsIcon";
-import CreateIcon from "../assets/CreateIcon";
-import ViewIcon from "../assets/ViewIcon";
-import EditIcon from "../assets/EditIcon";
-import MessageIcon from "../assets/MessageIcon";
-import SettingsIcon from "../assets/SettingsIcon";
-import ZoomIcon from "../assets/ZoomIcon";
-import CalendarIcon from "../assets/CalendarIcon";
+import ZoomIcon from "@/components/assets/ZoomIcon";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { ScrollArea } from "@radix-ui/themes";
-import HomeIcon from "../assets/HomeIcon";
-import SearchIcon from "../assets/SearchIcon";
-import Navlink from "./Navlink";
-import BlameIcon from "../assets/BlameIcon";
-import SpeakerIcon from "../assets/SpeakerIcon";
-import DownloadIcon from "../assets/DownloadIcon";
-import ScheduleIcon from "../assets/ScheduleIcon";
-import ClockIcon from "../assets/ClockIcon";
-import TicketIcon from "../assets/TicketIcon";
-import { BugIcon, DatabaseZapIcon, LayoutPanelLeftIcon, PackageOpenIcon } from "lucide-react";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import Navlink from "@/components/navigation/Navlink";
+import { BugIcon, CalendarClockIcon, CalendarDaysIcon, DatabaseZapIcon, MessagesSquareIcon, PackageOpenIcon, PlusSquareIcon, UserIcon, UsersIcon, SearchIcon, SettingsIcon, HomeIcon, MegaphoneIcon, DownloadIcon, BirdIcon, LayoutIcon } from "lucide-react";
 
-const isAdmin = true;
+const isAdmin = false;
 const isTutor = true;
 const isStudent = false;
+const isDeveloper = true;
+
+const stroke_width = 1.75;
+const shape_rendering = "auto"
 
 export function Sidebar() {
   const [path, setPath] = useState("");
@@ -39,8 +26,8 @@ export function Sidebar() {
     return (
       <div className="px-3 py-2 space-y-1">
         <h2 className={"mb-2 px-4 text-lg font-semibold tracking-tight"} />
-        <Navlink className="w-full justify-start" isActive={path === "/home" ? true : false} onClick={() => navigate("/home")} text="Home" icon={<HomeIcon color="#f8fafc" stroke="1.5" />} />
-        <Navlink className="w-full justify-start" isActive={path === "/search" ? true : false} onClick={() => navigate("/search")} text="Search" icon={<SearchIcon color="#f8fafc" stroke="1.5" />} />
+        <Navlink className="w-full justify-start" isActive={path === "/home" ? true : false} onClick={() => navigate("/home")} text="Home" icon={<HomeIcon viewBox="0 0 24 24" width={20} height={20} strokeWidth={stroke_width} shapeRendering={shape_rendering} />} />
+        <Navlink className="w-full justify-start" isActive={path === "/search" ? true : false} onClick={() => navigate("/search")} text="Search" icon={<SearchIcon viewBox="0 0 24 24" width={20} height={20} strokeWidth={stroke_width} shapeRendering={shape_rendering} />} />
       </div>
     )
   }
@@ -52,11 +39,11 @@ export function Sidebar() {
           Admin Panel
         </h2>
         <div className="space-y-1">
-          <Navlink className="w-full justify-start" isActive={path === "/admin-dashboard" ? true : false} onClick={() => navigate("/admin-dashboard")} text="Dashboard" icon={<DashboardIcon />} />
-          <Navlink className="w-full justify-start" isActive={path === "/announcements" ? true : false} onClick={() => navigate("/announcements")} text="Announcements" icon={<SpeakerIcon />} />
-          <Navlink className="w-full justify-start" isActive={path === "/download" ? true : false} onClick={() => navigate("/download")} text="Download Data" icon={<DownloadIcon />} />
-          <Navlink className="w-full justify-start" isActive={path === "/blame" ? true : false} onClick={() => navigate("/blame")} text="Blame" icon={<BlameIcon />} />
-          <Navlink className="w-full justify-start" isActive={path === "/admin-settings" ? true : false} onClick={() => navigate("/admin-settings")} text="Admin Settings" icon={<SettingsIcon />} />
+          <Navlink className="w-full justify-start" isActive={path === "/admin-dashboard" ? true : false} onClick={() => navigate("/admin-dashboard")} text="Dashboard" icon={<LayoutIcon viewBox="0 0 24 24" shapeRendering={shape_rendering} width={20} height={20} strokeWidth={stroke_width} />} />
+          <Navlink className="w-full justify-start" isActive={path === "/announcements" ? true : false} onClick={() => navigate("/announcements")} text="Announcements" icon={<MegaphoneIcon viewBox="0 0 24 24" width={20} height={20} strokeWidth={stroke_width} shapeRendering={shape_rendering} />} />
+          <Navlink className="w-full justify-start" isActive={path === "/download" ? true : false} onClick={() => navigate("/download")} text="Download Data" icon={<DownloadIcon viewBox="0 0 24 24" width={20} height={20} strokeWidth={stroke_width} shapeRendering={shape_rendering} />} />
+          <Navlink className="w-full justify-start" isActive={path === "/blame" ? true : false} onClick={() => navigate("/blame")} text="Blame" icon={<BirdIcon viewBox="0 0 24 24" width={20} height={20} strokeWidth={stroke_width} shapeRendering={shape_rendering} />} />
+          <Navlink className="w-full justify-start" isActive={path === "/admin-settings" ? true : false} onClick={() => navigate("/admin-settings")} text="Admin Settings" icon={<SettingsIcon viewBox="0 0 24 24" width={20} height={20} strokeWidth={stroke_width} shapeRendering={shape_rendering} />} />
         </div>
       </div>
     )
@@ -69,9 +56,10 @@ export function Sidebar() {
           General
         </h2>
         <div className="space-y-1">
-          <Navlink className="w-full justify-start" isActive={path === "/zoom" ? true : false} onClick={() => navigate("/zoom")} text="Join Zoom" icon={<ZoomIcon />} />
-          <Navlink className="w-full justify-start" isActive={path === "/hours" ? true : false} onClick={() => navigate("/hours")} text="CSLC Hours" icon={<CalendarIcon />} />
-          <Navlink className="w-full justify-start" isActive={path === "/tutors" ? true : false} onClick={() => navigate("/tutors")} text="CSLC Tutors" icon={<TutorsIcon />} />
+          <Navlink className="w-full justify-start" isActive={path === "/create" ? true : false} onClick={() => navigate("/create")} text="Create Ticket" icon={<PlusSquareIcon width={20} height={20} strokeWidth={stroke_width} shapeRendering={shape_rendering} viewBox={'0 0 24 24'} />} />
+          <Navlink className="w-full justify-start [&>div>svg]:hover:stroke-zoom" isActive={path === "/zoom" ? true : false} onClick={() => navigate("/zoom")} text="CSLC Zoom" icon={<ZoomIcon width={20} height={20} viewBox={'0 0 24 24'} strokeWidth={stroke_width} shapeRendering={shape_rendering} />} />
+          <Navlink className="w-full justify-start" isActive={path === "/hours" ? true : false} onClick={() => navigate("/hours")} text="CSLC Hours" icon={<CalendarClockIcon width={20} height={20} strokeWidth={stroke_width} shapeRendering={shape_rendering} viewBox={'0 0 24 24'} />} />
+          <Navlink className="w-full justify-start" isActive={path === "/tutors" ? true : false} onClick={() => navigate("/tutors")} text="CSLC Tutors" icon={<UsersIcon width={20} height={20} strokeWidth={stroke_width} shapeRendering={shape_rendering} viewBox={'0 0 24 24'} />} />
         </div>
       </div>
     )
@@ -83,28 +71,13 @@ export function Sidebar() {
         <h2 className={"mb-2 px-4 text-lg font-semibold tracking-tight"} >
           Tutor Panel
         </h2>
-        <Navlink className="w-full justify-start" isActive={path === "/dashboard" ? true : false} onClick={() => navigate("/dashboard")} text="Dashboard" icon={<LayoutPanelLeftIcon viewBox="0 0 24 24" strokeWidth={1.5} width={20} height={20} />} />
-        <Navlink className="w-full justify-start" isActive={path === "/schedule" ? true : false} onClick={() => navigate("/schedule")} text="Schedule" icon={<ScheduleIcon />} />
-        <Navlink className="w-full justify-start" isActive={path === "/zoom" ? true : false} onClick={() => navigate("/zoom")} text="Zoom" icon={<ZoomIcon />} />
-        <Navlink className="w-full justify-start" isActive={path === "/hours" ? true : false} onClick={() => navigate("/hours")} text="Hours" icon={<ClockIcon />} />
+        <Navlink className="w-full justify-start" isActive={path === "/dashboard" ? true : false} onClick={() => navigate("/dashboard")} text="Dashboard" icon={<LayoutIcon viewBox="0 0 24 24" shapeRendering={shape_rendering} width={20} height={20} strokeWidth={stroke_width} />} />
+        <Navlink className="w-full justify-start" isActive={path === "/schedule" ? true : false} onClick={() => navigate("/schedule")} text="Schedule" icon={<CalendarDaysIcon viewBox="0 0 24 24" strokeWidth={stroke_width} shapeRendering={shape_rendering} width={20} height={20} />} />
+        <Navlink className="w-full justify-start" isActive={path === "/tutors" ? true : false} onClick={() => navigate("/tutors")} text="Tutors" icon={<UsersIcon viewBox="0 0 24 24" strokeWidth={stroke_width} shapeRendering={shape_rendering} width={20} height={20} />} />
       </div>
     )
   }
 
-  function TicketSection() {
-    return (
-      <div className="px-3 py-2">
-        <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
-          Tickets
-        </h2>
-        <div className="space-y-1">
-          <Navlink className="w-full justify-start" isActive={path === "/create" ? true : false} onClick={() => navigate("/create")} text="Create Ticket" icon={<CreateIcon />} />
-          <Navlink className="w-full justify-start" isActive={path === "/view" ? true : false} onClick={() => navigate("/view")} text="View Tickets" icon={<ViewIcon />} />
-          <Navlink className="w-full justify-start" isActive={path === "/edit" ? true : false} onClick={() => navigate("/edit")} text="Edit Tickets" icon={<EditIcon />} />
-        </div>
-      </div>
-    )
-  }
 
   function AccountSettings() {
     return (
@@ -113,9 +86,9 @@ export function Sidebar() {
           Account
         </h2>
         <div className="space-y-1">
-          <Navlink className="w-full justify-start" isActive={path === "/profile" ? true : false} onClick={() => navigate("/profile")} text="Profile" icon={<ProfileIcon />} />
-          <Navlink className="w-full justify-start" isActive={path === "/messages" ? true : false} onClick={() => navigate("/messages")} text="Message" icon={<MessageIcon />} />
-          <Navlink className="w-full justify-start" isActive={path === "/settings" ? true : false} onClick={() => navigate("/settings")} text="Settings" icon={<SettingsIcon />} />
+          <Navlink className="w-full justify-start" isActive={path === "/profile" ? true : false} onClick={() => navigate("/profile")} text="Profile" icon={<UserIcon viewBox="0 0 24 24" width={20} height={20} strokeWidth={stroke_width} shapeRendering={shape_rendering} />} />
+          <Navlink className="w-full justify-start" isActive={path === "/messages" ? true : false} onClick={() => navigate("/messages")} text="Messages" icon={<MessagesSquareIcon viewBox="0 0 24 24" width={20} height={20} strokeWidth={stroke_width} shapeRendering={shape_rendering} />} />
+          <Navlink className="w-full justify-start" isActive={path === "/settings" ? true : false} onClick={() => navigate("/settings")} text="Settings" icon={<SettingsIcon viewBox="0 0 24 24" width={20} height={20} strokeWidth={stroke_width} shapeRendering={shape_rendering} />} />
         </div>
       </div>
     )
@@ -128,9 +101,9 @@ export function Sidebar() {
           Development Panel
         </h2>
         <div className="space-y-1">
-          <Navlink className="w-full justify-start" isActive={path === "/generate" ? true : false} onClick={() => navigate("/generate")} text="Generate" icon={< DatabaseZapIcon width={20} height={20} viewBox="0 0 24 24" strokeWidth={1.5} />} />
-          <Navlink className="w-full justify-start" isActive={path === "/test-api" ? true : false} onClick={() => navigate("/test-api")} text="Test API" icon={< BugIcon width={20} height={20} viewBox="0 0 24 24" strokeWidth={1.5} />} />
-          <Navlink className="w-full justify-start" isActive={path === "/sandbox" ? true : false} onClick={() => navigate("/sandbox")} text="Sandbox" icon={< PackageOpenIcon width={20} height={20} viewBox="0 0 24 24" strokeWidth={1.5} />} />
+          <Navlink className="w-full justify-start" isActive={path === "/generate" ? true : false} onClick={() => navigate("/generate")} text="Generate" icon={< DatabaseZapIcon width={20} height={20} viewBox="0 0 24 24" strokeWidth={stroke_width} shapeRendering={shape_rendering} />} />
+          <Navlink className="w-full justify-start" isActive={path === "/test-api" ? true : false} onClick={() => navigate("/test-api")} text="Test API" icon={< BugIcon width={20} height={20} viewBox="0 0 24 24" strokeWidth={stroke_width} shapeRendering={shape_rendering} />} />
+          <Navlink className="w-full justify-start" isActive={path === "/sandbox" ? true : false} onClick={() => navigate("/sandbox")} text="Sandbox" icon={< PackageOpenIcon width={20} height={20} viewBox="0 0 24 24" strokeWidth={stroke_width} shapeRendering={shape_rendering} />} />
         </div>
       </div>
     )
@@ -157,26 +130,22 @@ export function Sidebar() {
   return (
     <div className="hidden lg:flex text-foreground">
       <aside className="h-screen sticky top-0">
-        <div className="hidden lg:block pb-12">
+        <div className="hidden lg:block">
           <div className="space-y-4">
             <ScrollArea
-              size="1"
-              style={{ height: "90vh" }}
-              className="h-full py-4"
-              type="auto"
-              scrollbars="vertical"
+              className=" overflow-y-auto py-4 h-screen"
             >
-              <div>
+              <div className="">
                 <HomeSection />
                 {/* If the user is an admin */}
-                {isAdmin && <AdminSection />}
+                {isAdmin && (!(isTutor || isStudent)) && (<><AdminSection /><GeneralSection /></>)}
                 {/* If the user is a tutor */}
-                {isTutor && <TutorSection />}
+                {isTutor && (!(isStudent || isAdmin)) && (<><TutorSection /><GeneralSection /></>)}
                 {/* If the user is a student */}
-                {isStudent && <GeneralSection />}
-                {isStudent && <TicketSection />}
+                {isStudent && (!(isTutor || isAdmin)) && (<GeneralSection />)}
+                {/* If the user is a developer */}
+                {isDeveloper && <DevSettings />}
                 <AccountSettings />
-                <DevSettings />
               </div>
             </ScrollArea>
           </div>

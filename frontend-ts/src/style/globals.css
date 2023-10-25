@@ -6,6 +6,7 @@
 
 @layer base {
   :root {
+    --zoom: 213 100% 59%;
     --online: 129 64% 67%;
     --alert: 45 100% 50%;
     --warning: 1 100% 46%;
@@ -34,6 +35,7 @@
   }
 
   .dark {
+    --zoom: 213 100% 59%;
     --online: 129 64% 67%;
     --alert: 45 100% 50%;
     --warning: 0 100% 66%;
@@ -68,6 +70,12 @@
     body {
       @apply bg-background text-foreground;
       font-feature-settings: "rlig" 1, "calt" 1;
+    }
+  }
+
+  @layer utilities {
+    .scrollbar-medium::-webkit-scrollbar {
+      width: 10px;
     }
   }
 }

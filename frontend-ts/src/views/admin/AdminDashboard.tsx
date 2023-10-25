@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-export default function DashboardPage() {
+export default function AdminDashboard() {
     return (
         <>
             <Header text="Admin Dashboard"></Header>

@@ -18,6 +18,7 @@ module.exports = {
     },
     extend: {
       colors: {
+        zoom: "hsl(var(--zoom))",
         info: "hsl(var(--info))",
         alert: "hsl(var(--alert))",
         warning: "hsl(var(--warning))",
@@ -81,5 +82,6 @@ module.exports = {
   plugins: [
     require("tailwindcss-animate"),
     require("@tailwindcss/forms"),
+    require('tailwind-scrollbar')({ nocompatible: true }),
   ],
 };

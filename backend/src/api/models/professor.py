@@ -6,7 +6,7 @@ class ProfessorManager(models.Manager):
         return super().get_queryset().all()
 
     def get_professor(self, professor: str):
-        return super().get_queryset().filter(professor=professor)
+        return super().get_queryset().filter(full_name=professor)
 
 
 class Professor(models.Model):
@@ -15,7 +15,7 @@ class Professor(models.Model):
     full_name = models.CharField(max_length=100)
     email = models.CharField(max_length=100)
     is_active = models.BooleanField(default=True)
-    sections = models.ManyToManyField("api.Section", related_name="professortosection")
+    professor_id = models.CharField(unique=True, max_length=30, null=False, blank=False)
 
     professor = ProfessorManager()
 

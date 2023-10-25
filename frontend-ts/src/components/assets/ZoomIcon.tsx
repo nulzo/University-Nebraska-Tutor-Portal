@@ -1,13 +1,12 @@
-export default function ZoomIcon() {
+export default function ZoomIcon({ width, height, viewBox, strokeWidth }: any) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className="stroke-foreground"
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      strokeWidth="1.5"
-      stroke="#2c3e50"
+      width={width}
+      height={height}
+      viewBox={viewBox}
+      strokeWidth={strokeWidth}
       fill="none"
       strokeLinecap="round"
       strokeLinejoin="round"

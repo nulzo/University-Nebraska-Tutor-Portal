@@ -24,7 +24,7 @@ echo - This script should ONLY be run ONCE - either right after you clone projec
 echo - This script will erase database information, rewrite .env files, and potentially delete your dev progress!
 echo - This script will install all packages, apply all database schemas, and automatically build the project for you.; echo
 echo By running this, you understand when this script should be run and when it should not be run.; echo
-read -p "Run script and build project? (Y/N): " confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
+# read -p "Run script and build project? (Y/N): " confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
 
 # First, we must check that the user has poetry on their system and install if not
 poetry --version || curl -sSL https://install.python-poetry.org | python3 -
@@ -93,28 +93,28 @@ python manage.py createsuperuser --noinput
 # any pop up, I'll just log to console and you will have to debug yourself! A 
 # single script can only do so much :)
 
-# Test backend server built proper
-python3 manage.py runserver &
-PROCESS_ID=$(netstat -vanp tcp | grep "$BACKEND_PORT" | awk '{print $9}')
-while [ -z "$PROCESS_ID" ]; do sleep 0.5; PROCESS_ID=$(netstat -vanp tcp | grep "$BACKEND_PORT" | awk '{print $9}'); done
-echo process is on $PROCESS_ID
-kill -9 "$PROCESS_ID"
+# # Test backend server built proper
+# python3 manage.py runserver &
+# PROCESS_ID=$(netstat -vanp tcp | grep "$BACKEND_PORT" | awk '{print $9}')
+# while [ -z "$PROCESS_ID" ]; do sleep 0.5; PROCESS_ID=$(netstat -vanp tcp | grep "$BACKEND_PORT" | awk '{print $9}'); done
+# echo process is on $PROCESS_ID
+# kill -9 "$PROCESS_ID"
 
-# Test frontend server built proper
-cd "$FRONTEND_DIR"
-npm run dev &
-PROCESS_ID=$(netstat -vanp tcp | grep "$FRONTEND_PORT" | awk '{print $9}')
-while [ -z "$PROCESS_ID" ]; do sleep 0.5; PROCESS_ID=$(netstat -vanp tcp | grep "$FRONTEND_PORT" | awk '{print $9}'); done
-echo process is on $PROCESS_ID
-kill -9 "$PROCESS_ID"
+# # Test frontend server built proper
+# cd "$FRONTEND_DIR"
+# npm run dev &
+# PROCESS_ID=$(netstat -vanp tcp | grep "$FRONTEND_PORT" | awk '{print $9}')
+# while [ -z "$PROCESS_ID" ]; do sleep 0.5; PROCESS_ID=$(netstat -vanp tcp | grep "$FRONTEND_PORT" | awk '{print $9}'); done
+# echo process is on $PROCESS_ID
+# kill -9 "$PROCESS_ID"
 
-# Test tailwind stuff
-npx tailwindcss --watch -i ./src/style/globals.css -o ./src/style/output.css &
-# This needs time to compile...
-sleep 2
-PROCESS_ID=$!
-echo "$PROCESS_ID"
-PROCESS_ID=$(netstat -vanp tcp | grep "$FRONTEND_PORT" | awk '{print $9}')
+# # Test tailwind stuff
+# npx tailwindcss --watch -i ./src/style/globals.css -o ./src/style/output.css &
+# # This needs time to compile...
+# sleep 2
+# PROCESS_ID=$!
+# echo "$PROCESS_ID"
+# PROCESS_ID=$(netstat -vanp tcp | grep "$FRONTEND_PORT" | awk '{print $9}')
 
 clear || cls
 echo Ok, you are all set! Well, that is assuming no errors occured. Although we just verified this during the build,

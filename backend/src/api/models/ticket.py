@@ -23,11 +23,14 @@ class TicketManager(models.Manager):
     def get_course(self, course: str):
         return super().get_queryset().filter(section__course=course)
 
+    def get_active(self):
+        return super().get_queryset().exclude(completed=True).exclude(started=False)
+
     def get_completed(self):
         return super().get_queryset().filter(completed=True)
 
     def get_unclaimed(self):
-        return super().get_queryset().filter(completed=False).filter(started=False)
+        return super().get_queryset().exclude(started=True).exclude(completed=True)
 
     def get_successful(self):
         return super().get_queryset().filter(was_successful=True).filter(completed=True)
@@ -49,7 +52,7 @@ class Ticket(models.Model):
     started = models.BooleanField(default=False)
     start_time = models.DateTimeField(null=True, blank=True)
     end_time = models.DateTimeField(null=True, blank=True)
-    tutor_comments = models.CharField(max_length=255)
+    tutor_comments = models.CharField(max_length=255, blank=True)
     was_successful = models.BooleanField(default=False)
     was_reopened = models.BooleanField(default=False)
 

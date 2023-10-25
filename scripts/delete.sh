@@ -16,12 +16,12 @@ rm -rf $BACKEND_DIR/$DATABASE_DIR && mkdir $BACKEND_DIR/$DATABASE_DIR && echo ""
 rm -rf $DATABASE_NAME
 
 # Wipe existing data
-python manage.py flush --noinput
+python3 manage.py flush --noinput
 # Write migration files for db schema
-python manage.py makemigrations
+python3 manage.py makemigrations
 # Apply migration schema and changes to the db
-python manage.py migrate
+python3 manage.py migrate
 # Create a superuser using the username and password form the env file
-python manage.py createsuperuser --noinput
+python3 manage.py createsuperuser --noinput
 
 echo; echo; echo Successfully deleted and added a fresh database.; echo;

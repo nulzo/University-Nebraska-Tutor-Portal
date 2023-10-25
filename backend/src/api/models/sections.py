@@ -24,16 +24,11 @@ class HybridSectionManager(models.Manager):
 
 
 class Section(models.Model):
-    MODALITY_CHOICES = (("Online", "850"), ("In-Person", "001"), ("Hybrid", "002"))
-    section_number = models.CharField(
-        default="001", blank=False, null=False, max_length=15
-    )
     modality = models.CharField(
         null=False,
         blank=False,
-        default="In-Person",
+        default="001",
         max_length=10,
-        choices=MODALITY_CHOICES,
     )
     professor = models.ForeignKey(
         "api.Professor", on_delete=models.PROTECT, null=True, blank=True
@@ -46,7 +41,7 @@ class Section(models.Model):
     sections = SectionManager()
 
     def __str__(self):
-        return f"{self.course}-{self.section_number}"
+        return f"{self.course}"
 
     class Meta:
         verbose_name_plural = "sections"

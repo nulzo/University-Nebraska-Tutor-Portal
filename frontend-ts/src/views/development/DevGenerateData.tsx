@@ -1,4 +1,4 @@
-import { Component, useState } from "react";
+import { useState } from "react";
 import { faker } from "@faker-js/faker";
 import { Button } from "@/components/ui/button";
 import {
@@ -88,7 +88,7 @@ export default function DevGenerateData() {
                     is_active: true,
                 })
                 .then((res) => { console.log(res) })
-                .catch((error) => console.log(error.response))
+                .catch((error) => console.log(error.response, error))
         }
     }
 
@@ -131,7 +131,7 @@ export default function DevGenerateData() {
             let professor = Math.floor(Math.random() * (30));
             let section = Math.floor(Math.random() * (19));
             let issue = Math.floor(Math.random() * (4));
-            let student = count % 2 == 0 ? 361504 : 406420;
+            let student = count % 2 == 0 ? 825703 : 898331;
             axios
                 .post("http://localhost:6969/api/tickets/", {
                     name: "Test User",
@@ -140,6 +140,7 @@ export default function DevGenerateData() {
                     section: section,
                     issue: issue,
                     student: student,
+                    started:true,
                     completed: true,
                     tutor: 3
                 })
