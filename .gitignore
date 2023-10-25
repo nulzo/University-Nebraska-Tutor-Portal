@@ -13,6 +13,9 @@ nohup.out
 .idea
 idea
 
+# Data
+backend\src\api\data\*.csv
+
 # Project stuff
 .env
 env/
@@ -74,6 +77,7 @@ bower_components
 *.sublime-workspace
 
 # IDE - VSCode
+.vscode
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
