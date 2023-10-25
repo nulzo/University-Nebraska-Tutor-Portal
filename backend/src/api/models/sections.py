@@ -24,13 +24,11 @@ class HybridSectionManager(models.Manager):
 
 
 class Section(models.Model):
-    MODALITY_CHOICES = (("Online", "850"), ("In-Person", "001"), ("Hybrid", "002"))
     modality = models.CharField(
         null=False,
         blank=False,
-        default="In-Person",
+        default="001",
         max_length=10,
-        choices=MODALITY_CHOICES,
     )
     professor = models.ForeignKey(
         "api.Professor", on_delete=models.PROTECT, null=True, blank=True

@@ -32,7 +32,8 @@ RUN_SERVER_PORT = 6969
 
 try:
     if SECRET_KEY and DEBUG:
-        print(bruhcolored("Successfully Loaded Environment Variables", color="light_green", attrs=["bold"]))
+        print(bruhcolored("Successfully Loaded Environment Variables",
+              color="light_green", attrs=["bold"]))
         print()
 except SyntaxError:
     print(bruhcolored("Could Not Load Environment Variables", color="red", attrs=["bold"]))
@@ -41,7 +42,7 @@ except SyntaxError:
 ALLOWED_HOSTS: list[str] = []
 
 INSTALLED_APPS = [
-    'daphne',
+    # 'daphne',
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -51,7 +52,8 @@ INSTALLED_APPS = [
     "rest_framework",
     "backend.src.api",
     "corsheaders",
-    "channels"
+    "channels",
+    "django_extensions",
 ]
 
 MIDDLEWARE = [
@@ -72,8 +74,8 @@ ASGI_APPLICATION = "backend.src.api.routing.application"
 CHANNEL_LAYERS = {
     'default': {
         'BACKEND': "channels.layers.InMemoryChannelLayer"
-        }
     }
+}
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
 

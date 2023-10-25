@@ -7,6 +7,7 @@ class IssueManager(models.Manager):
 
 
 class Issues(models.Model):
+    issue_id = models.AutoField(primary_key=True, editable=False)
     problem_type = models.CharField(max_length=25, null=False, blank=False)
     severity = models.CharField(
         max_length=1,

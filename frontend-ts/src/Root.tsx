@@ -19,7 +19,7 @@ export default function Root() {
           <div className="bg-background">
             <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 xl:grid-cols-8">
               <Sidebar />
-              <div className="col-span-3 lg:col-span-4 lg:border-l sm:border-red-500 ">
+              <div className="col-span-3 lg:col-span-4 lg:border-l sm:border-muted-primary ">
                 <div className="h-full mx-10 px-4 py-6 lg:px-1">
                   <Outlet />
                 </div>

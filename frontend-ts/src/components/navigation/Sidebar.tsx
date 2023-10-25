@@ -5,8 +5,8 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import Navlink from "@/components/navigation/Navlink";
 import { BugIcon, CalendarClockIcon, CalendarDaysIcon, DatabaseZapIcon, MessagesSquareIcon, PackageOpenIcon, PlusSquareIcon, UserIcon, UsersIcon, SearchIcon, SettingsIcon, HomeIcon, MegaphoneIcon, DownloadIcon, BirdIcon, LayoutIcon } from "lucide-react";
 
-const isAdmin = true;
-const isTutor = false;
+const isAdmin = false;
+const isTutor = true;
 const isStudent = false;
 const isDeveloper = true;
 

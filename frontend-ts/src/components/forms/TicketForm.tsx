@@ -34,22 +34,11 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { toast } from "@/components/ui/use-toast";
-import { useEffect, useState } from "react";
 import axios from "axios";
-import useGet from "@/API/useGet";
-
-const languages = [
-  { label: "English", value: "English" },
-  { label: "French", value: "French" },
-  { label: "German", value: "German" },
-  { label: "Spanish", value: "es" },
-  { label: "Portuguese", value: "pt" },
-  { label: "Russian", value: "ru" },
-  { label: "Japanese", value: "ja" },
-  { label: "Korean", value: "ko" },
-  { label: "Chinese", value: "zh" },
-] as const;
+import useFetchProfessor from "@/API/professors/useFetchProfessor";
+import useFetchCourse from "@/API/courses/useFetchCourse";
+import useFetchIssue from "@/API/issues/useFetchIssue";
+import useFetchSection from "@/API/sections/useFetchSection";
 
 const max_ticket_length = 500;
 
@@ -120,21 +109,11 @@ const FormSchema = z.object({
 });
 
 export default function TicketForm() {
-  const [professors, setProfessors] = useState({});
-  const [issues, setIssues] = useState({});
-  const [sections, setSections] = useState({})
-
-  useEffect(() => {
-    getCourses();
-  }, [])
-
-  useEffect(() => {
-    getIssues();
-  }, []);
-
-  useEffect(() => {
-    useProfessors();
-  }, [])
+  const professors = useFetchProfessor();
+  const sections = useFetchSection();
+  const issues = useFetchIssue();
+  const courses = useFetchCourse();
+  const max_length = max_ticket_length;
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
     axios.post("http://localhost:6969/api/tickets/", {
@@ -156,41 +135,6 @@ export default function TicketForm() {
       student_email: "nolangregory@unomaha.edu"
     },
   });
-
-  function getIssues() {
-    axios
-      .get(`http://localhost:6969/api/issues/`)
-      .then((res) => {
-        setIssues(res);
-      })
-      .catch((error) => {
-        console.log("ERROR: ", error);
-      })
-  };
-
-  function getCourses() {
-    axios
-      .get(`http://localhost:6969/api/courses/`)
-      .then((res) => {
-        setSections(res);
-      })
-      .catch((error) => {
-        console.log("ERROR: ", error);
-      })
-  };
-
-  function getProfessors() {
-    axios
-      .get(`http://localhost:6969/api/professors/`)
-      .then((res) => {
-        setProfessors(res);
-      })
-      .catch((error) => {
-        console.log("ERROR: ", error);
-      })
-  };
-
-  const max_length = max_ticket_length;
 
   return (
     <Form {...form}>
@@ -236,7 +180,7 @@ export default function TicketForm() {
             </FormItem>
           )}
         />
-        {Object.keys(professors).length != 0 &&
+        {!professors?.isLoading &&
           <FormField
             control={form.control}
             name="professor"
@@ -281,7 +225,7 @@ export default function TicketForm() {
                             {professors.data.map((professor: any) => (
                               <CommandItem
                                 value={professor.full_name}
-                                key={professor.full_name}
+                                key={professor.id}
                                 onSelect={() => {
                                   form.setValue("professor", professor.full_name);
                                 }}
@@ -308,16 +252,17 @@ export default function TicketForm() {
             )}
           />
         }
-        {Object.keys(sections).length != 0 &&
+        {!courses?.isLoading &&
           <FormField
             control={form.control}
             name="section"
+            key="course_field"
             render={({ field }) => (
-              <FormItem className="flex flex-col">
+              <FormItem className="flex flex-col" key="course_form_item">
                 <div className="space-y-0.5 flex flex-row items-center justify-between rounded-lg border p-4 text-foreground">
                   <div className="space-y-0.5">
-                    <FormLabel>Course</FormLabel>
-                    <FormDescription>
+                    <FormLabel key="course_form_label">Course</FormLabel>
+                    <FormDescription key="course_form_description">
                       Select the course that you are coming in for help with.
                     </FormDescription>
                   </div>
@@ -328,44 +273,47 @@ export default function TicketForm() {
                           <Button
                             variant="dropdown"
                             role="combobox"
+                            key="course_button"
                             className={cn(
                               "w-[250px] justify-between",
                               !field.value && "text-muted-foreground font-normal"
                             )}
                           >
                             {field.value
-                              ? sections.data.find(
-                                (section: any) => section.course_name === field.value
+                              ? courses.data.find(
+                                (course: any) => course.course_name === field.value
                               )?.course_name
                               : "select a course"}
-                            <CaretSortIcon className="ml-2 h-4 w-4 shrink-0" />
+                            <CaretSortIcon key="course_sort_icon" className="ml-2 h-4 w-4 shrink-0" />
                           </Button>
                         </FormControl>
                       </PopoverTrigger>
-                      <PopoverContent className="w-[300px] p-0">
+                      <PopoverContent key="course_content" className="w-[300px] p-0">
                         <Command>
                           <CommandInput
                             placeholder="search courses..."
                             className="h-9 my-1"
+                            key="course_input"
                           />
                           <CommandEmpty>no courses found...</CommandEmpty>
-                          <CommandGroup>
-                            {sections.data.map((section: any) => (
+                          <CommandGroup key="course_command_group">
+                            {courses?.data.map((course: any) => (
                               <CommandItem
-                                value={section.course_name}
-                                key={section.course_id}
+                                value={course.course_name}
+                                key={course.id}
                                 onSelect={() => {
                                   {
-                                    section.course_name &&
-                                      form.setValue("section", section.course_name);
+                                    course.course_name &&
+                                      form.setValue("section", course.course_name);
                                   }
                                 }}
                               >
-                                {section.course_name}
+                                {course.course_name}
                                 <CheckIcon
+                                  key="course_check_icon"
                                   className={cn(
                                     "ml-auto h-4 w-4",
-                                    section.course_name === field.value
+                                    course.course_name === field.value
                                       ? "opacity-100"
                                       : "opacity-0"
                                   )}
@@ -383,25 +331,25 @@ export default function TicketForm() {
             )}
           />
         }
-        {Object.keys(issues).length != 0 &&
+        {!issues?.isLoading &&
           <FormField
             control={form.control}
             name="issue"
+            key="issue_field"
             render={({ field }) => (
-              <FormItem className="">
+              <FormItem className="" key="issue_form_item">
                 <div className="space-y-0.5 flex flex-row items-center justify-between rounded-lg border p-4 text-foreground">
                   <div className="space-y-0.5">
-                    <FormLabel className=" text-foreground">Issue type</FormLabel>
-                    <FormDescription className="text-muted-foreground">
+                    <FormLabel key="issue_form_label" className=" text-foreground">Issue type</FormLabel>
+                    <FormDescription key="issue_form_description" className="text-muted-foreground">
                       Select the issue you are having.
                     </FormDescription>
                   </div>
                   <div>
-                    {console.log(issues)}
-                    <Select onValueChange={field.onChange}>
+                    <Select onValueChange={field.onChange} key="issue_select">
                       <FormControl>
-                        <SelectTrigger className="text-foreground w-[250px]">
-                          <SelectValue>
+                        <SelectTrigger className="text-foreground w-[250px]" key="issue_select_trigger">
+                          <SelectValue key="issue_value">
                             {field.value || (
                               <span className="text-muted-foreground">
                                 select an issue type
@@ -410,10 +358,9 @@ export default function TicketForm() {
                           </SelectValue>
                         </SelectTrigger>
                       </FormControl>
-                      <SelectContent>
-                        {issues.data.map((issue: any) => (
-
-                          <SelectItem value={issue.problem_type}>{issue.problem_type}</SelectItem>
+                      <SelectContent key="issue_select_content">
+                        {issues?.data.map((issue: any) => (
+                          <SelectItem value={issue.problem_type} key={`issue_${issue.id}`}>{issue.problem_type}</SelectItem>
                         ))}
                       </SelectContent>
                     </Select>

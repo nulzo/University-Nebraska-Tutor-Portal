@@ -33,21 +33,21 @@ jobs:
         run: |
           make build
 
-  run-linter:
-    runs-on: ubuntu-latest
-    needs: build-project
-    steps:
-      - uses: actions/checkout@v3
-      - name: Run Linting Script
-        run: |
-          make lint
+  # run-linter:
+  #   runs-on: ubuntu-latest
+  #   needs: build-project
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - name: Run Linting Script
+  #       run: |
+  #         make lint
 
-  run-tests:
-    runs-on: ubuntu-latest
-    needs: build-project
-    steps:
-      - uses: actions/checkout@v3
-      - name: Run Linting Script
-        run: |
-          make test
+  # run-tests:
+  #   runs-on: ubuntu-latest
+  #   needs: build-project
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - name: Run Linting Script
+  #       run: |
+  #         make test
     

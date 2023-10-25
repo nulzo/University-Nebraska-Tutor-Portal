@@ -2967,11 +2967,6 @@ body {
     border-radius: var(--radius);
   }
 
-  .sm\:border-red-500 {
-    --tw-border-opacity: 1;
-    border-color: rgb(239 68 68 / var(--tw-border-opacity));
-  }
-
   .sm\:text-left {
     text-align: left;
   }
