@@ -38,7 +38,7 @@ import axios from "axios";
 import useFetchProfessor from "@/API/professors/useFetchProfessor";
 import useFetchCourse from "@/API/courses/useFetchCourse";
 import useFetchIssue from "@/API/issues/useFetchIssue";
-import useFetchSection from "@/API/sections/useFetchSection";
+// import useFetchSection from "@/API/sections/useFetchSection";
 
 const max_ticket_length = 500;
 
@@ -110,7 +110,7 @@ const FormSchema = z.object({
 
 export default function TicketForm() {
   const professors = useFetchProfessor();
-  const sections = useFetchSection();
+  // const sections = useFetchSection();
   const issues = useFetchIssue();
   const courses = useFetchCourse();
   const max_length = max_ticket_length;
@@ -206,7 +206,7 @@ export default function TicketForm() {
                             )}
                           >
                             {field.value
-                              ? professors.data.find(
+                              ? professors?.data.find(
                                 (professor: any) => professor.full_name === field.value
                               )?.full_name
                               : "select a professor"}
@@ -222,7 +222,7 @@ export default function TicketForm() {
                           />
                           <CommandEmpty>no professors found...</CommandEmpty>
                           <CommandGroup>
-                            {professors.data.map((professor: any) => (
+                            {professors?.data.map((professor: any) => (
                               <CommandItem
                                 value={professor.full_name}
                                 key={professor.id}
@@ -280,7 +280,7 @@ export default function TicketForm() {
                             )}
                           >
                             {field.value
-                              ? courses.data.find(
+                              ? courses?.data.find(
                                 (course: any) => course.course_name === field.value
                               )?.course_name
                               : "select a course"}

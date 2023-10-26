@@ -1,11 +1,10 @@
-import { UserMinusIcon, UserPlusIcon, XIcon } from "lucide-react";
-import { Card, CardContent, CardDescription, CardFooter, CardTitle, CardHeader } from "../ui/card";
+import { UserMinusIcon, UserPlusIcon } from "lucide-react";
+import { Card, CardContent, CardDescription, CardTitle, CardHeader } from "../ui/card";
 import { format } from "date-fns"
 import { Button } from "../ui/button";
 import { Badge } from "../ui/badge";
-import { CheckIcon } from "@radix-ui/react-icons";
 
-export default function Ticket({ name, description, start_time, issue, professor, section, end_time, started, completed, student, tutor, tutor_comments, was_reopened, was_successful, type }: any) {
+export default function Ticket({ name, description, start_time, professor, section, tutor, type }: any) {
     let start_date;
     let start_hour;
     if (start_time) {

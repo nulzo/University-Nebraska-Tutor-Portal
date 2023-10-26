@@ -16,7 +16,6 @@ import AdminAnnouncements from "./views/admin/AdminAnnouncements.tsx";
 import AdminSettings from "./views/admin/AdminSettings.tsx";
 import TutorDashboard from "./views/tutor/TutorDashboardView.tsx";
 import DevAPIView from "./views/development/DevAPIView.tsx";
-import DevGenerateData from "./views/development/DevGenerateData.tsx";
 import DevSandbox from "./views/development/DevSandbox.tsx";
 import AdminDashboard from "./views/admin/AdminDashboard.tsx";
 import HomeView from "./views/HomeView.tsx";
@@ -91,10 +90,6 @@ const router = createBrowserRouter([
       {
         path: "dashboard/",
         element: <TutorDashboard />
-      },
-      {
-        path: "generate/",
-        element: <DevGenerateData />
       },
       {
         path: "test-api/",

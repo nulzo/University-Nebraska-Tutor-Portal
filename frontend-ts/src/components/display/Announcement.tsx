@@ -1,5 +1,5 @@
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { cva, type VariantProps } from "class-variance-authority";
+import { cva } from "class-variance-authority";
 import { AlertOctagonIcon, AlertTriangleIcon, FlagIcon, InfoIcon, UsersIcon } from "lucide-react";
 
 const announcementVariants = cva(
