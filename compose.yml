@@ -1,0 +1,15 @@
+services:
+  backend:
+    container_name: backend
+    build: ./backend
+    restart: always
+    ports:
+      - 6969:6969
+  frontend:
+    container_name: frontend
+    build: ./frontend-ts
+    depends_on:
+      - backend
+    restart: always
+    ports:
+      - 4200:4200

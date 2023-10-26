@@ -3,7 +3,7 @@ import { Button } from "../ui/button";
 
 export default function Navbar() {
   function onClick() {
-    <SidebarPopout />;
+    console.log("pressdd")
   }
   return (
     <>

@@ -8,22 +8,18 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = ">=3.11,<3.13"
 django = "^4.2.3"
-django-bootstrap5 = "^23.3"
-django-crispy-forms = "^2.0"
-crispy-bootstrap5 = "^0.7"
-django-bootstrap-v5 = "^1.0.11"
 python-dotenv = "^1.0.0"
 pytest = "^7.4.0"
 djangorestframework = "^3.14.0"
 django-cors-headers = "^4.2.0"
-bruhcolor = "^0.0.56"
 websockets = "^11.0.3"
 channels = {extras = ["daphne"], version = "^4.0.0"}
-pylint = "^3.0.1"
 pandas = "^2.1.1"
 django-extensions = "^3.2.3"
 
 [tool.poetry.group.dev.dependencies]
+bruhcolor = "^0.0.56"
+pylint = "^3.0.1"
 pytest = "^7.4.0"
 black = "^23.7.0"
 coverage = "^7.2.7"
@@ -31,7 +27,6 @@ flake8 = "^6.1.0"
 isort = "^5.12.0"
 mypy = "^1.4.1"
 ruff = "^0.0.282"
-pylint = "^3.0"
 yapf = "^0.40.1"
 autoflake = "^2.2.0"
 django-stubs = "^1.2.0"
@@ -61,15 +56,6 @@ line-length = 100
 [tool.mypy]
 plugins = ["mypy_django_plugin.main"]
 ignore_missing_imports = "True"
-
-[tool.django-stubs]
-django_settings_module = "base.settings"
-strict_settings = "True"
-
-[tool.djlint]
-ignore = "H031,H030,H006"
-profile = "django"
-close_void_tags="True"
 
 [tool.autoflake]
 imports = ["django", "requests", "urllib3"]

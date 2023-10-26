@@ -18,7 +18,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from backend.src.api import views as routing
+from src.api import views as routing
 
 urlpatterns = [
 
@@ -35,8 +35,10 @@ urlpatterns = [
     # path("api/issues/severity/<str:severity_pk>"),
 
     # Ticket URLS
-    path("api/tickets/", view=routing.TicketListView.as_view(), name="Query All Tickets"),
-    path("api/tickets/<str:ticket_pk>/", view=routing.TicketDetailView.as_view(), name="Query a Ticket"),
+    path("api/tickets/", view=routing.TicketListView.as_view(),
+         name="Query All Tickets"),
+    path("api/tickets/<str:ticket_pk>/",
+         view=routing.TicketDetailView.as_view(), name="Query a Ticket"),
     path("api/tickets/student/<str:student_pk>/",
          view=routing.StudentTicketDetailView.as_view(), name="Student Tickets"),
     path("api/tickets/professor/<str:professor_pk>/",
@@ -47,16 +49,21 @@ urlpatterns = [
          view=routing.TutorTicketDetailView.as_view(), name="Tutor Tickets"),
     path("api/tickets/course/<str:course_pk>",
          view=routing.CourseTicketDetailView.as_view(), name="Course Tickets"),
-    path("api/tickets/completed/", view=routing.CompletedTicketListView.as_view(), name="Completed Tickets"),
-    path("api/tickets-active/", view=routing.ActiveTicketListView.as_view(), name="Active Tickets"),
-    path("api/tickets-unclaimed/", view=routing.UnclaimedTicketListView.as_view(), name="Unclaimed Tickets"),
-    path("api/tickets/successful/", view=routing.SuccessfulTicketListView.as_view(), name="Successful Tickets"),
+    path("api/tickets/completed/",
+         view=routing.CompletedTicketListView.as_view(), name="Completed Tickets"),
+    path("api/tickets-active/",
+         view=routing.ActiveTicketListView.as_view(), name="Active Tickets"),
+    path("api/tickets-unclaimed/",
+         view=routing.UnclaimedTicketListView.as_view(), name="Unclaimed Tickets"),
+    path("api/tickets/successful/",
+         view=routing.SuccessfulTicketListView.as_view(), name="Successful Tickets"),
     # path("api/tickets/issue/<str:issue_pk>/", view=routing.SectionTicketDetailView.as_view(), name="Issue Tickets"),
     # path("api/tickets/reopened/", view=routing.SectionTicketDetailView.as_view(), name="Issue Tickets"),
 
     # Tutor URLS
     path("api/tutors/", view=routing.TutorListView.as_view(), name="List Tutors"),
-    path("api/tutors/<str:tutor_pk>/", view=routing.TutorDetailView.as_view(), name="Detail Tutors"),
+    path("api/tutors/<str:tutor_pk>/",
+         view=routing.TutorDetailView.as_view(), name="Detail Tutors"),
     path("api/tutors/successful-tickets/<str:tutor_pk>",
          view=routing.TutorDetailView.as_view(), name="Detail Tutors"),
     # path("api/tutors/unsuccessful-tickets/<str:tutor_pk>"),
@@ -70,7 +77,8 @@ urlpatterns = [
     # path("api/tutors/hours/<str:tutor_pk>"),
 
     # Professor URLS
-    path("api/professors/", view=routing.ProfessorListView.as_view(), name="Professor List View"),
+    path("api/professors/", view=routing.ProfessorListView.as_view(),
+         name="Professor List View"),
     path("api/professors/<str:professor_pk>",
          view=routing.ProfessorDetailView.as_view(), name="Professor Detail View"),
     # path("api/professors/<str:course_pk>", view=routing.MessageViewSet.as_view()),
@@ -78,7 +86,8 @@ urlpatterns = [
     # path("api/professors/inactive/"),
 
     # Section URLS
-    path("api/sections/", view=routing.SectionListView.as_view(), name="Section List View"),
+    path("api/sections/", view=routing.SectionListView.as_view(),
+         name="Section List View"),
     # path("api/sections/<str:section_id>"),
     # path("api/sections/online"),
     # path("api/sections/in-person"),
@@ -86,8 +95,10 @@ urlpatterns = [
     # path("api/sections/term/<str:term_pk>"),
 
     # Student URLS
-    path("api/students/", view=routing.StudentListView.as_view(), name="Student List View"),
-    path("api/student/<str:pk>", view=routing.StudentDetailView.as_view(), name="Student Detail View"),
+    path("api/students/", view=routing.StudentListView.as_view(),
+         name="Student List View"),
+    path("api/student/<str:pk>", view=routing.StudentDetailView.as_view(),
+         name="Student Detail View"),
     # path("api/students/<str:student_pk>"),
     # path("api/students/<str:grade_level>"),
 
@@ -108,7 +119,8 @@ urlpatterns = [
     # path("api/messages/activate/<str:message_pk>"),
 
     # Course URLS
-    path("api/courses/", view=routing.CourseListView.as_view(), name="Course List View"),
+    path("api/courses/", view=routing.CourseListView.as_view(),
+         name="Course List View"),
     # path("api/courses/<str:course_pk>", view=routing.MessageViewSet.as_view()),
     # path("api/courses/department/<str:dept>"),
     # path("api/courses/active/"),

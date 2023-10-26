@@ -8,36 +8,21 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-from bruhcolor import bruhcolored
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "base.settings")
-PROJECT_NAME = "University-Nebraska-Tutor-Portal"
-BASE_DIR = Path(__file__).resolve().parent.parent
-SOURCE_DIR = os.path.join(BASE_DIR, "backend/src")
-sys.path.insert(0, SOURCE_DIR)
 
-print()
-print(bruhcolored("Loading Project:\t", color="light_magenta"), end=" ")
-print(bruhcolored(PROJECT_NAME, color="light_cyan", attrs=["bold"]))
-print(bruhcolored("Base Directory: \t", color="light_magenta"), end=" ")
-print(bruhcolored(BASE_DIR, color="light_cyan", attrs=["bold"]))
-print(bruhcolored("Source Directory:\t", color="light_magenta"), end=" ")
-print(bruhcolored(SOURCE_DIR, color="light_cyan", attrs=["bold"]))
-print()
+PROJECT_NAME = "University-Nebraska-Tutor-Portal"
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+SOURCE_DIR = os.path.join(BASE_DIR, "src")
+
+sys.path.insert(0, SOURCE_DIR)
 
 load_dotenv()
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = os.getenv("DEBUG")
 RUN_SERVER_PORT = 6969
-
-try:
-    if SECRET_KEY and DEBUG:
-        print(bruhcolored("Successfully Loaded Environment Variables",
-              color="light_green", attrs=["bold"]))
-        print()
-except SyntaxError:
-    print(bruhcolored("Could Not Load Environment Variables", color="red", attrs=["bold"]))
-    print()
 
 ALLOWED_HOSTS: list[str] = []
 
@@ -50,7 +35,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
-    "backend.src.api",
+    "src.api",
     "corsheaders",
     "channels",
     "django_extensions",
@@ -70,7 +55,7 @@ MIDDLEWARE = [
 CORS_ORIGIN_ALLOW_ALL = True
 # CORS_ORIGIN_WHITELIST = ("http://localhost:5173",)
 
-ASGI_APPLICATION = "backend.src.api.routing.application"
+ASGI_APPLICATION = "src.api.routing.application"
 CHANNEL_LAYERS = {
     'default': {
         'BACKEND': "channels.layers.InMemoryChannelLayer"
@@ -84,7 +69,7 @@ ROOT_URLCONF = "base.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / "backend/templates"],
+        "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -109,8 +94,6 @@ DATABASES = {
 }
 
 SITE_ROOT = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
-# STATIC_DIR = os.path.join(BASE_DIR, "backend/static")
-# STATICFILES_DIRS = [STATIC_DIR]
 
 AUTH_PASSWORD_VALIDATORS = [
     {

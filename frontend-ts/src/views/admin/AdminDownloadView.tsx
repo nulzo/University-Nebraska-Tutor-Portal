@@ -1,4 +1,4 @@
-import { Card, CardContent, CardDescription, CardFooter, CardHeader } from "@/components/ui/card";
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -159,8 +159,7 @@ export default function AdminDownloadView() {
     const [extension, setExtension] = useState("csv");
     const [professors, setProfessors] = useState({});
     const [sections, setSections] = useState({});
-    const [isLoading, setLoading] = useState(true);
-    const [fromDate, setFromDate] = useState<Date>();
+    const [_, setLoading] = useState(true);
     const [toDate, setToDate] = useState<Date>();
     const [open, setOpen] = useState(false);
     const [value, setValue] = useState("");
@@ -215,6 +214,7 @@ export default function AdminDownloadView() {
     function onSubmit(data: z.infer<typeof FormSchema>) {
         console.log(professors);
         console.log(sections);
+        console.log(data)
     }
 
     return (
