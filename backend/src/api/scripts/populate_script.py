@@ -37,12 +37,15 @@ class ParseSemester:
             converters=self.type_dataframe
         )
         data = data.replace('', np.nan).dropna(how="any", axis=0, subset=None)
-        data["Room"] = data["Room"].map(lambda x: re.split(r", | ", x.split(" [")[0]))
+        data["Room"] = data["Room"].map(
+            lambda x: re.split(r", | ", x.split(" [")[0]))
         for _, row in data.iterrows():
             if len(row['Room']) <= 1:
                 continue
-            professor_id = row['Room'][2] if (1 < len(row['Room']) <= 3) else row['Room'][3]
-            professor_id = re.search(pattern=r"(?<=\()[0-9]*(?=\))", string=professor_id)[0]
+            professor_id = row['Room'][2] if (
+                1 < len(row['Room']) <= 3) else row['Room'][3]
+            professor_id = re.search(
+                pattern=r"(?<=\()[0-9]*(?=\))", string=professor_id)[0]
             professor_last_name = row['Room'][0] if (
                 1 < len(row['Room']) <= 3) else f"{row['Room'][0]} {row['Room'][1]}"
             professor_first_name = row['Room'][1] if (
@@ -99,7 +102,7 @@ class ParseSemester:
                 professor.professor_id = p_id
                 professor.save()
                 print("SAVED!")
-            except:
+            except Exception as e:
                 print("COULD NOT SAVE!")
                 continue
 
@@ -112,7 +115,7 @@ class ParseSemester:
                 course.course_id = c_id
                 course.is_active = True
                 course.save()
-            except:
+            except Exception as e:
                 continue
 
     def write_sections(self) -> None:
