@@ -1,4 +1,16 @@
-export default function ZoomIcon({ width, height, viewBox, strokeWidth }: any) {
+interface svgProps {
+  width: string;
+  height: string;
+  viewBox: string;
+  strokeWidth: string;
+}
+
+export default function ZoomIcon({
+  width,
+  height,
+  viewBox,
+  strokeWidth,
+}: svgProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

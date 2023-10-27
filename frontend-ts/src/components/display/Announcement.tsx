@@ -57,6 +57,13 @@ const bodyVariants = cva("", {
   },
 });
 
+interface AnnouncementProps {
+  className: string;
+  variant: any;
+  title: string;
+  body: string;
+}
+
 function AnnouncementIcon({ variant }: any) {
   switch (variant) {
     case "default":
@@ -72,7 +79,7 @@ function AnnouncementIcon({ variant }: any) {
   }
 }
 
-function Announcement({ className, variant, title, body }: any) {
+function Announcement({ className, variant, title, body }: AnnouncementProps) {
   const attributes = `${announcementVariants({ variant })} ${className}`;
   const titleAttributes = `${titleVariants({ variant })} flex items-center`;
   const bodyAttributes = `${bodyVariants(variant)}`;

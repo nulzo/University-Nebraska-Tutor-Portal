@@ -19,6 +19,12 @@ jobs:
       - name: npm install
         uses: actions/checkout@v3
       - working-directory: ./frontend-ts
-        run: |
-          npm ci 
-          npx eslint
+        run: npm ci 
+      - name: Lint codebase
+        uses: actions/checkout@v3
+      - working-directory: ./frontend-ts
+        run: make lint
+      - name: Test codebase
+        uses: actions/checkout@v3
+      - working-directory: ./frontend-ts
+        run: make test

@@ -159,11 +159,11 @@ const frameworks = [
 
 const getDate = () => {
   const date = new Date();
-  let day = date.getDate();
-  let month = date.getMonth() + 1;
-  let year = date.getFullYear();
-  let currentDate = `${year}_${month}_${day}`;
-  let file = currentDate + "_CSLC_DATA";
+  const day = date.getDate();
+  const month = date.getMonth() + 1;
+  const year = date.getFullYear();
+  const currentDate = `${year}_${month}_${day}`;
+  const file = currentDate + "_CSLC_DATA";
   return file;
 };
 
@@ -172,7 +172,6 @@ export default function AdminDownloadView() {
   const [extension, setExtension] = useState("csv");
   const [professors, setProfessors] = useState({});
   const [sections, setSections] = useState({});
-  const [_, setLoading] = useState(true);
   const [toDate, setToDate] = useState<Date>();
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState("");
@@ -193,9 +192,6 @@ export default function AdminDownloadView() {
       })
       .catch((error) => {
         console.log(error);
-      })
-      .finally(() => {
-        setLoading(false);
       });
   }
 
@@ -210,9 +206,9 @@ export default function AdminDownloadView() {
       });
   }
 
-  let default_array = [];
+  const default_array = [];
 
-  for (let item in items) {
+  for (const item in items) {
     default_array.push(items[item].id);
   }
 
