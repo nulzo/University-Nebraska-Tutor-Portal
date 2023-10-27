@@ -1,9 +1,10 @@
 name: Bandit Security Scan
 
 on:
-  push:
-    branches:
-      - main
+    push:
+      branches: ['**']
+    pull_request:
+      branches: [ "master" ]
 
 jobs:
   bandit_scan:
