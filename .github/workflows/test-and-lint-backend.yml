@@ -1,4 +1,4 @@
-name: CSLC CI/CD Workflow
+name: Test and lint backend
 
 on:
   push:
@@ -25,31 +25,3 @@ jobs:
           poetry config virtualenvs.create false
           poetry shell
           poetry install
-
-  build-project:
-    runs-on: ubuntu-latest
-    needs: install-dependencies
-    steps:
-      - uses: actions/checkout@v3
-      - name: Run Build Script
-        run: |
-          echo testing
-
-  # run-linter:
-  #   runs-on: ubuntu-latest
-  #   needs: build-project
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - name: Run Linting Script
-  #       run: |
-  #         make lint
-
-  # run-tests:
-  #   runs-on: ubuntu-latest
-  #   needs: build-project
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - name: Run Linting Script
-  #       run: |
-  #         make test
-    

@@ -42,3 +42,4 @@ jobs:
       with:
         name: bandit-report
         path: output/bandit-report.txt
+        
