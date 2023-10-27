@@ -1,7 +1,6 @@
 from rest_framework import serializers
 
 from .models.course import Course
-from .models.cslc_hours import CSLC_Hours
 from .models.issue import Issues
 from .models.messages import Messages
 from .models.professor import Professor
@@ -9,27 +8,6 @@ from .models.sections import Section
 from .models.ticket import Ticket
 from .models.user import User
 from .models.work_hours import WorkingHours
-
-
-class HourSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = CSLC_Hours
-        fields = (
-            "mondayOpen",
-            "mondayClose",
-            "tuesdayOpen",
-            "tuesdayClose",
-            "wednesdayOpen",
-            "wednesdayClose",
-            "thursdayOpen",
-            "thursdayClose",
-            "fridayOpen",
-            "fridayClose",
-            "saturdayOpen",
-            "saturdayClose",
-            "sundayOpen",
-            "sundayClose",
-        )
 
 
 class ProfessorSerializer(serializers.ModelSerializer):

@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { useState, useCallback } from "react";
+import { useCallback } from "react";
 import useWebSocket, { ReadyState } from "react-use-websocket";
 
 export default function WebSocketView() {
@@ -11,7 +11,7 @@ export default function WebSocketView() {
   //   name: "",
   //   room: "test"
   // });
-  const [socketUrl, _] = useState("ws://127.0.0.1:8000/ws/test");
+  const socketUrl = "ws://127.0.0.1:8000/ws/test";
   const { sendMessage, lastMessage, readyState } = useWebSocket(socketUrl);
 
   const handleClickSendMessage = useCallback(

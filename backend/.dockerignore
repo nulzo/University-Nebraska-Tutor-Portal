@@ -21,6 +21,9 @@ node_modules/*
 # and not be pulled in from the builders directory
 poetry.lock
 
+# Don't need to send the makefile. Only used for dev stuff.
+makefile
+
 # No need to send this to the container
 env.dist
 

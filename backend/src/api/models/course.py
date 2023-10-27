@@ -8,4 +8,4 @@ class Course(models.Model):
     is_active = models.BooleanField(default=True, null=False)
 
     def __str__(self):
-        return self.course_name
+        return str(self.course_name)
