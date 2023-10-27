@@ -7,10 +7,10 @@ on:
     branches: [ "master" ]
 
 jobs:
-  install-dependencies:
+  build-backend:
     runs-on: ubuntu-latest
     steps:
-      - name: git checkout
+      - name: Git checkout
         uses: actions/checkout@v3
       - name: Set up Python
         uses: actions/setup-python@v3
@@ -25,3 +25,13 @@ jobs:
           poetry config virtualenvs.create false
           poetry shell
           poetry install
+      - name: Linting codebase
+        uses: actions/checkout@v3
+      - working-directory: ./backend
+        run: |
+          make lint
+      - name: Testing codebase
+        uses: actions/checkout@v3
+      - working-directory: ./backend
+        run: |
+          make test

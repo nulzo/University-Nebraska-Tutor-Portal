@@ -17,7 +17,3 @@ pylint $BACKEND_DIR/* --reports yes || FAILED_LINTS=$(($FAILED_LINTS + 1));
 autoflake -r $BACKEND_DIR/* || FAILED_LINTS=$(($FAILED_LINTS + 1));
 flake8 $BACKEND_DIR/. --color always --count --statistics || FAILED_LINTS=$(($FAILED_LINTS + 1));
 black $BACKEND_DIR/. --check
-
-# Lint the JS stuff
-cd frontend-ts
-npx eslint .

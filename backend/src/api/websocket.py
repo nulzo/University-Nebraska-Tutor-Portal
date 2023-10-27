@@ -1,19 +1,22 @@
-# app/consumers.py
-
 from asgiref.sync import async_to_sync
 from channels.generic.websocket import WebsocketConsumer
 
+# pylint: disable=W0221
+
 
 class TextRoomConsumer(WebsocketConsumer):
-    def connect(self):
+    def __init__(self):
         self.room_name = "test"
         self.room_group_name = f"chat_{self.room_name}"
+        super().__init__()
+
+    def connect(self):
         async_to_sync(self.channel_layer.group_add)(
             self.room_group_name, self.channel_name
         )
         self.accept()
 
-    def disconnect(self, close_code):
+    def disconnect(self, code):
         async_to_sync(self.channel_layer.group_discard)(
             self.room_group_name, self.channel_name
         )

@@ -57,4 +57,4 @@ class User(models.Model):
     admin = AdminManager()
 
     def __str__(self):
-        return self.name
+        return str(self.name)

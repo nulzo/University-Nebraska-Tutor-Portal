@@ -1,1 +1,0 @@
-from .professor import Professor
