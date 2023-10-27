@@ -32,7 +32,6 @@ jobs:
 
     - name: Run security scan
       uses: actions/checkout@v3
-      uses: actions/setup-python@v3
     - working-directory: ./backend
       run: |
         bandit -r .

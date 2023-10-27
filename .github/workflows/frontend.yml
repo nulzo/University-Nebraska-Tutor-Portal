@@ -1,4 +1,4 @@
-name: Test and lint frontend
+name: Frontend
 
 on:
   push:

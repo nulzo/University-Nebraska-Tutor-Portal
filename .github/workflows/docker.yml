@@ -1,4 +1,4 @@
-name: Build Docker container
+name: Docker
 
 on:
   # Too expensive to run on ever push. Only run on PR.
