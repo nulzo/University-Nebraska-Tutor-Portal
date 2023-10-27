@@ -71,4 +71,8 @@ jobs:
         poetry config virtualenvs.create false
         poetry shell
         poetry install
+    - name: Run pip-audit
+      uses: actions/checkout@v3
+    - working-directory: ./backend
+      run: |
         pip-audit
