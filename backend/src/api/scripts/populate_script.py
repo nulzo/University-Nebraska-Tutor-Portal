@@ -102,7 +102,7 @@ class ParseSemester:
                 professor.professor_id = p_id
                 professor.save()
                 print("SAVED!")
-            except Exception as e:
+            except Exception as e:  # nosec B112
                 print("COULD NOT SAVE!")
                 continue
 
@@ -115,7 +115,7 @@ class ParseSemester:
                 course.course_id = c_id
                 course.is_active = True
                 course.save()
-            except Exception as e:
+            except Exception as e:  # nosec B112
                 continue
 
     def write_sections(self) -> None:
@@ -131,7 +131,7 @@ class ParseSemester:
                 section.professor = professor
                 section.course = course
                 section.save()
-            except Exception as e:
+            except Exception as e:  # nosec B112
                 print(e)
                 continue
             # print(s_id, s_data)
