@@ -82,6 +82,6 @@ module.exports = {
   plugins: [
     require("tailwindcss-animate"),
     require("@tailwindcss/forms"),
-    require('tailwind-scrollbar')({ nocompatible: true }),
+    require("tailwind-scrollbar")({ nocompatible: true }),
   ],
 };

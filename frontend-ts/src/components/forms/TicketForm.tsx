@@ -56,7 +56,8 @@ const FormSchema = z.object({
   student_email: z
     .string({
       required_error: "enter your UNO email.",
-    }).email()
+    })
+    .email()
     .min(4, {
       message: "email must be a valid UNO email.",
     })
@@ -116,23 +117,26 @@ export default function TicketForm() {
   const max_length = max_ticket_length;
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
-    axios.post("http://localhost:6969/api/tickets/", {
-      name: data.student_name,
-      description: data.body,
-      professor: data.professor,
-      section: data.section,
-      issue: data.issue,
-      student: data.student_name
-    }).then(function (response) {
-      console.log(response);
-    }).catch((error) => console.log("ERROR:", error));
+    axios
+      .post("http://localhost:6969/api/tickets/", {
+        name: data.student_name,
+        description: data.body,
+        professor: data.professor,
+        section: data.section,
+        issue: data.issue,
+        student: data.student_name,
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch((error) => console.log("ERROR:", error));
   }
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
       student_name: "Nolan Gregory",
-      student_email: "nolangregory@unomaha.edu"
+      student_email: "nolangregory@unomaha.edu",
     },
   });
 
@@ -180,7 +184,7 @@ export default function TicketForm() {
             </FormItem>
           )}
         />
-        {!professors?.isLoading &&
+        {!professors?.isLoading && (
           <FormField
             control={form.control}
             name="professor"
@@ -202,13 +206,15 @@ export default function TicketForm() {
                             role="combobox"
                             className={cn(
                               "w-[250px] justify-between",
-                              !field.value && "text-muted-foreground font-normal"
+                              !field.value &&
+                                "text-muted-foreground font-normal",
                             )}
                           >
                             {field.value
                               ? professors?.data.find(
-                                (professor: any) => professor.full_name === field.value
-                              )?.full_name
+                                  (professor: any) =>
+                                    professor.full_name === field.value,
+                                )?.full_name
                               : "select a professor"}
                             <CaretSortIcon className="ml-2 h-4 w-4 shrink-0" />
                           </Button>
@@ -227,7 +233,10 @@ export default function TicketForm() {
                                 value={professor.full_name}
                                 key={professor.id}
                                 onSelect={() => {
-                                  form.setValue("professor", professor.full_name);
+                                  form.setValue(
+                                    "professor",
+                                    professor.full_name,
+                                  );
                                 }}
                               >
                                 {professor.full_name}
@@ -236,7 +245,7 @@ export default function TicketForm() {
                                     "ml-auto h-4 w-4",
                                     professor.full_name === field.value
                                       ? "opacity-100"
-                                      : "opacity-0"
+                                      : "opacity-0",
                                   )}
                                 />
                               </CommandItem>
@@ -251,8 +260,8 @@ export default function TicketForm() {
               </FormItem>
             )}
           />
-        }
-        {!courses?.isLoading &&
+        )}
+        {!courses?.isLoading && (
           <FormField
             control={form.control}
             name="section"
@@ -276,19 +285,27 @@ export default function TicketForm() {
                             key="course_button"
                             className={cn(
                               "w-[250px] justify-between",
-                              !field.value && "text-muted-foreground font-normal"
+                              !field.value &&
+                                "text-muted-foreground font-normal",
                             )}
                           >
                             {field.value
                               ? courses?.data.find(
-                                (course: any) => course.course_name === field.value
-                              )?.course_name
+                                  (course: any) =>
+                                    course.course_name === field.value,
+                                )?.course_name
                               : "select a course"}
-                            <CaretSortIcon key="course_sort_icon" className="ml-2 h-4 w-4 shrink-0" />
+                            <CaretSortIcon
+                              key="course_sort_icon"
+                              className="ml-2 h-4 w-4 shrink-0"
+                            />
                           </Button>
                         </FormControl>
                       </PopoverTrigger>
-                      <PopoverContent key="course_content" className="w-[300px] p-0">
+                      <PopoverContent
+                        key="course_content"
+                        className="w-[300px] p-0"
+                      >
                         <Command>
                           <CommandInput
                             placeholder="search courses..."
@@ -304,7 +321,10 @@ export default function TicketForm() {
                                 onSelect={() => {
                                   {
                                     course.course_name &&
-                                      form.setValue("section", course.course_name);
+                                      form.setValue(
+                                        "section",
+                                        course.course_name,
+                                      );
                                   }
                                 }}
                               >
@@ -315,7 +335,7 @@ export default function TicketForm() {
                                     "ml-auto h-4 w-4",
                                     course.course_name === field.value
                                       ? "opacity-100"
-                                      : "opacity-0"
+                                      : "opacity-0",
                                   )}
                                 />
                               </CommandItem>
@@ -330,8 +350,8 @@ export default function TicketForm() {
               </FormItem>
             )}
           />
-        }
-        {!issues?.isLoading &&
+        )}
+        {!issues?.isLoading && (
           <FormField
             control={form.control}
             name="issue"
@@ -340,15 +360,26 @@ export default function TicketForm() {
               <FormItem className="" key="issue_form_item">
                 <div className="space-y-0.5 flex flex-row items-center justify-between rounded-lg border p-4 text-foreground">
                   <div className="space-y-0.5">
-                    <FormLabel key="issue_form_label" className=" text-foreground">Issue type</FormLabel>
-                    <FormDescription key="issue_form_description" className="text-muted-foreground">
+                    <FormLabel
+                      key="issue_form_label"
+                      className=" text-foreground"
+                    >
+                      Issue type
+                    </FormLabel>
+                    <FormDescription
+                      key="issue_form_description"
+                      className="text-muted-foreground"
+                    >
                       Select the issue you are having.
                     </FormDescription>
                   </div>
                   <div>
                     <Select onValueChange={field.onChange} key="issue_select">
                       <FormControl>
-                        <SelectTrigger className="text-foreground w-[250px]" key="issue_select_trigger">
+                        <SelectTrigger
+                          className="text-foreground w-[250px]"
+                          key="issue_select_trigger"
+                        >
                           <SelectValue key="issue_value">
                             {field.value || (
                               <span className="text-muted-foreground">
@@ -360,7 +391,12 @@ export default function TicketForm() {
                       </FormControl>
                       <SelectContent key="issue_select_content">
                         {issues?.data.map((issue: any) => (
-                          <SelectItem value={issue.problem_type} key={`issue_${issue.id}`}>{issue.problem_type}</SelectItem>
+                          <SelectItem
+                            value={issue.problem_type}
+                            key={`issue_${issue.id}`}
+                          >
+                            {issue.problem_type}
+                          </SelectItem>
                         ))}
                       </SelectContent>
                     </Select>
@@ -370,7 +406,7 @@ export default function TicketForm() {
               </FormItem>
             )}
           />
-        }
+        )}
         <FormField
           control={form.control}
           name="body"
@@ -417,4 +453,3 @@ export default function TicketForm() {
     </Form>
   );
 }
-

@@ -162,30 +162,29 @@ export default function AnnouncementForm() {
                   </FormDescription>
                 </div>
                 <div>
-                <Select onValueChange={field.onChange}>
-                  <FormControl>
-                    <SelectTrigger className="text-foreground w-[240px]">
-                      <SelectValue>
-                        {field.value || (
-                          <span className="text-muted-foreground">
-                            select an announcement type
-                          </span>
-                        )}
-                      </SelectValue>
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    <SelectItem value="general">General</SelectItem>
-                    <SelectItem value="info">Informative</SelectItem>
-                    <SelectItem value="alert">Alert</SelectItem>
-                    <SelectItem value="warning">Warning</SelectItem>
-                    <SelectItem value="tutor">Tutors Only</SelectItem>
-                  </SelectContent>
-                </Select>
-                <FormMessage className="text-warning mt-1" />
+                  <Select onValueChange={field.onChange}>
+                    <FormControl>
+                      <SelectTrigger className="text-foreground w-[240px]">
+                        <SelectValue>
+                          {field.value || (
+                            <span className="text-muted-foreground">
+                              select an announcement type
+                            </span>
+                          )}
+                        </SelectValue>
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectItem value="general">General</SelectItem>
+                      <SelectItem value="info">Informative</SelectItem>
+                      <SelectItem value="alert">Alert</SelectItem>
+                      <SelectItem value="warning">Warning</SelectItem>
+                      <SelectItem value="tutor">Tutors Only</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  <FormMessage className="text-warning mt-1" />
                 </div>
               </div>
-              
             </FormItem>
           )}
         />
@@ -209,7 +208,7 @@ export default function AnnouncementForm() {
                           variant={"outline"}
                           className={cn(
                             "w-[240px] pl-3 text-left font-normal text-foreground",
-                            !field.value && "text-muted-foreground"
+                            !field.value && "text-muted-foreground",
                           )}
                         >
                           {field.value ? (
@@ -231,7 +230,6 @@ export default function AnnouncementForm() {
                         }
                         initialFocus
                       />
-                      
                     </PopoverContent>
                   </Popover>
                   <FormMessage className="text-warning mt-1" />
@@ -245,7 +243,7 @@ export default function AnnouncementForm() {
           name="end_date"
           render={({ field }) => (
             <FormItem className="">
-                <div className="space-y-0.5 flex flex-row items-center justify-between rounded-lg border p-4">
+              <div className="space-y-0.5 flex flex-row items-center justify-between rounded-lg border p-4">
                 <div className="space-y-0.5">
                   <FormLabel className=" text-foreground">Start date</FormLabel>
                   <FormDescription className="text-muted-foreground">
@@ -253,41 +251,40 @@ export default function AnnouncementForm() {
                   </FormDescription>
                 </div>
                 <div>
-              <Popover>
-                <PopoverTrigger asChild>
-                  <FormControl>
-                    <Button
-                      variant={"outline"}
-                      className={cn(
-                        "w-[240px] pl-3 text-left font-normal text-foreground",
-                        !field.value && "text-muted-foreground"
-                      )}
-                    >
-                      {field.value ? (
-                        format(field.value, "PPP")
-                      ) : (
-                        <span>select end date</span>
-                      )}
-                      <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-                    </Button>
-                  </FormControl>
-                </PopoverTrigger>
-                <PopoverContent className="w-auto p-0" align="start">
-                  <Calendar
-                    mode="single"
-                    selected={field.value}
-                    onSelect={field.onChange}
-                    disabled={(date) =>
-                      date > new Date() || date < new Date("1900-01-01")
-                    }
-                    initialFocus
-                  />
-                </PopoverContent>
-              </Popover>
-              <FormMessage className="text-warning" />
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <FormControl>
+                        <Button
+                          variant={"outline"}
+                          className={cn(
+                            "w-[240px] pl-3 text-left font-normal text-foreground",
+                            !field.value && "text-muted-foreground",
+                          )}
+                        >
+                          {field.value ? (
+                            format(field.value, "PPP")
+                          ) : (
+                            <span>select end date</span>
+                          )}
+                          <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                        </Button>
+                      </FormControl>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-auto p-0" align="start">
+                      <Calendar
+                        mode="single"
+                        selected={field.value}
+                        onSelect={field.onChange}
+                        disabled={(date) =>
+                          date > new Date() || date < new Date("1900-01-01")
+                        }
+                        initialFocus
+                      />
+                    </PopoverContent>
+                  </Popover>
+                  <FormMessage className="text-warning" />
+                </div>
               </div>
-              </div>
-             
             </FormItem>
           )}
         />
@@ -302,7 +299,7 @@ export default function AnnouncementForm() {
                   Show the start and end dates in the announcement.
                 </FormDescription>
               </div>
-              
+
               <FormControl>
                 <Switch
                   checked={field.value}

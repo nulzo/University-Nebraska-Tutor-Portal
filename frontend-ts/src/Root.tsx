@@ -6,9 +6,9 @@ import { useEffect } from "react";
 
 export default function Root() {
   useEffect(() => {
-    const theme = localStorage.getItem('theme');
+    const theme = localStorage.getItem("theme");
     if (theme) {
-      document.getElementById("root")?.classList.add('theme', theme);
+      document.getElementById("root")?.classList.add("theme", theme);
     }
   }, []);
   return (
