@@ -20,6 +20,26 @@
 
 ## ========================== PROCESSES ===============================
 
+.PHONY frontend-lint:
+frontend-lint:
+	echo s 
+
+.PHONY frontend-test:
+frontend-test:
+	echo s 
+
+.PHONY backend-lint:
+backend-lint:
+	echo s 
+
+.PHONY backend-test:
+backend-test:
+	echo s 
+
+.PHONY build-docker:
+build-docker:
+	docker compose up --build 
+
 .PHONY build: ## Build the project from scratch
 build:
 	./scripts/build.sh

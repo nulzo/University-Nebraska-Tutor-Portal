@@ -26,12 +26,10 @@ env.dist
 
 # Don't want to send the env variables to the container
 .env
-# Don't need to send the database
+# Dont need to send the database
 .db
 
 # We don't need to send linting config files to the container
-.pylintrc
-.flake8
 .eslintrc.cjs
 
 # No reason to send a gitignore to the container

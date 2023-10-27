@@ -1,0 +1,26 @@
+name: Docker
+
+on:
+  # Too expensive to run on ever push. Only run on PR.
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: git checkout
+        uses: actions/checkout@v3
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.11'
+      - name: Build container
+        uses: actions/checkout@v3
+      - working-directory: ./backend
+        run: |
+          docker compose build

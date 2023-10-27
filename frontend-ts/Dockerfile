@@ -1,17 +1,27 @@
-FROM node:lts AS development
+FROM node:18-alpine
 
+# Set the working directory to where the frontend will live
 WORKDIR /frontend
 
+# Send over the NPM dependencies from our project
+# We should not send over the lock file since NPM can fail if
+# using the cache from another machine. See the link below to see why
+# https://stackoverflow.com/a/67431349
 COPY package.json /frontend/package.json
-COPY package-lock.json /frontend/package-lock.json
 
-# npm clean install
-RUN npm ci
+# Run npm install (this is a fresh install and will be specific to container)
+# Again, it has no lock file to build from, so it might take a minute.
+RUN npm install
 
-# Copy stuff over
+# Send over the root information into the frontend directory
 COPY . /frontend
 
-ENV CI=true 
-ENV PORT=4200 
-
+# Run npm run build to:
+# 1. Compile typescript code (Build will fail if errors are present)
+# 2. Compile into ./dist file (will contain the "production" code)
 RUN npm run build
+
+# Run a command to preview the production build in ./dist.
+# This preview will be the last thing that is run before the container terminates
+# Check the documentation if you want to learn more about CMD vs RUN
+CMD ["npm", "run", "preview"]
