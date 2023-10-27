@@ -1,3 +1,4 @@
+[bandit]
 exclude = tests, .venv
-tests = B201,B301
+tests = B201,B301,B112
 skips = B101,B601
