@@ -6,7 +6,7 @@ import Root from "./Root.tsx";
 import ErrorView from "./views/ErrorView.tsx";
 import Zoom from "./views/ZoomView.tsx";
 import DownloadView from "./views/admin/AdminDownloadView.tsx";
-import "./style/globals.css"
+import "./style/globals.css";
 import CreateTicketView from "./views/CreateTicketView.tsx";
 import { SettingsView } from "./views/SettingsView.tsx";
 import ScheduleView from "./views/ScheduleView.tsx";
@@ -23,7 +23,7 @@ import HoursView from "./views/HoursView.tsx";
 import AdminBlame from "./views/admin/AdminBlame.tsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
@@ -37,70 +37,70 @@ const router = createBrowserRouter([
       },
       {
         path: "search/",
-        element: <Search />
+        element: <Search />,
       },
       {
         path: "admin-dashboard/",
-        element: <AdminDashboard />
+        element: <AdminDashboard />,
       },
       {
         path: "zoom/",
-        element: <Zoom />
+        element: <Zoom />,
       },
       {
         path: "hours/",
-        element: <HoursView />
+        element: <HoursView />,
       },
       {
         path: "create/",
-        element: <CreateTicketView />
+        element: <CreateTicketView />,
       },
       {
         path: "blame/",
-        element: <AdminBlame />
+        element: <AdminBlame />,
       },
       {
         path: "announcements/",
-        element: <AdminAnnouncements />
+        element: <AdminAnnouncements />,
       },
       {
         path: "admin-settings/",
-        element: <AdminSettings />
+        element: <AdminSettings />,
       },
       {
         path: "download/",
-        element: <DownloadView />
+        element: <DownloadView />,
       },
       {
         path: "settings/",
-        element: <SettingsView />
+        element: <SettingsView />,
       },
       {
         path: "schedule/",
-        element: <ScheduleView />
+        element: <ScheduleView />,
       },
       {
         path: "profile/",
-        element: <ProfileView />
+        element: <ProfileView />,
       },
       {
         path: "messages/",
-        element: <MessageView />
+        element: <MessageView />,
       },
       {
         path: "dashboard/",
-        element: <TutorDashboard />
+        element: <TutorDashboard />,
       },
       {
         path: "test-api/",
-        element: <DevAPIView />
+        element: <DevAPIView />,
       },
       {
         path: "sandbox/",
-        element: <DevSandbox />
+        element: <DevSandbox />,
       },
-    ]
-  }
+    ],
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

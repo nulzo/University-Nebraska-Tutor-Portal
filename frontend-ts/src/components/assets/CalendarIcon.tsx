@@ -1,5 +1,5 @@
 export default function CalendarIcon({ className }: any) {
-  const classname = `stroke-foreground ${className}`
+  const classname = `stroke-foreground ${className}`;
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

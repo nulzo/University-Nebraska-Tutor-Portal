@@ -34,7 +34,7 @@ export function SettingsView() {
   });
 
   function onSubmit(data: AppearanceFormValues) {
-    localStorage.setItem('theme', data.theme);
+    localStorage.setItem("theme", data.theme);
     window.location.reload();
   }
 

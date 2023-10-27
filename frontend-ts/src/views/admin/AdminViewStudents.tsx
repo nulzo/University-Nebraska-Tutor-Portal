@@ -1,7 +1,3 @@
 export default function AdminViewStudents() {
-    return (
-        <div>
-            Hey
-        </div>
-    )
+  return <div>Hey</div>;
 }
