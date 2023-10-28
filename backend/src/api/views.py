@@ -25,9 +25,6 @@ from .serializers import (
     UserSerializer,
 )
 
-# Don't want black to try and search this file as it breaks things.
-# fmt: off
-
 # We don't need to check for duplicate class names and function names.
 # pylint: disable=E0102,E1101
 
@@ -389,7 +386,7 @@ class SectionListView(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.data)
-    
+
 
 # -------------------------- SECTIONS --------------------------
 
@@ -400,8 +397,8 @@ class APISectionList(APIView):
 
     def get_querystring(self, request):
         return request.GET
-    
-    def sanitize(self, querystring:str):
+
+    def sanitize(self, querystring: str):
         return querystring.upper()
 
     def get(self, request):
@@ -409,10 +406,13 @@ class APISectionList(APIView):
         querystring = self.get_querystring(request=request)
         if querystring:
             if section := querystring.get("section"):
-                sections=sections.filter(section=section)
+                sections = sections.filter(section=section)
             if professor := querystring.get("professor"):
                 query = Professor.prof.get(full_name=professor)
-                sections=sections.filter(professor=query)
+                sections = sections.filter(professor=query)
+            if last_name := querystring.get("last-name"):
+                query = Professor.prof.get(last_name=last_name.capitalize())
+                sections = sections.filter(professor=query)
             if modality := querystring.get("modality"):
                 sections = sections.filter(modality=modality)
             if course := querystring.get("course"):
@@ -420,7 +420,7 @@ class APISectionList(APIView):
                 sections = sections.filter(course=query)
         serializer = SectionSerializer(sections, many=True)
         return Response(serializer.data)
-    
+
     def post(self, request):
         serializer = SectionSerializer(data=request.data)
         if serializer.is_valid():
@@ -438,18 +438,18 @@ class APICourseList(APIView):
 
     def get_querystring(self, request):
         return request.GET
-    
-    def sanitize(self, querystring:str):
+
+    def sanitize(self, querystring: str):
         return querystring.upper()
 
     def get(self, request):
-        courses = Course.objects.all()
+        courses = Course.generic.all()
         querystring = self.get_querystring(request=request)
         if querystring:
             if department := querystring.get("department"):
-                courses=courses.filter(course_department=self.sanitize(department))
+                courses = courses.filter(course_department=self.sanitize(department))
             if name := querystring.get("name"):
-                courses=courses.filter(course_name=name)
+                courses = courses.filter(course_name=name)
             if course_id := querystring.get("course-id"):
                 courses = courses.filter(course_id=course_id)
             if code := querystring.get("code"):
@@ -504,7 +504,7 @@ class StudentDetailView(APIView):
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
+
 
 # ------------------------ QUERYSTRING --------------------------
 
@@ -515,8 +515,8 @@ class APIProfessorList(APIView):
 
     def get_querystring(self, request):
         return request.GET
-    
-    def sanitize(self, querystring:str):
+
+    def sanitize(self, querystring: str):
         return querystring.capitalize()
 
     def get(self, request):
@@ -524,18 +524,24 @@ class APIProfessorList(APIView):
         query_string = self.get_querystring(request=request)
         if query_string:
             if professor_name := query_string.get("professor"):
-                professors=professors.filter(full_name=self.sanitize(professor_name))
+                professors = professors.filter(full_name=self.sanitize(professor_name))
             if professor_id := query_string.get("id"):
-                professors=professors.filter(professor_id=professor_id)
+                professors = professors.filter(professor_id=professor_id)
             if professor_first_name := query_string.get("first-name"):
-                professors=professors.filter(first_name=self.sanitize(professor_first_name))
+                professors = professors.filter(
+                    first_name=self.sanitize(professor_first_name)
+                )
             if professor_last_name := query_string.get("last-name"):
-                professors=professors.filter(last_name=self.sanitize(professor_last_name))
+                professors = professors.filter(
+                    last_name=self.sanitize(professor_last_name)
+                )
             if professor_is_active := query_string.get("active"):
-                professors=professors.filter(is_active=self.sanitize(professor_is_active))
+                professors = professors.filter(
+                    is_active=self.sanitize(professor_is_active)
+                )
         serializer = ProfessorSerializer(professors, many=True)
         return Response(serializer.data)
-    
+
     def post(self, request, search=None):
         Professor.professor.get_professors()
         serializer = ProfessorSerializer(data=request.data)
@@ -543,6 +549,3 @@ class APIProfessorList(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-# fmt: on

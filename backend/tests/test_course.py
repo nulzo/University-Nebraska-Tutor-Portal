@@ -5,7 +5,7 @@ from src.api.models.course import Course
 
 @pytest.fixture
 def course():
-    return Course.objects.create(
+    return Course.generic.create(
         course_name="Computer Science I",
         course_id="1400",
         course_department="CIST",
@@ -14,7 +14,7 @@ def course():
 
 @pytest.mark.django_db
 def test_course_exists(course):
-    assert Course.objects.filter(course_name="Computer Science I").exists()
+    assert Course.generic.filter(course_name="Computer Science I").exists()
 
 
 @pytest.mark.django_db
@@ -27,19 +27,19 @@ def test_course_str_method(course):
 
 @pytest.mark.django_db
 def test_course_id(course):
-    c = Course.objects.all().filter(course_name=course).first()
-    assert c.course_id == "1400"
+    c = Course.generic.all().filter(course_name=course).first()
+    assert c.course_id == 1400
 
 
 @pytest.mark.django_db
 def test_course_name(course):
-    c = Course.objects.all().filter(course_name=course).first()
+    c = Course.generic.all().filter(course_name=course).first()
     assert c.course_name == "Computer Science I"
 
 
 @pytest.mark.django_db
 def test_course_department(course):
-    c = Course.objects.all().filter(course_name=course).first()
+    c = Course.generic.all().filter(course_name=course).first()
     assert c.course_department == "CIST"
 
 
@@ -48,7 +48,8 @@ def test_default_values():
     """
     Test that default values are correctly set for course_department and is_active.
     """
-    course = Course.objects.create(course_name="Random Name", course_id="Random_ID")
+    course = Course.generic.create(
+        course_name="Random Name", course_id=1234)
     assert course.course_department == "CSCI"
 
 

@@ -4,7 +4,6 @@
 #           on a semester-to-semester basis. It uses Pandas to extract the required
 #           data, and then loads it into the database.
 
-import json
 import re
 
 import pandas
@@ -227,7 +226,7 @@ class ParseSemester:
     def write_sections(self) -> None:
         for slug, data in self.sections.items():
             section = Section()
-            course = Course.objects.all().get(
+            course = Course.generic.all().get(
                 course_id=data.get("course_id"),
                 course_department=data.get("course_department"),
             )
@@ -243,8 +242,10 @@ class ParseSemester:
 
 def run():
     parser = ParseSemester(
-        file_dir="/Users/nulzo/Github/University-Nebraska-Tutor-Portal/backend/src/api/data/semester_data.csv"
+        file_dir="C:\\Users\\Nulzo\\Desktop\\github\\University-Nebraska-Tutor-Portal\\backend\\src\\api\\data\\semester_data.csv"
     )
+    parser.write_professors()
+    parser.write_courses()
     parser.write_sections()
 
 

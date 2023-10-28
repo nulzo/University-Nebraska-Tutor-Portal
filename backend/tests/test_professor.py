@@ -11,7 +11,7 @@ def professor():
         full_name="Nolan Gregory",
         email="nolangregory@unomaha.edu",
         is_active=True,
-        professor_id="123456",
+        professor_id=123456,
     )
 
 
@@ -31,7 +31,7 @@ def test_course_str_method(professor):
 @pytest.mark.django_db
 def test_professor_id(professor):
     professor = Professor.prof.all().filter(full_name=professor).first()
-    assert professor.professor_id == "123456"
+    assert professor.professor_id == 123456
 
 
 @pytest.mark.django_db
