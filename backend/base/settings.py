@@ -58,8 +58,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 # CORS_ORIGIN_WHITELIST = ("http://localhost:5173",)
 
 ASGI_APPLICATION = "src.api.routing.application"
-CHANNEL_LAYERS = {"default": {
-    "BACKEND": "channels.layers.InMemoryChannelLayer"}}
+CHANNEL_LAYERS = {"default": {"BACKEND": "channels.layers.InMemoryChannelLayer"}}
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
 
