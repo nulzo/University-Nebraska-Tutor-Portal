@@ -14,8 +14,12 @@ format:
 
 .PHONY test:
 test:
-	coverage run --source=src/. -m pytest tests/ --capture=no
-	coverage report
+	coverage run --source=src/. -m pytest tests/ 
+
+.PHONY test-with-coverage:
+test-with-coverage:
+	coverage run --source=src/. -m pytest tests/
+	coverage reports
 
 .PHONY run:
 run:
