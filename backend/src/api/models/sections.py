@@ -34,11 +34,15 @@ class Section(models.Model):
         "api.Professor", on_delete=models.PROTECT, null=True, blank=True
     )
     course = models.ForeignKey(Course, on_delete=models.PROTECT, null=True, blank=True)
+    section_id = models.BigIntegerField(
+        primary_key=True, unique=True, blank=False, null=False
+    )
 
     online = OnlineSectionManager()
     inperson = InPersonSectionManager()
     hybrid = HybridSectionManager()
     sections = SectionManager()
+    generic = models.Manager()
 
     def __str__(self):
         return f"{self.course}"

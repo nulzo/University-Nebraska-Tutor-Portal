@@ -44,6 +44,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 class SectionSerializer(serializers.ModelSerializer):
     course = serializers.StringRelatedField()
+    professor = serializers.StringRelatedField()
 
     class Meta:
         model = Section

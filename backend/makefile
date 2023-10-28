@@ -23,4 +23,12 @@ test-with-coverage:
 
 .PHONY run:
 run:
-	python manage.py runserver
+	python3 manage.py runserver
+
+.PHONY migrate:
+migrate:
+	python3 manage.py makemigrations && python3 manage.py migrate
+
+.PHONY load_data:
+load_data:
+	python3 manage.py runscript load_semester

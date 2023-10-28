@@ -121,7 +121,7 @@ urlpatterns = [
     # Section URLS
     path(
         "api/sections/",
-        view=routing.SectionListView.as_view(),
+        view=routing.APISectionList.as_view(),
         name="Section List View",
     ),
     # path("api/sections/<str:section_id>"),
@@ -156,10 +156,9 @@ urlpatterns = [
     # path("api/messages/inactive/"),
     # path("api/messages/activate/<str:message_pk>"),
     # Course URLS
-    path(
-        "api/courses/", view=routing.CourseListView.as_view(), name="Course List View"
-    ),
+    path("api/courses/", view=routing.APICourseList.as_view(), name="Course List View"),
     # path("api/courses/<str:course_pk>", view=routing.MessageViewSet.as_view()),
     # path("api/courses/department/<str:dept>"),
     # path("api/courses/active/"),
+    path("api/prof/", view=routing.APIProfessorList.as_view(), name="professor"),
 ]
