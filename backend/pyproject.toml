@@ -16,6 +16,9 @@ websockets = "^11.0.3"
 channels = {extras = ["daphne"], version = "^4.0.0"}
 pandas = "^2.1.1"
 django-extensions = "^3.2.3"
+coverage = "^7.3.2"
+pytest-cov = "^4.1.0"
+pytest-django = "^4.5.2"
 
 [tool.poetry.group.dev.dependencies]
 bruhcolor = "^0.0.56"

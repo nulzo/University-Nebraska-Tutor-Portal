@@ -18,7 +18,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from backend.src.api import views as routing
+from src.api import views as routing
 
 urlpatterns = [
     # Admin URLS

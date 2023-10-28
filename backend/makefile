@@ -14,4 +14,4 @@ format:
 
 .PHONY test:
 test:
-	pytest .
+	coverage run --source=src/. -m pytest tests/ --capture=no
