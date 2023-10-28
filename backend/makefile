@@ -8,10 +8,15 @@ lint:
 
 .PHONY format:
 format:
-	autoflake . --in-place --remove-all-unused-imports --stdout
+	autoflake . --in-place --remove-all-unused-imports
 	isort .
 	black .
 
 .PHONY test:
 test:
 	coverage run --source=src/. -m pytest tests/ --capture=no
+	coverage report
+
+.PHONY run:
+run:
+	python manage.py runserver

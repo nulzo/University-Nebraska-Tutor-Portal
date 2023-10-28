@@ -1,7 +1,7 @@
 import pytest
+
 from src.api.models.course import Course
-from django.db.utils import IntegrityError
-from pytest_django.asserts import assertFieldOutput
+
 
 @pytest.fixture
 def course():
@@ -11,9 +11,11 @@ def course():
         course_department="CIST",
     )
 
+
 @pytest.mark.django_db
 def test_course_exists(course):
     assert Course.objects.filter(course_name="Computer Science I").exists()
+
 
 @pytest.mark.django_db
 def test_course_str_method(course):
@@ -22,24 +24,33 @@ def test_course_str_method(course):
     """
     assert str(course) == "Computer Science I"
 
+
+@pytest.mark.django_db
+def test_course_id(course):
+    c = Course.objects.all().filter(course_name=course).first()
+    assert c.course_id == "1400"
+
+
+@pytest.mark.django_db
+def test_course_name(course):
+    c = Course.objects.all().filter(course_name=course).first()
+    assert c.course_name == "Computer Science I"
+
+
+@pytest.mark.django_db
+def test_course_department(course):
+    c = Course.objects.all().filter(course_name=course).first()
+    assert c.course_department == "CIST"
+
+
 @pytest.mark.django_db
 def test_default_values():
     """
     Test that default values are correctly set for course_department and is_active.
     """
-    course = Course.objects.create(
-        course_name="Random Name",
-        course_id="Random_ID"
-    )
+    course = Course.objects.create(course_name="Random Name", course_id="Random_ID")
     assert course.course_department == "CSCI"
 
-@pytest.mark.django_db
-def test_blank_course_department(course):
-    """
-    Test that the course_department field cannot be blank.
-    """
-    assert assertFieldOutput(course)
-    # with pytest.raises(IntegrityError) as error:
 
 # @pytest.mark.django_db
 # def test_blank_course_name():

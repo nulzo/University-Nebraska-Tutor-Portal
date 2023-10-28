@@ -14,6 +14,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+# pylint: disable=E0401
 
 from django.contrib import admin
 from django.urls import path
@@ -31,9 +32,7 @@ urlpatterns = [
     # path("api/issues/top-issues"),
     # path("api/issues/severity/<str:severity_pk>"),
     # Ticket URLS
-    path(
-        "api/tickets/", view=routing.TicketListView.as_view(), name="Query All Tickets"
-    ),
+    path("api/tickets/", view=routing.TicketListView.as_view(), name="tickets"),
     path(
         "api/tickets/<str:ticket_pk>/",
         view=routing.TicketDetailView.as_view(),
@@ -47,7 +46,7 @@ urlpatterns = [
     path(
         "api/tickets/professor/<str:professor_pk>/",
         view=routing.ProfessorTicketDetailView.as_view(),
-        name="Professor Tickets",
+        name="professor",
     ),
     path(
         "api/tickets/section/<str:section_pk>/",
@@ -109,7 +108,7 @@ urlpatterns = [
     path(
         "api/professors/",
         view=routing.ProfessorListView.as_view(),
-        name="Professor List View",
+        name="professor",
     ),
     path(
         "api/professors/<str:professor_pk>",
