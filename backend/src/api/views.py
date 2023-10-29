@@ -338,7 +338,7 @@ class IssueListView(APIView):
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
 
     def get(self, request):
-        queryset = Issues.objects.all()
+        queryset = Issues.generic.all()
         serializer = IssueSerializer(queryset, many=True)
         return Response(serializer.data)
 
@@ -417,7 +417,8 @@ class APISectionList(APIView):
                 sections = sections.filter(professor__in=query)
 
             if first_name := querystring.get("first-name"):
-                query = Professor.prof.filter(first_name=first_name.capitalize())
+                query = Professor.prof.filter(
+                    first_name=first_name.capitalize())
                 sections = sections.filter(professor__in=query)
 
             if modality := querystring.get("modality"):
@@ -457,7 +458,8 @@ class APICourseList(APIView):
 
         if querystring:
             if department := querystring.get("department"):
-                courses = courses.filter(course_department=self.sanitize(department))
+                courses = courses.filter(
+                    course_department=self.sanitize(department))
 
             if name := querystring.get("name"):
                 courses = courses.filter(course_name=name)
@@ -469,7 +471,8 @@ class APICourseList(APIView):
                 courses = courses.filter(course_id=course_id)
 
             if course_id_contains := querystring.get("course-id-contains"):
-                courses = courses.filter(course_id__contains=course_id_contains)
+                courses = courses.filter(
+                    course_id__contains=course_id_contains)
 
             if greater_than_code := querystring.get("higher-than"):
                 courses = courses.filter(course_id__gt=greater_than_code)
@@ -510,7 +513,8 @@ class APIUserList(APIView):
 
         if querystring:
             if department := querystring.get("department"):
-                users = users.filter(course_department=self.sanitize(department))
+                users = users.filter(
+                    course_department=self.sanitize(department))
 
             if name := querystring.get("name"):
                 users = users.filter(name=name)
@@ -574,7 +578,8 @@ class APITicketList(APIView):
 
         if querystring:
             if department := querystring.get("department"):
-                users = users.filter(course_department=self.sanitize(department))
+                users = users.filter(
+                    course_department=self.sanitize(department))
 
             if name := querystring.get("name"):
                 users = users.filter(name=name)
@@ -657,6 +662,63 @@ class StudentDetailView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+# ------------------------- PROFESSOR ---------------------------
+
+class APITicketView(APIView):
+    serializer_class = TicketSerializer
+    renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
+
+    def get_querystring(self, request):
+        return request.GET
+
+    def sanitize(self, querystring: str):
+        return querystring.capitalize()
+
+    def get_professor_id(self, professor_name):
+        return Professor.prof.all().filter(full_name=professor_name).first()
+
+    def get_course_id(self, course_name):
+        return Course.generic.all().filter(course_name=course_name).first()
+
+    def get_issue_id(self, issue_type):
+        return Issues.generic.all().filter(problem_type=issue_type).first()
+
+    def get_user_id(self, user):
+        return User.generic.all().filter(name=user).first()
+
+    def get(self, request):
+        tickets = Ticket.generic.all()
+        querystring = self.get_querystring(request=request)
+        if querystring:
+            if is_completed := querystring.get("completed"):
+                tickets = tickets.filter(
+                    completed=is_completed.upper())
+
+        serializer = TicketSerializer(tickets, many=True)
+        return Response(serializer.data)
+
+    def post(self, request, search=None):
+        Ticket.generic.all()
+        if professor_name := request.data.get("professor"):
+            pid = self.get_professor_id(professor_name=professor_name)
+            request.data['professor'] = pid.professor_id
+        if course_name := request.data.get("section"):
+            cid = self.get_course_id(course_name=course_name)
+            request.data['section'] = cid.id
+        if issue_type := request.data.get("issue"):
+            iid = self.get_issue_id(issue_type=issue_type)
+            request.data['issue'] = iid.issue_id
+        if student_name := request.data.get("student"):
+            sid = self.get_user_id(user=student_name)
+            request.data['student'] = sid.student_nuid
+        print(request.data)
+        serializer = TicketSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
 # ------------------------ QUERYSTRING --------------------------
 
 
@@ -675,7 +737,8 @@ class APIProfessorList(APIView):
         query_string = self.get_querystring(request=request)
         if query_string:
             if professor_name := query_string.get("professor"):
-                professors = professors.filter(full_name=self.sanitize(professor_name))
+                professors = professors.filter(
+                    full_name=self.sanitize(professor_name))
             if professor_id := query_string.get("id"):
                 professors = professors.filter(professor_id=professor_id)
             if professor_first_name := query_string.get("first-name"):

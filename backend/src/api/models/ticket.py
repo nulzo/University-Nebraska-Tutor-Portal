@@ -37,8 +37,10 @@ class TicketManager(models.Manager):
 
 
 class Ticket(models.Model):
-    professor = models.ForeignKey(Professor, null=True, on_delete=models.PROTECT)
-    section = models.ForeignKey("api.Section", null=True, on_delete=models.PROTECT)
+    professor = models.ForeignKey(
+        Professor, null=True, on_delete=models.PROTECT)
+    section = models.ForeignKey(
+        "api.Section", null=True, on_delete=models.PROTECT)
     issue = models.ForeignKey(Issues, null=True, on_delete=models.PROTECT)
     student = models.ForeignKey(
         "api.User", null=True, on_delete=models.PROTECT, related_name="student_ticket"
@@ -56,6 +58,7 @@ class Ticket(models.Model):
     was_successful = models.BooleanField(default=False)
     was_reopened = models.BooleanField(default=False)
 
+    generic = models.Manager()
     ticket = TicketManager()
 
     def __str__(self):

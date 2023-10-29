@@ -21,6 +21,7 @@ class Issues(models.Model):
         return str(self.problem_type)
 
     # issue = IssueManager()
+    generic = models.Manager()
 
     class Meta:
         verbose_name_plural = "issue_types"

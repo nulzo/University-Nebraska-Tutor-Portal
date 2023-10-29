@@ -38,6 +38,7 @@ import axios from "axios";
 import useFetchProfessor from "@/API/professors/useFetchProfessor";
 import useFetchCourse from "@/API/courses/useFetchCourse";
 import useFetchIssue from "@/API/issues/useFetchIssue";
+import { ScrollArea } from "../ui/scroll-area";
 // import useFetchSection from "@/API/sections/useFetchSection";
 
 const max_ticket_length = 500;
@@ -117,6 +118,7 @@ export default function TicketForm() {
   const max_length = max_ticket_length;
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
+    console.log(data);
     axios
       .post("http://localhost:6969/api/tickets/", {
         name: data.student_name,
@@ -135,8 +137,8 @@ export default function TicketForm() {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      student_name: "Nolan Gregory",
-      student_email: "nolangregory@unomaha.edu",
+      // student_name: "Nolan Gregory",
+      // student_email: "nolangregory@unomaha.edu",
     },
   });
 
@@ -151,8 +153,8 @@ export default function TicketForm() {
               <FormLabel className="text-foreground">Your Name</FormLabel>
               <FormControl>
                 <Input
-                  className="text-muted-foreground"
-                  placeholder="enter title here..."
+                  className="text-foreground"
+                  placeholder="enter name here..."
                   {...field}
                 />
               </FormControl>
@@ -172,7 +174,7 @@ export default function TicketForm() {
               <FormLabel className="text-foreground">Your email</FormLabel>
               <FormControl>
                 <Input
-                  className="text-muted-foreground"
+                  className="text-foreground"
                   placeholder="enter title here..."
                   {...field}
                 />
@@ -207,20 +209,20 @@ export default function TicketForm() {
                             className={cn(
                               "w-[250px] justify-between",
                               !field.value &&
-                                "text-muted-foreground font-normal",
+                              "text-muted-foreground font-normal",
                             )}
                           >
                             {field.value
                               ? professors?.data.find(
-                                  (professor: any) =>
-                                    professor.full_name === field.value,
-                                )?.full_name
+                                (professor: any) =>
+                                  professor.full_name === field.value,
+                              )?.full_name
                               : "select a professor"}
                             <CaretSortIcon className="ml-2 h-4 w-4 shrink-0" />
                           </Button>
                         </FormControl>
                       </PopoverTrigger>
-                      <PopoverContent className="w-[300px] p-0">
+                      <PopoverContent className="w-[300px] h-[30vh] p-0">
                         <Command>
                           <CommandInput
                             placeholder="search professors..."
@@ -228,28 +230,31 @@ export default function TicketForm() {
                           />
                           <CommandEmpty>no professors found...</CommandEmpty>
                           <CommandGroup>
-                            {professors?.data.map((professor: any) => (
-                              <CommandItem
-                                value={professor.full_name}
-                                key={professor.id}
-                                onSelect={() => {
-                                  form.setValue(
-                                    "professor",
-                                    professor.full_name,
-                                  );
-                                }}
-                              >
-                                {professor.full_name}
-                                <CheckIcon
-                                  className={cn(
-                                    "ml-auto h-4 w-4",
-                                    professor.full_name === field.value
-                                      ? "opacity-100"
-                                      : "opacity-0",
-                                  )}
-                                />
-                              </CommandItem>
-                            ))}
+                            <ScrollArea className="h-72 rounded-md border">
+                              {professors?.data.map((professor: any) => (
+                                <CommandItem
+                                  value={professor.full_name}
+                                  key={professor.id}
+                                  onSelect={() => {
+                                    form.setValue(
+                                      "professor",
+                                      professor.full_name,
+                                    )
+                                  }}
+                                >
+                                  {professor.full_name}
+                                  <CheckIcon
+                                    className={cn(
+                                      "ml-auto h-4 w-4",
+                                      professor.full_name === field.value
+                                        ? "opacity-100"
+                                        : "opacity-0",
+                                    )}
+                                  />
+
+                                </CommandItem>
+                              ))}
+                            </ScrollArea>
                           </CommandGroup>
                         </Command>
                       </PopoverContent>
@@ -286,14 +291,14 @@ export default function TicketForm() {
                             className={cn(
                               "w-[250px] justify-between",
                               !field.value &&
-                                "text-muted-foreground font-normal",
+                              "text-muted-foreground font-normal",
                             )}
                           >
                             {field.value
                               ? courses?.data.find(
-                                  (course: any) =>
-                                    course.course_name === field.value,
-                                )?.course_name
+                                (course: any) =>
+                                  course.course_name === field.value,
+                              )?.course_name
                               : "select a course"}
                             <CaretSortIcon
                               key="course_sort_icon"
@@ -314,32 +319,34 @@ export default function TicketForm() {
                           />
                           <CommandEmpty>no courses found...</CommandEmpty>
                           <CommandGroup key="course_command_group">
-                            {courses?.data.map((course: any) => (
-                              <CommandItem
-                                value={course.course_name}
-                                key={course.id}
-                                onSelect={() => {
-                                  {
-                                    course.course_name &&
-                                      form.setValue(
-                                        "section",
-                                        course.course_name,
-                                      );
-                                  }
-                                }}
-                              >
-                                {course.course_name}
-                                <CheckIcon
-                                  key="course_check_icon"
-                                  className={cn(
-                                    "ml-auto h-4 w-4",
-                                    course.course_name === field.value
-                                      ? "opacity-100"
-                                      : "opacity-0",
-                                  )}
-                                />
-                              </CommandItem>
-                            ))}
+                            <ScrollArea className="h-72 rounded-md border">
+                              {courses?.data.map((course: any) => (
+                                <CommandItem
+                                  value={course.course_name}
+                                  key={course.id}
+                                  onSelect={() => {
+                                    {
+                                      course.course_name &&
+                                        form.setValue(
+                                          "section",
+                                          course.course_name,
+                                        );
+                                    }
+                                  }}
+                                >
+                                  {course.course_name}
+                                  <CheckIcon
+                                    key="course_check_icon"
+                                    className={cn(
+                                      "ml-auto h-4 w-4",
+                                      course.course_name === field.value
+                                        ? "opacity-100"
+                                        : "opacity-0",
+                                    )}
+                                  />
+                                </CommandItem>
+                              ))}
+                            </ScrollArea>
                           </CommandGroup>
                         </Command>
                       </PopoverContent>
