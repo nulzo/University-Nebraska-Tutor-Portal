@@ -725,6 +725,20 @@ django = ">=3.0"
 pytz = "*"
 
 [[package]]
+name = "faker"
+version = "19.12.0"
+description = "Faker is a Python package that generates fake data for you."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "Faker-19.12.0-py3-none-any.whl", hash = "sha256:5990380a8ee81cf189d6b85d5fdc1fb43772cb136aca0385a08ff24ef01b9fdf"},
+    {file = "Faker-19.12.0.tar.gz", hash = "sha256:91438f6b1713274ec3f24970ba303617be86ce5caf6f6a0776f1d04777b6ff5f"},
+]
+
+[package.dependencies]
+python-dateutil = ">=2.4"
+
+[[package]]
 name = "filelock"
 version = "3.12.4"
 description = "A platform independent file lock."
@@ -2151,4 +2165,4 @@ testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.11,<3.13"
-content-hash = "37d730b87414beee7a0e1f5f2d180440df8857303426e44007ecd9a484bf9f94"
+content-hash = "9a759b5a4bb528832edd59f045a49d3dfc64e8504ae00ffd7994fb1a50dedcbf"

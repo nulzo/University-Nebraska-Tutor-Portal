@@ -197,7 +197,6 @@ export function Sidebar() {
                 height={20}
                 viewBox={"0 0 24 24"}
                 strokeWidth={stroke_width}
-                shapeRendering={shape_rendering}
               />
             }
           />

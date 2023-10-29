@@ -48,8 +48,7 @@ def test_default_values():
     """
     Test that default values are correctly set for course_department and is_active.
     """
-    course = Course.generic.create(
-        course_name="Random Name", course_id=1234)
+    course = Course.generic.create(course_name="Random Name", course_id=1234)
     assert course.course_department == "CSCI"
 
 

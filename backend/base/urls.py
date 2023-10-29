@@ -140,6 +140,7 @@ urlpatterns = [
         view=routing.StudentDetailView.as_view(),
         name="Student Detail View",
     ),
+    path("api/users/", view=routing.APIUserList.as_view()),
     # path("api/students/<str:student_pk>"),
     # path("api/students/<str:grade_level>"),
     # Admin (Superuser) URLS
