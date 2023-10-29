@@ -157,8 +157,7 @@ urlpatterns = [
     # path("api/messages/inactive/"),
     # path("api/messages/activate/<str:message_pk>"),
     # Course URLS
-    path("api/courses/", view=routing.APICourseList.as_view(),
-         name="Course List View"),
+    path("api/courses/", view=routing.APICourseList.as_view(), name="Course List View"),
     # path("api/courses/<str:course_pk>", view=routing.MessageViewSet.as_view()),
     # path("api/courses/department/<str:dept>"),
     # path("api/courses/active/"),
