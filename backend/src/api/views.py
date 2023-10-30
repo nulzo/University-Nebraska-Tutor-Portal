@@ -699,18 +699,18 @@ class APITicketView(APIView):
 
     def post(self, request, search=None):
         Ticket.generic.all()
-        if professor_name := request.data.get("professor"):
-            pid = self.get_professor_id(professor_name=professor_name)
-            request.data["professor"] = pid.professor_id
-        if course_name := request.data.get("section"):
-            cid = self.get_course_id(course_name=course_name)
-            request.data["section"] = cid.id
-        if issue_type := request.data.get("issue"):
-            iid = self.get_issue_id(issue_type=issue_type)
-            request.data["issue"] = iid.issue_id
-        if student_name := request.data.get("student"):
-            sid = self.get_user_id(user=student_name)
-            request.data["student"] = sid.student_nuid
+        # if professor_name := request.data.get("professor"):
+        #     pid = self.get_professor_id(professor_name=professor_name)
+        #     request.data["professor"] = pid.professor_id
+        # if course_name := request.data.get("section"):
+        #     cid = self.get_course_id(course_name=course_name)
+        #     request.data["section"] = cid.id
+        # if issue_type := request.data.get("issue"):
+        #     iid = self.get_issue_id(issue_type=issue_type)
+        #     request.data["issue"] = iid.issue_id
+        # if student_name := request.data.get("student"):
+        #     sid = self.get_user_id(user=student_name)
+        #     request.data["student"] = sid.student_nuid
         print(request.data)
         serializer = TicketSerializer(data=request.data)
         if serializer.is_valid():

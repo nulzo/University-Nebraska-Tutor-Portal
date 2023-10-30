@@ -25,6 +25,10 @@ test-with-coverage:
 run:
 	python manage.py runserver
 
+.PHONY run-network:
+run-network:
+	python manage.py runserver 0.0.0.0:6969
+
 .PHONY migrate:
 migrate:
 	python manage.py makemigrations && python manage.py migrate
