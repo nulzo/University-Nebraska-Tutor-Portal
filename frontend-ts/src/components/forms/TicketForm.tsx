@@ -184,7 +184,7 @@ export default function TicketForm() {
                               variant="dropdown"
                               role="combobox"
                               className={cn(
-                                "w-full md:w-[250px] justify-between",
+                                "w-full md:w-[35vw] lg:w-[30vw] xl:w-[40vw] justify-between",
                                 !field.value &&
                                 "text-muted-foreground font-normal",
                               )}
@@ -199,7 +199,7 @@ export default function TicketForm() {
                             </Button>
                           </FormControl>
                         </PopoverTrigger>
-                        <PopoverContent className="w-[70vw] h-full md:w-[300px] md:h-[30vh] p-0">
+                        <PopoverContent className="w-[70vw] h-full md:w-[35vw] lg:w-[30vw] xl:w-[40vw] md:h-[30vh] lg:h-full p-0">
                           <Command>
                             <CommandInput
                               placeholder="search professors..."
@@ -265,7 +265,7 @@ export default function TicketForm() {
                               role="combobox"
                               key="course_button"
                               className={cn(
-                                "w-full md:w-[250px] justify-between",
+                                "w-full md:w-[35vw] lg:w-[30vw] xl:w-[40vw] justify-between",
                                 !field.value &&
                                 "text-muted-foreground font-normal",
                               )}
@@ -274,7 +274,7 @@ export default function TicketForm() {
                                 ? courses?.data.find(
                                   (course: any) =>
                                     course.id === field.value,
-                                )?.course_name
+                                )?.course_code
                                 : "select a course"}
                               <CaretSortIcon
                                 key="course_sort_icon"
@@ -285,7 +285,7 @@ export default function TicketForm() {
                         </PopoverTrigger>
                         <PopoverContent
                           key="course_content"
-                          className="w-[70vw] md:w-[300px] p-0"
+                          className="w-[70vw] h-full md:w-[35vw] lg:w-[30vw] xl:w-[40vw] md:h-[30vh] lg:h-full p-0"
                         >
                           <Command>
                             <CommandInput
@@ -298,7 +298,7 @@ export default function TicketForm() {
                               <ScrollArea className="h-72 rounded-md border">
                                 {courses?.data.map((course: any) => (
                                   <CommandItem
-                                    value={course.course_name}
+                                    value={`${course.course_code} - ${course.course_name}`}
                                     key={`${course.course_code}-${course.course_name}`}
                                     onSelect={() => {
                                       {
@@ -309,7 +309,7 @@ export default function TicketForm() {
                                       }
                                     }}
                                   >
-                                    {course.course_name}
+                                    {course.course_code} - {course.course_name}
                                     <CheckIcon
                                       key="course_check_icon"
                                       className={cn(
@@ -356,7 +356,7 @@ export default function TicketForm() {
                               role="combobox"
                               key="issue_button"
                               className={cn(
-                                "w-full md:w-[250px] justify-between",
+                                "w-full md:w-[35vw] lg:w-[30vw] xl:w-[40vw] justify-between",
                                 !field.value &&
                                 "text-muted-foreground font-normal",
                               )}
@@ -376,7 +376,7 @@ export default function TicketForm() {
                         </PopoverTrigger>
                         <PopoverContent
                           key="issue_content"
-                          className="w-[70vw] md:w-[300px] p-0"
+                          className="w-[70vw] h-full md:w-[35vw] lg:w-[30vw] xl:w-[40vw] md:h-[30vh] lg:h-full p-0"
                         >
                           <Command>
                             <CommandInput

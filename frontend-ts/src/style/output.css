@@ -8370,10 +8370,6 @@ details.collapse summary::-webkit-details-marker {
   margin: 0px;
 }
 
-.m-2 {
-  margin: 0.5rem;
-}
-
 .-mx-1 {
   margin-left: -0.25rem;
   margin-right: -0.25rem;
@@ -8614,8 +8610,8 @@ details.collapse summary::-webkit-details-marker {
   height: 20px;
 }
 
-.h-\[30vh\] {
-  height: 30vh;
+.h-\[25vh\] {
+  height: 25vh;
 }
 
 .h-\[var\(--radix-select-trigger-height\)\] {
@@ -8637,14 +8633,6 @@ details.collapse summary::-webkit-details-marker {
 
 .h-screen {
   height: 100vh;
-}
-
-.h-\[50vh\] {
-  height: 50vh;
-}
-
-.h-\[25vh\] {
-  height: 25vh;
 }
 
 .max-h-\[300px\] {
@@ -8743,20 +8731,16 @@ details.collapse summary::-webkit-details-marker {
   width: 240px;
 }
 
-.w-\[250px\] {
-  width: 250px;
-}
-
-.w-\[300px\] {
-  width: 300px;
-}
-
 .w-\[340px\] {
   width: 340px;
 }
 
 .w-\[36px\] {
   width: 36px;
+}
+
+.w-\[70vw\] {
+  width: 70vw;
 }
 
 .w-\[80px\] {
@@ -8774,18 +8758,6 @@ details.collapse summary::-webkit-details-marker {
 
 .w-full {
   width: 100%;
-}
-
-.w-\[100vw\] {
-  width: 100vw;
-}
-
-.w-\[50vw\] {
-  width: 50vw;
-}
-
-.w-\[70vw\] {
-  width: 70vw;
 }
 
 .min-w-\[8rem\] {
@@ -11448,10 +11420,6 @@ details.collapse summary::-webkit-details-marker {
     grid-column: span 1 / span 1;
   }
 
-  .md\:col-span-2 {
-    grid-column: span 2 / span 2;
-  }
-
   .md\:col-span-6 {
     grid-column: span 6 / span 6;
   }
@@ -11464,16 +11432,12 @@ details.collapse summary::-webkit-details-marker {
     display: flex;
   }
 
-  .md\:h-\[30vh\] {
-    height: 30vh;
-  }
-
   .md\:h-72 {
     height: 18rem;
   }
 
-  .md\:w-full {
-    width: 100%;
+  .md\:h-\[30vh\] {
+    height: 30vh;
   }
 
   .md\:w-\[250px\] {
@@ -11482,6 +11446,10 @@ details.collapse summary::-webkit-details-marker {
 
   .md\:w-\[300px\] {
     width: 300px;
+  }
+
+  .md\:w-full {
+    width: 100%;
   }
 
   .md\:max-w-\[420px\] {
@@ -11522,16 +11490,12 @@ details.collapse summary::-webkit-details-marker {
 }
 
 @media (min-width: 1024px) {
-  .lg\:col-span-6 {
-    grid-column: span 6 / span 6;
-  }
-
   .lg\:col-span-2 {
     grid-column: span 2 / span 2;
   }
 
-  .lg\:col-span-1 {
-    grid-column: span 1 / span 1;
+  .lg\:col-span-6 {
+    grid-column: span 6 / span 6;
   }
 
   .lg\:block {
@@ -11548,10 +11512,6 @@ details.collapse summary::-webkit-details-marker {
 
   .lg\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .lg\:grid-cols-5 {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
   .lg\:grid-cols-7 {
@@ -11578,10 +11538,6 @@ details.collapse summary::-webkit-details-marker {
 }
 
 @media (min-width: 1280px) {
-  .xl\:col-span-1 {
-    grid-column: span 1 / span 1;
-  }
-
   .xl\:col-span-2 {
     grid-column: span 2 / span 2;
   }
@@ -11590,16 +11546,18 @@ details.collapse summary::-webkit-details-marker {
     grid-column: span 8 / span 8;
   }
 
+  .xl\:grid-cols-10 {
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+  }
+
   .xl\:grid-cols-6 {
     grid-template-columns: repeat(6, minmax(0, 1fr));
   }
+}
 
-  .xl\:grid-cols-8 {
-    grid-template-columns: repeat(8, minmax(0, 1fr));
-  }
-
-  .xl\:grid-cols-10 {
-    grid-template-columns: repeat(10, minmax(0, 1fr));
+@media (min-width: 1536px) {
+  .\32xl\:grid-cols-12 {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
   }
 }
 

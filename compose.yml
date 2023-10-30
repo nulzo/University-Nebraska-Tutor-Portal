@@ -13,6 +13,27 @@ services:
     restart: always
     ports:
       - 4200:4200
+    # command: npm run dev
+    tty: true
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+    volumes:
+      # it avoids mounting the workspace root
+      # because it may cause OS specific node_modules folder
+      # or build folder(.svelte-kit) to be mounted.
+      # they conflict with the temporary results from docker space.
+      # this is why many mono repos utilize ./src folder
+      - ./frontend-ts/src/:/home/frontend/src
+      - ./frontend-ts/vite.config.ts:/home/frontend/vite.config.js
+      - ./frontend-ts/tsconfig.json:/home/frontend/tsconfig.json
+    develop:
+      watch:
+        - action: sync
+          path: frontend-ts/src/components
+          ignore:
+            - node_modules/
+    command: npm run dev
   server:
     container_name: nginx
     build: ./nginx
@@ -21,6 +42,8 @@ services:
     restart: always
     ports:
       - 80:80
+  # tailwind:
+  #   image: tailwind
   # ngrok:
   #   image: ngrok/ngrok:latest
   #   restart: unless-stopped
