@@ -3,7 +3,7 @@ import { keepPreviousData, useQuery } from "@tanstack/react-query";
 
 export default function useFetchSection() {
   async function getSection() {
-    const { data } = await axios.get("http://localhost:6969/api/sections/");
+    const { data } = await axios.get("/api/sections/");
     return data;
   }
   const data = useQuery({

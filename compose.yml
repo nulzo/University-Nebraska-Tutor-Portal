@@ -13,3 +13,23 @@ services:
     restart: always
     ports:
       - 4200:4200
+  server:
+    container_name: nginx
+    build: ./nginx
+    depends_on:
+      - frontend
+    restart: always
+    ports:
+      - 80:80
+  # ngrok:
+  #   image: ngrok/ngrok:latest
+  #   restart: unless-stopped
+  #   command:
+  #     - "start"
+  #     - "--all"
+  #     - "--config"
+  #     - "/etc/ngrok.yml"
+  #   volumes:
+  #     - ./ngrok.yml:/etc/ngrok.yml
+  #   ports:
+  #     - 4040:4040

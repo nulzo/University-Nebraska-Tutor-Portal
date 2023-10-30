@@ -3,7 +3,7 @@ import { keepPreviousData, useQuery } from "@tanstack/react-query";
 
 export default function useFetchTicket() {
   async function getTicket() {
-    const { data } = await axios.get("http://localhost:6969/api/tickets/");
+    const { data } = await axios.get("/api/tickets/");
     return data;
   }
   const data = useQuery({

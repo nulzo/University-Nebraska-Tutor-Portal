@@ -295,7 +295,6 @@ export default function TicketForm() {
                             />
                             <CommandEmpty>no courses found...</CommandEmpty>
                             <CommandGroup key="course_command_group">
-
                               <ScrollArea className="h-72 rounded-md border">
                                 {courses?.data.map((course: any) => (
                                   <CommandItem

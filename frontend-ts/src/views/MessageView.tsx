@@ -1,6 +1,6 @@
 import Header from "@/components/typography/Header";
 import { AxeIcon } from "lucide-react";
-import { Avatar, Badge, Button, Carousel, Hero, Indicator } from "react-daisyui";
+import { Avatar, Badge, Carousel, Hero, Indicator } from "react-daisyui";
 
 export default function MessageView() {
   return (

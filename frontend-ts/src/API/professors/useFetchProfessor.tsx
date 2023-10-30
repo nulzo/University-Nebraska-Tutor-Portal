@@ -3,7 +3,7 @@ import { keepPreviousData, useQuery } from "@tanstack/react-query";
 
 export default function useFetchProfessor() {
   async function getProfessors() {
-    const { data } = await axios.get("http://localhost:6969/api/professors/");
+    const { data } = await axios.get("/api/professors/");
     return data;
   }
   const data = useQuery({
