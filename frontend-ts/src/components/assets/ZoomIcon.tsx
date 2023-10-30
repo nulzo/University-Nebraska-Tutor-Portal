@@ -1,8 +1,8 @@
 interface svgProps {
-  width: string;
-  height: string;
+  width: number;
+  height: number;
   viewBox: string;
-  strokeWidth: string;
+  strokeWidth: number;
 }
 
 export default function ZoomIcon({

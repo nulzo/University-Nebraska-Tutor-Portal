@@ -14,11 +14,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+# pylint: disable=E0401
 
 from django.contrib import admin
 from django.urls import path
 
-from backend.src.api import views as routing
+from src.api import views as routing
 
 urlpatterns = [
     # Admin URLS
@@ -31,9 +32,7 @@ urlpatterns = [
     # path("api/issues/top-issues"),
     # path("api/issues/severity/<str:severity_pk>"),
     # Ticket URLS
-    path(
-        "api/tickets/", view=routing.TicketListView.as_view(), name="Query All Tickets"
-    ),
+    path("api/tickets/", view=routing.APITicketView.as_view(), name="Tickets"),
     path(
         "api/tickets/<str:ticket_pk>/",
         view=routing.TicketDetailView.as_view(),
@@ -47,7 +46,7 @@ urlpatterns = [
     path(
         "api/tickets/professor/<str:professor_pk>/",
         view=routing.ProfessorTicketDetailView.as_view(),
-        name="Professor Tickets",
+        name="professor",
     ),
     path(
         "api/tickets/section/<str:section_pk>/",
@@ -109,7 +108,7 @@ urlpatterns = [
     path(
         "api/professors/",
         view=routing.ProfessorListView.as_view(),
-        name="Professor List View",
+        name="professor",
     ),
     path(
         "api/professors/<str:professor_pk>",
@@ -122,7 +121,7 @@ urlpatterns = [
     # Section URLS
     path(
         "api/sections/",
-        view=routing.SectionListView.as_view(),
+        view=routing.APISectionList.as_view(),
         name="Section List View",
     ),
     # path("api/sections/<str:section_id>"),
@@ -141,6 +140,7 @@ urlpatterns = [
         view=routing.StudentDetailView.as_view(),
         name="Student Detail View",
     ),
+    path("api/users/", view=routing.APIUserList.as_view()),
     # path("api/students/<str:student_pk>"),
     # path("api/students/<str:grade_level>"),
     # Admin (Superuser) URLS
@@ -157,10 +157,9 @@ urlpatterns = [
     # path("api/messages/inactive/"),
     # path("api/messages/activate/<str:message_pk>"),
     # Course URLS
-    path(
-        "api/courses/", view=routing.CourseListView.as_view(), name="Course List View"
-    ),
+    path("api/courses/", view=routing.APICourseList.as_view(), name="Course List View"),
     # path("api/courses/<str:course_pk>", view=routing.MessageViewSet.as_view()),
     # path("api/courses/department/<str:dept>"),
     # path("api/courses/active/"),
+    path("api/prof/", view=routing.APIProfessorList.as_view(), name="professor"),
 ]

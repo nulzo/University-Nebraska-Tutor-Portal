@@ -127,3 +127,5 @@ lerna-debug.log
 .DS_Store
 Thumbs.db
 .ruff_cache/
+
+poetry.toml

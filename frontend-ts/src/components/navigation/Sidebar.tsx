@@ -197,7 +197,6 @@ export function Sidebar() {
                 height={20}
                 viewBox={"0 0 24 24"}
                 strokeWidth={stroke_width}
-                shapeRendering={shape_rendering}
               />
             }
           />
@@ -425,7 +424,7 @@ export function Sidebar() {
   }
 
   return (
-    <div className="hidden lg:flex text-foreground">
+    <div className="hidden lg:flex text-foreground xl:col-span-2 lg:col-span-2">
       <aside className="h-screen sticky top-0">
         <div className="hidden lg:block">
           <div className="space-y-4">

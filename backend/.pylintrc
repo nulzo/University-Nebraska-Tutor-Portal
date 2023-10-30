@@ -6,5 +6,5 @@ disable=
     R0903,
     W0613
 
-ignore=migrations,pyproject,poetry,nohup,env.dist,pyproject.toml,db.sqlite3,poetry.lock,Dockerfile,makefile,manage.py
+ignore=migrations,pyproject,poetry,nohup,env.dist,pyproject.toml,db.sqlite3,poetry.lock,Dockerfile,makefile,manage.py,tests,pytest.ini,scripts
 ignore-paths=^.*/\.migrations

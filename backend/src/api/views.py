@@ -25,11 +25,8 @@ from .serializers import (
     UserSerializer,
 )
 
-# Don't want black to try and search this file as it breaks things.
-# fmt: off
-
 # We don't need to check for duplicate class names and function names.
-# pylint: disable=E0102,E1101
+# pylint: disable=E0102,E1101,R0914
 
 # -------------------------- CONFIG ---------------------------
 
@@ -341,7 +338,7 @@ class IssueListView(APIView):
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
 
     def get(self, request):
-        queryset = Issues.objects.all()
+        queryset = Issues.generic.all()
         serializer = IssueSerializer(queryset, many=True)
         return Response(serializer.data)
 
@@ -391,16 +388,102 @@ class SectionListView(APIView):
         return Response(serializer.data)
 
 
+# -------------------------- SECTIONS --------------------------
+
+
+class APISectionList(APIView):
+    serializer_class = SectionSerializer
+    renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
+
+    def get_querystring(self, request):
+        return request.GET
+
+    def sanitize(self, querystring: str):
+        return querystring.upper()
+
+    def get(self, request):
+        sections = Section.generic.all()
+        querystring = self.get_querystring(request=request)
+        if querystring:
+            if section := querystring.get("section"):
+                sections = sections.filter(section=section)
+
+            if professor := querystring.get("professor"):
+                query = Professor.prof.get(full_name=professor)
+                sections = sections.filter(professor=query)
+
+            if last_name := querystring.get("last-name"):
+                query = Professor.prof.filter(last_name=last_name.capitalize())
+                sections = sections.filter(professor__in=query)
+
+            if first_name := querystring.get("first-name"):
+                query = Professor.prof.filter(
+                    first_name=first_name.capitalize())
+                sections = sections.filter(professor__in=query)
+
+            if modality := querystring.get("modality"):
+                sections = sections.filter(modality=modality)
+
+            if course := querystring.get("course"):
+                query = Course.generic.filter(course_name=course)
+                sections = sections.filter(course__in=query)
+
+        serializer = SectionSerializer(sections, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = SectionSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.data)
+
+
 # -------------------------- COURSES --------------------------
 
 
-class CourseListView(APIView):
+class APICourseList(APIView):
     serializer_class = CourseSerializer
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
 
+    def get_querystring(self, request):
+        return request.GET
+
+    def sanitize(self, querystring: str):
+        return querystring.upper()
+
     def get(self, request):
-        queryset = Course.objects.all()
-        serializer = CourseSerializer(queryset, many=True)
+        courses = Course.generic.all()
+        querystring = self.get_querystring(request=request)
+
+        if querystring:
+            if department := querystring.get("department"):
+                courses = courses.filter(
+                    course_department=self.sanitize(department))
+
+            if name := querystring.get("name"):
+                courses = courses.filter(course_name=name)
+
+            if name_contains := querystring.get("name-contains"):
+                courses = courses.filter(course_name__contains=name_contains)
+
+            if course_id := querystring.get("course-id"):
+                courses = courses.filter(course_id=course_id)
+
+            if course_id_contains := querystring.get("course-id-contains"):
+                courses = courses.filter(
+                    course_id__contains=course_id_contains)
+
+            if greater_than_code := querystring.get("higher-than"):
+                courses = courses.filter(course_id__gt=greater_than_code)
+
+            if less_than_code := querystring.get("less-than"):
+                courses = courses.filter(course_id__lt=less_than_code)
+
+            if code := querystring.get("code"):
+                courses = courses.filter(course_code=code)
+
+        serializer = CourseSerializer(courses, many=True)
         return Response(serializer.data)
 
     def post(self, request):
@@ -412,6 +495,133 @@ class CourseListView(APIView):
 
 
 # -------------------------- USERS --------------------------
+
+
+class APIUserList(APIView):
+    serializer_class = UserSerializer
+    renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
+
+    def get_querystring(self, request):
+        return request.GET
+
+    def sanitize(self, querystring: str):
+        return querystring.upper()
+
+    def get(self, request):
+        users = User.generic.all()
+        querystring = self.get_querystring(request=request)
+
+        if querystring:
+            if department := querystring.get("department"):
+                users = users.filter(
+                    course_department=self.sanitize(department))
+
+            if name := querystring.get("name"):
+                users = users.filter(name=name)
+
+            if name_contains := querystring.get("name-contains"):
+                users = users.filter(name__icontains=name_contains)
+
+            if first_name := querystring.get("first-name"):
+                users = users.filter(name__istartswith=first_name)
+
+            if last_name := querystring.get("last-name"):
+                users = users.filter(name__iendswith=last_name)
+
+            if tutor := querystring.get("tutor"):
+                users = users.filter(is_tutor=tutor.capitalize())
+
+            if admin := querystring.get("admin"):
+                users = users.filter(is_admin=admin.capitalize())
+
+            if msoid := querystring.get("msoid"):
+                users = users.filter(MSOID=msoid)
+
+            if nuid := querystring.get("nuid"):
+                users = users.filter(student_nuid=nuid)
+
+            if working := querystring.get("working"):
+                users = users.filter(is_tutor=True).filter(
+                    is_working=working.capitalize()
+                )
+
+            if active := querystring.get("active"):
+                users = users.filter(is_active=active.capitalize())
+
+        serializer = UserSerializer(users, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = UserSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.data)
+
+
+# -------------------------- TICKETS --------------------------
+
+
+class APITicketList(APIView):
+    serializer_class = TicketSerializer
+    renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
+
+    def get_querystring(self, request):
+        return request.GET
+
+    def sanitize(self, querystring: str):
+        return querystring.upper()
+
+    def get(self, request):
+        users = User.generic.all()
+        querystring = self.get_querystring(request=request)
+
+        if querystring:
+            if department := querystring.get("department"):
+                users = users.filter(
+                    course_department=self.sanitize(department))
+
+            if name := querystring.get("name"):
+                users = users.filter(name=name)
+
+            if name_contains := querystring.get("name-contains"):
+                users = users.filter(name__icontains=name_contains)
+
+            if first_name := querystring.get("first-name"):
+                users = users.filter(name__istartswith=first_name)
+
+            if last_name := querystring.get("last-name"):
+                users = users.filter(name__iendswith=last_name)
+
+            if tutor := querystring.get("tutor"):
+                users = users.filter(is_tutor=tutor.capitalize())
+
+            if admin := querystring.get("admin"):
+                users = users.filter(is_admin=admin.capitalize())
+
+            if msoid := querystring.get("msoid"):
+                users = users.filter(MSOID=msoid)
+
+            if nuid := querystring.get("nuid"):
+                users = users.filter(student_nuid=nuid)
+
+            if working := querystring.get("working"):
+                users = users.filter(is_tutor=True).filter(
+                    is_working=working.capitalize()
+                )
+
+            if active := querystring.get("active"):
+                users = users.filter(is_active=active.capitalize())
+
+        serializer = TicketSerializer(users, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = TicketSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.data)
 
 
 class StudentListView(APIView):
@@ -452,4 +662,104 @@ class StudentDetailView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-# fmt: on
+# ------------------------- PROFESSOR ---------------------------
+
+
+class APITicketView(APIView):
+    serializer_class = TicketSerializer
+    renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
+
+    def get_querystring(self, request):
+        return request.GET
+
+    def sanitize(self, querystring: str):
+        return querystring.capitalize()
+
+    def get_professor_id(self, professor_name):
+        return Professor.prof.all().filter(full_name=professor_name).first()
+
+    def get_course_id(self, course_name):
+        return Course.generic.all().filter(course_name=course_name).first()
+
+    def get_issue_id(self, issue_type):
+        return Issues.generic.all().filter(problem_type=issue_type).first()
+
+    def get_user_id(self, user):
+        return User.generic.all().filter(name=user).first()
+
+    def get(self, request):
+        tickets = Ticket.generic.all()
+        querystring = self.get_querystring(request=request)
+        if querystring:
+            if is_completed := querystring.get("completed"):
+                tickets = tickets.filter(completed=is_completed.upper())
+
+        serializer = TicketSerializer(tickets, many=True)
+        return Response(serializer.data)
+
+    def post(self, request, search=None):
+        Ticket.generic.all()
+        # if professor_name := request.data.get("professor"):
+        #     pid = self.get_professor_id(professor_name=professor_name)
+        #     request.data["professor"] = pid.professor_id
+        # if course_name := request.data.get("section"):
+        #     cid = self.get_course_id(course_name=course_name)
+        #     request.data["section"] = cid.id
+        # if issue_type := request.data.get("issue"):
+        #     iid = self.get_issue_id(issue_type=issue_type)
+        #     request.data["issue"] = iid.issue_id
+        # if student_name := request.data.get("student"):
+        #     sid = self.get_user_id(user=student_name)
+        #     request.data["student"] = sid.student_nuid
+        print(request.data)
+        serializer = TicketSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+# ------------------------ QUERYSTRING --------------------------
+
+
+class APIProfessorList(APIView):
+    serializer_class = ProfessorSerializer
+    renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
+
+    def get_querystring(self, request):
+        return request.GET
+
+    def sanitize(self, querystring: str):
+        return querystring.capitalize()
+
+    def get(self, request):
+        professors = Professor.professor.get_professors()
+        query_string = self.get_querystring(request=request)
+        if query_string:
+            if professor_name := query_string.get("professor"):
+                professors = professors.filter(
+                    full_name=self.sanitize(professor_name))
+            if professor_id := query_string.get("id"):
+                professors = professors.filter(professor_id=professor_id)
+            if professor_first_name := query_string.get("first-name"):
+                professors = professors.filter(
+                    first_name=self.sanitize(professor_first_name)
+                )
+            if professor_last_name := query_string.get("last-name"):
+                professors = professors.filter(
+                    last_name=self.sanitize(professor_last_name)
+                )
+            if professor_is_active := query_string.get("active"):
+                professors = professors.filter(
+                    is_active=self.sanitize(professor_is_active)
+                )
+        serializer = ProfessorSerializer(professors, many=True)
+        return Response(serializer.data)
+
+    def post(self, request, search=None):
+        Professor.professor.get_professors()
+        serializer = ProfessorSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

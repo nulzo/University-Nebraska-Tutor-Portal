@@ -39,3 +39,7 @@ env.dist
 
 # No reason to send a gitignore to the container
 .gitignore
+
+data
+
+data/

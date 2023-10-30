@@ -20,11 +20,14 @@ sys.path.insert(0, SOURCE_DIR)
 
 load_dotenv()
 
-SECRET_KEY = os.getenv("SECRET_KEY")
-DEBUG = os.getenv("DEBUG")
+# SECRET_KEY = os.getenv("SECRET_KEY")
+SECRET_KEY = "secret_key"
+# DEBUG = os.getenv("DEBUG")
+DEBUG = True
 RUN_SERVER_PORT = 6969
 
-ALLOWED_HOSTS: list[str] = []
+ALLOWED_HOSTS: list[str] = ["localhost",
+                            "0:0:0:0", "127.0.0.1", "192.168.2.1", "*"]
 
 INSTALLED_APPS = [
     # 'daphne',
@@ -56,7 +59,8 @@ CORS_ORIGIN_ALLOW_ALL = True
 # CORS_ORIGIN_WHITELIST = ("http://localhost:5173",)
 
 ASGI_APPLICATION = "src.api.routing.application"
-CHANNEL_LAYERS = {"default": {"BACKEND": "channels.layers.InMemoryChannelLayer"}}
+CHANNEL_LAYERS = {"default": {
+    "BACKEND": "channels.layers.InMemoryChannelLayer"}}
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
 

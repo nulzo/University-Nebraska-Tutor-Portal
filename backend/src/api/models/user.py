@@ -52,6 +52,7 @@ class User(models.Model):
     email = models.EmailField(blank=False, unique=True)
     MSOID = models.CharField(max_length=75, unique=True)
 
+    generic = models.Manager()
     student = StudentManager()
     tutor = TutorManager()
     admin = AdminManager()

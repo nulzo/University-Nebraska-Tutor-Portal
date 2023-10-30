@@ -14,12 +14,17 @@ export default defineConfig({
     chunkSizeWarningLimit: 1500,
   },
   server: {
-    host: "0.0.0.0",
-    port: 8000,
+    watch: {
+      usePolling: true
+    },
+    host: '0.0.0.0',
+    hmr: { clientPort: 4200 },
+    strictPort: true,
+    port: 4200,
   },
   preview: {
     host: "0.0.0.0",
-    port: 4200,
+    port: 4220,
     // watch:
     //   {usePolling: true}
   },
