@@ -12,7 +12,8 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Separator } from "@radix-ui/react-select";
+import Header from "@/components/typography/Header";
+import { Separator } from "@/components/ui/separator";
 
 const appearanceFormSchema = z.object({
   theme: z.enum(["light", "dark"], {
@@ -39,15 +40,17 @@ export function SettingsView() {
   }
 
   return (
-    <div className="space-y-6">
-      <div>
-        <h3 className="text-lg font-medium">Appearance</h3>
-        <p className="text-sm text-muted-foreground">
-          Customize the appearance of the app. Quickly switch between light and
-          dark mode. Plus, pick the primary color of the app.
-        </p>
-      </div>
-      <Separator />
+    <div className="">
+      <Header
+        text="Settings"
+        subtext={
+          <>
+            Customize the appearance of the app. Quickly switch between light and
+            dark mode.
+          </>
+        }
+      />
+      <Separator className="mb-4" />
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <FormField
@@ -57,7 +60,7 @@ export function SettingsView() {
               <FormItem className="space-y-1">
                 <FormLabel>Theme</FormLabel>
                 <FormDescription>
-                  Select the theme for the dashboard.
+                  Select Dark mode or Light mode.
                 </FormDescription>
                 <FormMessage />
                 <RadioGroup

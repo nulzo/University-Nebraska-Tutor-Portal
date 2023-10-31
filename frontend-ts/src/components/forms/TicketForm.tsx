@@ -137,7 +137,7 @@ export default function TicketForm() {
                 </FormControl>
                 <FormDescription>
                   If you prefer to go by a different name than what is listed
-                  here, navigate to the "Settings" tab and change it.
+                  here, navigate to the "Profile" tab and change it.
                 </FormDescription>
                 <FormMessage className="text-warning" />
               </FormItem>

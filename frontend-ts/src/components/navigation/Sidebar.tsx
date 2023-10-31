@@ -6,11 +6,11 @@ import Navlink from "@/components/navigation/Navlink";
 import {
   BugIcon,
   CalendarClockIcon,
-  CalendarDaysIcon,
+  CalendarIcon,
   DatabaseZapIcon,
   MessagesSquareIcon,
   PackageOpenIcon,
-  PlusSquareIcon,
+  TicketIcon,
   UserIcon,
   UsersIcon,
   SearchIcon,
@@ -25,7 +25,7 @@ import {
 const isAdmin = false;
 const isTutor = true;
 const isStudent = false;
-const isDeveloper = true;
+const isDeveloper = false;
 
 const stroke_width = 1.75;
 const shape_rendering = "auto";
@@ -118,7 +118,7 @@ export function Sidebar() {
             className="w-full justify-start"
             isActive={path === "/download" ? true : false}
             onClick={() => navigate("/download")}
-            text="Download Data"
+            text="Extract Data"
             icon={
               <DownloadIcon
                 viewBox="0 0 24 24"
@@ -133,7 +133,7 @@ export function Sidebar() {
             className="w-full justify-start"
             isActive={path === "/blame" ? true : false}
             onClick={() => navigate("/blame")}
-            text="Blame"
+            text="Preen"
             icon={
               <BirdIcon
                 viewBox="0 0 24 24"
@@ -177,7 +177,7 @@ export function Sidebar() {
             onClick={() => navigate("/create")}
             text="Create Ticket"
             icon={
-              <PlusSquareIcon
+              <TicketIcon
                 width={20}
                 height={20}
                 strokeWidth={stroke_width}
@@ -187,7 +187,8 @@ export function Sidebar() {
             }
           />
           <Navlink
-            className="w-full justify-start [&>div>svg]:hover:stroke-zoom"
+            // className="w-full justify-start [&>div>svg]:hover:stroke-zoom"
+            className="w-full justify-start"
             isActive={path === "/zoom" ? true : false}
             onClick={() => navigate("/zoom")}
             text="CSLC Zoom"
@@ -215,7 +216,7 @@ export function Sidebar() {
               />
             }
           />
-          <Navlink
+          {/* <Navlink
             className="w-full justify-start"
             isActive={path === "/tutors" ? true : false}
             onClick={() => navigate("/tutors")}
@@ -229,7 +230,7 @@ export function Sidebar() {
                 viewBox={"0 0 24 24"}
               />
             }
-          />
+          /> */}
         </div>
       </div>
     );
@@ -262,7 +263,7 @@ export function Sidebar() {
           onClick={() => navigate("/schedule")}
           text="Schedule"
           icon={
-            <CalendarDaysIcon
+            <CalendarIcon
               viewBox="0 0 24 24"
               strokeWidth={stroke_width}
               shapeRendering={shape_rendering}
