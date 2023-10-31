@@ -8,7 +8,8 @@ export default function HoursView() {
         text="Hours of Operation"
         subtext={
           <>
-            See what hours the tutoring center are open, and see if any schedling changes have occured.
+            See what hours the tutoring center are open, and see if any
+            schedling changes have occured.
           </>
         }
       />

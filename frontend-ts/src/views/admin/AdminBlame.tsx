@@ -6,11 +6,7 @@ export default function AdminBlame() {
     <>
       <Header
         text="Preen Data"
-        subtext={
-          <>
-            Preen through your data to find anything you desire.
-          </>
-        }
+        subtext={<>Preen through your data to find anything you desire.</>}
       />
       <Separator className="" />
     </>

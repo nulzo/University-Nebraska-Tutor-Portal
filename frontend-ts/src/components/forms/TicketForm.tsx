@@ -61,18 +61,15 @@ const FormSchema = z.object({
     .email({
       message: "enter a valid email",
     }),
-  professor: z
-    .number({
-      required_error: "you must select a professor.",
-    }),
-  section: z
-    .number({
-      required_error: "you must select a course.",
-    }),
-  issue: z
-    .number({
-      required_error: "you must select an issue type.",
-    }),
+  professor: z.number({
+    required_error: "you must select a professor.",
+  }),
+  section: z.number({
+    required_error: "you must select a course.",
+  }),
+  issue: z.number({
+    required_error: "you must select an issue type.",
+  }),
   body: z
     .string({
       required_error: "you must enter a description.",
@@ -101,7 +98,6 @@ export default function TicketForm() {
         professor: data.professor,
         course: data.section,
         issue: data.issue,
-
       })
       .then(function (response) {
         console.log(response);
@@ -186,14 +182,14 @@ export default function TicketForm() {
                               className={cn(
                                 "w-full md:w-[35vw] lg:w-[30vw] xl:w-[40vw] justify-between",
                                 !field.value &&
-                                "text-muted-foreground font-normal",
+                                  "text-muted-foreground font-normal",
                               )}
                             >
                               {field.value
                                 ? professors?.data.find(
-                                  (professor: any) =>
-                                    professor.professor_id === field.value,
-                                )?.full_name
+                                    (professor: any) =>
+                                      professor.professor_id === field.value,
+                                  )?.full_name
                                 : "select a professor"}
                               <CaretSortIcon className="ml-2 h-4 w-4 shrink-0" />
                             </Button>
@@ -216,7 +212,7 @@ export default function TicketForm() {
                                       form.setValue(
                                         "professor",
                                         professor.professor_id,
-                                      )
+                                      );
                                     }}
                                   >
                                     {professor.full_name}
@@ -267,14 +263,13 @@ export default function TicketForm() {
                               className={cn(
                                 "w-full md:w-[35vw] lg:w-[30vw] xl:w-[40vw] justify-between",
                                 !field.value &&
-                                "text-muted-foreground font-normal",
+                                  "text-muted-foreground font-normal",
                               )}
                             >
                               {field.value
                                 ? courses?.data.find(
-                                  (course: any) =>
-                                    course.id === field.value,
-                                )?.course_code
+                                    (course: any) => course.id === field.value,
+                                  )?.course_code
                                 : "select a course"}
                               <CaretSortIcon
                                 key="course_sort_icon"
@@ -302,10 +297,7 @@ export default function TicketForm() {
                                     key={`${course.course_code}-${course.course_name}`}
                                     onSelect={() => {
                                       {
-                                        form.setValue(
-                                          "section",
-                                          course.id,
-                                        )
+                                        form.setValue("section", course.id);
                                       }
                                     }}
                                   >
@@ -343,7 +335,10 @@ export default function TicketForm() {
                   <div className="space-y-0.5 block md:flex md:flex-row items-center justify-between rounded-lg md:border md:p-4 text-foreground">
                     <div className="space-y-0.5 pb-2 md:pb-0">
                       <FormLabel key="issue_form_label">Issue</FormLabel>
-                      <FormDescription key="issue_form_description" className="hidden md:block">
+                      <FormDescription
+                        key="issue_form_description"
+                        className="hidden md:block"
+                      >
                         Select the Issue that you are having.
                       </FormDescription>
                     </div>
@@ -358,14 +353,14 @@ export default function TicketForm() {
                               className={cn(
                                 "w-full md:w-[35vw] lg:w-[30vw] xl:w-[40vw] justify-between",
                                 !field.value &&
-                                "text-muted-foreground font-normal",
+                                  "text-muted-foreground font-normal",
                               )}
                             >
                               {field.value
                                 ? issues?.data.find(
-                                  (issue: any) =>
-                                    issue.issue_id === field.value,
-                                )?.problem_type
+                                    (issue: any) =>
+                                      issue.issue_id === field.value,
+                                  )?.problem_type
                                 : "select an issue"}
                               <CaretSortIcon
                                 key="issue_sort_icon"
@@ -393,10 +388,7 @@ export default function TicketForm() {
                                     key={`${issue.issue_id}${issue.problem_type}`}
                                     onSelect={() => {
                                       {
-                                        form.setValue(
-                                          "issue",
-                                          issue.issue_id,
-                                        )
+                                        form.setValue("issue", issue.issue_id);
                                       }
                                     }}
                                   >
@@ -458,8 +450,8 @@ export default function TicketForm() {
                   </div>
                 </FormControl>
                 <FormDescription>
-                  Please describe in as much detail the question in which you are
-                  seeking help with.
+                  Please describe in as much detail the question in which you
+                  are seeking help with.
                 </FormDescription>
                 <FormMessage className="text-warning" />
               </FormItem>

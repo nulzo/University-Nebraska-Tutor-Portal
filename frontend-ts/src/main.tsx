@@ -82,7 +82,7 @@ const router = createBrowserRouter([
       },
       {
         path: "tutors/",
-        element: <TutorView />
+        element: <TutorView />,
       },
       {
         path: "profile/",

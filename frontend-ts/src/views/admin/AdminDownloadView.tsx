@@ -31,14 +31,10 @@ import {
 import { Calendar } from "@/components/ui/calendar";
 import { CalendarIcon, CaretSortIcon } from "@radix-ui/react-icons";
 import { cn } from "@/lib/utils";
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-} from "@/components/ui/command";
+import { Command, CommandEmpty, CommandGroup } from "@/components/ui/command";
 import Header from "@/components/typography/Header";
 import { Separator } from "@/components/ui/separator";
-import { format } from "date-fns"
+import { format } from "date-fns";
 
 const items = [
   {
@@ -176,9 +172,7 @@ export default function AdminDownloadView() {
         </TabsList>
         <TabsContent value="download" className="space-y-4">
           <div>
-            <div className="font-medium">
-              Download Via Custom Query
-            </div>
+            <div className="font-medium">Download Via Custom Query</div>
             <div className="text-sm text-muted-foreground tracking-tight">
               Write your own code to query the db (resonsably).
             </div>
@@ -195,9 +189,7 @@ export default function AdminDownloadView() {
                 render={({ field }) => (
                   <FormItem>
                     <div className="mb-4">
-                      <FormLabel className="text-base">
-                        Select Date
-                      </FormLabel>
+                      <FormLabel className="text-base">Select Date</FormLabel>
                       <div className="w-[250px]">
                         <Popover>
                           <PopoverTrigger asChild>
@@ -205,7 +197,7 @@ export default function AdminDownloadView() {
                               variant={"outline"}
                               className={cn(
                                 "w-[240px] pl-3 text-left font-normal",
-                                !field.value && "text-muted-foreground"
+                                !field.value && "text-muted-foreground",
                               )}
                             >
                               {field.value ? (
@@ -222,7 +214,8 @@ export default function AdminDownloadView() {
                               selected={field.value}
                               onSelect={field.onChange}
                               disabled={(date) =>
-                                date > new Date() || date < new Date("1900-01-01")
+                                date > new Date() ||
+                                date < new Date("1900-01-01")
                               }
                               initialFocus
                             />
@@ -230,8 +223,8 @@ export default function AdminDownloadView() {
                         </Popover>
                       </div>
                       <FormDescription>
-                        Select the items you want to include in your csv
-                        file (header goes top to bottom as left to right).
+                        Select the items you want to include in your csv file
+                        (header goes top to bottom as left to right).
                       </FormDescription>
                     </div>
                     <FormMessage />
@@ -244,17 +237,14 @@ export default function AdminDownloadView() {
                               className="rounded-none rounded-l-lg"
                               onChange={(event) => {
                                 setFilename(event.target.value);
-                                form.setValue(
-                                  "filename",
-                                  event.target.value,
-                                );
+                                form.setValue("filename", event.target.value);
                               }}
                               value={filename}
                             />
                           </FormControl>
                           <FormDescription>
-                            This is the name that the file will be
-                            downloaded to.
+                            This is the name that the file will be downloaded
+                            to.
                           </FormDescription>
                         </FormItem>
                       </div>
@@ -290,28 +280,21 @@ export default function AdminDownloadView() {
         </TabsContent>
         <TabsContent value="query" className="space-y-4 text-foreground">
           <div>
-            <div className="font-medium">
-              Download Via Custom Query
-            </div>
+            <div className="font-medium">Download Via Custom Query</div>
             <div className="text-sm text-muted-foreground tracking-tight">
               Write your own code to query the db (resonsably).
             </div>
           </div>
           <Separator />
           <Form {...form}>
-            <form
-              onSubmit={form.handleSubmit(onSubmit)}
-              className="space-y-8"
-            >
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
               <FormField
                 control={form.control}
                 name="items"
                 render={() => (
                   <FormItem>
                     <div className="grid grid-cols-6 space-y-6">
-                      <FormLabel>
-                        Professor
-                      </FormLabel>
+                      <FormLabel>Professor</FormLabel>
                     </div>
                     <div className="col-span-5">
                       <Popover open={open} onOpenChange={setOpen}>
@@ -332,12 +315,8 @@ export default function AdminDownloadView() {
                               placeholder="Search professors..."
                               className="h-9"
                             />
-                            <CommandEmpty>
-                              No framework found.
-                            </CommandEmpty>
-                            <CommandGroup>
-
-                            </CommandGroup>
+                            <CommandEmpty>No framework found.</CommandEmpty>
+                            <CommandGroup></CommandGroup>
                           </Command>
                         </PopoverContent>
                       </Popover>
@@ -429,17 +408,14 @@ export default function AdminDownloadView() {
                                 className="rounded-none rounded-l-lg"
                                 onChange={(event) => {
                                   setFilename(event.target.value);
-                                  form.setValue(
-                                    "filename",
-                                    event.target.value,
-                                  );
+                                  form.setValue("filename", event.target.value);
                                 }}
                                 value={filename}
                               />
                             </FormControl>
                             <FormDescription>
-                              This is the name that the file will be
-                              downloaded to.
+                              This is the name that the file will be downloaded
+                              to.
                             </FormDescription>
                           </FormItem>
                         </div>
@@ -447,7 +423,6 @@ export default function AdminDownloadView() {
                           <FormItem>
                             <Select
                               onValueChange={(event) => {
-
                                 form.setValue("extension", event);
                               }}
                             >
@@ -477,9 +452,7 @@ export default function AdminDownloadView() {
         </TabsContent>
         <TabsContent value="single" className="space-y-4">
           <div>
-            <div className="font-medium">
-              Download Via Custom Query
-            </div>
+            <div className="font-medium">Download Via Custom Query</div>
             <div className="text-sm text-muted-foreground tracking-tight">
               Write your own code to query the db (resonsably).
             </div>
@@ -496,12 +469,10 @@ export default function AdminDownloadView() {
                 render={() => (
                   <FormItem>
                     <div className="mb-4">
-                      <FormLabel className="text-base">
-                        Download Data
-                      </FormLabel>
+                      <FormLabel className="text-base">Download Data</FormLabel>
                       <FormDescription>
-                        Select the items you want to include in your csv
-                        file (header goes top to bottom as left to right).
+                        Select the items you want to include in your csv file
+                        (header goes top to bottom as left to right).
                       </FormDescription>
                     </div>
                     {items.map((item) => (
@@ -521,14 +492,14 @@ export default function AdminDownloadView() {
                                   onCheckedChange={(checked) => {
                                     return checked
                                       ? field.onChange([
-                                        ...field.value,
-                                        item.id,
-                                      ])
+                                          ...field.value,
+                                          item.id,
+                                        ])
                                       : field.onChange(
-                                        field.value?.filter(
-                                          (value) => value !== item.id,
-                                        ),
-                                      );
+                                          field.value?.filter(
+                                            (value) => value !== item.id,
+                                          ),
+                                        );
                                   }}
                                 />
                               </FormControl>
@@ -550,17 +521,14 @@ export default function AdminDownloadView() {
                               className="rounded-none rounded-l-lg"
                               onChange={(event) => {
                                 setFilename(event.target.value);
-                                form.setValue(
-                                  "filename",
-                                  event.target.value,
-                                );
+                                form.setValue("filename", event.target.value);
                               }}
                               value={filename}
                             />
                           </FormControl>
                           <FormDescription>
-                            This is the name that the file will be
-                            downloaded to.
+                            This is the name that the file will be downloaded
+                            to.
                           </FormDescription>
                         </FormItem>
                       </div>
@@ -594,7 +562,7 @@ export default function AdminDownloadView() {
             </form>
           </Form>
         </TabsContent>
-      </Tabs >
+      </Tabs>
     </>
   );
 }

@@ -4,27 +4,22 @@ import Header from "@/components/typography/Header";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import { Separator } from "@/components/ui/separator";
-import { useState } from "react";
 
 export default function ScheduleView() {
   const tutors = useFetchTutor();
   if (tutors) console.log(tutors);
-  const [date, setDate] = useState<Date>()
   return (
     <>
-      <Header
-        text="Tutor Schedules"
-        subtext={
-          <>
-            View your schedule.
-          </>
-        }
-      />
+      <Header text="Tutor Schedules" subtext={<>View your schedule.</>} />
       <Separator className="" />
       <div className="grid grid-cols-8 min-h-screen">
         <div className="col-span-2 border-r">
           <div className="flex justify-center mt-4">
-            <Calendar mode="single" selected={date} initialFocus className="text-primary" />
+            <Calendar
+              mode="single"
+              initialFocus
+              className="text-primary"
+            />
           </div>
           <Separator className="my-4" />
           <div className="text-lg font-bold text-primary mb-4">

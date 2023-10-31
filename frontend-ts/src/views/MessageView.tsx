@@ -6,11 +6,7 @@ export default function MessageView() {
     <>
       <Header
         text="Messages"
-        subtext={
-          <>
-            Just some placeholder stuff for sending messages.
-          </>
-        }
+        subtext={<>Just some placeholder stuff for sending messages.</>}
       />
       <Separator className="" />
     </>

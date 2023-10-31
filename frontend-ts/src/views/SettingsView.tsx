@@ -45,8 +45,8 @@ export function SettingsView() {
         text="Settings"
         subtext={
           <>
-            Customize the appearance of the app. Quickly switch between light and
-            dark mode.
+            Customize the appearance of the app. Quickly switch between light
+            and dark mode.
           </>
         }
       />
