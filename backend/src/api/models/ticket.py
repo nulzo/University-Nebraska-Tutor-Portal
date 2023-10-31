@@ -37,17 +37,23 @@ class TicketManager(models.Manager):
 
 
 class Ticket(models.Model):
-    professor = models.ForeignKey(
-        Professor, null=True, on_delete=models.PROTECT)
+    professor = models.ForeignKey(Professor, null=True, on_delete=models.PROTECT)
     # section = models.ForeignKey("api.Section", null=True, on_delete=models.PROTECT)
-    course = models.ForeignKey(
-        "api.Course", null=True, on_delete=models.PROTECT)
+    course = models.ForeignKey("api.Course", null=True, on_delete=models.PROTECT)
     issue = models.ForeignKey(Issues, null=True, on_delete=models.PROTECT)
     student = models.ForeignKey(
-        "api.User", null=True, on_delete=models.PROTECT, related_name="student_ticket", blank=True
+        "api.User",
+        null=True,
+        on_delete=models.PROTECT,
+        related_name="student_ticket",
+        blank=True,
     )
     tutor = models.ForeignKey(
-        "api.User", null=True, on_delete=models.PROTECT, related_name="tutor_ticket", blank=True
+        "api.User",
+        null=True,
+        on_delete=models.PROTECT,
+        related_name="tutor_ticket",
+        blank=True,
     )
     name = models.CharField(blank=False, max_length=50)
     description = models.TextField(max_length=1024)
@@ -63,4 +69,4 @@ class Ticket(models.Model):
     ticket = TicketManager()
 
     def __str__(self):
-        return self.name + " - " + str(self.section)
+        return self.name + " - " + str(self.course)
