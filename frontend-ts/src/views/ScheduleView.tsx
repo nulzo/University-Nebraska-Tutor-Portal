@@ -15,11 +15,7 @@ export default function ScheduleView() {
       <div className="grid grid-cols-8 min-h-screen">
         <div className="col-span-2 border-r">
           <div className="flex justify-center mt-4">
-            <Calendar
-              mode="single"
-              initialFocus
-              className="text-primary"
-            />
+            <Calendar mode="single" initialFocus className="text-primary" />
           </div>
           <Separator className="my-4" />
           <div className="text-lg font-bold text-primary mb-4">

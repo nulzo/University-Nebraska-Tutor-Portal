@@ -1,4 +1,3 @@
-import EditAvatar from "@/components/display/EditAvatar";
 import LargeAvatar from "@/components/display/LargeAvatar";
 import Header from "@/components/typography/Header";
 import { Button } from "@/components/ui/button";
