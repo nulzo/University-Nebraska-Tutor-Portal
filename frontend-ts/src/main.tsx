@@ -22,6 +22,7 @@ import HomeView from "./views/HomeView.tsx";
 import HoursView from "./views/HoursView.tsx";
 import AdminBlame from "./views/admin/AdminBlame.tsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import TutorView from "./views/tutor/TutorView.tsx";
 
 const queryClient = new QueryClient();
 
@@ -78,6 +79,10 @@ const router = createBrowserRouter([
       {
         path: "schedule/",
         element: <ScheduleView />,
+      },
+      {
+        path: "tutors/",
+        element: <TutorView />,
       },
       {
         path: "profile/",

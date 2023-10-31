@@ -15,9 +15,9 @@ export default defineConfig({
   },
   server: {
     watch: {
-      usePolling: true
+      usePolling: true,
     },
-    host: '0.0.0.0',
+    host: "0.0.0.0",
     hmr: { clientPort: 4200 },
     strictPort: true,
     port: 4200,

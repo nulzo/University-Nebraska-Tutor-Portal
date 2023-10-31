@@ -3,7 +3,7 @@ import { keepPreviousData, useQuery } from "@tanstack/react-query";
 
 export default function useFetchTutor() {
   async function getTutors() {
-    const { data } = await axios.get("/api/tutors/");
+    const { data } = await axios.get("/api/users/?tutor=True");
     return data;
   }
   const data = useQuery({

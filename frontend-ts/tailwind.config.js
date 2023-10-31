@@ -7,8 +7,6 @@ module.exports = {
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
-    'node_modules/daisyui/dist/**/*.js',
-    'node_modules/react-daisyui/dist/**/*.js',
   ],
   theme: {
     container: {
@@ -81,8 +79,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), require("@tailwindcss/forms"), require("daisyui")],
-  daisyui: {
-    themes: ["cupcake", "aqua", "valentine"]
-  }
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/forms")],
 };
