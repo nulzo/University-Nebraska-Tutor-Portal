@@ -22,8 +22,8 @@ import {
   LayoutIcon,
 } from "lucide-react";
 
-const isAdmin = true;
-const isTutor = false;
+const isAdmin = false;
+const isTutor = true;
 const isStudent = false;
 const isDeveloper = false;
 

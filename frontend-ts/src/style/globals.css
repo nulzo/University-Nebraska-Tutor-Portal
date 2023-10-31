@@ -72,10 +72,4 @@
         "calt" 1;
     }
   }
-
-  @layer utilities {
-    .scrollbar-medium::-webkit-scrollbar {
-      width: 10px;
-    }
-  }
 }
