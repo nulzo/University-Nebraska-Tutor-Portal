@@ -13,7 +13,6 @@ import {
   TicketIcon,
   UserIcon,
   UsersIcon,
-  SearchIcon,
   SettingsIcon,
   HomeIcon,
   MegaphoneIcon,
@@ -60,16 +59,16 @@ export function Sidebar() {
         />
         <Navlink
           className="w-full justify-start"
-          isActive={path === "/search" ? true : false}
-          onClick={() => navigate("/search")}
-          text="Search"
+          isActive={path === "/create" ? true : false}
+          onClick={() => navigate("/create")}
+          text="Create Ticket"
           icon={
-            <SearchIcon
-              viewBox="0 0 24 24"
+            <TicketIcon
               width={20}
               height={20}
               strokeWidth={stroke_width}
               shapeRendering={shape_rendering}
+              viewBox={"0 0 24 24"}
             />
           }
         />
@@ -86,8 +85,8 @@ export function Sidebar() {
         <div className="space-y-1">
           <Navlink
             className="w-full justify-start"
-            isActive={path === "/admin-dashboard" ? true : false}
-            onClick={() => navigate("/admin-dashboard")}
+            isActive={path === "/admin/dashboard" ? true : false}
+            onClick={() => navigate("/admin/dashboard")}
             text="Dashboard"
             icon={
               <LayoutIcon
@@ -101,8 +100,8 @@ export function Sidebar() {
           />
           <Navlink
             className="w-full justify-start"
-            isActive={path === "/announcements" ? true : false}
-            onClick={() => navigate("/announcements")}
+            isActive={path === "/admin/announcements" ? true : false}
+            onClick={() => navigate("/admin/announcements")}
             text="Announcements"
             icon={
               <MegaphoneIcon
@@ -116,8 +115,8 @@ export function Sidebar() {
           />
           <Navlink
             className="w-full justify-start"
-            isActive={path === "/download" ? true : false}
-            onClick={() => navigate("/download")}
+            isActive={path === "/admin/download" ? true : false}
+            onClick={() => navigate("/admin/download")}
             text="Extract Data"
             icon={
               <DownloadIcon
@@ -131,8 +130,8 @@ export function Sidebar() {
           />
           <Navlink
             className="w-full justify-start"
-            isActive={path === "/blame" ? true : false}
-            onClick={() => navigate("/blame")}
+            isActive={path === "/admin/blame" ? true : false}
+            onClick={() => navigate("/admin/blame")}
             text="Preen"
             icon={
               <BirdIcon
@@ -146,8 +145,8 @@ export function Sidebar() {
           />
           <Navlink
             className="w-full justify-start"
-            isActive={path === "/admin-settings" ? true : false}
-            onClick={() => navigate("/admin-settings")}
+            isActive={path === "/admin/settings" ? true : false}
+            onClick={() => navigate("/admin/settings")}
             text="Admin Settings"
             icon={
               <SettingsIcon
@@ -172,22 +171,6 @@ export function Sidebar() {
         </h2>
         <div className="space-y-1">
           <Navlink
-            className="w-full justify-start"
-            isActive={path === "/create" ? true : false}
-            onClick={() => navigate("/create")}
-            text="Create Ticket"
-            icon={
-              <TicketIcon
-                width={20}
-                height={20}
-                strokeWidth={stroke_width}
-                shapeRendering={shape_rendering}
-                viewBox={"0 0 24 24"}
-              />
-            }
-          />
-          <Navlink
-            // className="w-full justify-start [&>div>svg]:hover:stroke-zoom"
             className="w-full justify-start"
             isActive={path === "/zoom" ? true : false}
             onClick={() => navigate("/zoom")}
@@ -216,21 +199,6 @@ export function Sidebar() {
               />
             }
           />
-          {/* <Navlink
-            className="w-full justify-start"
-            isActive={path === "/tutors" ? true : false}
-            onClick={() => navigate("/tutors")}
-            text="CSLC Tutors"
-            icon={
-              <UsersIcon
-                width={20}
-                height={20}
-                strokeWidth={stroke_width}
-                shapeRendering={shape_rendering}
-                viewBox={"0 0 24 24"}
-              />
-            }
-          /> */}
         </div>
       </div>
     );
@@ -244,8 +212,8 @@ export function Sidebar() {
         </h2>
         <Navlink
           className="w-full justify-start"
-          isActive={path === "/dashboard" ? true : false}
-          onClick={() => navigate("/dashboard")}
+          isActive={path === "/tutor/dashboard" ? true : false}
+          onClick={() => navigate("/tutor/dashboard")}
           text="Dashboard"
           icon={
             <LayoutIcon
@@ -259,8 +227,8 @@ export function Sidebar() {
         />
         <Navlink
           className="w-full justify-start"
-          isActive={path === "/schedule" ? true : false}
-          onClick={() => navigate("/schedule")}
+          isActive={path === "/tutor/schedule" ? true : false}
+          onClick={() => navigate("/tutor/schedule")}
           text="Schedule"
           icon={
             <CalendarIcon
@@ -274,8 +242,8 @@ export function Sidebar() {
         />
         <Navlink
           className="w-full justify-start"
-          isActive={path === "/tutors" ? true : false}
-          onClick={() => navigate("/tutors")}
+          isActive={path === "/tutor/tutors" ? true : false}
+          onClick={() => navigate("/tutor/tutors")}
           text="Tutors"
           icon={
             <UsersIcon
