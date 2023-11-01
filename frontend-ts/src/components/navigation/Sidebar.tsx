@@ -393,7 +393,7 @@ export function Sidebar() {
   }
 
   return (
-    <div className="hidden lg:flex text-foreground xl:col-span-2 lg:col-span-2">
+    <div className="hidden lg:flex text-foreground lg:col-span-2 xl:col-span-2 3xl:col-span-1">
       <aside className="h-screen sticky top-0">
         <div className="hidden lg:block">
           <div className="space-y-4">

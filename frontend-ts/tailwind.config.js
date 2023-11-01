@@ -13,10 +13,16 @@ module.exports = {
       center: true,
       padding: "2rem",
       screens: {
-        "2xl": "1400px",
-      },
+        '2xl': '1400px'
+      }
     },
     extend: {
+      screens: {
+        '1xl': '1300px',
+        '3xl': '1800px',
+        "wide": "2200px",
+        "ultrawide": "2500px"
+      },
       colors: {
         zoom: "hsl(var(--zoom))",
         info: "hsl(var(--info))",
