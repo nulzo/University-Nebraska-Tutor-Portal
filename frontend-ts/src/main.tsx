@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Search from "./components/views/Search.tsx";
+// import Search from "./components/views/Search.tsx";
 import Root from "./Root.tsx";
 import ErrorView from "./views/ErrorView.tsx";
 import Zoom from "./views/ZoomView.tsx";
@@ -23,26 +23,31 @@ import HoursView from "./views/HoursView.tsx";
 import AdminBlame from "./views/admin/AdminBlame.tsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import TutorView from "./views/tutor/TutorView.tsx";
+import AdminRequired from "./routes/AdminRequired.tsx";
+import TutorRequired from "./routes/TutorRequired.tsx";
+import LoginRequired from "./routes/LoginRequired.tsx";
+import LoginView from "./views/LoginView.tsx";
+import LogoutRequired from "./routes/LogoutRequired.tsx";
 
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
+    element: <LoginRequired view={<Root />} />,
     errorElement: <ErrorView />,
     children: [
       {
         path: "home/",
         element: <HomeView />,
       },
+      // {
+      //   path: "search/",
+      //   element: <Search />,
+      // },
       {
-        path: "search/",
-        element: <Search />,
-      },
-      {
-        path: "admin-dashboard/",
-        element: <AdminDashboard />,
+        path: "create/",
+        element: <CreateTicketView />,
       },
       {
         path: "zoom/",
@@ -53,38 +58,6 @@ const router = createBrowserRouter([
         element: <HoursView />,
       },
       {
-        path: "create/",
-        element: <CreateTicketView />,
-      },
-      {
-        path: "blame/",
-        element: <AdminBlame />,
-      },
-      {
-        path: "announcements/",
-        element: <AdminAnnouncements />,
-      },
-      {
-        path: "admin-settings/",
-        element: <AdminSettings />,
-      },
-      {
-        path: "download/",
-        element: <DownloadView />,
-      },
-      {
-        path: "settings/",
-        element: <SettingsView />,
-      },
-      {
-        path: "schedule/",
-        element: <ScheduleView />,
-      },
-      {
-        path: "tutors/",
-        element: <TutorView />,
-      },
-      {
         path: "profile/",
         element: <ProfileView />,
       },
@@ -93,8 +66,40 @@ const router = createBrowserRouter([
         element: <MessageView />,
       },
       {
-        path: "dashboard/",
-        element: <TutorDashboard />,
+        path: "settings/",
+        element: <SettingsView />,
+      },
+      {
+        path: "admin/dashboard/",
+        element: <AdminRequired view={<AdminDashboard />} />,
+      },
+      {
+        path: "admin/blame/",
+        element: <AdminRequired view={<AdminBlame />} />,
+      },
+      {
+        path: "admin/announcements/",
+        element: <AdminRequired view={<AdminAnnouncements />} />,
+      },
+      {
+        path: "admin/settings/",
+        element: <AdminRequired view={<AdminSettings />} />,
+      },
+      {
+        path: "admin/download/",
+        element: <AdminRequired view={<DownloadView />} />,
+      },
+      {
+        path: "tutor/schedule/",
+        element: <TutorRequired view={<ScheduleView />} />,
+      },
+      {
+        path: "tutor/tutors/",
+        element: <TutorRequired view={<TutorView />} />,
+      },
+      {
+        path: "tutor/dashboard/",
+        element: <TutorRequired view={<TutorDashboard />} />,
       },
       {
         path: "test-api/",
@@ -105,6 +110,10 @@ const router = createBrowserRouter([
         element: <DevSandbox />,
       },
     ],
+  },
+  {
+    path: "login/",
+    element: <LogoutRequired view={<LoginView />} />,
   },
 ]);
 
