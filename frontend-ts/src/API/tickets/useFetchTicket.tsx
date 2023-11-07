@@ -1,13 +1,13 @@
 import axios from "axios";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 
-export default function useFetchTicket() {
+export default function useFetchTicket(type = "all", query = "") {
   async function getTicket() {
-    const { data } = await axios.get("/api/tickets/");
+    const { data } = await axios.get("/api/tickets/" + query);
     return data;
   }
   const data = useQuery({
-    queryKey: ["tickets"],
+    queryKey: [`${type}-ticket`],
     queryFn: () => getTicket(),
     placeholderData: keepPreviousData,
     staleTime: 30000,

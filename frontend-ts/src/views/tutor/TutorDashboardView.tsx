@@ -10,55 +10,13 @@ import {
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import axios from "axios";
 import { FileCheck2Icon, FileIcon, FileX2Icon, LayersIcon } from "lucide-react";
-import { useEffect, useState } from "react";
+import useFetchTicket from "@/API/tickets/useFetchTicket";
 
 export default function TutorDashboard() {
-  const [tickets, setTickets] = useState<any>({});
-  const [openTickets, setOpenTickets] = useState<any>({});
-  const [loading, setLoading] = useState(false);
-  const [loadingOpened, setLoadingOpened] = useState(false);
-
-  useEffect(() => {
-    getUnclaimedTickets();
-  }, []);
-
-  useEffect(() => {
-    getClaimedTickets();
-  }, []);
-
-  function getUnclaimedTickets() {
-    setLoading(true);
-    axios
-      .get("http://localhost:6969/api/tickets-unclaimed/")
-      .then((res) => {
-        setTickets(res);
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-      .finally(() => setLoading(false));
-  }
-
-  function getClaimedTickets() {
-    setLoadingOpened(true);
-    axios
-      .get("http://localhost:6969/api/tickets-active/")
-      .then((res) => {
-        setOpenTickets(res);
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-      .finally(() => setLoadingOpened(false));
-  }
-
-  if (loading) {
-    return <></>;
-  } else {
-    console.log(tickets.data);
-  }
+  const unclaimedTickets = useFetchTicket("unclaimed", "?started=false");
+  const openTickets = useFetchTicket("open", "?started=true");
+  const closedTickets = useFetchTicket("closed", "?completed=true");
   return (
     <>
       <Header text="Tutor Dashboard" subtext="lorem impsum"></Header>
@@ -170,15 +128,16 @@ export default function TutorDashboard() {
               that you are working on.
             </CardDescription>
             <Separator className="mb-4 mt-2" />
+            {console.log(unclaimedTickets?.data)}
             <CardContent className="space-y-4">
-              {!loading &&
-                tickets.data &&
-                tickets.data.map((ticket: any) => (
+              {!unclaimedTickets?.isLoading &&
+                unclaimedTickets?.data &&
+                unclaimedTickets.data.map((ticket: any) => (
                   <Ticket
-                    name={ticket.student}
+                    name={ticket.name}
                     professor={ticket.professor}
                     description={ticket.description}
-                    section={ticket.section}
+                    section={ticket.course}
                     started={ticket.started}
                     completed={ticket.completed}
                     start_time={ticket.start_time}
@@ -195,18 +154,18 @@ export default function TutorDashboard() {
             </CardDescription>
             <Separator className="mb-4 mt-2" />
             <CardContent className="space-y-4">
-              {!loadingOpened &&
-                openTickets.data &&
-                openTickets.data.map((openTickets: any) => (
+              {!openTickets?.isLoading &&
+                openTickets?.data &&
+                openTickets?.data.map((ticket: any) => (
                   <Ticket
-                    name={openTickets.student}
-                    tutor={openTickets.tutor}
-                    professor={openTickets.professor}
-                    description={openTickets.description}
-                    section={openTickets.section}
-                    started={openTickets.started}
-                    completed={openTickets.completed}
-                    start_time={openTickets.start_time}
+                    name={ticket.name}
+                    professor={ticket.professor}
+                    tutor={ticket.tutor}
+                    description={ticket.description}
+                    section={ticket.course}
+                    started={ticket.started}
+                    completed={ticket.completed}
+                    start_time={ticket.start_time}
                     type={"opened"}
                   />
                 ))}
@@ -220,8 +179,8 @@ export default function TutorDashboard() {
             </CardDescription>
             <Separator className="mb-4 mt-2" />
             <CardContent className="space-y-4">
-              {!loadingOpened &&
-                openTickets.data &&
+              {!openTickets?.isLoading &&
+                openTickets?.data &&
                 openTickets.data.map((openTickets: any) => (
                   <Ticket
                     name={openTickets.student}

@@ -10,15 +10,15 @@ export default function ScheduleView() {
   if (tutors) console.log(tutors);
   return (
     <>
-      <Header text="Tutor Schedules" subtext={<>View your schedule.</>} />
-      <Separator className="" />
+      <Header text="Tutor Schedules" subtext="View your schedule." />
+      <Separator />
       <div className="grid grid-cols-8 min-h-screen">
         <div className="col-span-2 border-r">
-          <div className="flex justify-center mt-4">
+          <div className="hidden xl:flex justify-center mt-4">
             <Calendar mode="single" initialFocus className="text-primary" />
           </div>
-          <Separator className="my-4" />
-          <div className="text-lg font-bold text-primary mb-4">
+          <Separator className="my-4 hidden xl:block" />
+          <div className="text-lg font-bold text-primary mb-4 mt-4 xl:mt-0">
             Select Tutor
           </div>
           <div className="space-y-4">
