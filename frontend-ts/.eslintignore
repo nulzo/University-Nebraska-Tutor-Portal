@@ -1,3 +1,5 @@
 # This is a typescript project. The only files that are JS files are
 # the test files from Jest
 **/*.js
+*.js
+js

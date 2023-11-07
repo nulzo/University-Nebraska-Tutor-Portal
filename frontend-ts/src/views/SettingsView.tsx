@@ -23,20 +23,20 @@ const appearanceFormSchema = z.object({
 
 type AppearanceFormValues = z.infer<typeof appearanceFormSchema>;
 
-// This can come from your database or API.
-const defaultValues: Partial<AppearanceFormValues> = {
-  theme: "light",
-};
-
 export function SettingsView() {
   const form = useForm<AppearanceFormValues>({
     resolver: zodResolver(appearanceFormSchema),
-    defaultValues,
   });
 
   function onSubmit(data: AppearanceFormValues) {
     localStorage.setItem("theme", data.theme);
-    window.location.reload();
+    if (data.theme === "dark") {
+      document.getElementById("root")?.classList.remove("light");
+      document.getElementById("root")?.classList.add("dark");
+    } else {
+      document.getElementById("root")?.classList.remove("dark");
+      document.getElementById("root")?.classList.add("light");
+    }
   }
 
   return (

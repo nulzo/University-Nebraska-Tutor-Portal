@@ -14,9 +14,9 @@ const badgeVariants = cva(
           "border-transparent bg-destructive text-destructive-foreground shadow",
         warning: "border-warning border-2",
         new_ticket:
-          "border-fortutor shadow-sm shadow-fortutor/25 bg-pink-200/10 dark:shadow-fortutor/50 dark:bg-pink-500/20",
-        opened_ticket:
-          "border-info shadow-sm shadow-info/25 bg-blue-200/10 dark:shadow-info/50 dark:bg-blue-500/20",
+          "border-alert dark:bg-alert/25 bg-alert font-medium text-white subpixel-antialiased",
+        opened_ticket: "border-[#00B8D9] bg-[#00B8D9] font-bold text-white",
+        closed_ticket: "",
         outline: "text-foreground",
       },
     },

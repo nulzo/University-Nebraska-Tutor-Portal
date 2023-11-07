@@ -49,6 +49,18 @@ class TicketSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
+class TicketGetSerializer(serializers.ModelSerializer):
+    professor = serializers.StringRelatedField()
+    course = serializers.StringRelatedField()
+    issue = serializers.StringRelatedField()
+    student = serializers.StringRelatedField()
+    tutor = serializers.StringRelatedField()
+
+    class Meta:
+        model = Ticket
+        fields = "__all__"
+
+
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User

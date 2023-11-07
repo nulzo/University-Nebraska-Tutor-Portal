@@ -21,6 +21,7 @@ from .serializers import (
     MessageSerializer,
     ProfessorSerializer,
     SectionSerializer,
+    TicketGetSerializer,
     TicketSerializer,
     UserSerializer,
 )
@@ -661,7 +662,7 @@ class StudentDetailView(APIView):
 
 
 class APITicketView(APIView):
-    serializer_class = TicketSerializer
+    serializer_class = TicketGetSerializer
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
 
     def get_querystring(self, request):
@@ -687,9 +688,10 @@ class APITicketView(APIView):
         querystring = self.get_querystring(request=request)
         if querystring:
             if is_completed := querystring.get("completed"):
-                tickets = tickets.filter(completed=is_completed.upper())
-
-        serializer = TicketSerializer(tickets, many=True)
+                tickets = tickets.filter(completed=is_completed.capitalize())
+            if is_started := querystring.get("started"):
+                tickets = tickets.filter(started=is_started.capitalize())
+        serializer = TicketGetSerializer(tickets, many=True)
         return Response(serializer.data)
 
     def post(self, request, search=None):
