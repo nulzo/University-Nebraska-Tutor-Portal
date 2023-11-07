@@ -33,8 +33,7 @@ export function SettingsView() {
     if (data.theme === "dark") {
       document.getElementById("root")?.classList.remove("light");
       document.getElementById("root")?.classList.add("dark");
-    }
-    else {
+    } else {
       document.getElementById("root")?.classList.remove("dark");
       document.getElementById("root")?.classList.add("light");
     }

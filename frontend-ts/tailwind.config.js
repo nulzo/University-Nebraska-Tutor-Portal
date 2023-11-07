@@ -7,22 +7,22 @@ module.exports = {
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
-    'node_modules/preline/dist/*.js',
+    "node_modules/preline/dist/*.js",
   ],
   theme: {
     container: {
       center: true,
       padding: "2rem",
       screens: {
-        '2xl': '1400px'
-      }
+        "2xl": "1400px",
+      },
     },
     extend: {
       screens: {
-        '1xl': '1300px',
-        '3xl': '1800px',
-        "wide": "2200px",
-        "ultrawide": "2500px"
+        "1xl": "1300px",
+        "3xl": "1800px",
+        wide: "2200px",
+        ultrawide: "2500px",
       },
       colors: {
         zoom: "hsl(var(--zoom))",
@@ -86,5 +86,9 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), require("@tailwindcss/forms"), require('preline/plugin')],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("@tailwindcss/forms"),
+    require("preline/plugin"),
+  ],
 };

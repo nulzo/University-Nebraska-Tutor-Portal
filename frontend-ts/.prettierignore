@@ -1,2 +1,5 @@
 # Ignore useless json formatting
 **/*.json
+# Ignore js files
+**/*.js
+*.js

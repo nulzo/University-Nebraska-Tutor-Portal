@@ -1,4 +1,10 @@
-export default function Header({ text, subtext }: { text: string, subtext: string }) {
+export default function Header({
+  text,
+  subtext,
+}: {
+  text: string;
+  subtext: string;
+}) {
   return (
     <div className="mt-8 flex text-center pb-4 sm:text-start sm:block justify-center text-foreground dark:text-foreground">
       <div className="flex flex-col">
@@ -6,9 +12,7 @@ export default function Header({ text, subtext }: { text: string, subtext: strin
           {text}
         </h2>
         <div className="flex flex-col gap-3">
-          <p className="text-muted-foreground">
-            {subtext!}
-          </p>
+          <p className="text-muted-foreground">{subtext!}</p>
         </div>
       </div>
     </div>

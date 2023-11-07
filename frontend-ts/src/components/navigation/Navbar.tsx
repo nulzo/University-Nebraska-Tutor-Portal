@@ -7,9 +7,9 @@ export default function Navbar() {
   }
   return (
     <>
-      <nav
+      <div
         className={
-          "flex lg:hidden px-10 py-2 flex-wrap items-center bg-white w-full shadow-lg text-sm border-b"
+          "bg-background flex lg:hidden px-6 py-2 flex-wrap items-center w-full shadow-lg text-sm border-b"
         }
       >
         <div className={"grid grid-cols-3 gap-4 w-full"}>
@@ -19,18 +19,14 @@ export default function Navbar() {
             >
               <div
                 className={
-                  "tooltip tooltip-right lg:hidden bg-white font-thin text-white"
+                  "tooltip tooltip-right lg:hidden font-thin text-foreground"
                 }
                 data-tip="open sidebar"
               >
-                <Button
-                  onClick={onClick}
-                  className="bg-white hover:bg-secondary"
-                >
+                <Button onClick={onClick} variant="ghost" className="">
                   <MenuIcon />
                 </Button>
               </div>
-              {/* <span className={"px-2 flex flex-wrap hidden lg:flex content-center text-lg font-semibold tracking-tight"}>Computer Science Learning Center</span> */}
             </div>
           </div>
           <div
@@ -119,8 +115,7 @@ export default function Navbar() {
             </ul>
           </div>
         </div>
-      </nav>
-      {/* <hr className={"h-px mt-0 bg-gray-400 border-0"}/> */}
+      </div>
     </>
   );
 }
