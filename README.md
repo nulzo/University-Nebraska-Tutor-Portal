@@ -12,7 +12,7 @@
 
  <div align="center">
 
-[![GitHub Integration](https://img.shields.io/github/actions/workflow/status/nulzo/University-Nebraska-Tutor-Portal/.github%2Fworkflows%2Fintegration.yml)](https://github.com/nulzo/University-Nebraska-Tutor-Portal) [![GitHub Issues](https://img.shields.io/github/issues/nulzo/University-Nebraska-Tutor-Portal)](https://github.com/nulzo/University-Nebraska-Tutor-Portal) [![Version](https://img.shields.io/badge/Version-Alpha%200.0.1-E963DD)](https://github.com/nulzo/University-Nebraska-Tutor-Portal)
+[![GitHub Integration](https://img.shields.io/github/actions/workflow/status/nulzo/University-Nebraska-Tutor-Portal/.github%2Fworkflows%2Fsecurity.yml)](https://github.com/nulzo/University-Nebraska-Tutor-Portal) [![GitHub Issues](https://img.shields.io/github/issues/nulzo/University-Nebraska-Tutor-Portal)](https://github.com/nulzo/University-Nebraska-Tutor-Portal) [![Version](https://img.shields.io/badge/Version-Alpha%200.0.1-E963DD)](https://github.com/nulzo/University-Nebraska-Tutor-Portal)
 
 </div>
 
