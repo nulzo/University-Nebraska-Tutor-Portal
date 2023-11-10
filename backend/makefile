@@ -19,7 +19,7 @@ test:
 .PHONY test-with-coverage:
 test-with-coverage:
 	coverage run --source=src/. -m pytest tests/
-	coverage reports
+	coverage report
 
 .PHONY run:
 run:
@@ -32,6 +32,10 @@ run-network:
 .PHONY migrate:
 migrate:
 	python manage.py makemigrations && python manage.py migrate
+
+.PHONY load:
+load:
+	python3 manage.py runscript load_semester
 
 .PHONY load_data:
 load_data:

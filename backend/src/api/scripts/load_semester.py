@@ -242,7 +242,7 @@ class ParseSemester:
 
 def run():
     parser = ParseSemester(
-        file_dir="C:\\Users\\Nulzo\\Desktop\\github\\University-Nebraska-Tutor-Portal\\backend\\src\\api\\data\\semester_data.csv"
+        file_dir="/Users/nulzo/Github/University-Nebraska-Tutor-Portal/backend/src/api/data/semester_data.csv"
     )
     parser.write_professors()
     parser.write_courses()
