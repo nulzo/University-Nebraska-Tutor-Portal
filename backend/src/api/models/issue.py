@@ -7,6 +7,16 @@ class IssueManager(models.Manager):
 
 
 class Issues(models.Model):
+    """
+    Issues are a field in the ticket that a user will choose to describe the
+    issue they are having. This allows for ticket issues to be comprehensively
+    studied, and provides cleaner data as opposed to users entering their
+    issue type manually. With this style of ticket issue, data analysis can be
+    done more rapidly and with a higher confidence than previous methods allowed.
+    The fields in the table are the problem type (i.e. homework), the severity (
+    used for data collection purposes). The admin is able to quickly add and
+    modify the issues with no consequence to the attributed tickets.
+    """
     issue_id = models.AutoField(primary_key=True, editable=False)
     problem_type: str = models.CharField(
         max_length=25, null=False, blank=False, default="Problem"

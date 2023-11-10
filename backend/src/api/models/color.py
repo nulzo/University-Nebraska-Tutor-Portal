@@ -2,6 +2,12 @@ from django.db import models
 
 
 class Color(models.Model):
+    """
+    The color table simply allows a user to select a certain color for
+    their avatar. These fields static and associated with an enum
+    shown below. This just adds some flair to a profile, and increases
+    seperation of concerns within tables (preventing monolithic tables).
+    """
     class ColorChoices(models.IntegerChoices):
         RED = 1
         ORANGE = 2
