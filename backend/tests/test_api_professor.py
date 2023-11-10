@@ -42,3 +42,29 @@ def test_get_professor(create_object):
     response = client.get("/api/professors/1?format=json")
     assert response.status_code == 200
     assert len(response.content) > 0
+
+@pytest.mark.django_db
+def test_query_first_name(create_object):
+    client = Client()
+    response = client.get("/api/professors/?first-name=Nolan")
+    assert response.status_code == 200
+    assert len(response.content) > 0
+
+@pytest.mark.django_db
+def test_query_last_name(create_object):
+    client = Client()
+    response = client.get("/api/professors/?last-name=Gregory")
+    assert response.status_code == 200
+    assert len(response.content) > 0
+
+@pytest.mark.django_db
+def test_query_full_name(create_object):
+    client = Client()
+    response = client.get("/api/professors/?professor=Nolan%20Gregory")
+    assert response.status_code == 200
+
+@pytest.mark.django_db
+def test_query_id(create_object):
+    client = Client()
+    response = client.get("/api/professors/?id=1")
+    assert response.status_code == 200
