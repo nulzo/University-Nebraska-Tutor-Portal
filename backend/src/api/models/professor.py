@@ -20,6 +20,7 @@ class Professor(models.Model):
     are searchable by their unique ID, and the serializer will likewise
     return the str representation as well.
     """
+
     first_name: str = models.CharField(max_length=30)
     last_name: str = models.CharField(max_length=50)
     full_name: str = models.CharField(max_length=80)

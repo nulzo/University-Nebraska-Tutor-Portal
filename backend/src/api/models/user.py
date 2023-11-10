@@ -42,6 +42,7 @@ class User(models.Model):
     This will be updated in the future to allow specific roles to be relations
     in the database, thus preventing empty fields (i.e. empty cells).
     """
+
     student_nuid = models.BigIntegerField(
         primary_key=True, unique=True, blank=False, null=False, default=1
     )

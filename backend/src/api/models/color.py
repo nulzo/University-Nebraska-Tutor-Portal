@@ -8,6 +8,7 @@ class Color(models.Model):
     shown below. This just adds some flair to a profile, and increases
     seperation of concerns within tables (preventing monolithic tables).
     """
+
     class ColorChoices(models.IntegerChoices):
         RED = 1
         ORANGE = 2
@@ -18,6 +19,7 @@ class Color(models.Model):
         INDIGO = 7
         VIOLET = 8
         PINK = 9
+
     color_id = models.IntegerField(choices=ColorChoices.choices, default=3)
 
     class Meta:

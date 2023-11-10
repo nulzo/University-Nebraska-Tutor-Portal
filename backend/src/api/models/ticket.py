@@ -43,12 +43,13 @@ class Ticket(models.Model):
     with a specific ticket. These fields are the professor, the section, the
     semester, the issue, the student who submitted the ticket, the tutor who
     primarily helped with the ticket, the tutor(s) who assisted the primary
-    tutor, the name of the student, whether it was a successful ticket, 
+    tutor, the name of the student, whether it was a successful ticket,
     the time the ticket was created, the date the ticket was created, the
-    time the ticket was claimed (different than created), the time the 
+    time the ticket was claimed (different than created), the time the
     ticket was closed, additional tutor comments, and if the ticket was
     reopened after it was closed.
     """
+
     professor = models.ForeignKey(Professor, null=True, on_delete=models.PROTECT)
     # section = models.ForeignKey("api.Section", null=True, on_delete=models.PROTECT)
     course = models.ForeignKey("api.Course", null=True, on_delete=models.PROTECT)

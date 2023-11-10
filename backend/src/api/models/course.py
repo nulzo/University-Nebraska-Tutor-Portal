@@ -15,6 +15,7 @@ class Course(models.Model):
     course is active in a semster (see "semester" for more information on how
     this is determined.)
     """
+
     course_department = models.CharField(max_length=10, blank=False, default="CSCI")
     course_name = models.CharField(max_length=100, blank=False)
     course_id = models.IntegerField(max_length=10, blank=False, null=False)

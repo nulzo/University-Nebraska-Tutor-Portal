@@ -29,11 +29,12 @@ class Section(models.Model):
     semester. Sections are specific versions of similar catalog numbers,
     such as CSCI-4500-850 and CSCI-4500-001. These sections allow for
     specific courses to be referenced by their online variant, or their
-    unique professor, thereby allowing for easier aggregation of data 
-    surrounding individual sections of the same course. The fields in 
+    unique professor, thereby allowing for easier aggregation of data
+    surrounding individual sections of the same course. The fields in
     the model include the modality (online, in person, etc), the professor
     the course number, and the section ID.
     """
+
     modality = models.CharField(
         null=False,
         blank=False,

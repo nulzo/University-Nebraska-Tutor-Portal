@@ -17,6 +17,7 @@ class Issues(models.Model):
     used for data collection purposes). The admin is able to quickly add and
     modify the issues with no consequence to the attributed tickets.
     """
+
     issue_id = models.AutoField(primary_key=True, editable=False)
     problem_type: str = models.CharField(
         max_length=25, null=False, blank=False, default="Problem"
