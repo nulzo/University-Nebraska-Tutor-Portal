@@ -508,13 +508,13 @@ class APIProfessorView(APIView):
         return request.GET
 
     def sanitize(self, querystring: str):
-        return querystring.capitalize()
+        return querystring.title()
 
     def get(self, request):
         professors = Professor.professor.get_professors()
         query_string = self.get_querystring(request=request)
         if query_string:
-            if professor_name := query_string.get("professor"):
+            if professor_name := query_string.get("name"):
                 professors = professors.filter(full_name=self.sanitize(professor_name))
             if professor_id := query_string.get("id"):
                 professors = professors.filter(professor_id=professor_id)
