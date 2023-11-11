@@ -1,4 +1,4 @@
-from django.http import Http404
+from django.http import Http404, HttpResponseBadRequest
 from rest_framework import status
 from rest_framework.renderers import (
     BrowsableAPIRenderer,
@@ -530,6 +530,8 @@ class APIProfessorView(APIView):
                 professors = professors.filter(
                     is_active=self.sanitize(professor_is_active)
                 )
+            if len(professors) == 0:
+                return HttpResponseBadRequest(content="No professor found")
         serializer = ProfessorSerializer(professors, many=True)
         return Response(serializer.data)
 

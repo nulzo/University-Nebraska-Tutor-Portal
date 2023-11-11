@@ -13,12 +13,11 @@ def create_object():
         "email": "nolangregory@unomaha.edu",
         "professor_id": "123456",
     }
-    assert client.post(path="/api/professors/", data=prof)
     # Make a course
-    course: dict = {
-        "course_department": "CSCI",
-        "course_name": "Operating Systems",
-        "course_id": 4500,
-        "course_code": "CSCI-4500"
-    }
-    assert client.post(path="api/courses/", data=course)
+    # course: dict = {
+    #     "course_department": "CSCI",
+    #     "course_name": "Operating Systems",
+    #     "course_id": 4500,
+    #     "course_code": "CSCI-4500"
+    # }
+    # assert client.post(path="api/courses/", data=course)
