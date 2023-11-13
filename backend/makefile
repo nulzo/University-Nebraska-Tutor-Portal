@@ -21,6 +21,11 @@ test-with-coverage:
 	coverage run --source=src/. -m pytest tests/
 	coverage report
 
+.PHONY test-for-pipeline:
+test-for-pipeline:
+	coverage run --source=src/.  -m pytest --ignore=tests/test_load_csv.py tests/
+	coverage report
+
 .PHONY run:
 run:
 	python manage.py runserver
