@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-// import Search from "./components/views/Search.tsx";
 import Root from "./Root.tsx";
 import ErrorView from "./views/ErrorView.tsx";
 import Zoom from "./views/ZoomView.tsx";
@@ -70,10 +69,10 @@ const router = createBrowserRouter([
         path: "admin/dashboard/",
         element: <AdminRequired view={<AdminDashboard />} />,
       },
-      // {
-      //   path: "admin/blame/",
-      //   element: <AdminRequired view={<AdminBlame />} />,
-      // },
+      {
+        path: "admin/blame/",
+        element: <AdminRequired view={<AdminBlame />} />,
+      },
       {
         path: "admin/announcements/",
         element: <AdminRequired view={<AdminAnnouncements />} />,
