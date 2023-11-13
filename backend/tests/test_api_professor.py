@@ -43,12 +43,14 @@ def test_get_professor(create_object):
     assert response.status_code == 200
     assert len(response.content) > 0
 
+
 @pytest.mark.django_db
 def test_query_first_name(create_object):
     client = Client()
     response = client.get("/api/professors/?first-name=Nolan")
     assert response.status_code == 200
     assert len(response.content) > 0
+
 
 @pytest.mark.django_db
 def test_query_last_name(create_object):
@@ -57,12 +59,14 @@ def test_query_last_name(create_object):
     assert response.status_code == 200
     assert len(response.content) > 0
 
+
 # @pytest.mark.django_db
 # def test_query_full_name(create_object):
 #     client = Client()
 #     print(client)
 #     response = client.get("/api/professors/?name=Nolan%20Gregory")
 #     assert response.status_code == 200
+
 
 @pytest.mark.django_db
 def test_query_id(create_object):

@@ -24,14 +24,11 @@ from src.api import views as routing
 urlpatterns = [
     # API Config URLS
     path("api/", view=routing.APIURLView.as_view()),
-    
     # Admin URLS
     path("api/admin/", admin.site.urls),
-    
     # Issue URLS
     path("api/issues/", view=routing.APIIssueView.as_view()),
     path("api/issues/<str:pk>", view=routing.APIIssueDetail.as_view()),
-    
     # Ticket URLS
     path("api/tickets/", view=routing.APITicketView.as_view(), name="Tickets"),
     # path(
@@ -39,7 +36,6 @@ urlpatterns = [
     #     view=routing.TicketDetailView.as_view(),
     #     name="Query a Ticket",
     # ),
-    
     # Professor URLS
     path(
         "api/professors/",
@@ -51,7 +47,6 @@ urlpatterns = [
         view=routing.APIProfessorDetail.as_view(),
         name="Professor Detail View",
     ),
-    
     # Section URLS
     path(
         "api/sections/",
@@ -63,24 +58,19 @@ urlpatterns = [
         view=routing.APISectionDetail.as_view(),
         name="Section Detail View",
     ),
-    
     # User URLS
     # (students and tutors are accessible through endpoint)
     path("api/users/", view=routing.APIUserView.as_view()),
     path("api/users/<str:user_id>", view=routing.APIUserDetail.as_view()),
-    
     # Hours URLS
     # path("api/hours/"),
     # path("api/hours/<str:hour_pk"),
-    
     # Message URLS
     path("api/messages/", view=routing.APIMessageView.as_view()),
     # path("api/messages/<str:message_id>", view=routing.MessageViewSet.as_view()),
-    
     # Announcement URLS
     # path("api/announcements/")
     # path("api/announcements/<str:annonucement_id>")
-
     # Course URLS
     path("api/courses/", view=routing.APICourseList.as_view(), name="Course List View"),
     # path("api/courses/<str:course_pk>", view=routing.MessageViewSet.as_view()),

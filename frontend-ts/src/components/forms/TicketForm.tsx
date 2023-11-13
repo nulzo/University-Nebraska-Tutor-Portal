@@ -160,9 +160,7 @@ export default function TicketForm() {
               </FormItem>
             )}
           />
-          {professors?.isFetching && (
-            <LoadingSelect/>
-          )}
+          {professors?.isFetching && <LoadingSelect />}
           {!professors?.isLoading && (
             <FormField
               control={form.control}

@@ -4,10 +4,10 @@
 #           on a semester-to-semester basis. It uses Pandas to extract the required
 #           data, and then loads it into the database.
 
+import os
 import re
 
 import pandas
-import os
 from django.db.utils import IntegrityError
 
 from src.api.models.course import Course

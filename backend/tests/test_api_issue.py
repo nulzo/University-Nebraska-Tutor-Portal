@@ -19,4 +19,3 @@ def test_url_exists():
     client = Client()
     response = client.get(path="/api/issues/")
     assert response.status_code == 200
-    
