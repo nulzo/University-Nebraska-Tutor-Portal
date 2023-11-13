@@ -19,7 +19,12 @@ test:
 .PHONY test-with-coverage:
 test-with-coverage:
 	coverage run --source=src/. -m pytest tests/
-	coverage reports
+	coverage report
+
+.PHONY test-for-pipeline:
+test-for-pipeline:
+	coverage run --source=src/.  -m pytest --ignore=tests/test_load_csv.py tests/
+	coverage report
 
 .PHONY run:
 run:
@@ -32,6 +37,10 @@ run-network:
 .PHONY migrate:
 migrate:
 	python manage.py makemigrations && python manage.py migrate
+
+.PHONY load:
+load:
+	python3 manage.py runscript load_semester
 
 .PHONY load_data:
 load_data:

@@ -4,6 +4,7 @@
 #           on a semester-to-semester basis. It uses Pandas to extract the required
 #           data, and then loads it into the database.
 
+import os
 import re
 
 import pandas
@@ -12,6 +13,8 @@ from django.db.utils import IntegrityError
 from src.api.models.course import Course
 from src.api.models.professor import Professor
 from src.api.models.sections import Section
+
+FILE = os.getenv("PATH_TO_FILE")
 
 # pylint: disable=E1101
 
@@ -36,9 +39,9 @@ class ParseSemester:
             "Instructor",
         ]
         self.professor_data: pandas.DataFrame = ...
-        self.__read_csv()
+        self.read_csv()
 
-    def __read_csv(self):
+    def read_csv(self):
         # Open the csv file and get all the headers we need
         data: pandas.DataFrame = pandas.read_csv(self.csv_file, dtype=str).loc[
             :, self.column_names
@@ -107,7 +110,7 @@ class ParseSemester:
             course_department = row.get("subject_id")
             course_id = row.get("catalog_id")
             modality = row.get("section_id")
-            course = row.get("course_name")
+            course = self.normalize_text(row.get("course_name"))
 
             # Add the professor data here to match the DB fields for professors
             self.professors.update(
@@ -240,14 +243,13 @@ class ParseSemester:
             section.save()
 
 
-def run():
-    parser = ParseSemester(
-        file_dir="C:\\Users\\Nulzo\\Desktop\\github\\University-Nebraska-Tutor-Portal\\backend\\src\\api\\data\\semester_data.csv"
-    )
+def run(FILE) -> bool:
+    parser = ParseSemester(FILE)
     parser.write_professors()
     parser.write_courses()
     parser.write_sections()
+    return True
 
 
 if __name__ == "__main__":
-    run()
+    run(FILE=FILE)

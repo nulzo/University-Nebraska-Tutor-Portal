@@ -10,6 +10,17 @@ class ProfessorManager(models.Manager):
 
 
 class Professor(models.Model):
+    """
+    The professor table holds all details attributed to a professor.
+    This table contains a professors first name, their last name,
+    their full name, their email address, whether they are currently
+    active (see "semester" for more detail on that), and their prof.
+    ID. Since the professor ID is guranteed to be unique, we have opted
+    to use this as the primary key for the table. As such, professors
+    are searchable by their unique ID, and the serializer will likewise
+    return the str representation as well.
+    """
+
     first_name: str = models.CharField(max_length=30)
     last_name: str = models.CharField(max_length=50)
     full_name: str = models.CharField(max_length=80)

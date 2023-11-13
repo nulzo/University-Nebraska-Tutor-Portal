@@ -1,4 +1,4 @@
-from django.http import Http404
+from django.http import Http404, HttpResponseBadRequest
 from rest_framework import status
 from rest_framework.renderers import (
     BrowsableAPIRenderer,
@@ -36,185 +36,6 @@ class APIURLView(APIView):
     def get(self, request):
         api_urls = {"list-tickets": "api/tickets/"}
         return Response(api_urls)
-
-
-# -------------------------- TICKETS --------------------------
-
-
-class TicketListView(APIView):
-    serializer_class = TicketSerializer
-    renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
-
-    def get(self, request):
-        queryset = Ticket.ticket.get_all()
-        serializer = TicketSerializer(queryset, many=True)
-        return Response(serializer.data)
-
-    def post(self, request):
-        serializer = TicketSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.data)
-
-
-class TicketDetailView(APIView):
-    serializer_class = TicketSerializer
-    renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
-
-    def query_obj(self, ticket_pk: str):
-        try:
-            return Ticket.ticket.get_all().filter(pk=ticket_pk)
-        except Exception as exc:
-            raise Http404 from exc
-
-    def get(self, request, ticket_pk: str):
-        queryset = self.query_obj(ticket_pk=ticket_pk)
-        serializer = TicketSerializer(queryset, many=True)
-        return Response(serializer.data)
-
-    def put(self, request, pk: str | None = None):
-        modified = self.query_obj(pk)
-        serializer = TicketSerializer(modified, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-class StudentTicketDetailView(APIView):
-    serializer_class = TicketSerializer
-    renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
-    name = "Access a Students Tickets"
-    description = """ Query the database to return a payload consisting of a students
-      submitted tickets. This takes a users NUID in as the parameter. """
-
-    def get(self, request, student_pk: str):
-        queryset = Ticket.ticket.get_student(student_pk)
-        if queryset is not None:
-            serializer = TicketSerializer(queryset, many=True)
-            return Response(serializer.data)
-        return Response(serializer.errors)
-
-
-class SectionTicketDetailView(APIView):
-    serializer_class = TicketSerializer
-    renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
-    name = "Access a Sections Tickets"
-    description = """ Query the database to return a payload consisting of all
-    tickets from a given section. This takes a sections ID in as the parameter. """
-
-    def get(self, request, section_pk: str):
-        queryset = Ticket.ticket.get_section(section_pk)
-        if len(queryset) > 0:
-            serializer = TicketSerializer(queryset, many=True)
-            return Response(serializer.data)
-        return Response(None, status=status.HTTP_400_BAD_REQUEST)
-
-
-class ProfessorTicketDetailView(APIView):
-    serializer_class = TicketSerializer
-    renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
-    name = "Access a Professors Tickets"
-    description = """ Query the database to return a payload consisting of all
-    tickets referencing a given professor. This takes a professors ID in as the parameter. """
-
-    def get(self, request, professor_pk: str):
-        queryset = Ticket.ticket.get_professor(professor=professor_pk)
-        if len(queryset) > 0:
-            serializer = TicketSerializer(queryset, many=True)
-            return Response(serializer.data)
-        return Response(serializer.errors)
-
-
-class TutorTicketDetailView(APIView):
-    serializer_class = TicketSerializer
-    renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
-    name = "Access a Tickets Attributed to a Tutor"
-    description = """ Query the database to return a payload consisting of all tickets
-    referencing a tutor. This takes a tutors NUID in as the parameter. """
-
-    def get(self, request, tutor_pk: str):
-        queryset = Ticket.ticket.get_tutor(tutor_pk)
-        if len(queryset) > 0:
-            serializer = TicketSerializer(queryset, many=True)
-            return Response(serializer.data)
-        return Response(None, status=status.HTTP_400_BAD_REQUEST)
-
-
-class CourseTicketDetailView(APIView):
-    serializer_class = TicketSerializer
-    renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
-    name = "Access Tickets Attributed to a Course"
-    description = """ Query the database to return a payload consisting of
-    all tickets referencing a tutor. This takes a tutors NUID in as the parameter. """
-
-    def get(self, request, course_pk: str):
-        queryset = Ticket.ticket.get_course(course_pk)
-        if len(queryset) > 0:
-            serializer = TicketSerializer(queryset, many=True)
-            return Response(serializer.data)
-        return Response(None, status=status.HTTP_400_BAD_REQUEST)
-
-
-class CompletedTicketListView(APIView):
-    serializer_class = TicketSerializer
-    renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
-    name = "Access Completed Tickets"
-    description = """ Query the database to return a payload consisting of all
-    tickets that have been completed. This takes a tutors NUID in as the parameter. """
-
-    def get(self, request):
-        queryset = Ticket.ticket.get_completed()
-        if len(queryset) > 0:
-            serializer = TicketSerializer(queryset, many=True)
-            return Response(serializer.data)
-        return Response(None, status=status.HTTP_400_BAD_REQUEST)
-
-
-class ActiveTicketListView(APIView):
-    serializer_class = TicketSerializer
-    renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
-    name = "Access Completed Tickets"
-    description = """ Query the database to return a payload consisting of
-    all tickets that have are active. """
-
-    def get(self, request):
-        queryset = Ticket.ticket.get_active()
-        if len(queryset) > 0:
-            serializer = TicketSerializer(queryset, many=True)
-            return Response(serializer.data)
-        return Response(None, status=status.HTTP_400_BAD_REQUEST)
-
-
-class SuccessfulTicketListView(APIView):
-    serializer_class = TicketSerializer
-    renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
-    name = "Access Completed Tickets"
-    description = """ Query the database to return a payload consisting of all
-    tickets that have been completed. This takes a tutors NUID in as the parameter. """
-
-    def get(self, request):
-        queryset = Ticket.ticket.get_completed()
-        if len(queryset) > 0:
-            serializer = TicketSerializer(queryset, many=True)
-            return Response(serializer.data)
-        return Response(None, status=status.HTTP_400_BAD_REQUEST)
-
-
-class UnclaimedTicketListView(APIView):
-    serializer_class = TicketSerializer
-    renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
-    name = "Access Unclaimed Tickets"
-    description = """ Query the database to return a payload consisting of all
-    tickets that have been completed. This takes a tutors NUID in as the parameter. """
-
-    def get(self, request):
-        queryset = Ticket.ticket.get_unclaimed()
-        if len(queryset) > 0:
-            serializer = TicketSerializer(queryset, many=True)
-            return Response(serializer.data)
-        return Response(None, status=status.HTTP_400_BAD_REQUEST)
 
 
 # -------------------------- TUTORS --------------------------
@@ -272,7 +93,7 @@ class TutorDetailView(APIView):
 # -------------------------- MESSAGES --------------------------
 
 
-class MessageViewSet(APIView):
+class APIMessageView(APIView):
     serializer_class = MessageSerializer
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
 
@@ -286,45 +107,28 @@ class MessageViewSet(APIView):
         return Response(serializer.data)
 
 
-# -------------------------- PROFESSORS --------------------------
-
-
-class ProfessorListView(APIView):
-    serializer_class = ProfessorSerializer
+class APIMessageDetail(APIView):
+    serializer_class = MessageSerializer
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
+    name = "Query Messages"
+    description = """ Query, Update, or Delete a specific tutor. """
 
-    def get(self, request, search=None):
-        professors = Professor.professor.get_professors()
-        serializer = ProfessorSerializer(professors, many=True)
-        return Response(serializer.data)
-
-    def post(self, request, search=None):
-        Professor.professor.get_professors()
-        serializer = ProfessorSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-class ProfessorDetailView(APIView):
-    serializer_class = ProfessorSerializer
-    renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
-
-    def query_obj(self, pk: str):
+    def query_obj(self, message_id: str):
         try:
-            return Professor.professor.get_professors().filter(pk=pk)
+            return Messages.generic.all().filter(id=message_id)
         except Exception as exc:
             raise Http404 from exc
 
-    def get(self, request, professor_pk: str):
-        queryset = self.query_obj(professor_pk)
-        serializer = ProfessorSerializer(queryset, many=True)
-        return Response(serializer.data)
+    def get(self, request, message_id: str):
+        queryset = Messages.generic.all().filter(id=message_id)
+        if queryset is not None:
+            serializer = MessageSerializer(queryset, many=True)
+            return Response(serializer.data)
+        return Response(serializer.errors)
 
-    def put(self, request, pk: str, professor_pk):
-        modified = self.query_obj(professor_pk)
-        serializer = ProfessorSerializer(modified, data=request.data)
+    def put(self, request, message_id: str, search=None):
+        modified = self.query_obj(message_id)
+        serializer = MessageSerializer(modified, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
@@ -334,7 +138,7 @@ class ProfessorDetailView(APIView):
 # -------------------------- ISSUES --------------------------
 
 
-class IssueListView(APIView):
+class APIIssueView(APIView):
     serializer_class = IssueSerializer
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
 
@@ -351,7 +155,7 @@ class IssueListView(APIView):
         return Response(serializer.data)
 
 
-class IssueDetailView(APIView):
+class APIIssueDetail(APIView):
     def query_obj(self, pk: str):
         try:
             return Issues.objects.get(pk=pk)
@@ -372,27 +176,10 @@ class IssueDetailView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-class SectionListView(APIView):
-    serializer_class = SectionSerializer
-    renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
-
-    def get(self, request):
-        queryset = Section.sections.get_all()
-        serializer = SectionSerializer(queryset, many=True)
-        return Response(serializer.data)
-
-    def post(self, request):
-        serializer = SectionSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.data)
-
-
 # -------------------------- SECTIONS --------------------------
 
 
-class APISectionList(APIView):
+class APISectionView(APIView):
     serializer_class = SectionSerializer
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
 
@@ -437,6 +224,30 @@ class APISectionList(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.data)
+
+
+class APISectionDetail(APIView):
+    serializer_class = SectionSerializer
+    renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
+
+    def query_obj(self, pk: str):
+        try:
+            return Section.generic.all().filter(pk=pk)
+        except Exception as exc:
+            raise Http404 from exc
+
+    def get(self, request, section_id: str):
+        queryset = self.query_obj(section_id)
+        serializer = SectionSerializer(queryset, many=True)
+        return Response(serializer.data)
+
+    def put(self, request, pk: str, section_id):
+        modified = self.query_obj(section_id)
+        serializer = SectionSerializer(modified, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 # -------------------------- COURSES --------------------------
@@ -495,7 +306,7 @@ class APICourseList(APIView):
 # -------------------------- USERS --------------------------
 
 
-class APIUserList(APIView):
+class APIUserView(APIView):
     serializer_class = UserSerializer
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
 
@@ -556,10 +367,34 @@ class APIUserList(APIView):
         return Response(serializer.data)
 
 
+class APIUserDetail(APIView):
+    serializer_class = UserSerializer
+    renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
+
+    def query_obj(self, pk: str):
+        try:
+            return User.generic.all().filter(pk=pk)
+        except Exception as exc:
+            raise Http404 from exc
+
+    def get(self, request, user_id: str):
+        queryset = self.query_obj(user_id)
+        serializer = UserSerializer(queryset, many=True)
+        return Response(serializer.data)
+
+    def put(self, request, pk: str, user_id):
+        modified = self.query_obj(user_id)
+        serializer = UserSerializer(modified, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
 # -------------------------- TICKETS --------------------------
 
 
-class APITicketList(APIView):
+class APITicketView(APIView):
     serializer_class = TicketSerializer
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
 
@@ -620,48 +455,7 @@ class APITicketList(APIView):
         return Response(serializer.data)
 
 
-class StudentListView(APIView):
-    serializer_class = UserSerializer
-    renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
-
-    def get(self, request):
-        queryset = User.student.get_students()
-        serializer = UserSerializer(queryset, many=True)
-        return Response(serializer.data)
-
-    def post(self, request):
-        serializer = UserSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.data)
-
-
-class StudentDetailView(APIView):
-    def query_obj(self, pk: str):
-        try:
-            return User.student.get_student(name=pk)
-        except Exception as exc:
-            raise Http404 from exc
-
-    def get(self, request, pk: str | None = None):
-        data = self.query_obj(pk)
-        serializer = UserSerializer(data)
-        return Response(serializer.data)
-
-    def put(self, request, pk=None):
-        modified = self.query_obj(pk)
-        serializer = UserSerializer(modified, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-# ------------------------- PROFESSOR ---------------------------
-
-
-class APITicketView(APIView):
+class APITicketList(APIView):
     serializer_class = TicketGetSerializer
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
 
@@ -696,19 +490,6 @@ class APITicketView(APIView):
 
     def post(self, request, search=None):
         Ticket.generic.all()
-        # if professor_name := request.data.get("professor"):
-        #     pid = self.get_professor_id(professor_name=professor_name)
-        #     request.data["professor"] = pid.professor_id
-        # if course_name := request.data.get("section"):
-        #     cid = self.get_course_id(course_name=course_name)
-        #     request.data["section"] = cid.id
-        # if issue_type := request.data.get("issue"):
-        #     iid = self.get_issue_id(issue_type=issue_type)
-        #     request.data["issue"] = iid.issue_id
-        # if student_name := request.data.get("student"):
-        #     sid = self.get_user_id(user=student_name)
-        #     request.data["student"] = sid.student_nuid
-        print(request.data)
         serializer = TicketSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -716,10 +497,10 @@ class APITicketView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-# ------------------------ QUERYSTRING --------------------------
+# ------------------------ PROFESSOR --------------------------
 
 
-class APIProfessorList(APIView):
+class APIProfessorView(APIView):
     serializer_class = ProfessorSerializer
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
 
@@ -727,13 +508,13 @@ class APIProfessorList(APIView):
         return request.GET
 
     def sanitize(self, querystring: str):
-        return querystring.capitalize()
+        return querystring.title()
 
     def get(self, request):
         professors = Professor.professor.get_professors()
         query_string = self.get_querystring(request=request)
         if query_string:
-            if professor_name := query_string.get("professor"):
+            if professor_name := query_string.get("name"):
                 professors = professors.filter(full_name=self.sanitize(professor_name))
             if professor_id := query_string.get("id"):
                 professors = professors.filter(professor_id=professor_id)
@@ -749,6 +530,8 @@ class APIProfessorList(APIView):
                 professors = professors.filter(
                     is_active=self.sanitize(professor_is_active)
                 )
+            if len(professors) == 0:
+                return HttpResponseBadRequest(content="No professor found")
         serializer = ProfessorSerializer(professors, many=True)
         return Response(serializer.data)
 
@@ -758,4 +541,28 @@ class APIProfessorList(APIView):
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class APIProfessorDetail(APIView):
+    serializer_class = ProfessorSerializer
+    renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
+
+    def query_obj(self, pk: str):
+        try:
+            return Professor.professor.get_professors().filter(pk=pk)
+        except Exception as exc:
+            raise Http404 from exc
+
+    def get(self, request, professor_pk: str):
+        queryset = self.query_obj(professor_pk)
+        serializer = ProfessorSerializer(queryset, many=True)
+        return Response(serializer.data)
+
+    def put(self, request, pk: str, professor_pk):
+        modified = self.query_obj(professor_pk)
+        serializer = ProfessorSerializer(modified, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

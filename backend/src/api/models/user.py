@@ -34,6 +34,15 @@ class AdminManager(models.Manager):
 
 
 class User(models.Model):
+    """
+    Generic user model for all active users of the application. Flags are used
+    to indicate whether a user is an admin, a tutor, or a regular student. This
+    currently will hold all data, such as tutor and admin specific data, but
+    this might lead to empty fields within many of the objects in the table.
+    This will be updated in the future to allow specific roles to be relations
+    in the database, thus preventing empty fields (i.e. empty cells).
+    """
+
     student_nuid = models.BigIntegerField(
         primary_key=True, unique=True, blank=False, null=False, default=1
     )

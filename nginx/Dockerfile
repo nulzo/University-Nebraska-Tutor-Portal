@@ -10,6 +10,7 @@ ARG CERT_ORGUNIT
 # TODO: Currently generating a self-signed SSL certificate, this needs to be commented out in production builds!
 RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/$SERVER_NAME.key -out /etc/nginx/$SERVER_NAME.crt -subj "/C=$CERT_COUNTRY/ST=$CERT_STATE/L=$CERT_LOC/O=$CERT_ORG/OU=$CERT_ORGUNIT/CN=$SERVER_NAME"
 
+# Replace the default config with our config template
 RUN rm /etc/nginx/conf.d/default.conf
 COPY nginx.conf /nginx.conf.template
 
