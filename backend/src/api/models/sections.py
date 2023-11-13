@@ -1,26 +1,7 @@
 from django.db import models
+from django.db.models.query import QuerySet
 
 from .course import Course
-
-
-class SectionManager(models.Manager):
-    def get_all(self):
-        return super().get_queryset()
-
-
-class OnlineSectionManager(models.Manager):
-    def get_all(self):
-        return super().get_queryset().filter(modality="850")
-
-
-class InPersonSectionManager(models.Manager):
-    def get_all(self):
-        return super().get_queryset().filter(modality="001")
-
-
-class HybridSectionManager(models.Manager):
-    def get_all(self):
-        return super().get_queryset().filter(modality="002")
 
 
 class Section(models.Model):
@@ -49,14 +30,10 @@ class Section(models.Model):
         primary_key=True, unique=True, blank=False, null=False
     )
 
-    online = OnlineSectionManager()
-    inperson = InPersonSectionManager()
-    hybrid = HybridSectionManager()
-    sections = SectionManager()
     generic = models.Manager()
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.course}"
 
     class Meta:
-        verbose_name_plural = "sections"
+        verbose_name_plural: str = "sections"

@@ -1,4 +1,6 @@
-from django.http import Http404, HttpResponseBadRequest
+from django.http import Http404, HttpResponseBadRequest, QueryDict
+from typing import Any
+from django.db.models.query import QuerySet
 from rest_framework import status
 from rest_framework.renderers import (
     BrowsableAPIRenderer,
@@ -7,6 +9,7 @@ from rest_framework.renderers import (
 )
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.request import Request
 
 from .models.course import Course
 from .models.issue import Issues
@@ -33,7 +36,7 @@ from .serializers import (
 
 
 class APIURLView(APIView):
-    def get(self, request):
+    def get(self, request: Request) -> Response :
         api_urls = {"list-tickets": "api/tickets/"}
         return Response(api_urls)
 
@@ -47,14 +50,14 @@ class TutorListView(APIView):
     name = "Query All Tutors"
     description = """ Query all tutors within the database. """
 
-    def get(self, request):
+    def get(self, request: Request) -> Response:
         queryset = User.tutor.get_tutors()
         if queryset is not None:
             serializer = UserSerializer(queryset, many=True)
             return Response(serializer.data)
         return Response(serializer.errors)
 
-    def post(self, request, search=None):
+    def post(self, request: Request, search:str | Any=...) -> Response:
         serializer = UserSerializer(request.data)
         if serializer.is_valid():
             serializer.save()
@@ -68,20 +71,20 @@ class TutorDetailView(APIView):
     name = "Query Tutors"
     description = """ Query, Update, or Delete a specific tutor. """
 
-    def query_obj(self, ticket_pk: str):
+    def query_obj(self, ticket_pk: str) -> QuerySet | Any:
         try:
             return Ticket.ticket.get_all().filter(pk=ticket_pk)
         except Exception as exc:
             raise Http404 from exc
 
-    def get(self, request, tutor_pk: str):
+    def get(self, request: Request, tutor_pk: str) -> Response:
         queryset = User.tutor.get_tutors().filter(student_nuid=tutor_pk)
         if queryset is not None:
             serializer = UserSerializer(queryset, many=True)
             return Response(serializer.data)
         return Response(serializer.errors)
 
-    def put(self, request, tutor_pk: str, search=None):
+    def put(self, request: Request, tutor_pk: str, search:str | Any = ...) -> Response:
         modified = self.query_obj(tutor_pk)
         serializer = UserSerializer(modified, data=request.data)
         if serializer.is_valid():
@@ -97,12 +100,12 @@ class APIMessageView(APIView):
     serializer_class = MessageSerializer
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
 
-    def get(self, request):
-        queryset = Messages.objects.all()
+    def get(self, request: Request) -> Response:
+        queryset = Messages.generic.all()
         serializer = MessageSerializer(queryset, many=True)
         return Response(serializer.data)
 
-    def post(self, request, search=None):
+    def post(self, request: Request, search:str | Any = ...) -> Response:
         serializer = MessageSerializer()
         return Response(serializer.data)
 
@@ -113,20 +116,20 @@ class APIMessageDetail(APIView):
     name = "Query Messages"
     description = """ Query, Update, or Delete a specific tutor. """
 
-    def query_obj(self, message_id: str):
+    def query_obj(self, message_id: str) -> QuerySet | Any:
         try:
             return Messages.generic.all().filter(id=message_id)
         except Exception as exc:
             raise Http404 from exc
 
-    def get(self, request, message_id: str):
+    def get(self, request: Request, message_id: str) -> Response:
         queryset = Messages.generic.all().filter(id=message_id)
         if queryset is not None:
             serializer = MessageSerializer(queryset, many=True)
             return Response(serializer.data)
         return Response(serializer.errors)
 
-    def put(self, request, message_id: str, search=None):
+    def put(self, request: Request, message_id: str, search: str | Any = ...) -> Response:
         modified = self.query_obj(message_id)
         serializer = MessageSerializer(modified, data=request.data)
         if serializer.is_valid():
@@ -142,12 +145,12 @@ class APIIssueView(APIView):
     serializer_class = IssueSerializer
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
 
-    def get(self, request):
+    def get(self, request: Request) -> Response:
         queryset = Issues.generic.all()
         serializer = IssueSerializer(queryset, many=True)
         return Response(serializer.data)
 
-    def post(self, request):
+    def post(self, request: Request) -> Response:
         serializer = IssueSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -156,18 +159,18 @@ class APIIssueView(APIView):
 
 
 class APIIssueDetail(APIView):
-    def query_obj(self, pk: str):
+    def query_obj(self, pk: str) -> QuerySet | Any:
         try:
-            return Issues.objects.get(pk=pk)
+            return Issues.generic.get(pk=pk)
         except Exception as exc:
             raise Http404 from exc
 
-    def get(self, request, pk: str | None = None):
+    def get(self, request: Request, pk: str | Any = ...) -> Response:
         data = self.query_obj(pk)
         serializer = IssueSerializer(data)
         return Response(serializer.data)
 
-    def put(self, request, pk=None):
+    def put(self, request: Request, pk:str|Any=...) -> Response:
         modified = self.query_obj(pk)
         serializer = IssueSerializer(modified, data=request.data)
         if serializer.is_valid():
@@ -183,13 +186,13 @@ class APISectionView(APIView):
     serializer_class = SectionSerializer
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
 
-    def get_querystring(self, request):
-        return request.GET
+    def get_querystring(self, request: Request) -> QueryDict | Any:
+        return request.query_params
 
-    def sanitize(self, querystring: str):
+    def sanitize(self, querystring: str) -> str:
         return querystring.upper()
 
-    def get(self, request):
+    def get(self, request: Request) -> Response:
         sections = Section.generic.all()
         querystring = self.get_querystring(request=request)
         if querystring:
@@ -197,28 +200,28 @@ class APISectionView(APIView):
                 sections = sections.filter(section=section)
 
             if professor := querystring.get("professor"):
-                query = Professor.prof.get(full_name=professor)
-                sections = sections.filter(professor=query)
+                professor_query = Professor.prof.get(full_name=professor)
+                sections = sections.filter(professor=professor_query)
 
             if last_name := querystring.get("last-name"):
-                query = Professor.prof.filter(last_name=last_name.capitalize())
-                sections = sections.filter(professor__in=query)
+                last_name_query = Professor.prof.filter(last_name=last_name.capitalize())
+                sections = sections.filter(professor__in=last_name_query)
 
             if first_name := querystring.get("first-name"):
-                query = Professor.prof.filter(first_name=first_name.capitalize())
-                sections = sections.filter(professor__in=query)
+                first_name_query = Professor.prof.filter(first_name=first_name.capitalize())
+                sections = sections.filter(professor__in=first_name_query)
 
             if modality := querystring.get("modality"):
                 sections = sections.filter(modality=modality)
 
             if course := querystring.get("course"):
-                query = Course.generic.filter(course_name=course)
-                sections = sections.filter(course__in=query)
+                course_query = Course.generic.filter(course_name=course)
+                sections = sections.filter(course__in=course_query)
 
         serializer = SectionSerializer(sections, many=True)
         return Response(serializer.data)
 
-    def post(self, request):
+    def post(self, request: Request) -> Response:
         serializer = SectionSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -230,18 +233,18 @@ class APISectionDetail(APIView):
     serializer_class = SectionSerializer
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
 
-    def query_obj(self, pk: str):
+    def query_obj(self, pk: str) -> QuerySet | None:
         try:
             return Section.generic.all().filter(pk=pk)
         except Exception as exc:
             raise Http404 from exc
 
-    def get(self, request, section_id: str):
+    def get(self, request: Request, section_id: str) -> Response:
         queryset = self.query_obj(section_id)
         serializer = SectionSerializer(queryset, many=True)
         return Response(serializer.data)
 
-    def put(self, request, pk: str, section_id):
+    def put(self, request: Request, section_id: str) -> Response:
         modified = self.query_obj(section_id)
         serializer = SectionSerializer(modified, data=request.data)
         if serializer.is_valid():
@@ -257,13 +260,13 @@ class APICourseList(APIView):
     serializer_class = CourseSerializer
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
 
-    def get_querystring(self, request):
-        return request.GET
+    def get_querystring(self, request: Request) -> QueryDict | Any:
+        return request.query_params
 
-    def sanitize(self, querystring: str):
+    def sanitize(self, querystring: str) -> str:
         return querystring.upper()
 
-    def get(self, request):
+    def get(self, request: Request) -> Response:
         courses = Course.generic.all()
         querystring = self.get_querystring(request=request)
 
@@ -295,7 +298,7 @@ class APICourseList(APIView):
         serializer = CourseSerializer(courses, many=True)
         return Response(serializer.data)
 
-    def post(self, request):
+    def post(self, request: Request) -> Response:
         serializer = CourseSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -310,13 +313,13 @@ class APIUserView(APIView):
     serializer_class = UserSerializer
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
 
-    def get_querystring(self, request):
-        return request.GET
+    def get_querystring(self, request: Request) -> QueryDict | Any:
+        return request.query_params
 
-    def sanitize(self, querystring: str):
+    def sanitize(self, querystring: str) -> str:
         return querystring.upper()
 
-    def get(self, request):
+    def get(self, request: Request) -> Response:
         users = User.generic.all()
         querystring = self.get_querystring(request=request)
 
@@ -359,7 +362,7 @@ class APIUserView(APIView):
         serializer = UserSerializer(users, many=True)
         return Response(serializer.data)
 
-    def post(self, request):
+    def post(self, request: Request) -> Response:
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -371,18 +374,18 @@ class APIUserDetail(APIView):
     serializer_class = UserSerializer
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
 
-    def query_obj(self, pk: str):
+    def query_obj(self, pk: str) -> QueryDict | Any:
         try:
             return User.generic.all().filter(pk=pk)
         except Exception as exc:
             raise Http404 from exc
 
-    def get(self, request, user_id: str):
+    def get(self, request: Request, user_id: str) -> Response:
         queryset = self.query_obj(user_id)
         serializer = UserSerializer(queryset, many=True)
         return Response(serializer.data)
 
-    def put(self, request, pk: str, user_id):
+    def put(self, request: Request, user_id: str) -> Response:
         modified = self.query_obj(user_id)
         serializer = UserSerializer(modified, data=request.data)
         if serializer.is_valid():
@@ -398,13 +401,13 @@ class APITicketView(APIView):
     serializer_class = TicketSerializer
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
 
-    def get_querystring(self, request):
+    def get_querystring(self, request: Request) -> Response:
         return request.GET
 
-    def sanitize(self, querystring: str):
+    def sanitize(self, querystring: str) -> str:
         return querystring.upper()
 
-    def get(self, request):
+    def get(self, request: Request) -> Response:
         users = User.generic.all()
         querystring = self.get_querystring(request=request)
 
@@ -447,7 +450,7 @@ class APITicketView(APIView):
         serializer = TicketSerializer(users, many=True)
         return Response(serializer.data)
 
-    def post(self, request):
+    def post(self, request: Request) -> Response:
         serializer = TicketSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -459,25 +462,25 @@ class APITicketList(APIView):
     serializer_class = TicketGetSerializer
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
 
-    def get_querystring(self, request):
+    def get_querystring(self, request: Request) -> Response:
         return request.GET
 
-    def sanitize(self, querystring: str):
+    def sanitize(self, querystring: str) -> str:
         return querystring.capitalize()
 
-    def get_professor_id(self, professor_name):
+    def get_professor_id(self, professor_name: str) -> Professor | None:
         return Professor.prof.all().filter(full_name=professor_name).first()
 
-    def get_course_id(self, course_name):
+    def get_course_id(self, course_name: str) -> Course | None:
         return Course.generic.all().filter(course_name=course_name).first()
 
-    def get_issue_id(self, issue_type):
+    def get_issue_id(self, issue_type: str) -> Issues | None:
         return Issues.generic.all().filter(problem_type=issue_type).first()
 
-    def get_user_id(self, user):
+    def get_user_id(self, user: str) -> User | None:
         return User.generic.all().filter(name=user).first()
 
-    def get(self, request):
+    def get(self, request: Request) -> Response:
         tickets = Ticket.generic.all()
         querystring = self.get_querystring(request=request)
         if querystring:
@@ -488,8 +491,7 @@ class APITicketList(APIView):
         serializer = TicketGetSerializer(tickets, many=True)
         return Response(serializer.data)
 
-    def post(self, request, search=None):
-        Ticket.generic.all()
+    def post(self, request: Request, search:str|None=None) -> Response:
         serializer = TicketSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -504,15 +506,15 @@ class APIProfessorView(APIView):
     serializer_class = ProfessorSerializer
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
 
-    def get_querystring(self, request):
+    def get_querystring(self, request: Request) -> QueryDict | Any:
         return request.GET
 
-    def sanitize(self, querystring: str):
+    def sanitize(self, querystring: str) -> str:
         return querystring.title()
 
-    def get(self, request):
-        professors = Professor.professor.get_professors()
-        query_string = self.get_querystring(request=request)
+    def get(self, request: Request) -> Response:
+        professors: QuerySet = Professor.professor.get_professors()
+        query_string: dict = self.get_querystring(request=request)
         if query_string:
             if professor_name := query_string.get("name"):
                 professors = professors.filter(full_name=self.sanitize(professor_name))
@@ -535,7 +537,7 @@ class APIProfessorView(APIView):
         serializer = ProfessorSerializer(professors, many=True)
         return Response(serializer.data)
 
-    def post(self, request, search=None):
+    def post(self, request: Request, search: str|None = None) -> Response:
         Professor.professor.get_professors()
         serializer = ProfessorSerializer(data=request.data)
         if serializer.is_valid():
@@ -548,18 +550,18 @@ class APIProfessorDetail(APIView):
     serializer_class = ProfessorSerializer
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
 
-    def query_obj(self, pk: str):
+    def query_obj(self, pk: str) -> QuerySet | Any:
         try:
             return Professor.professor.get_professors().filter(pk=pk)
         except Exception as exc:
             raise Http404 from exc
 
-    def get(self, request, professor_pk: str):
+    def get(self, request: Request, professor_pk: str) -> Response:
         queryset = self.query_obj(professor_pk)
         serializer = ProfessorSerializer(queryset, many=True)
         return Response(serializer.data)
 
-    def put(self, request, pk: str, professor_pk):
+    def put(self, request: Request, professor_pk:str) -> Response:
         modified = self.query_obj(professor_pk)
         serializer = ProfessorSerializer(modified, data=request.data)
         if serializer.is_valid():

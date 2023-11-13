@@ -65,7 +65,7 @@ ignore_missing_imports = "True"
 plugins = ["mypy_django_plugin.main"]
 
 [tool.django-stubs]
-django_settings_module = "myproject.settings"
+django_settings_module = "base.settings"
 
 [tool.autoflake]
 imports = ["django", "requests", "urllib3"]

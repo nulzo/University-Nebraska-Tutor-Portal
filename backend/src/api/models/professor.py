@@ -1,11 +1,12 @@
 from django.db import models
+from django.db.models.query import QuerySet
 
 
 class ProfessorManager(models.Manager):
-    def get_professors(self):
+    def get_professors(self) -> QuerySet:
         return super().get_queryset().all()
 
-    def get_professor(self, professor: str):
+    def get_professor(self, professor: str) -> QuerySet:
         return super().get_queryset().filter(full_name=professor)
 
 
@@ -21,17 +22,17 @@ class Professor(models.Model):
     return the str representation as well.
     """
 
-    first_name: str = models.CharField(max_length=30)
-    last_name: str = models.CharField(max_length=50)
-    full_name: str = models.CharField(max_length=80)
-    email: str = models.CharField(max_length=50)
-    is_active: str = models.BooleanField(default=True)
-    professor_id: str = models.BigIntegerField(
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=50)
+    full_name = models.CharField(max_length=80)
+    email = models.CharField(max_length=50)
+    is_active = models.BooleanField(default=True)
+    professor_id = models.BigIntegerField(
         unique=True, max_length=30, null=False, blank=False, primary_key=True
     )
 
     professor = ProfessorManager()
     prof = models.Manager()
 
-    def __str__(self):
+    def __str__(self) -> str:
         return str(self.full_name)

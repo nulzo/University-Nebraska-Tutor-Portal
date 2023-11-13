@@ -1,13 +1,14 @@
 from django.db import models
+from django.db.models.query import QuerySet
 
 from .course import Course
 
 
 class StudentManager(models.Manager):
-    def get_students(self):
+    def get_students(self) -> QuerySet:
         return super().get_queryset().filter(is_tutor=False).filter(is_admin=False)
 
-    def get_student(self, name: str):
+    def get_student(self, name: str) -> QuerySet:
         return (
             super()
             .get_queryset()
@@ -18,18 +19,15 @@ class StudentManager(models.Manager):
 
 
 class TutorManager(models.Manager):
-    def get_tutors(self):
+    def get_tutors(self) -> QuerySet:
         return super().get_queryset().filter(is_tutor=True)
 
-    def get_tutor(self, name: str):
+    def get_tutor(self, name: str) -> QuerySet:
         return super().get_queryset().filter(is_tutor=True).filter(name)
 
 
 class AdminManager(models.Manager):
-    def get_admins(self):
-        return super().get_queryset().filter(is_admin=True)
-
-    def get_admin(self):
+    def get_admins(self) -> QuerySet:
         return super().get_queryset().filter(is_admin=True)
 
 
@@ -47,10 +45,10 @@ class User(models.Model):
         primary_key=True, unique=True, blank=False, null=False, default=1
     )
     courses_tutoring = models.ManyToManyField(
-        Course, related_name="usertocoursetutored", blank=True, null=True
+        Course, related_name="usertocoursetutored", blank=True
     )
     courses_taken = models.ManyToManyField(
-        Course, related_name="usertocoursetaken", blank=True, null=True
+        Course, related_name="usertocoursetaken", blank=True
     )
     name = models.CharField(max_length=100)
     is_active = models.BooleanField(default=False)
@@ -66,5 +64,5 @@ class User(models.Model):
     tutor = TutorManager()
     admin = AdminManager()
 
-    def __str__(self):
+    def __str__(self) -> str:
         return str(self.name)

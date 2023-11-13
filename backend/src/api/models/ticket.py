@@ -1,38 +1,39 @@
 from django.db import models
+from django.db.models.query import QuerySet
 
 from .issue import Issues
 from .professor import Professor
 
 
 class TicketManager(models.Manager):
-    def get_all(self):
+    def get_all(self) -> QuerySet:
         return super().get_queryset()
 
-    def get_student(self, student: str):
+    def get_student(self, student: str) -> QuerySet:
         return super().get_queryset().filter(student=student)
 
-    def get_professor(self, professor: str):
+    def get_professor(self, professor: str) -> QuerySet:
         return super().get_queryset().filter(professor=professor)
 
-    def get_tutor(self, tutor: str):
+    def get_tutor(self, tutor: str) -> QuerySet:
         return super().get_queryset().filter(tutor=tutor)
 
-    def get_section(self, section: str):
+    def get_section(self, section: str) -> QuerySet:
         return super().get_queryset().filter(section=section)
 
-    def get_course(self, course: str):
+    def get_course(self, course: str) -> QuerySet:
         return super().get_queryset().filter(section__course=course)
 
-    def get_active(self):
+    def get_active(self) -> QuerySet:
         return super().get_queryset().exclude(completed=True).exclude(started=False)
 
-    def get_completed(self):
+    def get_completed(self) -> QuerySet:
         return super().get_queryset().filter(completed=True)
 
-    def get_unclaimed(self):
+    def get_unclaimed(self) -> QuerySet:
         return super().get_queryset().exclude(started=True).exclude(completed=True)
 
-    def get_successful(self):
+    def get_successful(self) -> QuerySet:
         return super().get_queryset().filter(was_successful=True).filter(completed=True)
 
 
@@ -81,5 +82,5 @@ class Ticket(models.Model):
     generic = models.Manager()
     ticket = TicketManager()
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.name + " - " + str(self.course)

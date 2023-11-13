@@ -12,6 +12,10 @@ format:
 	isort .
 	black .
 
+.PHONY typecheck:
+typecheck:
+	mypy src/api/views.py --exclude .venv --warn-unused-configs --disallow-untyped-calls --disallow-untyped-defs --check-untyped-defs --disallow-untyped-decorators --warn-redundant-casts --warn-unused-ignores --warn-return-any --strict-equality --extra-checks
+
 .PHONY test:
 test:
 	coverage run --source=src/. -m pytest tests/ 
@@ -26,22 +30,22 @@ test-for-pipeline:
 	coverage run --source=src/.  -m pytest --ignore=tests/test_load_csv.py tests/
 	coverage report
 
-.PHONY run:
-run:
+.PHONY run-win:
+run-win:
 	python manage.py runserver
 
-.PHONY run-network:
-run-network:
+.PHONY start-backend-only:
+start-backend-only:
 	python manage.py runserver 0.0.0.0:6969
 
 .PHONY migrate:
 migrate:
 	python manage.py makemigrations && python manage.py migrate
 
-.PHONY load:
-load:
+.PHONY load-semester:
+load-semester:
 	python3 manage.py runscript load_semester
 
-.PHONY load_data:
-load_data:
+.PHONY load-semester-win:
+load-semester-win:
 	python manage.py runscript load_semester
