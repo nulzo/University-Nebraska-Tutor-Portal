@@ -16,19 +16,12 @@ websockets = "^11.0.3"
 channels = {extras = ["daphne"], version = "^4.0.0"}
 pandas = "^2.1.1"
 django-extensions = "^3.2.3"
-coverage = "^7.3.2"
-pytest-cov = "^4.1.0"
-pytest-django = "^4.5.2"
-autopep8 = "^2.0.4"
-faker = "^19.12.0"
-werkzeug = "^3.0.1"
 
 [tool.poetry.group.dev.dependencies]
 bruhcolor = "^0.0.56"
 pylint = "^3.0.1"
 pytest = "^7.4.0"
 black = "^23.7.0"
-coverage = "^7.2.7"
 flake8 = "^6.1.0"
 isort = "^5.12.0"
 mypy = "^1.4.1"
@@ -40,6 +33,11 @@ pip-audit = "^2.6.1"
 autobahn = "^23.6.2"
 bandit = "^1.7.5"
 django-stubs = "^4.2.6"
+coverage = "^7.3.2"
+pytest-cov = "^4.1.0"
+autopep8 = "^2.0.4"
+faker = "^19.12.0"
+werkzeug = "^3.0.1"
 
 [tool.black]
 line-length = 88
@@ -64,6 +62,10 @@ line-length = 100
 
 [tool.mypy]
 ignore_missing_imports = "True"
+plugins = ["mypy_django_plugin.main"]
+
+[tool.django-stubs]
+django_settings_module = "myproject.settings"
 
 [tool.autoflake]
 imports = ["django", "requests", "urllib3"]
