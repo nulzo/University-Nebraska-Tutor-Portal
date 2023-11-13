@@ -32,6 +32,7 @@ import useFetchCourse from "@/API/courses/useFetchCourse";
 import useFetchIssue from "@/API/issues/useFetchIssue";
 import { ScrollArea } from "../ui/scroll-area";
 import axios from "axios";
+import LoadingSelect from "../loading/loading_select";
 // import useFetchSection from "@/API/sections/useFetchSection";
 
 const max_ticket_length = 500;
@@ -159,6 +160,9 @@ export default function TicketForm() {
               </FormItem>
             )}
           />
+          {professors?.isFetching && (
+            <LoadingSelect/>
+          )}
           {!professors?.isLoading && (
             <FormField
               control={form.control}

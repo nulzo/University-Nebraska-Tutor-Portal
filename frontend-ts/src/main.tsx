@@ -42,10 +42,6 @@ const router = createBrowserRouter([
         path: "home/",
         element: <HomeView />,
       },
-      // {
-      //   path: "search/",
-      //   element: <Search />,
-      // },
       {
         path: "create/",
         element: <CreateTicketView />,
@@ -74,10 +70,10 @@ const router = createBrowserRouter([
         path: "admin/dashboard/",
         element: <AdminRequired view={<AdminDashboard />} />,
       },
-      {
-        path: "admin/blame/",
-        element: <AdminRequired view={<AdminBlame />} />,
-      },
+      // {
+      //   path: "admin/blame/",
+      //   element: <AdminRequired view={<AdminBlame />} />,
+      // },
       {
         path: "admin/announcements/",
         element: <AdminRequired view={<AdminAnnouncements />} />,
