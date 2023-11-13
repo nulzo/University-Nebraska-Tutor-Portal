@@ -35,11 +35,11 @@ mypy = "^1.4.1"
 ruff = "^0.0.282"
 yapf = "^0.40.1"
 autoflake = "^2.2.0"
-django-stubs = "^1.2.0"
 pytest-django = "^4.5.2"
 pip-audit = "^2.6.1"
 autobahn = "^23.6.2"
 bandit = "^1.7.5"
+django-stubs = "^4.2.6"
 
 [tool.black]
 line-length = 88
@@ -63,7 +63,6 @@ line-length = 100
 "settings.py" = ["E501"]
 
 [tool.mypy]
-plugins = ["mypy_django_plugin.main"]
 ignore_missing_imports = "True"
 
 [tool.autoflake]
