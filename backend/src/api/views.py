@@ -1,15 +1,16 @@
-from django.http import Http404, HttpResponseBadRequest, QueryDict
 from typing import Any
+
 from django.db.models.query import QuerySet
+from django.http import Http404, HttpResponseBadRequest, QueryDict
 from rest_framework import status
 from rest_framework.renderers import (
     BrowsableAPIRenderer,
     HTMLFormRenderer,
     JSONRenderer,
 )
+from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework.request import Request
 
 from .models.course import Course
 from .models.issue import Issues
@@ -36,7 +37,7 @@ from .serializers import (
 
 
 class APIURLView(APIView):
-    def get(self, request: Request) -> Response :
+    def get(self, request: Request) -> Response:
         api_urls = {"list-tickets": "api/tickets/"}
         return Response(api_urls)
 
@@ -57,7 +58,7 @@ class TutorListView(APIView):
             return Response(serializer.data)
         return Response(serializer.errors)
 
-    def post(self, request: Request, search:str | Any=...) -> Response:
+    def post(self, request: Request, search: str | Any = ...) -> Response:
         serializer = UserSerializer(request.data)
         if serializer.is_valid():
             serializer.save()
@@ -84,7 +85,7 @@ class TutorDetailView(APIView):
             return Response(serializer.data)
         return Response(serializer.errors)
 
-    def put(self, request: Request, tutor_pk: str, search:str | Any = ...) -> Response:
+    def put(self, request: Request, tutor_pk: str, search: str | Any = ...) -> Response:
         modified = self.query_obj(tutor_pk)
         serializer = UserSerializer(modified, data=request.data)
         if serializer.is_valid():
@@ -105,7 +106,7 @@ class APIMessageView(APIView):
         serializer = MessageSerializer(queryset, many=True)
         return Response(serializer.data)
 
-    def post(self, request: Request, search:str | Any = ...) -> Response:
+    def post(self, request: Request, search: str | Any = ...) -> Response:
         serializer = MessageSerializer()
         return Response(serializer.data)
 
@@ -129,7 +130,9 @@ class APIMessageDetail(APIView):
             return Response(serializer.data)
         return Response(serializer.errors)
 
-    def put(self, request: Request, message_id: str, search: str | Any = ...) -> Response:
+    def put(
+        self, request: Request, message_id: str, search: str | Any = ...
+    ) -> Response:
         modified = self.query_obj(message_id)
         serializer = MessageSerializer(modified, data=request.data)
         if serializer.is_valid():
@@ -170,7 +173,7 @@ class APIIssueDetail(APIView):
         serializer = IssueSerializer(data)
         return Response(serializer.data)
 
-    def put(self, request: Request, pk:str|Any=...) -> Response:
+    def put(self, request: Request, pk: str | Any = ...) -> Response:
         modified = self.query_obj(pk)
         serializer = IssueSerializer(modified, data=request.data)
         if serializer.is_valid():
@@ -204,11 +207,15 @@ class APISectionView(APIView):
                 sections = sections.filter(professor=professor_query)
 
             if last_name := querystring.get("last-name"):
-                last_name_query = Professor.prof.filter(last_name=last_name.capitalize())
+                last_name_query = Professor.prof.filter(
+                    last_name=last_name.capitalize()
+                )
                 sections = sections.filter(professor__in=last_name_query)
 
             if first_name := querystring.get("first-name"):
-                first_name_query = Professor.prof.filter(first_name=first_name.capitalize())
+                first_name_query = Professor.prof.filter(
+                    first_name=first_name.capitalize()
+                )
                 sections = sections.filter(professor__in=first_name_query)
 
             if modality := querystring.get("modality"):
@@ -491,7 +498,7 @@ class APITicketList(APIView):
         serializer = TicketGetSerializer(tickets, many=True)
         return Response(serializer.data)
 
-    def post(self, request: Request, search:str|None=None) -> Response:
+    def post(self, request: Request, search: str | None = None) -> Response:
         serializer = TicketSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -537,7 +544,7 @@ class APIProfessorView(APIView):
         serializer = ProfessorSerializer(professors, many=True)
         return Response(serializer.data)
 
-    def post(self, request: Request, search: str|None = None) -> Response:
+    def post(self, request: Request, search: str | None = None) -> Response:
         Professor.professor.get_professors()
         serializer = ProfessorSerializer(data=request.data)
         if serializer.is_valid():
@@ -561,7 +568,7 @@ class APIProfessorDetail(APIView):
         serializer = ProfessorSerializer(queryset, many=True)
         return Response(serializer.data)
 
-    def put(self, request: Request, professor_pk:str) -> Response:
+    def put(self, request: Request, professor_pk: str) -> Response:
         modified = self.query_obj(professor_pk)
         serializer = ProfessorSerializer(modified, data=request.data)
         if serializer.is_valid():
