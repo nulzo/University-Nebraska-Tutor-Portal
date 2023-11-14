@@ -53,7 +53,7 @@ class TutorListView(APIView):
 
     def get(self, request: Request) -> Response:
         queryset = User.tutor.get_tutors()
-        if queryset is not None:
+        if len(queryset) > 0:
             serializer = UserSerializer(queryset, many=True)
             return Response(serializer.data)
         return Response(serializer.errors)
@@ -80,7 +80,7 @@ class TutorDetailView(APIView):
 
     def get(self, request: Request, tutor_pk: str) -> Response:
         queryset = User.tutor.get_tutors().filter(student_nuid=tutor_pk)
-        if queryset is not None:
+        if len(queryset) > 0:
             serializer = UserSerializer(queryset, many=True)
             return Response(serializer.data)
         return Response(serializer.errors)
@@ -125,7 +125,7 @@ class APIMessageDetail(APIView):
 
     def get(self, request: Request, message_id: str) -> Response:
         queryset = Messages.generic.all().filter(id=message_id)
-        if queryset is not None:
+        if len(queryset) > 0:
             serializer = MessageSerializer(queryset, many=True)
             return Response(serializer.data)
         return Response(serializer.errors)
@@ -557,7 +557,7 @@ class APIProfessorDetail(APIView):
     serializer_class = ProfessorSerializer
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
 
-    def query_obj(self, pk: str) -> QuerySet | Any:
+    def query_obj(self, pk: str) -> QuerySet:
         try:
             return Professor.professor.get_professors().filter(pk=pk)
         except Exception as exc:
@@ -569,8 +569,8 @@ class APIProfessorDetail(APIView):
         return Response(serializer.data)
 
     def put(self, request: Request, professor_pk: str) -> Response:
-        modified = self.query_obj(professor_pk)
-        serializer = ProfessorSerializer(modified, data=request.data)
+        modified: QuerySet = self.query_obj(professor_pk)
+        serializer: ProfessorSerializer = ProfessorSerializer(modified, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
