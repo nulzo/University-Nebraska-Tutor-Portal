@@ -25,7 +25,7 @@ api.models.course module
 
 .. automodule:: api.models.course
    :members:
-   :undoc-members:
+   :no-index:
    :show-inheritance:
 
 api.models.hours module

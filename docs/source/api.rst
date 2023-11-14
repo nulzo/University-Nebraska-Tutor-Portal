@@ -51,7 +51,7 @@ api.views module
 
 .. automodule:: api.views
    :members:
-   :undoc-members:
+   :noindex:
    :show-inheritance:
 
 api.websocket module
