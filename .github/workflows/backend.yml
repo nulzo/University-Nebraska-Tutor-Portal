@@ -25,8 +25,11 @@ jobs:
           poetry config virtualenvs.create false
           poetry shell
           poetry install
-      - name: Run Linting
-        run: make lint
+      - name: Run Linter
+        uses: actions/checkout@v3
+      - working-directory: ./backend
+        run: |
+          make lint
   Test:
     runs-on: ubuntu-latest
     steps:
@@ -37,6 +40,8 @@ jobs:
         with:
           python-version: '3.11'
       - name: Install Dependencies
+        uses: actions/checkout@v3
+      - working-directory: ./backend
         run: |
           python -m pip install --upgrade pip
           pip3 install poetry
@@ -44,7 +49,10 @@ jobs:
           poetry shell
           poetry install
       - name: Run Tests
-        run: make test-for-pipeline
+        uses: actions/checkout@v3
+      - working-directory: ./backend
+        run: |
+          make test-for-pipeline
   Typecheck:
     runs-on: ubuntu-latest
     steps:
@@ -64,5 +72,8 @@ jobs:
           poetry shell
           poetry install
       - name: Run Typechecker
-        run: make typecheck
+        uses: actions/checkout@v3
+      - working-directory: ./backend
+        run: |
+          make typecheck
 
