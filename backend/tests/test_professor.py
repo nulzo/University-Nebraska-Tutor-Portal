@@ -1,5 +1,4 @@
 import pytest
-
 from src.api.models.professor import Professor
 
 

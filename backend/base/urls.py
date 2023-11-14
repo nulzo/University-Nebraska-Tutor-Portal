@@ -19,7 +19,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from src.api import views as routing
+from api import views as routing
 
 urlpatterns = [
     # API Config URLS
