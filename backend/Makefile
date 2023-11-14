@@ -14,7 +14,7 @@ format:
 
 .PHONY typecheck:
 typecheck:
-	mypy api/views.py --exclude .venv --warn-unused-configs --disallow-untyped-calls --disallow-untyped-defs --check-untyped-defs --disallow-untyped-decorators --warn-redundant-casts --warn-unused-ignores --disallow-incomplete-defs --warn-return-any --strict-equality --extra-checks --warn-unreachable --no-implicit-reexport --extra-checks --show-error-context --show-column-numbers --pretty --force-uppercase-builtins --raise-exceptions --warn-unused-configs
+	mypy api/endpoints --exclude .venv --warn-unused-configs --disallow-untyped-calls --disallow-untyped-defs --check-untyped-defs --disallow-untyped-decorators --warn-redundant-casts --warn-unused-ignores --disallow-incomplete-defs --warn-return-any --strict-equality --extra-checks --warn-unreachable --no-implicit-reexport --extra-checks --show-error-context --show-column-numbers --pretty --force-uppercase-builtins --raise-exceptions --warn-unused-configs
 
 .PHONY test:
 test:

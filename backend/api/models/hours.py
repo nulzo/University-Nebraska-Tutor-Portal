@@ -1,13 +1,14 @@
 from django.db import models
+from django.db.models.query import QuerySet
 
 from .user import User
 
 
 class HourManager(models.Manager):
-    def get_all_hours(self):
+    def get_all_hours(self) -> QuerySet:
         return super().get_queryset().all()
 
-    def get_tutor(self, name: str):
+    def get_tutor(self, name: str) -> QuerySet:
         return super().get_queryset().filter(tutor=name)
 
 
@@ -29,7 +30,7 @@ class Hour(models.Model):
     generic = models.Manager()
     hours = HourManager()
 
-    def __str__(self):
+    def __str__(self) -> str:
         return str(self.tutor) + " " + "Hours"
 
     class Meta:
