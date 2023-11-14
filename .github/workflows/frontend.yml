@@ -18,18 +18,18 @@ jobs:
             node-version: '18'
       - name: Install Dependencies
         uses: actions/checkout@v3
-      - working-directory: ./frontend-ts
+      - working-directory: ./frontend
         run: |
           npm install
       - name: Lint codebase
         uses: actions/checkout@v3
-      - working-directory: ./frontend-ts
+      - working-directory: ./frontend
         run: |
           npm install 
           make lint
       - name: Test codebase
         uses: actions/checkout@v3
-      - working-directory: ./frontend-ts
+      - working-directory: ./frontend
         run: |
           npm install
           make test

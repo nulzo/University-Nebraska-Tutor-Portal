@@ -7,7 +7,7 @@ services:
       - 6969:6969
   frontend:
     container_name: frontend
-    build: ./frontend-ts
+    build: ./frontend
     depends_on:
       - backend
     restart: always
@@ -24,13 +24,13 @@ services:
       # or build folder(.svelte-kit) to be mounted.
       # they conflict with the temporary results from docker space.
       # this is why many mono repos utilize ./src folder
-      - ./frontend-ts/src/:/home/frontend/src
-      - ./frontend-ts/vite.config.ts:/home/frontend/vite.config.js
-      - ./frontend-ts/tsconfig.json:/home/frontend/tsconfig.json
+      - ./frontend/src/:/home/frontend/src
+      - ./frontend/vite.config.ts:/home/frontend/vite.config.js
+      - ./frontend/tsconfig.json:/home/frontend/tsconfig.json
     develop:
       watch:
         - action: sync
-          path: frontend-ts/src/components
+          path: frontend/src/components
           ignore:
             - node_modules/
     command: npm run dev

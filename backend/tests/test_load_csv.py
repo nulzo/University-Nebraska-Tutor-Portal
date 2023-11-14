@@ -2,7 +2,7 @@ import os
 
 import pytest
 
-from src.api.scripts.load_semester import ParseSemester, run
+from api.scripts.load_semester import ParseSemester, run
 
 PATH = os.getenv("PATH_TO_CSV")
 

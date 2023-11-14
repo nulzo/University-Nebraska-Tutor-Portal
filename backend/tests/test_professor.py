@@ -1,6 +1,6 @@
 import pytest
 
-from src.api.models.professor import Professor
+from api.models.professor import Professor
 
 
 @pytest.fixture
