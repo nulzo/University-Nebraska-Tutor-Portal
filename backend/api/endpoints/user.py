@@ -35,8 +35,7 @@ class APIUserView(APIView):
 
         if querystring:
             if department := querystring.get("department"):
-                users = users.filter(
-                    course_department=self.sanitize(department))
+                users = users.filter(course_department=self.sanitize(department))
 
             if name := querystring.get("name"):
                 users = users.filter(name=name)

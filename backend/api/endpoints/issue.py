@@ -15,7 +15,6 @@ from rest_framework.views import APIView
 from api.models.issue import Issues
 from api.serializers import IssueSerializer
 
-
 # We don't need to check for duplicate class names and function names.
 # pylint: disable=E0102,E1101,R0914
 

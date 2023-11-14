@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Course(models.Model):
-    """ The course table holds all information about a specific course.
+    """The course table holds all information about a specific course.
 
     Important:
         A course can have many sections, while a section can only be attributed to a single course.
@@ -31,12 +31,10 @@ class Course(models.Model):
         * You have to also use ``sphinx.ext.todo`` extension
     """
 
-    course_department = models.CharField(
-        max_length=10, blank=False, default="CSCI")
+    course_department = models.CharField(max_length=10, blank=False, default="CSCI")
     course_name = models.CharField(max_length=100, blank=False)
     course_id = models.IntegerField(max_length=10, blank=False, null=False)
-    course_code = models.CharField(
-        max_length=15, blank=False, null=False, unique=True)
+    course_code = models.CharField(max_length=15, blank=False, null=False, unique=True)
 
     generic: models.Manager = models.Manager()
 

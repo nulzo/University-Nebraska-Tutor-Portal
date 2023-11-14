@@ -31,8 +31,7 @@ class APIProfessorView(APIView):
         query_string: dict = self.get_querystring(request=request)
         if query_string:
             if professor_name := query_string.get("name"):
-                professors = professors.filter(
-                    full_name=self.sanitize(professor_name))
+                professors = professors.filter(full_name=self.sanitize(professor_name))
             if professor_id := query_string.get("id"):
                 professors = professors.filter(professor_id=professor_id)
             if professor_first_name := query_string.get("first-name"):

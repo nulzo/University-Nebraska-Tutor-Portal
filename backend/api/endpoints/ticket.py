@@ -12,10 +12,10 @@ from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from api.models.ticket import Ticket
-from api.models.professor import Professor
 from api.models.course import Course
 from api.models.issue import Issues
+from api.models.professor import Professor
+from api.models.ticket import Ticket
 from api.models.user import User
 from api.serializers import TicketGetSerializer, TicketSerializer
 
@@ -39,8 +39,7 @@ class APITicketView(APIView):
 
         if querystring:
             if department := querystring.get("department"):
-                users = users.filter(
-                    course_department=self.sanitize(department))
+                users = users.filter(course_department=self.sanitize(department))
 
             if name := querystring.get("name"):
                 users = users.filter(name=name)

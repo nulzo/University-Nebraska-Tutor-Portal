@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Announcement(models.Model):
-    """ The announcment table is the table that is used to store all announcements
+    """The announcment table is the table that is used to store all announcements
     that an admin wishes to send out. There are a definitive selection of
     announcement options to choose from, and each of the options have
     unique characteristics attributed to them. For example, informatic

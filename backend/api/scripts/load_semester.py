@@ -9,6 +9,7 @@ import re
 
 import pandas
 from django.db.utils import IntegrityError
+
 from api.models.course import Course
 from api.models.professor import Professor
 from api.models.sections import Section
