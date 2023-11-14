@@ -12,23 +12,8 @@ from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .models.course import Course
-from .models.issue import Issues
-from .models.messages import Messages
-from .models.professor import Professor
-from .models.sections import Section
-from .models.ticket import Ticket
-from .models.user import User
-from .serializers import (
-    CourseSerializer,
-    IssueSerializer,
-    MessageSerializer,
-    ProfessorSerializer,
-    SectionSerializer,
-    TicketGetSerializer,
-    TicketSerializer,
-    UserSerializer,
-)
+from api.models.professor import Professor
+from api.serializers import ProfessorSerializer
 
 
 class APIProfessorView(APIView):

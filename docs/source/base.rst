@@ -1,4 +1,4 @@
-base package
+API Settings
 ============
 
 Submodules

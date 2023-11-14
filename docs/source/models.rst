@@ -1,10 +1,8 @@
-api.models package
+API Models
 ==================
 
-Submodules
-----------
 
-api.models.announcement module
+Announcements
 ------------------------------
 
 .. automodule:: api.models.announcement
@@ -12,7 +10,7 @@ api.models.announcement module
    :undoc-members:
    :show-inheritance:
 
-api.models.color module
+Colors
 -----------------------
 
 .. automodule:: api.models.color
@@ -20,7 +18,7 @@ api.models.color module
    :no-index:
    :show-inheritance:
 
-api.models.course module
+Courses
 ------------------------
 
 .. automodule:: api.models.course
@@ -28,7 +26,7 @@ api.models.course module
    :no-index:
    :show-inheritance:
 
-api.models.hours module
+Hours
 -----------------------
 
 .. automodule:: api.models.hours
@@ -36,7 +34,7 @@ api.models.hours module
    :undoc-members:
    :show-inheritance:
 
-api.models.issue module
+Issues
 -----------------------
 
 .. automodule:: api.models.issue
@@ -44,7 +42,7 @@ api.models.issue module
    :undoc-members:
    :show-inheritance:
 
-api.models.messages module
+Messages
 --------------------------
 
 .. automodule:: api.models.messages
@@ -52,7 +50,7 @@ api.models.messages module
    :undoc-members:
    :show-inheritance:
 
-api.models.professor module
+Professor
 ---------------------------
 
 .. automodule:: api.models.professor
@@ -60,7 +58,7 @@ api.models.professor module
    :undoc-members:
    :show-inheritance:
 
-api.models.roles module
+Roles
 -----------------------
 
 .. automodule:: api.models.roles
@@ -68,7 +66,7 @@ api.models.roles module
    :undoc-members:
    :show-inheritance:
 
-api.models.sections module
+Sections
 --------------------------
 
 .. automodule:: api.models.sections
@@ -76,7 +74,7 @@ api.models.sections module
    :undoc-members:
    :show-inheritance:
 
-api.models.ticket module
+Tickets
 ------------------------
 
 .. automodule:: api.models.ticket
@@ -84,7 +82,7 @@ api.models.ticket module
    :undoc-members:
    :show-inheritance:
 
-api.models.tutor module
+Tutors
 -----------------------
 
 .. automodule:: api.models.tutor
@@ -92,26 +90,10 @@ api.models.tutor module
    :undoc-members:
    :show-inheritance:
 
-api.models.user module
+Users
 ----------------------
 
 .. automodule:: api.models.user
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-api.models.work\_hours module
------------------------------
-
-.. automodule:: api.models.work_hours
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-Module contents
----------------
-
-.. automodule:: api.models
    :members:
    :undoc-members:
    :show-inheritance:

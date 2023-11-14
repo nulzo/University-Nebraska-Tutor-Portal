@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path
 
 from api import views as routing
+from api.endpoints import course, issue, professor, section, ticket, user
 
 urlpatterns = [
     # API Config URLS
@@ -25,10 +26,10 @@ urlpatterns = [
     # Admin URLS
     path("api/admin/", admin.site.urls),
     # Issue URLS
-    path("api/issues/", view=routing.APIIssueView.as_view()),
-    path("api/issues/<str:pk>", view=routing.APIIssueDetail.as_view()),
+    path("api/issues/", view=issue.APIIssueView.as_view()),
+    path("api/issues/<str:pk>", view=issue.APIIssueDetail.as_view()),
     # Ticket URLS
-    path("api/tickets/", view=routing.APITicketView.as_view(), name="Tickets"),
+    path("api/tickets/", view=ticket.APITicketView.as_view(), name="Tickets"),
     # path(
     #     "api/tickets/<str:ticket_pk>/",
     #     view=routing.TicketDetailView.as_view(),
@@ -37,29 +38,29 @@ urlpatterns = [
     # Professor URLS
     path(
         "api/professors/",
-        view=routing.APIProfessorView.as_view(),
+        view=professor.APIProfessorView.as_view(),
         name="professor",
     ),
     path(
         "api/professors/<str:professor_pk>",
-        view=routing.APIProfessorDetail.as_view(),
+        view=professor.APIProfessorDetail.as_view(),
         name="Professor Detail View",
     ),
     # Section URLS
     path(
         "api/sections/",
-        view=routing.APISectionView.as_view(),
+        view=section.APISectionView.as_view(),
         name="Section List View",
     ),
     path(
         "api/sections/<str:section_id>",
-        view=routing.APISectionDetail.as_view(),
+        view=section.APISectionDetail.as_view(),
         name="Section Detail View",
     ),
     # User URLS
     # (students and tutors are accessible through endpoint)
-    path("api/users/", view=routing.APIUserView.as_view()),
-    path("api/users/<str:user_id>", view=routing.APIUserDetail.as_view()),
+    path("api/users/", view=user.APIUserView.as_view()),
+    path("api/users/<str:user_id>", view=user.APIUserDetail.as_view()),
     # Hours URLS
     # path("api/hours/"),
     # path("api/hours/<str:hour_pk"),
@@ -70,7 +71,7 @@ urlpatterns = [
     # path("api/announcements/")
     # path("api/announcements/<str:annonucement_id>")
     # Course URLS
-    path("api/courses/", view=routing.APICourseList.as_view(),
+    path("api/courses/", view=course.APICourseList.as_view(),
          name="Course List View"),
     # path("api/courses/<str:course_pk>", view=routing.MessageViewSet.as_view()),
 ]

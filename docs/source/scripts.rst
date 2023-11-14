@@ -1,10 +1,10 @@
-api.scripts package
+API Scripts
 ===================
 
 Submodules
 ----------
 
-api.scripts.load\_semester module
+Load Semester
 ---------------------------------
 
 .. automodule:: api.scripts.load_semester
@@ -12,18 +12,10 @@ api.scripts.load\_semester module
    :undoc-members:
    :show-inheritance:
 
-api.scripts.load\_students module
+Load Students
 ---------------------------------
 
 .. automodule:: api.scripts.load_students
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-Module contents
----------------
-
-.. automodule:: api.scripts
    :members:
    :undoc-members:
    :show-inheritance:

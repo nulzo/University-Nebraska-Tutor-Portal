@@ -1,4 +1,4 @@
-manage module
+Backend Entrypoint
 =============
 
 .. automodule:: manage

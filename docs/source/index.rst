@@ -3,14 +3,17 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to University of Nebraska - Computer Science Tutoring Portal's documentation!
+University of Nebraska - Computer Science Tutoring Portal Official Documentation
 =====================================================================================
 
+
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 3
+   :caption: help...
+   :hidden:
 
    modules
+
 
 Indices and tables
 ==================

@@ -1,9 +1,9 @@
-University-Nebraska-Tutor-Portal
+University of Nebraska Tutor Portal
 ================================
 
 .. toctree::
    :maxdepth: 4
+   :caption: please...
+   :hidden:
 
-   manage
-   api
-   base
+   endpoints/index
