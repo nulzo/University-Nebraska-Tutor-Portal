@@ -17,7 +17,7 @@ api.models.color module
 
 .. automodule:: api.models.color
    :members:
-   :undoc-members:
+   :no-index:
    :show-inheritance:
 
 api.models.course module
