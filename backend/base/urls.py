@@ -1,10 +1,8 @@
-"""
-URL configuration for University-Nebraska-Tutor-Portal project.
+"""URL configuration for University-Nebraska-Tutor-Portal project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
-Examples:
-Function views
+Examples: Function views
     1. Add an import:  from my_app import views
     2. Add a URL to urlpatterns:  path('', views.home, name='home')
 Class-based views
@@ -14,7 +12,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-# pylint: disable=E0401
+
 
 from django.contrib import admin
 from django.urls import path
@@ -72,6 +70,7 @@ urlpatterns = [
     # path("api/announcements/")
     # path("api/announcements/<str:annonucement_id>")
     # Course URLS
-    path("api/courses/", view=routing.APICourseList.as_view(), name="Course List View"),
+    path("api/courses/", view=routing.APICourseList.as_view(),
+         name="Course List View"),
     # path("api/courses/<str:course_pk>", view=routing.MessageViewSet.as_view()),
 ]

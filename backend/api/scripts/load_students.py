@@ -1,6 +1,4 @@
-# from src.api.models.user import User
-
-from src.api.models.user import User
+from api.models.user import User
 
 data = [
     {

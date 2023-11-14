@@ -9,9 +9,9 @@ import re
 
 import pandas
 from django.db.utils import IntegrityError
-from src.api.models.course import Course
-from src.api.models.professor import Professor
-from src.api.models.sections import Section
+from api.models.course import Course
+from api.models.professor import Professor
+from api.models.sections import Section
 
 FILE = os.getenv("PATH_TO_FILE")
 
