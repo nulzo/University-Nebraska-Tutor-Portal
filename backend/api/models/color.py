@@ -11,8 +11,11 @@ class Color(models.Model):
             Do not include the `self` parameter in the ``Args`` section.
 
     Attributes:
-        color_id (:obj:`IntegerField`): Integer field for the color ID associated with the color the user chooses. This is from the **ColorChoices** class.
-        verbose_name_plural (:obj:`str`): The `Color` model has a meta option to set the verbose name in plural form to "colors".
+        color_id (:obj:`IntegerField`): Integer field for the color ID associated with the color
+        the user chooses. This is from the **ColorChoices** class.
+
+        verbose_name_plural (:obj:`str`): The `Color` model has a meta option to set the verbose
+        name in plural form to "colors".
 
     """
 

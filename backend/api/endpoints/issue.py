@@ -1,7 +1,7 @@
 from typing import Any
 
 from django.db.models.query import QuerySet
-from django.http import Http404, HttpResponseBadRequest, QueryDict
+from django.http import Http404
 from rest_framework import status
 from rest_framework.renderers import (
     BrowsableAPIRenderer,

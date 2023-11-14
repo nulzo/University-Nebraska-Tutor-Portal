@@ -1,7 +1,6 @@
 from typing import Any
 
-from django.db.models.query import QuerySet
-from django.http import Http404, HttpResponseBadRequest, QueryDict
+from django.http import Http404, QueryDict
 from rest_framework import status
 from rest_framework.renderers import (
     BrowsableAPIRenderer,
@@ -16,7 +15,7 @@ from api.models.user import User
 from api.serializers import UserSerializer
 
 # We don't need to check for duplicate class names and function names.
-# pylint: disable=E0102,E1101,R0914
+# pylint: disable=E0102,E1101,R0914,R0801
 
 
 class APIUserView(APIView):

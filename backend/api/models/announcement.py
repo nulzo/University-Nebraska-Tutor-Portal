@@ -28,27 +28,33 @@ class Announcement(models.Model):
     announcement_type = models.CharField(
         max_length=3, choices=CHOICES, default="INFORMATIVE"
     )
-    """CharField: A CharField in the database table **Announcement** that stores the announcement type.
+    """CharField: A CharField in the database table **Announcement**
+    that stores the announcement type.
     """
 
     announcement_header = models.CharField(max_length=50)
-    """CharField: A CharField in the database table **Announcement** that stores the title of the announcement.
+    """CharField: A CharField in the database table **Announcement**
+    that stores the title of the announcement.
     """
 
     announcement_body = models.TextField(max_length=1024)
-    """TextField: A TextField in the database table **Announcement** that stores the content of the announcement.
+    """TextField: A TextField in the database table **Announcement**
+    that stores the content of the announcement.
     """
 
     tutors_only = models.BooleanField(default=False)
-    """Boolean: A BooleanField in the database table **Announcement** that stores if the announcment is for tutors only.
+    """Boolean: A BooleanField in the database table **Announcement**
+    that stores if the announcment is for tutors only.
     """
 
     display_from_date = models.DateTimeField(blank=True)
-    """DateTime: A DateTimeField in the database table **Announcement** that stores the start date of the announcement.
+    """DateTime: A DateTimeField in the database table **Announcement**
+    that stores the start date of the announcement.
     """
 
     display_to_date = models.DateTimeField(blank=True)
-    """DateTime: A DateTimeField in the database table **Announcement** that stores the end date of the announcement.
+    """DateTime: A DateTimeField in the database table **Announcement**
+    that stores the end date of the announcement.
     """
 
     class Meta:

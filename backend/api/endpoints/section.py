@@ -1,7 +1,7 @@
 from typing import Any
 
 from django.db.models.query import QuerySet
-from django.http import Http404, HttpResponseBadRequest, QueryDict
+from django.http import Http404, QueryDict
 from rest_framework import status
 from rest_framework.renderers import (
     BrowsableAPIRenderer,
@@ -12,6 +12,8 @@ from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from api.models.course import Course
+from api.models.professor import Professor
 from api.models.sections import Section
 from api.serializers import SectionSerializer
 

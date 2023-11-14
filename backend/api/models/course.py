@@ -8,11 +8,13 @@ class Course(models.Model):
         A course can have many sections, while a section can only be attributed to a single course.
         The course represents what you would see in a catalog (e.g., CIST-1400 & CSCI-1620),
         and sections are specific instances of the course (online, in person, etc.).
-        Unlike sections, a course does not have a directly assigned professor; this data is stored in sections.
+        Unlike sections, a course does not have a directly assigned professor;
+        this data is stored in sections.
 
     Attributes:
         course_department (:obj:`CharField`): The department code of the course (e.g., "CSCI").
-        course_name (:obj:`CharField`): The name of the course as it appears in the catalog (e.g., "Operating Systems").
+        course_name (:obj:`CharField`): The name of the course as it appears
+        in the catalog (e.g., "Operating Systems").
         course_id (:obj:`IntegerField`): The unique identifier for the course.
         course_code (:obj:`CharField`): The code associated with the course (e.g., "4500").
 
