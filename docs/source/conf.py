@@ -5,6 +5,7 @@
 
 import os
 import sys
+import django
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
@@ -19,7 +20,10 @@ release = '0.0.1'
 
 sys.path.insert(0, os.path.abspath(
     os.path.join('..', '..', 'backend')))
-print(sys.path)
+
+os.environ['DJANGO_SETTINGS_MODULE'] = 'base.settings'
+
+django.setup()
 
 extensions = ['sphinx.ext.autodoc',
               'sphinx.ext.napoleon']
