@@ -279,7 +279,8 @@ class APICourseList(APIView):
 
         if querystring:
             if department := querystring.get("department"):
-                courses = courses.filter(course_department=self.sanitize(department))
+                courses = courses.filter(
+                    course_department=self.sanitize(department))
 
             if name := querystring.get("name"):
                 courses = courses.filter(course_name=name)
@@ -291,7 +292,8 @@ class APICourseList(APIView):
                 courses = courses.filter(course_id=course_id)
 
             if course_id_contains := querystring.get("course-id-contains"):
-                courses = courses.filter(course_id__contains=course_id_contains)
+                courses = courses.filter(
+                    course_id__contains=course_id_contains)
 
             if greater_than_code := querystring.get("higher-than"):
                 courses = courses.filter(course_id__gt=greater_than_code)
@@ -332,7 +334,8 @@ class APIUserView(APIView):
 
         if querystring:
             if department := querystring.get("department"):
-                users = users.filter(course_department=self.sanitize(department))
+                users = users.filter(
+                    course_department=self.sanitize(department))
 
             if name := querystring.get("name"):
                 users = users.filter(name=name)
@@ -420,7 +423,8 @@ class APITicketView(APIView):
 
         if querystring:
             if department := querystring.get("department"):
-                users = users.filter(course_department=self.sanitize(department))
+                users = users.filter(
+                    course_department=self.sanitize(department))
 
             if name := querystring.get("name"):
                 users = users.filter(name=name)
@@ -524,7 +528,8 @@ class APIProfessorView(APIView):
         query_string: dict = self.get_querystring(request=request)
         if query_string:
             if professor_name := query_string.get("name"):
-                professors = professors.filter(full_name=self.sanitize(professor_name))
+                professors = professors.filter(
+                    full_name=self.sanitize(professor_name))
             if professor_id := query_string.get("id"):
                 professors = professors.filter(professor_id=professor_id)
             if professor_first_name := query_string.get("first-name"):
@@ -558,6 +563,13 @@ class APIProfessorDetail(APIView):
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
 
     def query_obj(self, pk: str) -> QuerySet:
+        """Add more fish or shrimp to the tank.
+
+        :param inhabitant: The type of inhabitant, either shrimp of fish
+        :param quantity: The number of fish or shrimp to be added
+
+        :raises TankIsFullError: if the tank is already full
+        """
         try:
             return Professor.professor.get_professors().filter(pk=pk)
         except Exception as exc:
@@ -570,7 +582,8 @@ class APIProfessorDetail(APIView):
 
     def put(self, request: Request, professor_pk: str) -> Response:
         modified: QuerySet = self.query_obj(professor_pk)
-        serializer: ProfessorSerializer = ProfessorSerializer(modified, data=request.data)
+        serializer: ProfessorSerializer = ProfessorSerializer(
+            modified, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)

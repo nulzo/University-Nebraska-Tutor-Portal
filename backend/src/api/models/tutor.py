@@ -5,6 +5,8 @@ class Tutor(models.Model):
     """
     Generic model for the tutor. This will link to a user,
     and it will have attributes specific to a tutor.
+
+    :param: models.Model
     """
 
     message_header = models.CharField(max_length=50)
