@@ -3,11 +3,22 @@ University of Nebraska - CSLC Portal Documentation
 
 
 .. toctree::
-   :maxdepth: 3
-   :caption: help...
+   :maxdepth: 4
+   :caption: CSLC Portal Backend
    :hidden:
 
-   modules
+   about
+   endpoints/index
+   models/index
+   scripts/index
+   settings/index
+
+.. toctree::
+   :maxdepth: 4
+   :caption: CSLC Portal Frontend
+   :hidden:
+
+   about
 
 
 Indices and tables

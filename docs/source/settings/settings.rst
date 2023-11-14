@@ -1,8 +1,5 @@
-API Settings
-============
-
-Submodules
-----------
+Settings
+---------------------------
 
 base.asgi module
 ----------------
