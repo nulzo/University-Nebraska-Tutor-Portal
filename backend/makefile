@@ -14,20 +14,20 @@ format:
 
 .PHONY typecheck:
 typecheck:
-	mypy src/api/views.py --exclude .venv --warn-unused-configs --disallow-untyped-calls --disallow-untyped-defs --check-untyped-defs --disallow-untyped-decorators --warn-redundant-casts --warn-unused-ignores --disallow-incomplete-defs --warn-return-any --strict-equality --extra-checks --warn-unreachable --no-implicit-reexport --extra-checks --show-error-context --show-column-numbers --pretty --force-uppercase-builtins --raise-exceptions --warn-unused-configs
+	mypy api/views.py --exclude .venv --warn-unused-configs --disallow-untyped-calls --disallow-untyped-defs --check-untyped-defs --disallow-untyped-decorators --warn-redundant-casts --warn-unused-ignores --disallow-incomplete-defs --warn-return-any --strict-equality --extra-checks --warn-unreachable --no-implicit-reexport --extra-checks --show-error-context --show-column-numbers --pretty --force-uppercase-builtins --raise-exceptions --warn-unused-configs
 
 .PHONY test:
 test:
-	coverage run --source=src/. -m pytest tests/ 
+	coverage run --source=api/. -m pytest tests/ 
 
 .PHONY test-with-coverage:
 test-with-coverage:
-	coverage run --source=src/. -m pytest tests/
+	coverage run --source=api/. -m pytest tests/
 	coverage report
 
 .PHONY test-for-pipeline:
 test-for-pipeline:
-	coverage run --source=src/.  -m pytest --ignore=tests/test_load_csv.py tests/
+	coverage run --source=api/.  -m pytest --ignore=tests/test_load_csv.py tests/
 	coverage report
 
 .PHONY run-win:
