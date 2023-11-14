@@ -14,7 +14,7 @@ PROJECT_NAME = "University-Nebraska-Tutor-Portal"
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SOURCE_DIR = os.path.join(BASE_DIR, "src")
+SOURCE_DIR = os.path.join(BASE_DIR, "api")
 
 sys.path.insert(0, SOURCE_DIR)
 
@@ -26,7 +26,7 @@ SECRET_KEY = "secret_key"
 DEBUG = True
 RUN_SERVER_PORT = 6969
 
-ALLOWED_HOSTS: list[str] = ["localhost", "0:0:0:0", "127.0.0.1", "192.168.2.1", "*"]
+ALLOWED_HOSTS: list[str] = ["*"]
 
 INSTALLED_APPS = [
     # 'daphne',
@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
-    "src.api",
+    "api",
     "corsheaders",
     "channels",
     "django_extensions",
@@ -57,8 +57,9 @@ MIDDLEWARE = [
 CORS_ORIGIN_ALLOW_ALL = True
 # CORS_ORIGIN_WHITELIST = ("http://localhost:5173",)
 
-ASGI_APPLICATION = "src.api.routing.application"
-CHANNEL_LAYERS = {"default": {"BACKEND": "channels.layers.InMemoryChannelLayer"}}
+ASGI_APPLICATION = "api.routing.application"
+CHANNEL_LAYERS = {"default": {
+    "BACKEND": "channels.layers.InMemoryChannelLayer"}}
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
 
