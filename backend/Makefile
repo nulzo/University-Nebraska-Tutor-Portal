@@ -36,7 +36,7 @@ run-win:
 
 .PHONY start-backend-only:
 start-backend-only:
-	python manage.py runserver 0.0.0.0:6969
+	python3 manage.py runserver 0.0.0.0:6969
 
 .PHONY migrate:
 migrate:
