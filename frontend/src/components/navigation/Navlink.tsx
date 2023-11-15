@@ -6,7 +6,7 @@ export default function Navlink({
   onClick,
   text,
   icon,
-  disabled = false
+  disabled = false,
 }: any) {
   return (
     <Button

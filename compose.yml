@@ -7,13 +7,13 @@ services:
       - 6969:6969
   frontend:
     container_name: frontend
-    build: ./frontend
+    build: 
+      context: ./frontend
     depends_on:
       - backend
     restart: always
     ports:
       - 4200:4200
-    # command: npm run dev
     tty: true
     environment:
       - CHOKIDAR_USEPOLLING=true

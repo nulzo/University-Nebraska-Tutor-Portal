@@ -11,7 +11,7 @@ import { loginRequest } from "../authConfig";
 import MicrosoftIcon from "@/components/assets/MicrosoftIcon";
 import { useNavigate } from "react-router-dom";
 
-interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> { }
+interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 export default function LoginView({ className, ...props }: UserAuthFormProps) {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
@@ -22,7 +22,7 @@ export default function LoginView({ className, ...props }: UserAuthFormProps) {
 
   React.useEffect(() => {
     if (isAuthCompleted && isAuthenticated) {
-      navigate("/home")
+      navigate("/home");
     }
   }, [isAuthCompleted, isAuthenticated]);
   const handleLogin = () => {

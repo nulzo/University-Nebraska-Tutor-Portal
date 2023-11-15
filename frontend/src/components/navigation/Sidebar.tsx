@@ -23,6 +23,7 @@ import {
   LogInIcon,
 } from "lucide-react";
 import { useIsAuthenticated, useMsal } from "@azure/msal-react";
+import { useQueryClient } from "@tanstack/react-query";
 
 const isAdmin = false;
 const isTutor = true;
@@ -39,6 +40,8 @@ export function Sidebar() {
   const navigate = useNavigate();
   const location = useLocation();
 
+  console.log(useQueryClient().getQueryCache().get('["open-ticket"]'));
+
   useEffect(() => {
     setPath(location.pathname);
   }, [location]);
@@ -46,7 +49,7 @@ export function Sidebar() {
   function HomeSection() {
     return (
       <div className="px-3 py-2 space-y-1">
-        <h2 className={"mb-2 px-4 text-lg font-semibold tracking-tight"} />
+        <h2 className={"mb-2  px-4 text-lg font-semibold tracking-tight"} />
         <Navlink
           className="w-full justify-start"
           isActive={path === "/home" ? true : false}
@@ -216,24 +219,35 @@ export function Sidebar() {
         <h2 className={"mb-2 px-4 text-lg font-semibold tracking-tight"}>
           Tutor Panel
         </h2>
+        <div>
+          {useQueryClient().getQueryCache().get('["open-ticket"]')?.state
+            .data &&
+            useQueryClient().getQueryCache().get('["open-ticket"]')?.state?.data
+              ?.length && (
+              <div className="relative flex p-0 m-0">
+                <span className="animate-ping p-0 m-0 top-3 left-3 h-3 w-3 absolute inline-flex rounded-full bg-fuchsia-400 opacity-75"></span>
+                <span className="relative inline-flex p-0 m-0 top-3 left-3 rounded-full h-3 w-3 bg-fuchsia-400"></span>
+              </div>
+            )}
+          <Navlink
+            className="w-full justify-start"
+            isActive={path === "/tutor/dashboard"}
+            onClick={() => navigate("/tutor/dashboard")}
+            text="Dashboard"
+            icon={
+              <LayoutIcon
+                viewBox="0 0 24 24"
+                shapeRendering={shape_rendering}
+                width={20}
+                height={20}
+                strokeWidth={stroke_width}
+              />
+            }
+          />
+        </div>
         <Navlink
           className="w-full justify-start"
-          isActive={path === "/tutor/dashboard" ? true : false}
-          onClick={() => navigate("/tutor/dashboard")}
-          text="Dashboard"
-          icon={
-            <LayoutIcon
-              viewBox="0 0 24 24"
-              shapeRendering={shape_rendering}
-              width={20}
-              height={20}
-              strokeWidth={stroke_width}
-            />
-          }
-        />
-        <Navlink
-          className="w-full justify-start"
-          isActive={path === "/tutor/schedule" ? true : false}
+          isActive={path === "/tutor/schedule"}
           onClick={() => navigate("/tutor/schedule")}
           text="Schedule"
           icon={

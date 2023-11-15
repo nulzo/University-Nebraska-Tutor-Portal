@@ -28,9 +28,9 @@ import LoginRequired from "./routes/LoginRequired.tsx";
 import LoginView from "./views/LoginView.tsx";
 import LogoutRequired from "./routes/LogoutRequired.tsx";
 import ForEthan from "./views/ethan.tsx";
-import { PublicClientApplication } from '@azure/msal-browser';
-import { MsalProvider } from '@azure/msal-react';
-import { msalConfig } from './authConfig.ts';
+import { PublicClientApplication } from "@azure/msal-browser";
+import { MsalProvider } from "@azure/msal-react";
+import { msalConfig } from "./authConfig.ts";
 
 const queryClient = new QueryClient();
 
@@ -47,7 +47,7 @@ const router = createBrowserRouter([
       {
         path: "create/",
         // element: <LoginRequired view={<CreateTicketView />} />,
-        element: <CreateTicketView />
+        element: <CreateTicketView />,
       },
       {
         path: "zoom/",

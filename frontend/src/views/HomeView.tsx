@@ -15,8 +15,18 @@ export default function HomeView() {
   const isAuthenticated = useIsAuthenticated();
   return (
     <div className="text-foreground">
-      {isAuthenticated && <Header text={`Welcome back, ${getUserName()}!`} subtext="Pick up where you last left off" />}
-      {!isAuthenticated && <Header text="Home Page" subtext="Please log in to submit ticket requests" />}
+      {isAuthenticated && (
+        <Header
+          text={`Welcome back, ${getUserName()}!`}
+          subtext="Pick up where you last left off"
+        />
+      )}
+      {!isAuthenticated && (
+        <Header
+          text="Home Page"
+          subtext="Please log in to submit ticket requests"
+        />
+      )}
       <div className="flex flex-col sm:block space-y-4">
         <div className="grid gap-4">
           <Card className="w-[100%]">
