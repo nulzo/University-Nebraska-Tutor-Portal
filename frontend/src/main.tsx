@@ -28,13 +28,16 @@ import LoginRequired from "./routes/LoginRequired.tsx";
 import LoginView from "./views/LoginView.tsx";
 import LogoutRequired from "./routes/LogoutRequired.tsx";
 import ForEthan from "./views/ethan.tsx";
+import { PublicClientApplication } from '@azure/msal-browser';
+import { MsalProvider } from '@azure/msal-react';
+import { msalConfig } from './authConfig.ts';
 
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <LoginRequired view={<Root />} />,
+    element: <Root />,
     errorElement: <ErrorView />,
     children: [
       {
@@ -43,7 +46,7 @@ const router = createBrowserRouter([
       },
       {
         path: "create/",
-        element: <CreateTicketView />,
+        element: <LoginRequired view={<CreateTicketView />} />,
       },
       {
         path: "zoom/",
@@ -55,15 +58,15 @@ const router = createBrowserRouter([
       },
       {
         path: "profile/",
-        element: <ProfileView />,
+        element: <LoginRequired view={<ProfileView />} />,
       },
       {
         path: "messages/",
-        element: <MessageView />,
+        element: <LoginRequired view={<MessageView />} />,
       },
       {
         path: "settings/",
-        element: <SettingsView />,
+        element: <LoginRequired view={<SettingsView />} />,
       },
       {
         path: "admin/dashboard/",
@@ -109,7 +112,7 @@ const router = createBrowserRouter([
   },
   {
     path: "login/",
-    element: <LogoutRequired view={<LoginView />} />,
+    element: <LoginView />,
   },
   {
     path: "ethan/",
@@ -117,10 +120,14 @@ const router = createBrowserRouter([
   },
 ]);
 
+const msalInstance = new PublicClientApplication(msalConfig);
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-    </QueryClientProvider>
+    <MsalProvider instance={msalInstance}>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
+    </MsalProvider>
   </React.StrictMode>,
 );

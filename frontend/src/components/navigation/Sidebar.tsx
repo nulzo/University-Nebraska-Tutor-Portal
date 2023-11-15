@@ -19,7 +19,10 @@ import {
   DownloadIcon,
   BirdIcon,
   LayoutIcon,
+  LogOutIcon,
+  LogInIcon,
 } from "lucide-react";
+import { useIsAuthenticated, useMsal } from "@azure/msal-react";
 
 const isAdmin = false;
 const isTutor = true;
@@ -30,6 +33,8 @@ const stroke_width = 1.75;
 const shape_rendering = "auto";
 
 export function Sidebar() {
+  const { instance } = useMsal();
+  const isAuthenticated = useIsAuthenticated();
   const [path, setPath] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
@@ -62,6 +67,7 @@ export function Sidebar() {
           isActive={path === "/create" ? true : false}
           onClick={() => navigate("/create")}
           text="Create Ticket"
+          disabled={isAuthenticated ? false : true}
           icon={
             <TicketIcon
               width={20}
@@ -311,6 +317,48 @@ export function Sidebar() {
               />
             }
           />
+          <Navlink
+            className="w-full justify-start"
+            isActive={path === "/logout" ? true : false}
+            onClick={() => instance.logout()}
+            text="Log Out"
+            icon={
+              <LogOutIcon
+                viewBox="0 0 24 24"
+                width={20}
+                height={20}
+                strokeWidth={stroke_width}
+                shapeRendering={shape_rendering}
+              />
+            }
+          />
+        </div>
+      </div>
+    );
+  }
+
+  function LoginSection() {
+    return (
+      <div className="px-3 py-2">
+        <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
+          Account
+        </h2>
+        <div className="space-y-1">
+          <Navlink
+            className="w-full justify-start"
+            isActive={path === "/login" ? true : false}
+            onClick={() => navigate("/login")}
+            text="Login"
+            icon={
+              <LogInIcon
+                viewBox="0 0 24 24"
+                width={20}
+                height={20}
+                strokeWidth={stroke_width}
+                shapeRendering={shape_rendering}
+              />
+            }
+          />
         </div>
       </div>
     );
@@ -418,7 +466,8 @@ export function Sidebar() {
                 {isStudent && !(isTutor || isAdmin) && <GeneralSection />}
                 {/* If the user is a developer */}
                 {isDeveloper && <DevSettings />}
-                <AccountSettings />
+                {isAuthenticated && <AccountSettings />}
+                {!isAuthenticated && <LoginSection />}
               </div>
             </ScrollArea>
           </div>
