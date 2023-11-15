@@ -1,8 +1,6 @@
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { PiIcon } from "lucide-react";
 import { Link } from "@radix-ui/themes";
@@ -11,7 +9,7 @@ import { useIsAuthenticated } from "@azure/msal-react";
 import { useMsal } from "@azure/msal-react";
 import { loginRequest } from "../authConfig";
 import MicrosoftIcon from "@/components/assets/MicrosoftIcon";
-import { Navigate, redirect, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> { }
 

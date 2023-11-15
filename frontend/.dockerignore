@@ -25,7 +25,7 @@ poetry.lock
 env.dist
 
 # Don't want to send the env variables to the container
-.env
+# .env
 # Dont need to send the database
 .db
 

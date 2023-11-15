@@ -46,7 +46,8 @@ const router = createBrowserRouter([
       },
       {
         path: "create/",
-        element: <LoginRequired view={<CreateTicketView />} />,
+        // element: <LoginRequired view={<CreateTicketView />} />,
+        element: <CreateTicketView />
       },
       {
         path: "zoom/",

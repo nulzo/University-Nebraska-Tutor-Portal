@@ -1,3 +1,4 @@
+import getUserName from "@/components/auth/getUserName";
 import Header from "@/components/typography/Header";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -8,11 +9,14 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { useIsAuthenticated } from "@azure/msal-react";
 
 export default function HomeView() {
+  const isAuthenticated = useIsAuthenticated();
   return (
     <div className="text-foreground">
-      <Header text="Welcome back, Nolan."></Header>
+      {isAuthenticated && <Header text={`Welcome back, ${getUserName()}!`} subtext="Pick up where you last left off" />}
+      {!isAuthenticated && <Header text="Home Page" subtext="Please log in to submit ticket requests" />}
       <div className="flex flex-col sm:block space-y-4">
         <div className="grid gap-4">
           <Card className="w-[100%]">
