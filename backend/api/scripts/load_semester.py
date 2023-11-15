@@ -14,8 +14,6 @@ from api.models.course import Course
 from api.models.professor import Professor
 from api.models.sections import Section
 
-FILE = os.getenv("PATH_TO_FILE")
-
 # pylint: disable=E1101
 
 
@@ -243,7 +241,8 @@ class ParseSemester:
             section.save()
 
 
-def run(FILE) -> bool:
+def run(csv_file: str | None = None) -> bool:
+    FILE = os.getenv("PATH_TO_FILE")
     parser = ParseSemester(FILE)
     parser.write_professors()
     parser.write_courses()

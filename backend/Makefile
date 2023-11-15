@@ -32,7 +32,7 @@ test-for-pipeline:
 
 .PHONY run-win:
 run-win:
-	python manage.py runserver
+	python manage.py runserver_plus
 
 .PHONY start-backend-only:
 start-backend-only:

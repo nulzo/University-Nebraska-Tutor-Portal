@@ -28,11 +28,11 @@ class Professor(models.Model):
     email = models.CharField(max_length=50)
     is_active = models.BooleanField(default=True)
     professor_id = models.BigIntegerField(
-        unique=True, max_length=30, null=False, blank=False, primary_key=True
+        unique=True, null=False, blank=False, primary_key=True
     )
 
     professor = ProfessorManager()
-    prof = models.Manager()
+    generic = models.Manager()
 
     def __str__(self) -> str:
         return str(self.full_name)

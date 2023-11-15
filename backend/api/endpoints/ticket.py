@@ -77,7 +77,7 @@ class APITicketView(APIView):
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class APITicketList(APIView):
@@ -91,7 +91,7 @@ class APITicketList(APIView):
         return querystring.capitalize()
 
     def get_professor_id(self, professor_name: str) -> Professor | None:
-        return Professor.prof.all().filter(full_name=professor_name).first()
+        return Professor.generic.all().filter(full_name=professor_name).first()
 
     def get_course_id(self, course_name: str) -> Course | None:
         return Course.generic.all().filter(course_name=course_name).first()

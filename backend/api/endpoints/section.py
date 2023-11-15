@@ -39,17 +39,17 @@ class APISectionView(APIView):
                 sections = sections.filter(section=section)
 
             if professor := querystring.get("professor"):
-                professor_query = Professor.prof.get(full_name=professor)
+                professor_query = Professor.generic.get(full_name=professor)
                 sections = sections.filter(professor=professor_query)
 
             if last_name := querystring.get("last-name"):
-                last_name_query = Professor.prof.filter(
+                last_name_query = Professor.generic.filter(
                     last_name=last_name.capitalize()
                 )
                 sections = sections.filter(professor__in=last_name_query)
 
             if first_name := querystring.get("first-name"):
-                first_name_query = Professor.prof.filter(
+                first_name_query = Professor.generic.filter(
                     first_name=first_name.capitalize()
                 )
                 sections = sections.filter(professor__in=first_name_query)
