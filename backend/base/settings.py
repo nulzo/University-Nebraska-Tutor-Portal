@@ -26,7 +26,7 @@ SECRET_KEY = "secret_key"
 DEBUG = True
 RUN_SERVER_PORT = 6969
 
-ALLOWED_HOSTS: list[str] = ["*"]
+ALLOWED_HOSTS: list[str] = ["*", "http://localhost", "localhost"]
 
 INSTALLED_APPS = [
     # 'daphne',
@@ -47,7 +47,7 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
-    "django.middleware.csrf.CsrfViewMiddleware",
+    # "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",

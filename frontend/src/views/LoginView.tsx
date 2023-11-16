@@ -2,7 +2,6 @@ import * as React from "react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { PiIcon } from "lucide-react";
 import { Link } from "@radix-ui/themes";
 import UNO from "@/components/assets/UNO";
 import { useIsAuthenticated } from "@azure/msal-react";
@@ -14,7 +13,6 @@ import { useNavigate } from "react-router-dom";
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 export default function LoginView({ className, ...props }: UserAuthFormProps) {
-  const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const isAuthenticated = useIsAuthenticated();
   const { instance } = useMsal();
   const [isAuthCompleted, setIsAuthCompleted] = React.useState(false);
@@ -60,12 +58,8 @@ export default function LoginView({ className, ...props }: UserAuthFormProps) {
             <div className={cn("grid gap-6", className)} {...props}>
               <form onSubmit={onSubmit}>
                 <div className="grid gap-2">
-                  <Button disabled={isLoading} className="space-y-4">
-                    {isLoading ? (
-                      <PiIcon className="mr-2 h-4 w-4 animate-spin" />
-                    ) : (
-                      <MicrosoftIcon />
-                    )}{" "}
+                  <Button className="space-y-4">
+                    <MicrosoftIcon />
                     Microsoft Sign On
                   </Button>
                 </div>
@@ -80,12 +74,8 @@ export default function LoginView({ className, ...props }: UserAuthFormProps) {
                   </span>
                 </div>
               </div>
-              <Button variant="outline" type="button" disabled={isLoading}>
-                {isLoading ? (
-                  <PiIcon className="mr-2 h-4 w-4 animate-spin" />
-                ) : (
-                  <UNO width="24" height="24" />
-                )}{" "}
+              <Button variant="outline" type="button">
+                <UNO width="24" height="24" />
                 Single Sign On
               </Button>
             </div>

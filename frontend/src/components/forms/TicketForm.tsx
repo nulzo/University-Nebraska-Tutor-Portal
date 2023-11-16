@@ -33,6 +33,8 @@ import useFetchIssue from "@/API/issues/useFetchIssue";
 import { ScrollArea } from "../ui/scroll-area";
 import axios from "axios";
 import LoadingSelect from "../loading/loading_select";
+import { useMutation } from "@tanstack/react-query";
+import { useToast } from "@/components/ui/use-toast";
 // import useFetchSection from "@/API/sections/useFetchSection";
 
 const max_ticket_length = 500;
@@ -89,21 +91,26 @@ export default function TicketForm() {
   const issues = useFetchIssue();
   const courses = useFetchCourse();
   const max_length = max_ticket_length;
+  const { toast } = useToast();
 
-  function onSubmit(data: z.infer<typeof FormSchema>) {
-    console.log(data);
-    axios
-      .post("api/tickets/", {
+  const mutation = useMutation({
+    mutationFn: (data) => {
+      return axios.post("http://localhost:6969/api/tickets/", {
         name: data.student_name,
         description: data.body,
         professor: data.professor,
         course: data.section,
         issue: data.issue,
-      })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch((error) => console.log("ERROR:", error));
+      });
+    },
+  });
+
+  async function onSubmit(data: z.infer<typeof FormSchema>) {
+    await mutation.mutateAsync(data);
+    toast({
+      title: "Scheduled: Catch up",
+      description: "Friday, February 10, 2023 at 5:57 PM",
+    });
   }
 
   const form = useForm<z.infer<typeof FormSchema>>({

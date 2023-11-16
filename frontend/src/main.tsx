@@ -26,7 +26,6 @@ import AdminRequired from "./routes/AdminRequired.tsx";
 import TutorRequired from "./routes/TutorRequired.tsx";
 import LoginRequired from "./routes/LoginRequired.tsx";
 import LoginView from "./views/LoginView.tsx";
-import LogoutRequired from "./routes/LogoutRequired.tsx";
 import ForEthan from "./views/ethan.tsx";
 import { PublicClientApplication } from "@azure/msal-browser";
 import { MsalProvider } from "@azure/msal-react";

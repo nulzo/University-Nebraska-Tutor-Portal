@@ -25,7 +25,7 @@ class APITicketView(APIView):
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
 
     def get_querystring(self, request: Request) -> QueryDict:
-        return request.query_params
+        return QueryDict(request.query_params)
 
     def sanitize(self, querystring: str) -> str:
         return querystring.upper()
