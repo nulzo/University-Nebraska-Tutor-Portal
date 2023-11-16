@@ -16,7 +16,7 @@ export default function HomeView() {
     <div className="text-foreground">
       {isAuthenticated && (
         <Header
-          text={`Welcome back, NAME!`}
+          text={"Welcome back, NAME!"}
           subtext="Pick up where you last left off"
         />
       )}
