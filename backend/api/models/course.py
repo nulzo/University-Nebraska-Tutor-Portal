@@ -35,7 +35,7 @@ class Course(models.Model):
 
     course_department = models.CharField(max_length=10, blank=False, default="CSCI")
     course_name = models.CharField(max_length=100, blank=False)
-    course_id = models.IntegerField(max_length=10, blank=False, null=False)
+    course_id = models.IntegerField(blank=False, null=False)
     course_code = models.CharField(max_length=15, blank=False, null=False, unique=True)
 
     generic: models.Manager = models.Manager()

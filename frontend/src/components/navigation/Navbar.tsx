@@ -9,7 +9,7 @@ export default function Navbar() {
     <>
       <div
         className={
-          "bg-background flex lg:hidden px-6 py-2 flex-wrap items-center w-full shadow-lg text-sm border-b"
+          "bg-background flex px-6 lg:px-8 py-2 flex-wrap items-center w-full shadow-lg text-sm border-b"
         }
       >
         <div className={"grid grid-cols-3 gap-4 w-full"}>

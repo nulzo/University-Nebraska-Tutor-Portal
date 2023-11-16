@@ -19,7 +19,10 @@ import {
   DownloadIcon,
   BirdIcon,
   LayoutIcon,
+  LogOutIcon,
+  LogInIcon,
 } from "lucide-react";
+import { useIsAuthenticated, useMsal } from "@azure/msal-react";
 
 const isAdmin = false;
 const isTutor = true;
@@ -30,6 +33,8 @@ const stroke_width = 1.75;
 const shape_rendering = "auto";
 
 export function Sidebar() {
+  const { instance } = useMsal();
+  const isAuthenticated = useIsAuthenticated();
   const [path, setPath] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
@@ -41,10 +46,10 @@ export function Sidebar() {
   function HomeSection() {
     return (
       <div className="px-3 py-2 space-y-1">
-        <h2 className={"mb-2 px-4 text-lg font-semibold tracking-tight"} />
+        <h2 className={"mb-2  px-4 text-lg font-semibold tracking-tight"} />
         <Navlink
           className="w-full justify-start"
-          isActive={path === "/home" ? true : false}
+          isActive={path === "/home"}
           onClick={() => navigate("/home")}
           text="Home"
           icon={
@@ -59,9 +64,10 @@ export function Sidebar() {
         />
         <Navlink
           className="w-full justify-start"
-          isActive={path === "/create" ? true : false}
+          isActive={path === "/create"}
           onClick={() => navigate("/create")}
           text="Create Ticket"
+          disabled={!isAuthenticated}
           icon={
             <TicketIcon
               width={20}
@@ -85,7 +91,7 @@ export function Sidebar() {
         <div className="space-y-1">
           <Navlink
             className="w-full justify-start"
-            isActive={path === "/admin/dashboard" ? true : false}
+            isActive={path === "/admin/dashboard"}
             onClick={() => navigate("/admin/dashboard")}
             text="Dashboard"
             icon={
@@ -100,7 +106,7 @@ export function Sidebar() {
           />
           <Navlink
             className="w-full justify-start"
-            isActive={path === "/admin/announcements" ? true : false}
+            isActive={path === "/admin/announcements"}
             onClick={() => navigate("/admin/announcements")}
             text="Announcements"
             icon={
@@ -115,7 +121,7 @@ export function Sidebar() {
           />
           <Navlink
             className="w-full justify-start"
-            isActive={path === "/admin/download" ? true : false}
+            isActive={path === "/admin/download"}
             onClick={() => navigate("/admin/download")}
             text="Extract Data"
             icon={
@@ -130,7 +136,7 @@ export function Sidebar() {
           />
           <Navlink
             className="w-full justify-start"
-            isActive={path === "/admin/blame" ? true : false}
+            isActive={path === "/admin/blame"}
             onClick={() => navigate("/admin/blame")}
             text="Preen"
             icon={
@@ -145,7 +151,7 @@ export function Sidebar() {
           />
           <Navlink
             className="w-full justify-start"
-            isActive={path === "/admin/settings" ? true : false}
+            isActive={path === "/admin/settings"}
             onClick={() => navigate("/admin/settings")}
             text="Admin Settings"
             icon={
@@ -172,7 +178,7 @@ export function Sidebar() {
         <div className="space-y-1">
           <Navlink
             className="w-full justify-start"
-            isActive={path === "/zoom" ? true : false}
+            isActive={path === "/zoom"}
             onClick={() => navigate("/zoom")}
             text="CSLC Zoom"
             icon={
@@ -186,7 +192,7 @@ export function Sidebar() {
           />
           <Navlink
             className="w-full justify-start"
-            isActive={path === "/hours" ? true : false}
+            isActive={path === "/hours"}
             onClick={() => navigate("/hours")}
             text="CSLC Hours"
             icon={
@@ -210,24 +216,35 @@ export function Sidebar() {
         <h2 className={"mb-2 px-4 text-lg font-semibold tracking-tight"}>
           Tutor Panel
         </h2>
+        <div>
+          {/*{useQueryClient().getQueryCache().get('["open-ticket"]')?.state*/}
+          {/*  .data &&*/}
+          {/*  useQueryClient().getQueryCache().get('["open-ticket"]')?.state?.data*/}
+          {/*    ?.length && (*/}
+          {/*    <div className="relative flex p-0 m-0">*/}
+          {/*      <span className="animate-ping p-0 m-0 top-3 left-3 h-3 w-3 absolute inline-flex rounded-full bg-notification opacity-75"></span>*/}
+          {/*      <span className="relative inline-flex p-0 m-0 top-3 left-3 rounded-full h-3 w-3 bg-notification"></span>*/}
+          {/*    </div>*/}
+          {/*  )}*/}
+          <Navlink
+            className="w-full justify-start"
+            isActive={path === "/tutor/dashboard"}
+            onClick={() => navigate("/tutor/dashboard")}
+            text="Dashboard"
+            icon={
+              <LayoutIcon
+                viewBox="0 0 24 24"
+                shapeRendering={shape_rendering}
+                width={20}
+                height={20}
+                strokeWidth={stroke_width}
+              />
+            }
+          />
+        </div>
         <Navlink
           className="w-full justify-start"
-          isActive={path === "/tutor/dashboard" ? true : false}
-          onClick={() => navigate("/tutor/dashboard")}
-          text="Dashboard"
-          icon={
-            <LayoutIcon
-              viewBox="0 0 24 24"
-              shapeRendering={shape_rendering}
-              width={20}
-              height={20}
-              strokeWidth={stroke_width}
-            />
-          }
-        />
-        <Navlink
-          className="w-full justify-start"
-          isActive={path === "/tutor/schedule" ? true : false}
+          isActive={path === "/tutor/schedule"}
           onClick={() => navigate("/tutor/schedule")}
           text="Schedule"
           icon={
@@ -242,7 +259,7 @@ export function Sidebar() {
         />
         <Navlink
           className="w-full justify-start"
-          isActive={path === "/tutor/tutors" ? true : false}
+          isActive={path === "/tutor/tutors"}
           onClick={() => navigate("/tutor/tutors")}
           text="Tutors"
           icon={
@@ -268,7 +285,7 @@ export function Sidebar() {
         <div className="space-y-1">
           <Navlink
             className="w-full justify-start"
-            isActive={path === "/profile" ? true : false}
+            isActive={path === "/profile"}
             onClick={() => navigate("/profile")}
             text="Profile"
             icon={
@@ -283,7 +300,7 @@ export function Sidebar() {
           />
           <Navlink
             className="w-full justify-start"
-            isActive={path === "/messages" ? true : false}
+            isActive={path === "/messages"}
             onClick={() => navigate("/messages")}
             text="Messages"
             icon={
@@ -298,11 +315,53 @@ export function Sidebar() {
           />
           <Navlink
             className="w-full justify-start"
-            isActive={path === "/settings" ? true : false}
+            isActive={path === "/settings"}
             onClick={() => navigate("/settings")}
             text="Settings"
             icon={
               <SettingsIcon
+                viewBox="0 0 24 24"
+                width={20}
+                height={20}
+                strokeWidth={stroke_width}
+                shapeRendering={shape_rendering}
+              />
+            }
+          />
+          <Navlink
+            className="w-full justify-start"
+            isActive={path === "/logout"}
+            onClick={() => instance.logout()}
+            text="Log Out"
+            icon={
+              <LogOutIcon
+                viewBox="0 0 24 24"
+                width={20}
+                height={20}
+                strokeWidth={stroke_width}
+                shapeRendering={shape_rendering}
+              />
+            }
+          />
+        </div>
+      </div>
+    );
+  }
+
+  function LoginSection() {
+    return (
+      <div className="px-3 py-2">
+        <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
+          Account
+        </h2>
+        <div className="space-y-1">
+          <Navlink
+            className="w-full justify-start"
+            isActive={path === "/login"}
+            onClick={() => navigate("/login")}
+            text="Login"
+            icon={
+              <LogInIcon
                 viewBox="0 0 24 24"
                 width={20}
                 height={20}
@@ -325,7 +384,7 @@ export function Sidebar() {
         <div className="space-y-1">
           <Navlink
             className="w-full justify-start"
-            isActive={path === "/generate" ? true : false}
+            isActive={path === "/generate"}
             onClick={() => navigate("/generate")}
             text="Generate"
             icon={
@@ -340,7 +399,7 @@ export function Sidebar() {
           />
           <Navlink
             className="w-full justify-start"
-            isActive={path === "/test-api" ? true : false}
+            isActive={path === "/test-api"}
             onClick={() => navigate("/test-api")}
             text="Test API"
             icon={
@@ -355,7 +414,7 @@ export function Sidebar() {
           />
           <Navlink
             className="w-full justify-start"
-            isActive={path === "/sandbox" ? true : false}
+            isActive={path === "/sandbox"}
             onClick={() => navigate("/sandbox")}
             text="Sandbox"
             icon={
@@ -418,7 +477,8 @@ export function Sidebar() {
                 {isStudent && !(isTutor || isAdmin) && <GeneralSection />}
                 {/* If the user is a developer */}
                 {isDeveloper && <DevSettings />}
-                <AccountSettings />
+                {isAuthenticated && <AccountSettings />}
+                {!isAuthenticated && <LoginSection />}
               </div>
             </ScrollArea>
           </div>

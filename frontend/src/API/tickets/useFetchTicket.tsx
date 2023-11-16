@@ -11,6 +11,7 @@ export default function useFetchTicket(type = "all", query = "") {
     queryFn: () => getTicket(),
     placeholderData: keepPreviousData,
     staleTime: 30000,
+    refetchInterval: 5000,
   });
   if (data) {
     return data;

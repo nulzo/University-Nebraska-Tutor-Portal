@@ -1,25 +1,38 @@
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { PiIcon } from "lucide-react";
 import { Link } from "@radix-ui/themes";
 import UNO from "@/components/assets/UNO";
+import { useIsAuthenticated } from "@azure/msal-react";
+import { useMsal } from "@azure/msal-react";
+import { loginRequest } from "../authConfig";
+import MicrosoftIcon from "@/components/assets/MicrosoftIcon";
+import { useNavigate } from "react-router-dom";
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 export default function LoginView({ className, ...props }: UserAuthFormProps) {
-  const [isLoading, setIsLoading] = React.useState<boolean>(false);
+  const isAuthenticated = useIsAuthenticated();
+  const { instance } = useMsal();
+  const [isAuthCompleted, setIsAuthCompleted] = React.useState(false);
+  const navigate = useNavigate();
+
+  React.useEffect(() => {
+    if (isAuthCompleted && isAuthenticated) {
+      navigate("/home");
+    }
+  }, [isAuthCompleted, isAuthenticated]);
+  const handleLogin = () => {
+    instance.loginPopup(loginRequest).catch((e) => {
+      console.log(e);
+    });
+    setIsAuthCompleted(true);
+  };
 
   async function onSubmit(event: React.SyntheticEvent) {
     event.preventDefault();
-    setIsLoading(true);
-
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 3000);
+    handleLogin();
   }
 
   return (
@@ -36,34 +49,18 @@ export default function LoginView({ className, ...props }: UserAuthFormProps) {
           <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
             <div className="flex flex-col space-y-2 text-center">
               <h1 className="text-2xl font-semibold tracking-tight">
-                Create an account
+                Log in to your account
               </h1>
               <p className="text-sm text-muted-foreground">
-                Enter your email below to create your account
+                Select an option below to log in
               </p>
             </div>
             <div className={cn("grid gap-6", className)} {...props}>
               <form onSubmit={onSubmit}>
                 <div className="grid gap-2">
-                  <div className="grid gap-1">
-                    <Label className="sr-only" htmlFor="email">
-                      Email
-                    </Label>
-                    <Input
-                      id="email"
-                      placeholder="name@example.com"
-                      type="email"
-                      autoCapitalize="none"
-                      autoComplete="email"
-                      autoCorrect="off"
-                      disabled={isLoading}
-                    />
-                  </div>
-                  <Button disabled={isLoading}>
-                    {isLoading && (
-                      <PiIcon className="mr-2 h-4 w-4 animate-spin" />
-                    )}
-                    Sign In with Email
+                  <Button className="space-y-4">
+                    <MicrosoftIcon />
+                    Microsoft Sign On
                   </Button>
                 </div>
               </form>
@@ -77,12 +74,8 @@ export default function LoginView({ className, ...props }: UserAuthFormProps) {
                   </span>
                 </div>
               </div>
-              <Button variant="outline" type="button" disabled={isLoading}>
-                {isLoading ? (
-                  <PiIcon className="mr-2 h-4 w-4 animate-spin" />
-                ) : (
-                  <UNO width="24" height="24" />
-                )}{" "}
+              <Button variant="outline" type="button">
+                <UNO width="24" height="24" />
                 Single Sign On
               </Button>
             </div>

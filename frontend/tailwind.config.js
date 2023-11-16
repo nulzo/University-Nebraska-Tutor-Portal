@@ -27,6 +27,7 @@ module.exports = {
       colors: {
         zoom: "hsl(var(--zoom))",
         info: "hsl(var(--info))",
+        notification: "hsl(var(--notification))",
         alert: "hsl(var(--alert))",
         warning: "hsl(var(--warning))",
         fortutor: "hsl(var(--fortutor))",
@@ -36,6 +37,8 @@ module.exports = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        success: "hsl(var(--success))",
+        error: "hsl(var(--error))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -43,6 +46,7 @@ module.exports = {
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
+          background: "hsl(var(--secondary-background))",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
