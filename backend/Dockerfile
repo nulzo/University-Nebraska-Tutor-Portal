@@ -51,8 +51,10 @@ RUN apt-get update \
 # Install poetry using Curl to the $POETRY_VERSION and $POETRY_HOME paths
 RUN curl -sSL https://install.python-poetry.org | python3 -
 
+RUN mkdir -p /home/backend
+
 # Set the working directory to the root of the backend
-WORKDIR /backend/
+WORKDIR /home/backend/
 
 # Copy the pyproject.toml file (our dependencies) to the container
 # (Don't copy over the lock file - we wanto to generate that within the container)
@@ -65,11 +67,11 @@ RUN poetry install
 
 # Send the contents of the main backend directory to the container so that
 # it follows the same directory structure as the project
-COPY base /backend/base
+COPY base ./base
 
 # Copy the core of the root backend into the container 
 # (Look at the .dockerignore file to see what does not get sent over)
-COPY . /backend/
+COPY . .
 
 # Expose the port to the container
 EXPOSE "$PORT"

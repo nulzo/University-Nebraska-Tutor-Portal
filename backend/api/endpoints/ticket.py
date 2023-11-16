@@ -1,4 +1,5 @@
-from django.http import QueryDict
+from typing import Any
+
 from rest_framework import status
 from rest_framework.renderers import (
     BrowsableAPIRenderer,
@@ -24,16 +25,16 @@ class APITicketView(APIView):
     serializer_class = TicketSerializer
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
 
-    def get_querystring(self, request: Request) -> QueryDict:
-        return QueryDict(request.query_params)
+    def get_querystring(self, request: Request) -> Any:
+        return request.query_params
 
     def sanitize(self, querystring: str) -> str:
         return querystring.upper()
 
     def get(self, request: Request) -> Response:
         tickets = Ticket.generic.all()
+        print(tickets)
         querystring = self.get_querystring(request=request)
-        print(querystring)
         if len(querystring) > 0:
             if department := querystring.get("department"):
                 tickets = tickets.filter(course_department=self.sanitize(department))

@@ -1,4 +1,3 @@
-import getUserName from "@/components/auth/getUserName";
 import Header from "@/components/typography/Header";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -17,7 +16,7 @@ export default function HomeView() {
     <div className="text-foreground">
       {isAuthenticated && (
         <Header
-          text={`Welcome back, ${getUserName()}!`}
+          text={`Welcome back, NAME!`}
           subtext="Pick up where you last left off"
         />
       )}

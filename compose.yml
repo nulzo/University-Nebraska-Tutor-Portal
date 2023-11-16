@@ -5,6 +5,8 @@ services:
     restart: always
     ports:
       - 6969:6969
+    volumes:
+      - ./backend/db.sqlite3:/home/backend/db.sqlite3
   frontend:
     container_name: frontend
     build: 
