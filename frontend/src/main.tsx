@@ -30,6 +30,7 @@ import ForEthan from "./views/ethan.tsx";
 import { PublicClientApplication } from "@azure/msal-browser";
 import { MsalProvider } from "@azure/msal-react";
 import { msalConfig } from "./authConfig.ts";
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 const queryClient = new QueryClient();
 
@@ -126,6 +127,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <MsalProvider instance={msalInstance}>
       <QueryClientProvider client={queryClient}>
+        <ReactQueryDevtools />
         <RouterProvider router={router} />
       </QueryClientProvider>
     </MsalProvider>

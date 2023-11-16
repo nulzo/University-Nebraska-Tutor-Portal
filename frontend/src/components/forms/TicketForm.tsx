@@ -31,10 +31,10 @@ import useFetchProfessor from "@/API/professors/useFetchProfessor";
 import useFetchCourse from "@/API/courses/useFetchCourse";
 import useFetchIssue from "@/API/issues/useFetchIssue";
 import { ScrollArea } from "../ui/scroll-area";
-import axios from "axios";
 import LoadingSelect from "../loading/loading_select";
 import { useMutation } from "@tanstack/react-query";
 import { useToast } from "@/components/ui/use-toast";
+import { createTicket } from "@/API/tickets/ticketRequests";
 // import useFetchSection from "@/API/sections/useFetchSection";
 
 const max_ticket_length = 500;
@@ -94,19 +94,11 @@ export default function TicketForm() {
   const { toast } = useToast();
 
   const mutation = useMutation({
-    mutationFn: (data) => {
-      return axios.post("http://localhost:6969/api/tickets/", {
-        name: data.student_name,
-        description: data.body,
-        professor: data.professor,
-        course: data.section,
-        issue: data.issue,
-      });
-    },
+    mutationFn: createTicket,
   });
 
-  async function onSubmit(data: z.infer<typeof FormSchema>) {
-    await mutation.mutateAsync(data);
+  function onSubmit(data: z.infer<typeof FormSchema>) {
+    mutation.mutate(data);
     toast({
       title: "Scheduled: Catch up",
       description: "Friday, February 10, 2023 at 5:57 PM",
@@ -191,14 +183,14 @@ export default function TicketForm() {
                               className={cn(
                                 "w-full md:w-[35vw] lg:w-[30vw] xl:w-[40vw] justify-between",
                                 !field.value &&
-                                  "text-muted-foreground font-normal",
+                                "text-muted-foreground font-normal",
                               )}
                             >
                               {field.value
                                 ? professors?.data.find(
-                                    (professor: any) =>
-                                      professor.professor_id === field.value,
-                                  )?.full_name
+                                  (professor: any) =>
+                                    professor.professor_id === field.value,
+                                )?.full_name
                                 : "select a professor"}
                               <CaretSortIcon className="ml-2 h-4 w-4 shrink-0" />
                             </Button>
@@ -272,13 +264,13 @@ export default function TicketForm() {
                               className={cn(
                                 "w-full md:w-[35vw] lg:w-[30vw] xl:w-[40vw] justify-between",
                                 !field.value &&
-                                  "text-muted-foreground font-normal",
+                                "text-muted-foreground font-normal",
                               )}
                             >
                               {field.value
                                 ? courses?.data.find(
-                                    (course: any) => course.id === field.value,
-                                  )?.course_code
+                                  (course: any) => course.id === field.value,
+                                )?.course_code
                                 : "select a course"}
                               <CaretSortIcon
                                 key="course_sort_icon"
@@ -362,14 +354,14 @@ export default function TicketForm() {
                               className={cn(
                                 "w-full md:w-[35vw] lg:w-[30vw] xl:w-[40vw] justify-between",
                                 !field.value &&
-                                  "text-muted-foreground font-normal",
+                                "text-muted-foreground font-normal",
                               )}
                             >
                               {field.value
                                 ? issues?.data.find(
-                                    (issue: any) =>
-                                      issue.issue_id === field.value,
-                                  )?.problem_type
+                                  (issue: any) =>
+                                    issue.issue_id === field.value,
+                                )?.problem_type
                                 : "select an issue"}
                               <CaretSortIcon
                                 key="issue_sort_icon"
@@ -466,7 +458,7 @@ export default function TicketForm() {
               </FormItem>
             )}
           />
-          <Button type="submit">Submit Ticket</Button>
+          <Button disabled={mutation.isL} type="submit">Submit Ticket</Button>
         </form>
       </Form>
     </>
