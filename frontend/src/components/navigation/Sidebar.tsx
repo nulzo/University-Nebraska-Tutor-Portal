@@ -67,7 +67,7 @@ export function Sidebar() {
           isActive={path === "/create"}
           onClick={() => navigate("/create")}
           text="Create Ticket"
-          disabled={!isAuthenticated}
+          // disabled={!isAuthenticated}
           icon={
             <TicketIcon
               width={20}
