@@ -9,6 +9,7 @@ export function createTicket(data: any) {
     const csrftoken = getCookie('csrftoken');
     return axios.post("/api/tickets/", {
         name: data.student_name,
+        title: data.title,
         description: data.body,
         professor: data.professor,
         course: data.section,

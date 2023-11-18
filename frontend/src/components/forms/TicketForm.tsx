@@ -50,19 +50,15 @@ const FormSchema = z.object({
     .max(50, {
       message: "name must not be more than 50 characters.",
     }),
-  student_email: z
+  title: z
     .string({
-      required_error: "you must enter your email.",
+      required_error: "you must enter a title.",
     })
-    .email()
     .min(4, {
-      message: "email must be a valid email.",
+      message: "title must be 4 characters long.",
     })
     .max(50, {
-      message: "email must not be greater than 50 characters.",
-    })
-    .email({
-      message: "enter a valid email",
+      message: "title must not be greater than 50 characters.",
     }),
   professor: z.number({
     required_error: "you must select a professor.",
@@ -109,7 +105,7 @@ export default function TicketForm() {
     resolver: zodResolver(FormSchema),
     defaultValues: {
       student_name: "",
-      student_email: "",
+      title: "",
     },
   });
 
@@ -134,26 +130,6 @@ export default function TicketForm() {
                 <FormDescription>
                   If you prefer to go by a different name than what is listed
                   here, navigate to the "Profile" tab and change it.
-                </FormDescription>
-                <FormMessage className="text-warning" />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="student_email"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel className="text-foreground">Your email</FormLabel>
-                <FormControl>
-                  <Input
-                    className="text-foreground"
-                    placeholder="enter title here..."
-                    {...field}
-                  />
-                </FormControl>
-                <FormDescription>
-                  Your UNO email will be autofilled if on your file.
                 </FormDescription>
                 <FormMessage className="text-warning" />
               </FormItem>
@@ -417,6 +393,26 @@ export default function TicketForm() {
               )}
             />
           )}
+          <FormField
+            control={form.control}
+            name="title"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-foreground">Brief Summary</FormLabel>
+                <FormControl>
+                  <Input
+                    className="text-foreground"
+                    placeholder="enter summary here..."
+                    {...field}
+                  />
+                </FormControl>
+                <FormDescription>
+                  Please explain your current troubles in a couple of words.
+                </FormDescription>
+                <FormMessage className="text-warning" />
+              </FormItem>
+            )}
+          />
           <FormField
             control={form.control}
             name="body"
