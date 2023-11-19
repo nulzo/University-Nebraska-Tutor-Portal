@@ -7,7 +7,6 @@ import Zoom from "./views/ZoomView.tsx";
 import DownloadView from "./views/admin/AdminDownloadView.tsx";
 import "./style/globals.css";
 import CreateTicketView from "./views/CreateTicketView.tsx";
-import { SettingsView } from "./views/SettingsView.tsx";
 import ScheduleView from "./views/ScheduleView.tsx";
 import ProfileView from "./views/ProfileView.tsx";
 import MessageView from "./views/MessageView.tsx";
@@ -66,10 +65,6 @@ const router = createBrowserRouter([
         element: <LoginRequired view={<MessageView />} />,
       },
       {
-        path: "settings/",
-        element: <LoginRequired view={<SettingsView />} />,
-      },
-      {
         path: "admin/dashboard/",
         element: <AdminRequired view={<AdminDashboard />} />,
       },
@@ -124,7 +119,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <MsalProvider instance={msalInstance}>
       <QueryClientProvider client={queryClient}>
         <ReactQueryDevtools />
-        <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+        <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
           <RouterProvider router={router} />
         </ThemeProvider>
       </QueryClientProvider>
