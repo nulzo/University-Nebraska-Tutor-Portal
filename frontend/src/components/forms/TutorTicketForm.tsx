@@ -22,6 +22,7 @@ import {
 import { Separator } from "../ui/separator";
 import { Input } from "../ui/input";
 import { Switch } from "@/components/ui/switch";
+import { DotsHorizontalIcon } from "@radix-ui/react-icons";
 
 function DetailLink({ label, content }: any) {
   return (
@@ -54,13 +55,10 @@ export default function TutorTicketForm({ ticket, size = "regular", text = "..."
     <div className="">
       <AlertDialog>
         <AlertDialogTrigger asChild>
-          {size === "regular" ?
-            <Button variant="ghost" className="text-xs p-2">
-              {text}
-            </Button> : <Button size="sm" variant="ghost" className="text-xs text-foreground">
-              {text}
-            </Button>
-          }
+          <Button variant="ghost" className="h-8 w-8 p-0">
+            <span className="sr-only">Open menu</span>
+            <DotsHorizontalIcon className="h-4 w-4" />
+          </Button>
         </AlertDialogTrigger>
         <AlertDialogContent>
           <AlertDialogHeader>
