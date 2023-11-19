@@ -68,7 +68,6 @@ export const columns: ColumnDef<Ticket>[] = [
     },
     cell: ({ row }) => <div className="text-left ml-4 truncate">{row.getValue("course")}</div>,
   },
-
   {
     accessorKey: "title",
     header: () => <div className="text-left mr-auto">Title</div>,
