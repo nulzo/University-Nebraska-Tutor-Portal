@@ -69,7 +69,7 @@ export default function TutorDashboard() {
                 <Card className="w-[100%] md:w-full">
                   <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                     <CardTitle className="text-sm font-medium">
-                      Unclaimed Tickets
+                      New Tickets
                     </CardTitle>
                     <FileCheck2Icon
                       width={16}

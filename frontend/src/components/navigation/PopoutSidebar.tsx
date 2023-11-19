@@ -8,12 +8,8 @@ import {
 } from "@/components/ui/sheet"
 import MenuIcon from "../assets/MenuIcon"
 import { Sidebar } from "./Sidebar"
-import UNOIcon from "../assets/UNOIcon"
-import { GitBranchIcon } from "lucide-react"
-import UNO from "../assets/UNO"
 
 export default function PopoutSidebar() {
-
     return (
         <Sheet>
             <SheetTrigger><MenuIcon /></SheetTrigger>

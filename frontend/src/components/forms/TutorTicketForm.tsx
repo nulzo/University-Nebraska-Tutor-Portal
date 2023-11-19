@@ -49,14 +49,18 @@ function StatusDropdown({ status }: any) {
   );
 }
 
-export default function TutorTicketForm({ ticket }: any) {
+export default function TutorTicketForm({ ticket, size = "regular", text = "..." }: any) {
   return (
     <div className="">
       <AlertDialog>
         <AlertDialogTrigger asChild>
-          <Button variant="ghost" className="text-xs p-2">
-            ...
-          </Button>
+          {size === "regular" ?
+            <Button variant="ghost" className="text-xs p-2">
+              {text}
+            </Button> : <Button size="sm" variant="ghost" className="text-xs text-foreground">
+              {text}
+            </Button>
+          }
         </AlertDialogTrigger>
         <AlertDialogContent>
           <AlertDialogHeader>
