@@ -15,7 +15,7 @@ export default function HoursView() {
         }
       />
       <Separator className="mb-4" />
-      <TutorTicketForm/>
+      <TutorTicketForm />
     </>
   );
 }

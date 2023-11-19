@@ -12,15 +12,11 @@ export default function Navbar() {
           "bg-background flex px-6 lg:px-8 py-2 flex-wrap items-center w-full shadow-lg text-sm border-b"
         }
       >
-        <div className={"grid grid-cols-3 gap-4 w-full"}>
-          <div className={"left-sidebar flex col-span-1"}>
-            <div
-              className={"flex flex-wrap justify-items-start content-center"}
-            >
+        <div className="grid grid-cols-3 gap-4 w-full">
+          <div className="left-sidebar flex col-span-1">
+            <div className="flex flex-wrap justify-items-start content-center">
               <div
-                className={
-                  "tooltip tooltip-right lg:hidden font-thin text-foreground"
-                }
+                className="tooltip tooltip-right lg:hidden font-thin text-foreground"
                 data-tip="open sidebar"
               >
                 <Button onClick={onClick} variant="ghost" className="">
@@ -29,11 +25,7 @@ export default function Navbar() {
               </div>
             </div>
           </div>
-          <div
-            className={
-              "center-sidebar flex justify-center col-span-1 divide-x-[2px] outline-0 divide-gray-200"
-            }
-          >
+          <div className="center-sidebar flex justify-center col-span-1 divide-x-[2px] outline-0 divide-gray-200">
             <svg
               id="svg"
               version="1.1"

@@ -29,7 +29,10 @@ RUN_SERVER_PORT = 6969
 ALLOWED_HOSTS: list[str] = ["*", "http://localhost", "localhost"]
 
 CSRF_TRUSTED_ORIGINS = [
-    'http://localhost', 'http://localhost:80', 'http://localhost:4200', 'http://localhost:6969'
+    "http://localhost",
+    "http://localhost:80",
+    "http://localhost:4200",
+    "http://localhost:6969",
 ]
 
 INSTALLED_APPS = [
@@ -62,8 +65,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_ALL_ORIGINS = True
 
 ASGI_APPLICATION = "api.routing.application"
-CHANNEL_LAYERS = {"default": {
-    "BACKEND": "channels.layers.InMemoryChannelLayer"}}
+CHANNEL_LAYERS = {"default": {"BACKEND": "channels.layers.InMemoryChannelLayer"}}
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
 

@@ -4,38 +4,29 @@ import { Badge } from "../ui/badge";
 import { Label } from "../ui/label";
 import TutorTicketForm from "../forms/TutorTicketForm";
 
-export default function Ticket({
-  name,
-  description,
-  professor,
-  section,
-  type,
-}: any) {
-  const ticketData = {
-    "name": name,
-    "description": description,
-    "professor": professor,
-    "section": section,
-    "type": type
-  }
+export default function Ticket({ ticket }: any) {
   return (
-    <div className="border rounded-lg text-foreground px-4 pt-4">
+    <div className="border rounded-xl text-foreground px-4 pt-4">
       <div className="flex justify-between">
-        <CardTitle>{name}</CardTitle>
+        <CardTitle>{ticket.name}</CardTitle>
         <Button variant="outline" className=" px-1 py-1">
-            <TutorTicketForm ticketData={ticketData}/>
-          </Button>
+          <TutorTicketForm ticket={ticket} />
+        </Button>
       </div>
-      <CardDescription className="">{description}</CardDescription>
+      <CardDescription className="">{ticket.description}</CardDescription>
       <div className="flex justify-between align-start items-end mt-2 mb-4">
         <Label className="flex">
-          <div className="hidden sm:block">{professor} -</div>
-          <div>{section}</div>
+          <div className="hidden sm:block">{ticket.professor} -</div>
+          <div>{ticket.course}</div>
         </Label>
         <div className="flex space-x-4">
-        {type === "new" && <Badge variant={"outline"}>Unclaimed</Badge>}
-        {type === "opened" && <Badge variant={"outline"}>Claimed</Badge>}
-        {type === "closed" && <Badge variant="outline">Closed</Badge>}
+          {ticket.status === "NEW" && <Badge variant={"outline"}>NEW</Badge>}
+          {ticket.status === "OPENED" && (
+            <Badge variant={"outline"}>OPENED</Badge>
+          )}
+          {ticket.status === "CLOSED" && (
+            <Badge variant="outline">CLOSED</Badge>
+          )}
         </div>
       </div>
     </div>

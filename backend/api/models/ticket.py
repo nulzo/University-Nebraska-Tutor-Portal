@@ -66,12 +66,14 @@ class Ticket(models.Model):
     issue = models.ForeignKey("api.Issues", null=True, on_delete=models.PROTECT)
     student = models.ForeignKey(
         "api.User",
+        null=True,
         on_delete=models.PROTECT,
         related_name="student_ticket",
         blank=True,
     )
     tutor = models.ForeignKey(
         "api.User",
+        null=True,
         on_delete=models.PROTECT,
         related_name="tutor_ticket",
         blank=True,

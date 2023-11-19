@@ -18,15 +18,16 @@ import {
   RatIcon,
 } from "lucide-react";
 import useFetchTicket from "@/API/tickets/useFetchTicket";
+import TicketTable from "@/components/tables/TicketTable";
 
 export default function TutorDashboard() {
-  const unclaimedTickets = useFetchTicket("unclaimed", "?started=false");
-  const openTickets = useFetchTicket("open", "?started=true&completed=false");
-  const closedTickets = useFetchTicket("closed", "?completed=true");
-  const allTickets = useFetchTicket("all", "?");
+  const unclaimedTickets = useFetchTicket("new", "?status=NEW");
+  const openTickets = useFetchTicket("opened", "?status=OPENED");
+  const closedTickets = useFetchTicket("closed", "?status=CLOSED");
+  const allTickets = useFetchTicket("all", "");
   return (
     <>
-      <Header text="Tutor Dashboard" subtext="lorem impsum"></Header>
+      <Header text="Tutor Dashboard" subtext=""></Header>
       <div className="flex flex-col sm:block">
         <Tabs defaultValue="today" className="space-y-4">
           <TabsList>
@@ -59,7 +60,48 @@ export default function TutorDashboard() {
                       {!allTickets?.isLoading && allTickets?.data.length}
                     </div>
                     <p className="text-xs text-muted-foreground">
-                      +20.1% from last month
+                      {/* +20.1% from last month */}
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
+              <div>
+                <Card className="w-[100%] md:w-full">
+                  <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                    <CardTitle className="text-sm font-medium">
+                      Unclaimed Tickets
+                    </CardTitle>
+                    <FileCheck2Icon
+                      width={16}
+                      height={16}
+                      viewBox="0 0 24 24"
+                    />
+                  </CardHeader>
+                  <CardContent>
+                    <div className="text-2xl font-bold">
+                      {!unclaimedTickets?.isLoading &&
+                        unclaimedTickets?.data.length}
+                    </div>
+                    <p className="text-xs text-muted-foreground">
+                      {/* +19% from last month */}
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
+              <div>
+                <Card className="w-[100%] md:w-full">
+                  <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                    <CardTitle className="text-sm font-medium">
+                      Open Tickets
+                    </CardTitle>
+                    <FileIcon width={16} height={16} viewBox="0 0 24 24" />
+                  </CardHeader>
+                  <CardContent>
+                    <div className="text-2xl font-bold">
+                      {!openTickets?.isLoading && openTickets?.data.length}
+                    </div>
+                    <p className="text-xs text-muted-foreground">
+                      {/* +1 since last hour */}
                     </p>
                   </CardContent>
                 </Card>
@@ -82,47 +124,7 @@ export default function TutorDashboard() {
                       {!closedTickets?.isLoading && closedTickets?.data.length}
                     </div>
                     <p className="text-xs text-muted-foreground">
-                      -4% from last month
-                    </p>
-                  </CardContent>
-                </Card>
-              </div>
-              <div>
-                <Card className="w-[100%] md:w-full">
-                  <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium">
-                      Success Tickets
-                    </CardTitle>
-                    <FileCheck2Icon
-                      width={16}
-                      height={16}
-                      viewBox="0 0 24 24"
-                    />
-                  </CardHeader>
-                  <CardContent>
-                    <div className="text-2xl font-bold">
-                      {!closedTickets?.isLoading && closedTickets?.data.length}
-                    </div>
-                    <p className="text-xs text-muted-foreground">
-                      +19% from last month
-                    </p>
-                  </CardContent>
-                </Card>
-              </div>
-              <div>
-                <Card className="w-[100%] md:w-full">
-                  <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium">
-                      Open Now
-                    </CardTitle>
-                    <FileIcon width={16} height={16} viewBox="0 0 24 24" />
-                  </CardHeader>
-                  <CardContent>
-                    <div className="text-2xl font-bold">
-                      {!openTickets?.isLoading && openTickets?.data.length}
-                    </div>
-                    <p className="text-xs text-muted-foreground">
-                      +1 since last hour
+                      {/* data here */}
                     </p>
                   </CardContent>
                 </Card>
@@ -137,14 +139,19 @@ export default function TutorDashboard() {
                       Overview of 24 hour ticket data
                     </CardDescription>
                   </CardHeader>
-                  <CardContent className="pl-2 min-h-[30vh] flex justify-center text-center content-center place-content-center items-center align-center font-medium text-muted-foreground">
-                    <div>
-                      <div className="flex justify-center place-self-center">
-                        <RatIcon />
+                  {!allTickets?.isLoading && allTickets?.data.length < 1 && (
+                    <CardContent className="pl-2 min-h-[30vh] flex justify-center text-center content-center place-content-center items-center align-center font-medium text-muted-foreground">
+                      <div>
+                        <div className="flex justify-center place-self-center">
+                          <RatIcon />
+                        </div>
+                        <div>Wow, so empty!</div>
                       </div>
-                      <div>Wow, so empty!</div>
-                    </div>
-                  </CardContent>
+                    </CardContent>
+                  )}
+                  {!allTickets?.isLoading && allTickets?.data.length > 0 && (
+                    <TicketTable tickets={allTickets?.data} />
+                  )}
                 </Card>
               </div>
             </div>
@@ -162,16 +169,7 @@ export default function TutorDashboard() {
               {!unclaimedTickets?.isLoading &&
                 unclaimedTickets?.data &&
                 unclaimedTickets.data.map((ticket: any) => (
-                  <Ticket
-                    name={ticket.name}
-                    professor={ticket.professor}
-                    description={ticket.description}
-                    section={ticket.course}
-                    started={ticket.started}
-                    completed={ticket.completed}
-                    start_time={ticket.start_time}
-                    type={"new"}
-                  />
+                  <Ticket ticket={ticket} />
                 ))}
             </CardContent>
           </TabsContent>
@@ -186,17 +184,7 @@ export default function TutorDashboard() {
               {!openTickets?.isLoading &&
                 openTickets?.data &&
                 openTickets?.data.map((ticket: any) => (
-                  <Ticket
-                    name={ticket.name}
-                    professor={ticket.professor}
-                    tutor={ticket.tutor}
-                    description={ticket.description}
-                    section={ticket.course}
-                    started={ticket.started}
-                    completed={ticket.completed}
-                    start_time={ticket.start_time}
-                    type={"opened"}
-                  />
+                  <Ticket ticket={ticket} />
                 ))}
             </CardContent>
           </TabsContent>
@@ -211,17 +199,7 @@ export default function TutorDashboard() {
               {!closedTickets?.isLoading &&
                 closedTickets?.data &&
                 closedTickets.data.map((ticket: any) => (
-                  <Ticket
-                    name={ticket.name}
-                    tutor={ticket.tutor}
-                    professor={ticket.professor}
-                    description={ticket.description}
-                    section={ticket.course}
-                    started={ticket.started}
-                    completed={ticket.completed}
-                    start_time={ticket.start_time}
-                    type={"closed"}
-                  />
+                  <Ticket ticket={ticket} />
                 ))}
             </CardContent>
           </TabsContent>

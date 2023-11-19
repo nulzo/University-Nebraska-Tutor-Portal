@@ -26,11 +26,11 @@ import AdminRequired from "./routes/AdminRequired.tsx";
 import TutorRequired from "./routes/TutorRequired.tsx";
 import LoginRequired from "./routes/LoginRequired.tsx";
 import LoginView from "./views/LoginView.tsx";
-import ForEthan from "./views/ethan.tsx";
 import { PublicClientApplication } from "@azure/msal-browser";
 import { MsalProvider } from "@azure/msal-react";
 import { msalConfig } from "./authConfig.ts";
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { ThemeProvider } from "@/components/forms/ThemeProvider.tsx";
 
 const queryClient = new QueryClient();
 
@@ -115,10 +115,6 @@ const router = createBrowserRouter([
     path: "login/",
     element: <LoginView />,
   },
-  {
-    path: "ethan/",
-    element: <ForEthan />,
-  },
 ]);
 
 const msalInstance = new PublicClientApplication(msalConfig);
@@ -128,7 +124,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <MsalProvider instance={msalInstance}>
       <QueryClientProvider client={queryClient}>
         <ReactQueryDevtools />
-        <RouterProvider router={router} />
+        <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+          <RouterProvider router={router} />
+        </ThemeProvider>
       </QueryClientProvider>
     </MsalProvider>
   </React.StrictMode>,

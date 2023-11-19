@@ -33,7 +33,6 @@ class APITicketView(APIView):
 
     def get(self, request: Request) -> Response:
         tickets = Ticket.generic.all()
-        print(tickets)
         querystring = self.get_querystring(request=request)
         if len(querystring) > 0:
             if department := querystring.get("department"):
@@ -41,6 +40,9 @@ class APITicketView(APIView):
 
             if active := querystring.get("active"):
                 tickets = tickets.filter(is_active=active.capitalize())
+
+            if status := querystring.get("status"):
+                tickets = tickets.filter(status=status.upper())
 
         serializer = TicketSerializer(tickets, many=True)
         return Response(serializer.data)

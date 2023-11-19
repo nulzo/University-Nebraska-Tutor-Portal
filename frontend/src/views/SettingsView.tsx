@@ -14,6 +14,7 @@ import {
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import Header from "@/components/typography/Header";
 import { Separator } from "@/components/ui/separator";
+import { ModeToggle } from "@/components/forms/ModeToggle";
 
 const appearanceFormSchema = z.object({
   theme: z.enum(["light", "dark"], {
@@ -51,6 +52,7 @@ export function SettingsView() {
         }
       />
       <Separator className="mb-4" />
+      <ModeToggle />
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <FormField
