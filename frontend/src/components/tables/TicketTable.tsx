@@ -73,7 +73,7 @@ export const columns: ColumnDef<Ticket>[] = [
         </div>
       )
     },
-    cell: ({ row }) => <div className="text-left">{row.getValue("course")}</div>,
+    cell: ({ row }) => <div className="text-left ml-4">{row.getValue("course")}</div>,
   },
   {
     accessorKey: "title",
@@ -117,6 +117,7 @@ export default function TicketTable({ tickets }: any) {
       rowSelection,
     },
   },)
+  console.log(tickets)
   if (tickets) {
     return (
       <div className="w-full px-4 pb-4">
