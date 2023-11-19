@@ -26,7 +26,7 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { CaretSortIcon } from "@radix-ui/react-icons";
+import { CaretSortIcon, CheckCircledIcon, PlusCircledIcon, ValueIcon } from "@radix-ui/react-icons";
 import { useState } from "react";
 import { ChevronDownIcon } from "lucide-react";
 import { Input } from "../ui/input";
@@ -52,17 +52,10 @@ export type Ticket = {
 
 export const columns: ColumnDef<Ticket>[] = [
   {
-    accessorKey: "status",
-    header: () => <div className="min-w-[50px]">Status</div>,
-    cell: ({ row }) => (
-      <div className="lowercase min-w-[50px]">{row.getValue("status")}</div>
-    ),
-  },
-  {
     accessorKey: "course",
     header: ({ column }) => {
       return (
-        <div className="flex justify-left min-w-[120px]">
+        <div className="flex justify-left">
           <Button
             variant="ghost"
             onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
@@ -73,15 +66,45 @@ export const columns: ColumnDef<Ticket>[] = [
         </div>
       )
     },
-    cell: ({ row }) => <div className="text-left ml-4">{row.getValue("course")}</div>,
+    cell: ({ row }) => <div className="text-left ml-4 truncate">{row.getValue("course")}</div>,
   },
+
   {
     accessorKey: "title",
-    header: () => <div className="text-left">Title</div>,
+    header: () => <div className="text-left mr-auto">Title</div>,
     cell: ({ row }) => {
       const title: string = row.getValue('title');
       return <div className="text-left font-medium">{title}</div>
     },
+  },
+  {
+    accessorKey: "status",
+    header: () => <div className="min-w-[20px]">Status</div>,
+    cell: ({ row }) => (
+      <div>
+        {row.getValue("status") === "NEW" &&
+          <div className="flex space-x-1 align-middle items-center content-center">
+            <PlusCircledIcon />
+            <div>
+              New
+            </div>
+          </div>}
+        {row.getValue("status") === "OPENED" &&
+          <div className="flex space-x-1 align-middle items-center content-center">
+            <ValueIcon />
+            <div>
+              Open
+            </div>
+          </div>}
+        {row.getValue("status") === "CLOSED" &&
+          <div className="flex space-x-1 align-middle items-center content-center">
+            <CheckCircledIcon />
+            <div>
+              Done
+            </div>
+          </div>}
+      </div>
+    ),
   },
   {
     id: "actions",
