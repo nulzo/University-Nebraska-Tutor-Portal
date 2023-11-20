@@ -33,7 +33,7 @@ export default function TutorDashboard() {
           <TabsList>
             <TabsTrigger value="today">Pulse</TabsTrigger>
             <TabsTrigger value="new">New</TabsTrigger>
-            <TabsTrigger value="open">Open</TabsTrigger>
+            <TabsTrigger value="open">Claimed</TabsTrigger>
             <TabsTrigger value="closed">Closed</TabsTrigger>
           </TabsList>
           <TabsContent value="today" className="">
@@ -174,7 +174,7 @@ export default function TutorDashboard() {
             </CardContent>
           </TabsContent>
           <TabsContent value="open" className="">
-            <Label className="text-base text-foreground">Opened Tickets</Label>
+            <Label className="text-base text-foreground">Claimed Tickets</Label>
             <CardDescription>
               Tickets that have been opened, but are not yet closed. Please
               ensure you close all opened tickets.
