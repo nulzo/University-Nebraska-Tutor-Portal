@@ -1,9 +1,6 @@
 from django.db import models
 from django.db.models.query import QuerySet
 
-from .issue import Issues
-from .professor import Professor
-
 
 class TicketManager(models.Manager):
     def get_all(self) -> QuerySet:

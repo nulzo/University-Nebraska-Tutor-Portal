@@ -1,29 +1,23 @@
 import { GithubIcon } from "lucide-react";
-import MenuIcon from "../assets/MenuIcon";
-import { ModeToggle } from "../forms/ModeToggle";
-import { Button } from "../ui/button";
-import UNO from "../assets/UNO";
-import UNOIcon from "../assets/UNOIcon";
-import { Separator } from "../ui/separator";
+import { ModeToggle } from "@/components/forms/ModeToggle";
+import { Button } from "@/components/ui/button";
+import UNOIcon from "@/components/assets/UNOIcon";
+import { Separator } from "@/components/ui/separator";
+import PopoutSidebar from "@/components/navigation/PopoutSidebar";
+import CanvasIcon from "@/components/assets/CanvasIcon";
 import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet"
-import PopoutSidebar from "./PopoutSidebar";
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 export default function Navbar() {
-  function onClick() {
-    console.log("pressdd");
-  }
   return (
     <>
       <div
         className={
-          "bg-background flex px-6 lg:px-8 py-2 flex-wrap items-center w-full shadow-lg text-sm"
+          "border-b backdrop-blur bg-background/75 sticky top-0 z-40 flex px-6 lg:px-8 py-2 flex-wrap items-center w-full text-sm"
         }
       >
         <div className="grid grid-cols-3 gap-4 w-full">
@@ -31,8 +25,11 @@ export default function Navbar() {
             <div className="flex flex-wrap justify-items-start content-center">
               <div className="hidden sm:flex items-center">
                 <UNOIcon />
-                <Separator orientation="vertical" className="hidden lg:block mx-2" />
-                <div className="hidden lg:block">
+                <Separator
+                  orientation="vertical"
+                  className="hidden lg:block mx-2"
+                />
+                <div className="hidden lg:block ml-1">
                   <div className="text-sm font-bold leading-3">
                     University of Nebraska
                   </div>
@@ -85,11 +82,45 @@ export default function Navbar() {
           </div>
           <div className="flex justify-end space-x-2">
             <div>
-              <Button variant="outline" size="icon">
-                <GithubIcon size={16} />
-              </Button>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button variant="outline" size="icon">
+                      <GithubIcon size={20} />
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent className="bg-background border border-border text-foreground">
+                    <p>Source Code</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
             </div>
-            <ModeToggle />
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger>
+                  <ModeToggle />
+                </TooltipTrigger>
+                <TooltipContent className="bg-background border border-border text-foreground">
+                  <p>Color Theme</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+            <div>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button variant="outline" size="icon">
+                      <a href="https://unomaha.instructure.com/">
+                        <CanvasIcon />
+                      </a>
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent className="bg-background border border-border text-foreground">
+                    <p>Canvas</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            </div>
           </div>
         </div>
       </div>

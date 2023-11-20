@@ -1,8 +1,8 @@
-import { CardDescription, CardTitle } from "../ui/card";
-import { Label } from "../ui/label";
-import TutorTicketForm from "../forms/TutorTicketForm";
-import CSCIIcon from "../assets/CSCIIcon";
-import { AlertCircle, AlertTriangleIcon, CheckIcon, CircleDashedIcon, PlusCircleIcon, PlusIcon, XIcon } from "lucide-react";
+import { CardDescription, CardTitle } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import TutorTicketForm from "@/components/forms/TutorTicketForm";
+import { CSCIIcon } from "@/components/assets/DepartmentIcons";
+import { CheckIcon, CircleDashedIcon, CircleIcon, XIcon } from "lucide-react";
 
 export default function Ticket({ ticket }: any) {
   return (
@@ -12,20 +12,35 @@ export default function Ticket({ ticket }: any) {
           <CardTitle className="font-base text-lg flex items-start content-start align-top">
             {ticket.title}
           </CardTitle>
-          {ticket.status === "CLOSED" && (
-            ticket.was_successful === true ? <CheckIcon size="15" className="text-success" /> : <XIcon size="15" className="text-error" />
-          )}
+          {ticket.status === "CLOSED" &&
+            (ticket.was_successful === true ? (
+              <CheckIcon size="15" className="text-success" />
+            ) : (
+              <XIcon size="15" className="text-error" />
+            ))}
           {ticket.status === "NEW" && (
             <div className="relative">
-              <AlertCircle size="16" className="text-purple-400 absolute" />
-              <span className="bg-purple-400 animate-ping">
-                <AlertCircle size="16" className="text-white" />
+              <CircleDashedIcon
+                width={16}
+                height={16}
+                viewBox="0 0 24 24"
+                className="text-yellow-500 absolute"
+              />
+              <span className="bg-purple-400 animate-notif">
+                <CircleDashedIcon
+                  width={16}
+                  height={16}
+                  viewBox="0 0 24 24"
+                  className="text-yellow-200"
+                />
               </span>
+              {/* <span className="relative flex h-3 w-3">
+                <span className="animate-notif absolute inline-flex h-full w-full rounded-full text-yellow-400 opacity-75"><CircleDashedIcon /></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 text-yellow-500"><CircleDashedIcon /></span>
+              </span> */}
             </div>
           )}
-          {ticket.status === "OPENED" && (
-            <CircleDashedIcon size="15" />
-          )}
+          {ticket.status === "OPENED" && <CircleIcon size="15" />}
         </div>
         <TutorTicketForm ticket={ticket} />
       </div>
@@ -34,9 +49,7 @@ export default function Ticket({ ticket }: any) {
         <Label className="flex space-x-2">
           <CSCIIcon />
           <div className="hidden sm:block">{ticket.professor}</div>
-          <p>
-            -
-          </p>
+          <p>-</p>
           <div className="max-w-[200px] truncate">{ticket.course}</div>
         </Label>
       </div>

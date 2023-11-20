@@ -30,12 +30,11 @@ import {
 import useFetchProfessor from "@/API/professors/useFetchProfessor";
 import useFetchCourse from "@/API/courses/useFetchCourse";
 import useFetchIssue from "@/API/issues/useFetchIssue";
-import { ScrollArea } from "../ui/scroll-area";
-import LoadingSelect from "../loading/loading_select";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import LoadingSelect from "@/components/loading/loading_select";
 import { useMutation } from "@tanstack/react-query";
 import { useToast } from "@/components/ui/use-toast";
 import { createTicket } from "@/API/tickets/ticketRequests";
-import { redirect } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const max_ticket_length = 500;
@@ -82,6 +81,22 @@ const FormSchema = z.object({
     }),
 });
 
+function TicketLabel({ children }: any) {
+  return (
+    <div className="font-medium leading-4 text-sm text-foreground">
+      {...children}
+    </div>
+  );
+}
+
+function TicketDescription({ children }: any) {
+  return (
+    <div className="font-base text-[0.8rem] pb-2 text-muted-foreground">
+      {...children}
+    </div>
+  );
+}
+
 export default function TicketForm() {
   const professors = useFetchProfessor();
   // const sections = useFetchSection();
@@ -123,19 +138,21 @@ export default function TicketForm() {
             name="name"
             key="student-name-input"
             render={({ field }) => (
-              <FormItem>
-                <FormLabel className="text-foreground">Your Name</FormLabel>
+              <FormItem className="space-y-2">
+                <TicketLabel>Full Name</TicketLabel>
                 <FormControl>
                   <Input
                     className="text-foreground"
-                    placeholder="enter name here..."
+                    placeholder="Your name here..."
+                    autoComplete="false"
+                    autoCorrect="false"
                     {...field}
                   />
                 </FormControl>
-                <FormDescription>
+                <TicketDescription>
                   If you prefer to go by a different name than what is listed
                   here, navigate to the "Profile" tab and change it.
-                </FormDescription>
+                </TicketDescription>
                 <FormMessage className="text-warning" />
               </FormItem>
             )}

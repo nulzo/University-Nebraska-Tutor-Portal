@@ -8,7 +8,7 @@ lint:
 
 .PHONY format:
 format:
-	autoflake . --in-place --remove-all-unused-imports
+	autoflake -r . --in-place --remove-all-unused-imports
 	isort .
 	black .
 

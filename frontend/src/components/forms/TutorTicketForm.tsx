@@ -16,11 +16,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Separator } from "../ui/separator";
-import { Input } from "../ui/input";
+import { Separator } from "@/components/ui/separator";
+import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
 import { DotsHorizontalIcon } from "@radix-ui/react-icons";
-import { Textarea } from "../ui/textarea";
+import { Textarea } from "@/components/ui/textarea";
 
 function DetailLink({ label, content }: any) {
   return (
@@ -31,16 +31,19 @@ function DetailLink({ label, content }: any) {
   );
 }
 
-function StatusDropdown({ status }: any) {
+function StatusDropdown({ status }: { status: string }) {
+  const lowercase = status.toLowerCase();
   return (
     <Select>
       <SelectTrigger className="w-[100px] bg-secondary">
-        <SelectValue placeholder={status} />
+        <SelectValue
+          placeholder={lowercase.charAt(0).toUpperCase() + lowercase.slice(1)}
+        />
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
           <SelectItem value="todo">New</SelectItem>
-          <SelectItem value="inprogress">Opened</SelectItem>
+          <SelectItem value="inprogress">Claimed</SelectItem>
           <SelectItem value="closed">Closed</SelectItem>
         </SelectGroup>
       </SelectContent>
@@ -50,7 +53,7 @@ function StatusDropdown({ status }: any) {
 
 export default function TutorTicketForm({ ticket }: any) {
   return (
-    <div className="">
+    <div className="backdrop-blur">
       <AlertDialog>
         <AlertDialogTrigger asChild>
           <Button variant="ghost" className="h-8 w-8 p-0">
@@ -58,7 +61,7 @@ export default function TutorTicketForm({ ticket }: any) {
             <DotsHorizontalIcon className="h-4 w-4" />
           </Button>
         </AlertDialogTrigger>
-        <AlertDialogContent>
+        <AlertDialogContent className="bg-background">
           <AlertDialogHeader>
             <div className="flex justify-between">
               <div className="max-w-sm">
@@ -79,37 +82,50 @@ export default function TutorTicketForm({ ticket }: any) {
                   <div className="font-medium pb-2 text-xs text-muted-foreground">
                     The description of the ticket, as told by the student.
                   </div>
-                  <Textarea disabled className="disabled:opacity-100 bg-background resize-none flex h-[75%] disabled:cursor-default appearance-none" value={ticket.description} />
+                  <Separator className="mb-4" />
+                  <Textarea
+                    disabled
+                    className="disabled:opacity-100 bg-background border-none ml-0 pl-1 pt-1 resize-none flex h-[75%] disabled:cursor-default appearance-none"
+                    value={ticket.description}
+                  />
                 </div>
                 <div className="">
                   <div className="font-medium text-sm text-foreground">
                     Comments
                   </div>
                   <div className="font-medium pb-2 text-xs text-muted-foreground">
-                    Share some comments for yourself or other tutors. These comments are not viewable by the tutee.
+                    Share some comments for yourself or other tutors. Comments
+                    only viewable by tutors and admins.
                   </div>
                   <Input />
                 </div>
               </div>
               <div className="pl-4">
-                <div className="font-medium text-sm text-foreground mb-2 pl-2">
+                <div className="font-medium text-sm text-foreground">
                   Ticket Details
+                </div>
+                <div className="font-medium pb-2 text-xs text-muted-foreground">
+                  Information provided by student.
                 </div>
                 <Separator />
                 <DetailLink label="Student" content={ticket.name} />
                 <DetailLink label="Professor" content={ticket.professor} />
                 <DetailLink label="Course" content={ticket.course} />
-                <DetailLink
-                  label="Successful"
-                  content={<Switch className="mt-1" />}
-                />
-                <div className="font-medium text-sm text-foreground mb-2 mt-4 pl-2">
+                <DetailLink label="Modality" content="Online" />
+                <div className="font-medium text-sm text-foreground mt-4">
                   Tutor Details
+                </div>
+                <div className="font-medium pb-2 text-xs text-muted-foreground">
+                  Information provided by the tutor.
                 </div>
                 <Separator />
                 <DetailLink label="Tutor" content={ticket.course} />
                 <DetailLink label="Assistant Tutor" content={ticket.course} />
                 <DetailLink label="Difficulty" content={ticket.course} />
+                <DetailLink
+                  label="Outcome"
+                  content={<Switch className="mt-1" />}
+                />
               </div>
             </div>
           </AlertDialogHeader>

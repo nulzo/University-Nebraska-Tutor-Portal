@@ -46,7 +46,11 @@ export function Sidebar({ isPopout = false }: any) {
   function HomeSection() {
     return (
       <div className="px-3 py-2 space-y-1">
-        <h2 className={"text-left mb-2  px-4 text-lg font-semibold tracking-tight"} />
+        <h2
+          className={
+            "text-left mb-2  px-4 text-lg font-semibold tracking-tight"
+          }
+        />
         <Navlink
           className="w-full justify-start"
           isActive={path === "/home"}
@@ -172,7 +176,9 @@ export function Sidebar({ isPopout = false }: any) {
   function GeneralSection() {
     return (
       <div className="px-3 py-2 space-y-1">
-        <h2 className={"text-left mb-2 px-4 text-lg font-semibold tracking-tight"}>
+        <h2
+          className={"text-left mb-2 px-4 text-lg font-semibold tracking-tight"}
+        >
           General
         </h2>
         <div className="space-y-1">
@@ -213,7 +219,9 @@ export function Sidebar({ isPopout = false }: any) {
   function TutorSection() {
     return (
       <div className="px-3 py-2 space-y-1">
-        <h2 className={"text-left mb-2 px-4 text-lg font-semibold tracking-tight"}>
+        <h2
+          className={"text-left mb-2 px-4 text-lg font-semibold tracking-tight"}
+        >
           Tutor Panel
         </h2>
         <div>
@@ -486,12 +494,12 @@ export function Sidebar({ isPopout = false }: any) {
           </div>
         </aside>
       </div>
-    )
+    );
   }
 
   return (
-    <div className="hidden lg:flex text-foreground lg:col-span-2 xl:col-span-2 3xl:col-span-1">
-      <aside className="h-screen sticky top-0">
+    <div className="hidden sticky lg:flex text-foreground lg:col-span-2 xl:col-span-2 3xl:col-span-1">
+      <div className="h-screen fixed col-span-1 top-10 border-r w-[15rem]">
         <div className="hidden lg:block">
           <div className="space-y-4">
             <ScrollArea className=" overflow-y-auto py-4 h-screen">
@@ -521,7 +529,7 @@ export function Sidebar({ isPopout = false }: any) {
             </ScrollArea>
           </div>
         </div>
-      </aside>
+      </div>
     </div>
   );
 }

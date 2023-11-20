@@ -11,9 +11,9 @@ import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
-  FileCheck2Icon,
-  FileIcon,
-  FileX2Icon,
+  CircleDashedIcon,
+  CircleEqualIcon,
+  CircleIcon,
   LayersIcon,
   RatIcon,
 } from "lucide-react";
@@ -71,7 +71,7 @@ export default function TutorDashboard() {
                     <CardTitle className="text-sm font-medium">
                       New Tickets
                     </CardTitle>
-                    <FileCheck2Icon
+                    <CircleDashedIcon
                       width={16}
                       height={16}
                       viewBox="0 0 24 24"
@@ -92,9 +92,9 @@ export default function TutorDashboard() {
                 <Card className="w-[100%] md:w-full">
                   <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                     <CardTitle className="text-sm font-medium">
-                      Open Tickets
+                      Claimed Tickets
                     </CardTitle>
-                    <FileIcon width={16} height={16} viewBox="0 0 24 24" />
+                    <CircleIcon width={16} height={16} viewBox="0 0 24 24" />
                   </CardHeader>
                   <CardContent>
                     <div className="text-2xl font-bold">
@@ -112,7 +112,7 @@ export default function TutorDashboard() {
                     <CardTitle className="text-sm font-medium">
                       Closed Tickets
                     </CardTitle>
-                    <FileX2Icon
+                    <CircleEqualIcon
                       width={16}
                       height={16}
                       className="stroke-foreground"
@@ -136,7 +136,8 @@ export default function TutorDashboard() {
                   <CardHeader>
                     <CardTitle>Recent Tickets</CardTitle>
                     <CardDescription>
-                      Overview of 24 hour ticket data
+                      Real time ticket data. Aggregated over the last day, and
+                      sortable on command.
                     </CardDescription>
                   </CardHeader>
                   {!allTickets?.isLoading && allTickets?.data.length < 1 && (
