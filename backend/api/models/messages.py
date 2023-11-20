@@ -14,15 +14,10 @@ class Messages(models.Model):
     The admin has the option to display the date within the announcment as well.
     """
 
-    INFORMATIVE = "INF"
-    URGENT = "URG"
-    GENERAL = "GEN"
-    TYPES = [(INFORMATIVE, "Informative"), (URGENT, "Urgent"), (GENERAL, "General")]
-    message_type = models.CharField(max_length=3, choices=TYPES, default=INFORMATIVE)
-    message_header = models.CharField(max_length=50)
-    message_body = models.TextField(max_length=1024)
-    from_date = models.DateTimeField(blank=True)
-    to_date = models.DateTimeField(blank=True)
+    ticket = models.ForeignKey("api.Ticket", on_delete=models.CASCADE, blank=False)
+    sender = models.ForeignKey("api.User", on_delete=models.PROTECT, blank=False)
+    message_content = models.TextField(max_length=128)
+    created_date = models.DateTimeField(auto_now_add=True)
 
     generic = models.Manager()
 

@@ -1,35 +1,57 @@
-import { CardDescription, CardTitle } from "../ui/card";
-import { Button } from "../ui/button";
-import { Badge } from "../ui/badge";
-import { Label } from "../ui/label";
+import { CardDescription, CardTitle } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import TutorTicketForm from "@/components/forms/TutorTicketForm";
+import { CSCIIcon } from "@/components/assets/DepartmentIcons";
+import { CheckIcon, CircleDashedIcon, CircleIcon, XIcon } from "lucide-react";
 
-export default function Ticket({
-  name,
-  description,
-  professor,
-  section,
-  type,
-}: any) {
+export default function Ticket({ ticket }: any) {
   return (
-    <div className="border rounded-lg text-foreground px-4 pt-4">
-      <div className="flex justify-between">
-        <CardTitle>{name}</CardTitle>
-        {type === "new" && <Badge variant={"outline"}>Unclaimed</Badge>}
-        {type === "opened" && <Badge variant={"outline"}>Claimed</Badge>}
-        {type === "closed" && <Badge variant="outline">Closed</Badge>}
-      </div>
-      <CardDescription className="">{description}</CardDescription>
-      <div className="flex justify-between align-start items-end mt-2 mb-4">
-        <Label className="flex">
-          <div className="hidden sm:block">{professor} -</div>
-          <div>{section}</div>
-        </Label>
-        <div className="flex space-x-4">
-          <Button variant="ghost" className=" px-1 py-1">
-            {/* <ClipboardEditIcon size={20} /> */}
-            <div className="text-xs">Edit Status</div>
-          </Button>
+    <div className="border rounded-xl text-foreground px-4 pt-2">
+      <div className="flex justify-between align-middle items-center mb-2">
+        <div className="flex max-h-10 space-x-2 align-middle items-center">
+          <CardTitle className="font-base text-lg flex items-start content-start align-top">
+            {ticket.title}
+          </CardTitle>
+          {ticket.status === "CLOSED" &&
+            (ticket.was_successful === true ? (
+              <CheckIcon size="15" className="text-success" />
+            ) : (
+              <XIcon size="15" className="text-error" />
+            ))}
+          {ticket.status === "NEW" && (
+            <div className="relative">
+              <CircleDashedIcon
+                width={16}
+                height={16}
+                viewBox="0 0 24 24"
+                className="text-yellow-500 absolute"
+              />
+              <span className="bg-purple-400 animate-notif">
+                <CircleDashedIcon
+                  width={16}
+                  height={16}
+                  viewBox="0 0 24 24"
+                  className="text-yellow-200"
+                />
+              </span>
+              {/* <span className="relative flex h-3 w-3">
+                <span className="animate-notif absolute inline-flex h-full w-full rounded-full text-yellow-400 opacity-75"><CircleDashedIcon /></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 text-yellow-500"><CircleDashedIcon /></span>
+              </span> */}
+            </div>
+          )}
+          {ticket.status === "OPENED" && <CircleIcon size="15" />}
         </div>
+        <TutorTicketForm ticket={ticket} />
+      </div>
+      <CardDescription className="">{ticket.description}</CardDescription>
+      <div className="flex justify-between align-start items-end mt-2 mb-4">
+        <Label className="flex space-x-2">
+          <CSCIIcon />
+          <div className="hidden sm:block">{ticket.professor}</div>
+          <p>-</p>
+          <div className="max-w-[200px] truncate">{ticket.course}</div>
+        </Label>
       </div>
     </div>
   );

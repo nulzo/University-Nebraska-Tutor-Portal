@@ -1,9 +1,6 @@
 from django.db import models
 from django.db.models.query import QuerySet
 
-from .issue import Issues
-from .professor import Professor
-
 
 class TicketManager(models.Manager):
     def get_all(self) -> QuerySet:
@@ -51,10 +48,19 @@ class Ticket(models.Model):
     reopened after it was closed.
     """
 
-    professor = models.ForeignKey(Professor, null=True, on_delete=models.PROTECT)
+    NEW = "NEW"
+    OPENED = "OPENED"
+    CLOSED = "CLOSED"
+    STATUS_CHOICES = [
+        (NEW, "New"),
+        (OPENED, "Opened"),
+        (CLOSED, "Closed"),
+    ]
+
+    professor = models.ForeignKey("api.Professor", on_delete=models.PROTECT)
     # section = models.ForeignKey("api.Section", null=True, on_delete=models.PROTECT)
     course = models.ForeignKey("api.Course", null=True, on_delete=models.PROTECT)
-    issue = models.ForeignKey(Issues, null=True, on_delete=models.PROTECT)
+    issue = models.ForeignKey("api.Issues", null=True, on_delete=models.PROTECT)
     student = models.ForeignKey(
         "api.User",
         null=True,
@@ -70,12 +76,13 @@ class Ticket(models.Model):
         blank=True,
     )
     name = models.CharField(blank=False, max_length=50)
+    title = models.CharField(blank=False, max_length=25)
     description = models.TextField(max_length=1024)
-    completed = models.BooleanField(default=False)
-    started = models.BooleanField(default=False)
-    start_time = models.DateTimeField(null=True, blank=True)
-    end_time = models.DateTimeField(null=True, blank=True)
-    tutor_comments = models.CharField(max_length=255, blank=True)
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default=NEW)
+    created_at = models.DateTimeField(null=False, blank=False, auto_now_add=True)
+    opened_at = models.DateTimeField(null=True, blank=True)
+    updated_at = models.DateTimeField(null=False, blank=False, auto_now_add=True)
+    closed_at = models.DateTimeField(null=True, blank=True)
     was_successful = models.BooleanField(default=False)
     was_reopened = models.BooleanField(default=False)
 

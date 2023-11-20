@@ -32,7 +32,7 @@ const isDeveloper = false;
 const stroke_width = 1.75;
 const shape_rendering = "auto";
 
-export function Sidebar() {
+export function Sidebar({ isPopout = false }: any) {
   const { instance } = useMsal();
   const isAuthenticated = useIsAuthenticated();
   const [path, setPath] = useState("");
@@ -46,7 +46,11 @@ export function Sidebar() {
   function HomeSection() {
     return (
       <div className="px-3 py-2 space-y-1">
-        <h2 className={"mb-2  px-4 text-lg font-semibold tracking-tight"} />
+        <h2
+          className={
+            "text-left mb-2  px-4 text-lg font-semibold tracking-tight"
+          }
+        />
         <Navlink
           className="w-full justify-start"
           isActive={path === "/home"}
@@ -67,7 +71,7 @@ export function Sidebar() {
           isActive={path === "/create"}
           onClick={() => navigate("/create")}
           text="Create Ticket"
-          disabled={!isAuthenticated}
+          // disabled={!isAuthenticated}
           icon={
             <TicketIcon
               width={20}
@@ -85,7 +89,7 @@ export function Sidebar() {
   function AdminSection() {
     return (
       <div className="px-3 py-2">
-        <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
+        <h2 className="text-left mb-2 px-4 text-lg font-semibold tracking-tight">
           Admin Panel
         </h2>
         <div className="space-y-1">
@@ -172,7 +176,9 @@ export function Sidebar() {
   function GeneralSection() {
     return (
       <div className="px-3 py-2 space-y-1">
-        <h2 className={"mb-2 px-4 text-lg font-semibold tracking-tight"}>
+        <h2
+          className={"text-left mb-2 px-4 text-lg font-semibold tracking-tight"}
+        >
           General
         </h2>
         <div className="space-y-1">
@@ -213,7 +219,9 @@ export function Sidebar() {
   function TutorSection() {
     return (
       <div className="px-3 py-2 space-y-1">
-        <h2 className={"mb-2 px-4 text-lg font-semibold tracking-tight"}>
+        <h2
+          className={"text-left mb-2 px-4 text-lg font-semibold tracking-tight"}
+        >
           Tutor Panel
         </h2>
         <div>
@@ -279,7 +287,7 @@ export function Sidebar() {
   function AccountSettings() {
     return (
       <div className="px-3 py-2">
-        <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
+        <h2 className="text-left mb-2 px-4 text-lg font-semibold tracking-tight">
           Account
         </h2>
         <div className="space-y-1">
@@ -351,7 +359,7 @@ export function Sidebar() {
   function LoginSection() {
     return (
       <div className="px-3 py-2">
-        <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
+        <h2 className="text-left mb-2 px-4 text-lg font-semibold tracking-tight">
           Account
         </h2>
         <div className="space-y-1">
@@ -378,7 +386,7 @@ export function Sidebar() {
   function DevSettings() {
     return (
       <div className="px-3 py-2">
-        <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
+        <h2 className="text-left mb-2 px-4 text-lg font-semibold tracking-tight">
           Development Panel
         </h2>
         <div className="space-y-1">
@@ -451,9 +459,47 @@ export function Sidebar() {
     );
   }
 
+  if (isPopout) {
+    return (
+      <div className="flex text-foreground w-full">
+        <aside className="h-screen sticky top-0 w-full">
+          <div className="block">
+            <div className="space-y-8">
+              <ScrollArea className=" overflow-y-auto py-0 h-screen">
+                <div className="">
+                  <HomeSection />
+                  {/* If the user is an admin */}
+                  {isAdmin && (
+                    <>
+                      <AdminSection />
+                      <GeneralSection />
+                    </>
+                  )}
+                  {/* If the user is a tutor */}
+                  {isTutor && (
+                    <>
+                      <TutorSection />
+                      <GeneralSection />
+                    </>
+                  )}
+                  {/* If the user is a student */}
+                  {isStudent && <GeneralSection />}
+                  {/* If the user is a developer */}
+                  {isDeveloper && <DevSettings />}
+                  {isAuthenticated && <AccountSettings />}
+                  {!isAuthenticated && <LoginSection />}
+                </div>
+              </ScrollArea>
+            </div>
+          </div>
+        </aside>
+      </div>
+    );
+  }
+
   return (
-    <div className="hidden lg:flex text-foreground lg:col-span-2 xl:col-span-2 3xl:col-span-1">
-      <aside className="h-screen sticky top-0">
+    <div className="hidden sticky lg:flex text-foreground lg:col-span-2 xl:col-span-2 3xl:col-span-1">
+      <div className="h-screen fixed col-span-1 top-10 border-r w-[15rem]">
         <div className="hidden lg:block">
           <div className="space-y-4">
             <ScrollArea className=" overflow-y-auto py-4 h-screen">
@@ -483,7 +529,7 @@ export function Sidebar() {
             </ScrollArea>
           </div>
         </div>
-      </aside>
+      </div>
     </div>
   );
 }

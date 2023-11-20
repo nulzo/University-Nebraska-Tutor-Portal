@@ -7,7 +7,6 @@ import Zoom from "./views/ZoomView.tsx";
 import DownloadView from "./views/admin/AdminDownloadView.tsx";
 import "./style/globals.css";
 import CreateTicketView from "./views/CreateTicketView.tsx";
-import { SettingsView } from "./views/SettingsView.tsx";
 import ScheduleView from "./views/ScheduleView.tsx";
 import ProfileView from "./views/ProfileView.tsx";
 import MessageView from "./views/MessageView.tsx";
@@ -26,11 +25,11 @@ import AdminRequired from "./routes/AdminRequired.tsx";
 import TutorRequired from "./routes/TutorRequired.tsx";
 import LoginRequired from "./routes/LoginRequired.tsx";
 import LoginView from "./views/LoginView.tsx";
-import ForEthan from "./views/ethan.tsx";
 import { PublicClientApplication } from "@azure/msal-browser";
 import { MsalProvider } from "@azure/msal-react";
 import { msalConfig } from "./authConfig.ts";
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { ThemeProvider } from "@/components/forms/ThemeProvider.tsx";
 
 const queryClient = new QueryClient();
 
@@ -64,10 +63,6 @@ const router = createBrowserRouter([
       {
         path: "messages/",
         element: <LoginRequired view={<MessageView />} />,
-      },
-      {
-        path: "settings/",
-        element: <LoginRequired view={<SettingsView />} />,
       },
       {
         path: "admin/dashboard/",
@@ -115,10 +110,6 @@ const router = createBrowserRouter([
     path: "login/",
     element: <LoginView />,
   },
-  {
-    path: "ethan/",
-    element: <ForEthan />,
-  },
 ]);
 
 const msalInstance = new PublicClientApplication(msalConfig);
@@ -128,7 +119,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <MsalProvider instance={msalInstance}>
       <QueryClientProvider client={queryClient}>
         <ReactQueryDevtools />
-        <RouterProvider router={router} />
+        <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
+          <RouterProvider router={router} />
+        </ThemeProvider>
       </QueryClientProvider>
     </MsalProvider>
   </React.StrictMode>,

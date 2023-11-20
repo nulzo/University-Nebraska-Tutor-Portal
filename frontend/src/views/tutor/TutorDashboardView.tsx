@@ -11,28 +11,29 @@ import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
-  FileCheck2Icon,
-  FileIcon,
-  FileX2Icon,
+  CircleDashedIcon,
+  CircleEqualIcon,
+  CircleIcon,
   LayersIcon,
   RatIcon,
 } from "lucide-react";
 import useFetchTicket from "@/API/tickets/useFetchTicket";
+import TicketTable from "@/components/tables/TicketTable";
 
 export default function TutorDashboard() {
-  const unclaimedTickets = useFetchTicket("unclaimed", "?started=false");
-  const openTickets = useFetchTicket("open", "?started=true&completed=false");
-  const closedTickets = useFetchTicket("closed", "?completed=true");
-  const allTickets = useFetchTicket("all", "?");
+  const unclaimedTickets = useFetchTicket("new", "?status=NEW");
+  const openTickets = useFetchTicket("opened", "?status=OPENED");
+  const closedTickets = useFetchTicket("closed", "?status=CLOSED");
+  const allTickets = useFetchTicket("all", "");
   return (
     <>
-      <Header text="Tutor Dashboard" subtext="lorem impsum"></Header>
+      <Header text="Tutor Dashboard" subtext=""></Header>
       <div className="flex flex-col sm:block">
         <Tabs defaultValue="today" className="space-y-4">
           <TabsList>
             <TabsTrigger value="today">Pulse</TabsTrigger>
             <TabsTrigger value="new">New</TabsTrigger>
-            <TabsTrigger value="open">Open</TabsTrigger>
+            <TabsTrigger value="open">Claimed</TabsTrigger>
             <TabsTrigger value="closed">Closed</TabsTrigger>
           </TabsList>
           <TabsContent value="today" className="">
@@ -59,7 +60,48 @@ export default function TutorDashboard() {
                       {!allTickets?.isLoading && allTickets?.data.length}
                     </div>
                     <p className="text-xs text-muted-foreground">
-                      +20.1% from last month
+                      {/* +20.1% from last month */}
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
+              <div>
+                <Card className="w-[100%] md:w-full">
+                  <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                    <CardTitle className="text-sm font-medium">
+                      New Tickets
+                    </CardTitle>
+                    <CircleDashedIcon
+                      width={16}
+                      height={16}
+                      viewBox="0 0 24 24"
+                    />
+                  </CardHeader>
+                  <CardContent>
+                    <div className="text-2xl font-bold">
+                      {!unclaimedTickets?.isLoading &&
+                        unclaimedTickets?.data.length}
+                    </div>
+                    <p className="text-xs text-muted-foreground">
+                      {/* +19% from last month */}
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
+              <div>
+                <Card className="w-[100%] md:w-full">
+                  <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                    <CardTitle className="text-sm font-medium">
+                      Claimed Tickets
+                    </CardTitle>
+                    <CircleIcon width={16} height={16} viewBox="0 0 24 24" />
+                  </CardHeader>
+                  <CardContent>
+                    <div className="text-2xl font-bold">
+                      {!openTickets?.isLoading && openTickets?.data.length}
+                    </div>
+                    <p className="text-xs text-muted-foreground">
+                      {/* +1 since last hour */}
                     </p>
                   </CardContent>
                 </Card>
@@ -70,7 +112,7 @@ export default function TutorDashboard() {
                     <CardTitle className="text-sm font-medium">
                       Closed Tickets
                     </CardTitle>
-                    <FileX2Icon
+                    <CircleEqualIcon
                       width={16}
                       height={16}
                       className="stroke-foreground"
@@ -82,47 +124,7 @@ export default function TutorDashboard() {
                       {!closedTickets?.isLoading && closedTickets?.data.length}
                     </div>
                     <p className="text-xs text-muted-foreground">
-                      -4% from last month
-                    </p>
-                  </CardContent>
-                </Card>
-              </div>
-              <div>
-                <Card className="w-[100%] md:w-full">
-                  <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium">
-                      Success Tickets
-                    </CardTitle>
-                    <FileCheck2Icon
-                      width={16}
-                      height={16}
-                      viewBox="0 0 24 24"
-                    />
-                  </CardHeader>
-                  <CardContent>
-                    <div className="text-2xl font-bold">
-                      {!closedTickets?.isLoading && closedTickets?.data.length}
-                    </div>
-                    <p className="text-xs text-muted-foreground">
-                      +19% from last month
-                    </p>
-                  </CardContent>
-                </Card>
-              </div>
-              <div>
-                <Card className="w-[100%] md:w-full">
-                  <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium">
-                      Open Now
-                    </CardTitle>
-                    <FileIcon width={16} height={16} viewBox="0 0 24 24" />
-                  </CardHeader>
-                  <CardContent>
-                    <div className="text-2xl font-bold">
-                      {!openTickets?.isLoading && openTickets?.data.length}
-                    </div>
-                    <p className="text-xs text-muted-foreground">
-                      +1 since last hour
+                      {/* data here */}
                     </p>
                   </CardContent>
                 </Card>
@@ -134,17 +136,23 @@ export default function TutorDashboard() {
                   <CardHeader>
                     <CardTitle>Recent Tickets</CardTitle>
                     <CardDescription>
-                      Overview of 24 hour ticket data
+                      Real time ticket data. Aggregated over the last day, and
+                      sortable on command.
                     </CardDescription>
                   </CardHeader>
-                  <CardContent className="pl-2 min-h-[30vh] flex justify-center text-center content-center place-content-center items-center align-center font-medium text-muted-foreground">
-                    <div>
-                      <div className="flex justify-center place-self-center">
-                        <RatIcon />
+                  {!allTickets?.isLoading && allTickets?.data.length < 1 && (
+                    <CardContent className="pl-2 min-h-[30vh] flex justify-center text-center content-center place-content-center items-center align-center font-medium text-muted-foreground">
+                      <div>
+                        <div className="flex justify-center place-self-center">
+                          <RatIcon />
+                        </div>
+                        <div>Wow, so empty!</div>
                       </div>
-                      <div>Wow, so empty!</div>
-                    </div>
-                  </CardContent>
+                    </CardContent>
+                  )}
+                  {!allTickets?.isLoading && allTickets?.data.length > 0 && (
+                    <TicketTable tickets={allTickets?.data} />
+                  )}
                 </Card>
               </div>
             </div>
@@ -162,21 +170,12 @@ export default function TutorDashboard() {
               {!unclaimedTickets?.isLoading &&
                 unclaimedTickets?.data &&
                 unclaimedTickets.data.map((ticket: any) => (
-                  <Ticket
-                    name={ticket.name}
-                    professor={ticket.professor}
-                    description={ticket.description}
-                    section={ticket.course}
-                    started={ticket.started}
-                    completed={ticket.completed}
-                    start_time={ticket.start_time}
-                    type={"new"}
-                  />
+                  <Ticket ticket={ticket} />
                 ))}
             </CardContent>
           </TabsContent>
           <TabsContent value="open" className="">
-            <Label className="text-base text-foreground">Opened Tickets</Label>
+            <Label className="text-base text-foreground">Claimed Tickets</Label>
             <CardDescription>
               Tickets that have been opened, but are not yet closed. Please
               ensure you close all opened tickets.
@@ -186,17 +185,7 @@ export default function TutorDashboard() {
               {!openTickets?.isLoading &&
                 openTickets?.data &&
                 openTickets?.data.map((ticket: any) => (
-                  <Ticket
-                    name={ticket.name}
-                    professor={ticket.professor}
-                    tutor={ticket.tutor}
-                    description={ticket.description}
-                    section={ticket.course}
-                    started={ticket.started}
-                    completed={ticket.completed}
-                    start_time={ticket.start_time}
-                    type={"opened"}
-                  />
+                  <Ticket ticket={ticket} />
                 ))}
             </CardContent>
           </TabsContent>
@@ -211,17 +200,7 @@ export default function TutorDashboard() {
               {!closedTickets?.isLoading &&
                 closedTickets?.data &&
                 closedTickets.data.map((ticket: any) => (
-                  <Ticket
-                    name={ticket.name}
-                    tutor={ticket.tutor}
-                    professor={ticket.professor}
-                    description={ticket.description}
-                    section={ticket.course}
-                    started={ticket.started}
-                    completed={ticket.completed}
-                    start_time={ticket.start_time}
-                    type={"closed"}
-                  />
+                  <Ticket ticket={ticket} />
                 ))}
             </CardContent>
           </TabsContent>

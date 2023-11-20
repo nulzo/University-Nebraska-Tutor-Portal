@@ -30,17 +30,17 @@ import {
 import useFetchProfessor from "@/API/professors/useFetchProfessor";
 import useFetchCourse from "@/API/courses/useFetchCourse";
 import useFetchIssue from "@/API/issues/useFetchIssue";
-import { ScrollArea } from "../ui/scroll-area";
-import LoadingSelect from "../loading/loading_select";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import LoadingSelect from "@/components/loading/loading_select";
 import { useMutation } from "@tanstack/react-query";
 import { useToast } from "@/components/ui/use-toast";
 import { createTicket } from "@/API/tickets/ticketRequests";
-// import useFetchSection from "@/API/sections/useFetchSection";
+import { useNavigate } from "react-router-dom";
 
 const max_ticket_length = 500;
 
 const FormSchema = z.object({
-  student_name: z
+  name: z
     .string({
       required_error: "you must enter your name.",
     })
@@ -50,30 +50,26 @@ const FormSchema = z.object({
     .max(50, {
       message: "name must not be more than 50 characters.",
     }),
-  student_email: z
+  title: z
     .string({
-      required_error: "you must enter your email.",
+      required_error: "you must enter a title.",
     })
-    .email()
     .min(4, {
-      message: "email must be a valid email.",
+      message: "title must be 4 characters long.",
     })
     .max(50, {
-      message: "email must not be greater than 50 characters.",
-    })
-    .email({
-      message: "enter a valid email",
+      message: "title must not be greater than 50 characters.",
     }),
   professor: z.number({
     required_error: "you must select a professor.",
   }),
-  section: z.number({
+  course: z.number({
     required_error: "you must select a course.",
   }),
   issue: z.number({
     required_error: "you must select an issue type.",
   }),
-  body: z
+  description: z
     .string({
       required_error: "you must enter a description.",
     })
@@ -85,6 +81,22 @@ const FormSchema = z.object({
     }),
 });
 
+function TicketLabel({ children }: any) {
+  return (
+    <div className="font-medium leading-4 text-sm text-foreground">
+      {...children}
+    </div>
+  );
+}
+
+function TicketDescription({ children }: any) {
+  return (
+    <div className="font-base text-[0.8rem] pb-2 text-muted-foreground">
+      {...children}
+    </div>
+  );
+}
+
 export default function TicketForm() {
   const professors = useFetchProfessor();
   // const sections = useFetchSection();
@@ -92,6 +104,7 @@ export default function TicketForm() {
   const courses = useFetchCourse();
   const max_length = max_ticket_length;
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   const mutation = useMutation({
     mutationFn: createTicket,
@@ -100,16 +113,19 @@ export default function TicketForm() {
   function onSubmit(data: z.infer<typeof FormSchema>) {
     mutation.mutate(data);
     toast({
-      title: "Scheduled: Catch up",
-      description: "Friday, February 10, 2023 at 5:57 PM",
+      title: `Thanks, ${data.name}!`,
+      description:
+        "We have successfully recieved your ticket, and a tutor will be with you shortly to assist you.",
+      className: "text-success border-success",
     });
+    navigate("/home");
   }
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      student_name: "",
-      student_email: "",
+      name: "",
+      title: "",
     },
   });
 
@@ -119,42 +135,24 @@ export default function TicketForm() {
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
           <FormField
             control={form.control}
-            name="student_name"
+            name="name"
             key="student-name-input"
             render={({ field }) => (
-              <FormItem>
-                <FormLabel className="text-foreground">Your Name</FormLabel>
+              <FormItem className="space-y-2">
+                <TicketLabel>Full Name</TicketLabel>
                 <FormControl>
                   <Input
                     className="text-foreground"
-                    placeholder="enter name here..."
+                    placeholder="Your name here..."
+                    autoComplete="false"
+                    autoCorrect="false"
                     {...field}
                   />
                 </FormControl>
-                <FormDescription>
+                <TicketDescription>
                   If you prefer to go by a different name than what is listed
                   here, navigate to the "Profile" tab and change it.
-                </FormDescription>
-                <FormMessage className="text-warning" />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="student_email"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel className="text-foreground">Your email</FormLabel>
-                <FormControl>
-                  <Input
-                    className="text-foreground"
-                    placeholder="enter title here..."
-                    {...field}
-                  />
-                </FormControl>
-                <FormDescription>
-                  Your UNO email will be autofilled if on your file.
-                </FormDescription>
+                </TicketDescription>
                 <FormMessage className="text-warning" />
               </FormItem>
             )}
@@ -183,14 +181,14 @@ export default function TicketForm() {
                               className={cn(
                                 "w-full md:w-[35vw] lg:w-[30vw] xl:w-[40vw] justify-between",
                                 !field.value &&
-                                "text-muted-foreground font-normal",
+                                  "text-muted-foreground font-normal",
                               )}
                             >
                               {field.value
                                 ? professors?.data.find(
-                                  (professor: any) =>
-                                    professor.professor_id === field.value,
-                                )?.full_name
+                                    (professor: any) =>
+                                      professor.professor_id === field.value,
+                                  )?.full_name
                                 : "select a professor"}
                               <CaretSortIcon className="ml-2 h-4 w-4 shrink-0" />
                             </Button>
@@ -242,7 +240,7 @@ export default function TicketForm() {
           {!courses?.isLoading && (
             <FormField
               control={form.control}
-              name="section"
+              name="course"
               key="course_field"
               render={({ field }) => (
                 <FormItem className="flex flex-col" key="course_form_item">
@@ -264,13 +262,13 @@ export default function TicketForm() {
                               className={cn(
                                 "w-full md:w-[35vw] lg:w-[30vw] xl:w-[40vw] justify-between",
                                 !field.value &&
-                                "text-muted-foreground font-normal",
+                                  "text-muted-foreground font-normal",
                               )}
                             >
                               {field.value
                                 ? courses?.data.find(
-                                  (course: any) => course.id === field.value,
-                                )?.course_code
+                                    (course: any) => course.id === field.value,
+                                  )?.course_code
                                 : "select a course"}
                               <CaretSortIcon
                                 key="course_sort_icon"
@@ -298,7 +296,7 @@ export default function TicketForm() {
                                     key={`${course.course_code}-${course.course_name}`}
                                     onSelect={() => {
                                       {
-                                        form.setValue("section", course.id);
+                                        form.setValue("course", course.id);
                                       }
                                     }}
                                   >
@@ -354,14 +352,14 @@ export default function TicketForm() {
                               className={cn(
                                 "w-full md:w-[35vw] lg:w-[30vw] xl:w-[40vw] justify-between",
                                 !field.value &&
-                                "text-muted-foreground font-normal",
+                                  "text-muted-foreground font-normal",
                               )}
                             >
                               {field.value
                                 ? issues?.data.find(
-                                  (issue: any) =>
-                                    issue.issue_id === field.value,
-                                )?.problem_type
+                                    (issue: any) =>
+                                      issue.issue_id === field.value,
+                                  )?.problem_type
                                 : "select an issue"}
                               <CaretSortIcon
                                 key="issue_sort_icon"
@@ -419,7 +417,27 @@ export default function TicketForm() {
           )}
           <FormField
             control={form.control}
-            name="body"
+            name="title"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-foreground">Brief Summary</FormLabel>
+                <FormControl>
+                  <Input
+                    className="text-foreground"
+                    placeholder="enter summary here..."
+                    {...field}
+                  />
+                </FormControl>
+                <FormDescription>
+                  Please explain your current troubles in a couple of words.
+                </FormDescription>
+                <FormMessage className="text-warning" />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="description"
             render={({ field }) => (
               <FormItem>
                 <FormLabel className="text-foreground">
@@ -458,7 +476,9 @@ export default function TicketForm() {
               </FormItem>
             )}
           />
-          <Button disabled={mutation.isL} type="submit">Submit Ticket</Button>
+          <Button disabled={mutation.isPending} type="submit">
+            Submit Ticket
+          </Button>
         </form>
       </Form>
     </>

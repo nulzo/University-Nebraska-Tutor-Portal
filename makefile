@@ -20,18 +20,15 @@
 
 ## ========================== PROCESSES ===============================
 
-.PHONY dockerup-build:
-dockerup-build:
+
+.PHONY dockerup:
+dockerup:
 	docker compose up --build -d
 
 .PHONY dockerdown:
 dockerdown:
-	docker compose down
-
-.PHONY dockerup:
-dockerup:
-	docker compose up -d
-
+	docker compose down --rmi all
+	
 .PHONY build: ## Build the project from scratch
 build:
 	./scripts/build.sh
