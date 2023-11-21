@@ -9,7 +9,7 @@ module.exports = {
   ],
   ignorePatterns: ["dist", ".eslintrc.cjs", "*.js", "**/*.js", "data/"],
   parser: "@typescript-eslint/parser",
-  plugins: ["react-refresh"],
+  plugins: ["react-refresh", "import"],
   rules: {
     "@typescript-eslint/no-explicit-any": "warn",
     quotes: ["error", "double"], // Use double quotes
