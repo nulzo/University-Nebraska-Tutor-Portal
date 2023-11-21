@@ -1,12 +1,4 @@
- <p align="center">
- <h1 align="center" >University of Nebraska Tutoring Portal</h1>
- </p>
-
- <p align="center">
- This application is designed to facilitate communication between students and tutors by allowing students to create, manage, and track tickets for tutoring assistance. Tutors can view, modify, claim, and close these tickets, ensuring a smooth and efficient tutoring experience. Additionally, an admin panel is available for database management and data retrieval.
- </p>
-
-<br/>
+</br>
 <p align="center">
   <a href="https://github.com/nulzo/University-Nebraska-Tutor-Portal">
     <img src="docs\source\uno-icon-color.png" alt="Logo" width="80" height="80">
@@ -78,8 +70,6 @@ CSLC Tutoring Portal</h3>
   - [Installation](#installation)
 - [Usage](#usage)
 - [Roadmap](#roadmap)
-- [Contributing](#contributing)
-  - [Creating A Pull Request](#creating-a-pull-request)
 - [License](#license)
 - [Authors](#authors)
 - [Acknowledgements](#acknowledgements)
@@ -116,54 +106,45 @@ You will need the following packages and libraries in order to successfully run 
 
 1. #### npm
 
-```sh
-npm install npm@latest -g
-```
+    ```sh
+    npm install npm@latest -g
+    ```
 
 2. #### Poetry
 
-```sh
-curl -sSL https://install.python-poetry.org | python3 -
-```
+    ```sh
+    curl -sSL https://install.python-poetry.org | python3 -
+    ```
 
 3. #### Docker
 
-```sh
-sudo apt-get update
-sudo apt-get install docker.io
-```
+    ```sh
+    sudo apt-get update
+    sudo apt-get install docker.io
+    ```
 
 4. #### Python
 
-- Python is often pre-installed on many systems, or you can install here: [Python Images](https://www.python.org/downloads/)
+   - Python is often pre-installed on many systems, or you can install here: [Python Images](https://www.python.org/downloads/)
 
 5. #### TypeScript
 
-```sh
-npm install -g typescript
-```
+    ```sh
+    npm install -g typescript
+    ```
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
+1. Clone the repo
 
-2. Clone the repo
+    ```sh
+    git clone https://github.com/nulzo/University-Nebraska-Tutor-Portal
+    ```
 
-```sh
-git clone https://github.com/your_username_/Project-Name.git
-```
-
-3. Install NPM packages
-
-```sh
-npm install
-```
-
-4. Enter your API in `config.js`
-
-```JS
-const API_KEY = 'ENTER YOUR API';
-```
+2. Run Docker Compose
+   ```sh
+   docker compose up --build -d
+   ```
 
 ## Usage
 
@@ -175,21 +156,6 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 See the [open issues](https://github.com/nulzo/University-Nebraska-Tutor-Portal/issues) for a list of proposed features (and known issues).
 
-## Contributing
-
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-* If you have suggestions for adding or removing projects, feel free to [open an issue](https://github.com/nulzo/University-Nebraska-Tutor-Portal/issues/new) to discuss it, or directly create a pull request after you edit the *README.md* file with necessary changes.
-* Please make sure you check your spelling and grammar.
-* Create individual PR for each suggestion.
-* Please also read through the [Code Of Conduct](https://github.com/nulzo/University-Nebraska-Tutor-Portal/blob/main/CODE_OF_CONDUCT.md) before posting your first idea as well.
-
-### Creating A Pull Request
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
 
 ## License
 
@@ -197,7 +163,7 @@ Distributed under the MIT License. See [LICENSE](https://github.com/nulzo/Univer
 
 ## Authors
 
-* **Nolan Gregory** - *Lead Developer* - [Nolan Gregory](https://github.com/nulzo) - *All*
+* **Nolan Gregory** - *Lead Developer* - [Nolan Gregory](https://github.com/nulzo) - *Created the application*
 
 ## Acknowledgements
 
