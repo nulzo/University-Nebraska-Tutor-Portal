@@ -15,7 +15,7 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useForm } from "react-hook-form";
+import { useForm } from 'react-hook-form';
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
@@ -137,7 +137,7 @@ export default function TicketForm() {
             control={form.control}
             name="name"
             key="student-name-input"
-            render={({ field }) => (
+            render={({ field }: any) => (
               <FormItem className="space-y-2">
                 <TicketLabel>Full Name</TicketLabel>
                 <FormControl>
@@ -157,12 +157,24 @@ export default function TicketForm() {
               </FormItem>
             )}
           />
-          {professors?.isFetching && <LoadingSelect />}
+          {professors?.isFetching && (
+          <div className="space-y-0.5 block md:flex md:flex-row items-center justify-between rounded-lg md:border md:p-4 text-foreground">
+                    <div className="space-y-0.5 pb-2 md:pb-0">
+                    <FormLabel>Professor</FormLabel>
+                      <FormDescription className="hidden md:block">
+                        Select the professor teaching the course.
+                      </FormDescription>
+                      </div>
+                    <div className="">
+                    <LoadingSelect />
+                    </div>
+                    </div>
+          )}
           {!professors?.isLoading && (
             <FormField
               control={form.control}
               name="professor"
-              render={({ field }) => (
+              render={({ field }: any) => (
                 <FormItem className="block md:flex md:flex-col">
                   <div className="space-y-0.5 block md:flex md:flex-row items-center justify-between rounded-lg md:border md:p-4 text-foreground">
                     <div className="space-y-0.5 pb-2 md:pb-0">
@@ -237,12 +249,25 @@ export default function TicketForm() {
               )}
             />
           )}
+          {courses?.isFetching && (
+          <div className="space-y-0.5 block md:flex md:flex-row items-center justify-between rounded-lg md:border md:p-4 text-foreground">
+                    <div className="space-y-0.5 pb-2 md:pb-0">
+                    <FormLabel>Course</FormLabel>
+                      <FormDescription className="hidden md:block">
+                      Select the course that you are coming in for help with.
+                      </FormDescription>
+                      </div>
+                    <div className="">
+                    <LoadingSelect />
+                    </div>
+                    </div>
+          )}
           {!courses?.isLoading && (
             <FormField
               control={form.control}
               name="course"
               key="course_field"
-              render={({ field }) => (
+              render={({ field }: any) => (
                 <FormItem className="flex flex-col" key="course_form_item">
                   <div className="space-y-0.5 block md:flex md:flex-row items-center justify-between rounded-lg md:border md:p-4 text-foreground">
                     <div className="space-y-0.5 pb-2 md:pb-0">
@@ -324,12 +349,25 @@ export default function TicketForm() {
               )}
             />
           )}
+          {issues?.isFetching && (
+          <div className="space-y-0.5 block md:flex md:flex-row items-center justify-between rounded-lg md:border md:p-4 text-foreground">
+                    <div className="space-y-0.5 pb-2 md:pb-0">
+                    <FormLabel>Issue</FormLabel>
+                      <FormDescription className="hidden md:block">
+                      Select the Issue that you are having.
+                      </FormDescription>
+                      </div>
+                    <div className="">
+                    <LoadingSelect />
+                    </div>
+                    </div>
+          )}
           {!issues?.isLoading && (
             <FormField
               control={form.control}
               name="issue"
               key="issue_field"
-              render={({ field }) => (
+              render={({ field }: any) => (
                 <FormItem className="flex flex-col" key="issue_form_item">
                   <div className="space-y-0.5 block md:flex md:flex-row items-center justify-between rounded-lg md:border md:p-4 text-foreground">
                     <div className="space-y-0.5 pb-2 md:pb-0">
@@ -418,7 +456,7 @@ export default function TicketForm() {
           <FormField
             control={form.control}
             name="title"
-            render={({ field }) => (
+            render={({ field }: any) => (
               <FormItem>
                 <FormLabel className="text-foreground">Brief Summary</FormLabel>
                 <FormControl>
@@ -429,7 +467,7 @@ export default function TicketForm() {
                   />
                 </FormControl>
                 <FormDescription>
-                  Please explain your current troubles in a couple of words.
+                  Please state your assignment and briefly explain your issue.
                 </FormDescription>
                 <FormMessage className="text-warning" />
               </FormItem>
@@ -438,7 +476,7 @@ export default function TicketForm() {
           <FormField
             control={form.control}
             name="description"
-            render={({ field }) => (
+            render={({ field }: any) => (
               <FormItem>
                 <FormLabel className="text-foreground">
                   Ticket Description
