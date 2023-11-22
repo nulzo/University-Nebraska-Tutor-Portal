@@ -15,7 +15,7 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useForm } from 'react-hook-form';
+import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
@@ -158,17 +158,17 @@ export default function TicketForm() {
             )}
           />
           {professors?.isFetching && (
-          <div className="space-y-0.5 block md:flex md:flex-row items-center justify-between rounded-lg md:border md:p-4 text-foreground">
-                    <div className="space-y-0.5 pb-2 md:pb-0">
-                    <FormLabel>Professor</FormLabel>
-                      <FormDescription className="hidden md:block">
-                        Select the professor teaching the course.
-                      </FormDescription>
-                      </div>
-                    <div className="">
-                    <LoadingSelect />
-                    </div>
-                    </div>
+            <div className="space-y-0.5 block md:flex md:flex-row items-center justify-between rounded-lg md:border md:p-4 text-foreground">
+              <div className="space-y-0.5 pb-2 md:pb-0">
+                <FormLabel>Professor</FormLabel>
+                <FormDescription className="hidden md:block">
+                  Select the professor teaching the course.
+                </FormDescription>
+              </div>
+              <div className="">
+                <LoadingSelect />
+              </div>
+            </div>
           )}
           {!professors?.isLoading && (
             <FormField
@@ -250,17 +250,17 @@ export default function TicketForm() {
             />
           )}
           {courses?.isFetching && (
-          <div className="space-y-0.5 block md:flex md:flex-row items-center justify-between rounded-lg md:border md:p-4 text-foreground">
-                    <div className="space-y-0.5 pb-2 md:pb-0">
-                    <FormLabel>Course</FormLabel>
-                      <FormDescription className="hidden md:block">
-                      Select the course that you are coming in for help with.
-                      </FormDescription>
-                      </div>
-                    <div className="">
-                    <LoadingSelect />
-                    </div>
-                    </div>
+            <div className="space-y-0.5 block md:flex md:flex-row items-center justify-between rounded-lg md:border md:p-4 text-foreground">
+              <div className="space-y-0.5 pb-2 md:pb-0">
+                <FormLabel>Course</FormLabel>
+                <FormDescription className="hidden md:block">
+                  Select the course that you are coming in for help with.
+                </FormDescription>
+              </div>
+              <div className="">
+                <LoadingSelect />
+              </div>
+            </div>
           )}
           {!courses?.isLoading && (
             <FormField
@@ -350,17 +350,17 @@ export default function TicketForm() {
             />
           )}
           {issues?.isFetching && (
-          <div className="space-y-0.5 block md:flex md:flex-row items-center justify-between rounded-lg md:border md:p-4 text-foreground">
-                    <div className="space-y-0.5 pb-2 md:pb-0">
-                    <FormLabel>Issue</FormLabel>
-                      <FormDescription className="hidden md:block">
-                      Select the Issue that you are having.
-                      </FormDescription>
-                      </div>
-                    <div className="">
-                    <LoadingSelect />
-                    </div>
-                    </div>
+            <div className="space-y-0.5 block md:flex md:flex-row items-center justify-between rounded-lg md:border md:p-4 text-foreground">
+              <div className="space-y-0.5 pb-2 md:pb-0">
+                <FormLabel>Issue</FormLabel>
+                <FormDescription className="hidden md:block">
+                  Select the Issue that you are having.
+                </FormDescription>
+              </div>
+              <div className="">
+                <LoadingSelect />
+              </div>
+            </div>
           )}
           {!issues?.isLoading && (
             <FormField
