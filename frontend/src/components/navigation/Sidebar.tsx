@@ -25,7 +25,7 @@ import {
 import { useIsAuthenticated, useMsal } from "@azure/msal-react";
 import { useQueryClient } from "@tanstack/react-query";
 
-const isAdmin = false;
+const isAdmin = true;
 const isTutor = true;
 const isStudent = false;
 const isDeveloper = false;
@@ -108,6 +108,9 @@ export function Sidebar({ isPopout = false }: any) {
                 height={20}
                 strokeWidth={stroke_width}
               />
+            }
+            notification={
+              Object(useQueryClient().getQueryData(["new-ticket"])).length !== 0
             }
           />
           <Navlink
@@ -502,21 +505,21 @@ export function Sidebar({ isPopout = false }: any) {
               <div className="">
                 <HomeSection />
                 {/* If the user is an admin */}
-                {isAdmin && !(isTutor || isStudent) && (
+                {isAdmin && (
                   <>
                     <AdminSection />
                     <GeneralSection />
                   </>
                 )}
                 {/* If the user is a tutor */}
-                {isTutor && !(isStudent || isAdmin) && (
+                {isTutor && (
                   <>
                     <TutorSection />
                     <GeneralSection />
                   </>
                 )}
                 {/* If the user is a student */}
-                {isStudent && !(isTutor || isAdmin) && <GeneralSection />}
+                {isStudent && <GeneralSection />}
                 {/* If the user is a developer */}
                 {isDeveloper && <DevSettings />}
                 {isAuthenticated && <AccountSettings />}
