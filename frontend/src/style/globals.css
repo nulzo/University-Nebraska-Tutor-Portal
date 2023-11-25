@@ -32,6 +32,7 @@
     --radius: 0.5rem;
     --error: 358 72% 50%;
     --success: 132 50% 33%;
+    --notification: 358 79% 47%;
   }
 
   .dark {
@@ -61,7 +62,7 @@
     --border: 240 0% 30%;
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
-    --notification: 328 100% 71%;
+    --notification: 330 81% 60%;
     --success: 122, 43%, 59%;
     --error: 0 100% 56%;
   }

@@ -1,4 +1,3 @@
-import { Checkbox } from "@/components/ui/checkbox";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
@@ -35,81 +34,6 @@ import { Command, CommandEmpty, CommandGroup } from "@/components/ui/command";
 import Header from "@/components/typography/Header";
 import { Separator } from "@/components/ui/separator";
 import { format } from "date-fns";
-
-const items = [
-  {
-    id: "url",
-    label: "URL",
-  },
-  {
-    id: "student",
-    label: "Student",
-  },
-  {
-    id: "email",
-    label: "Email",
-  },
-  {
-    id: "firstname",
-    label: "First Name",
-  },
-  {
-    id: "lastname",
-    label: "Last Name",
-  },
-  {
-    id: "assignment",
-    label: "Assignment",
-  },
-  {
-    id: "question",
-    label: "Question",
-  },
-  {
-    id: "problemtype",
-    label: "Problem Type",
-  },
-  {
-    id: "status",
-    label: "Status",
-  },
-  {
-    id: "timecreated",
-    label: "Time Created",
-  },
-  {
-    id: "timeclosed",
-    label: "Time Closed",
-  },
-  {
-    id: "success",
-    label: "Was Successful",
-  },
-  {
-    id: "primarytutor",
-    label: "Primary Tutor",
-  },
-  {
-    id: "assistanttutor",
-    label: "Assistant Tutor",
-  },
-  {
-    id: "semester",
-    label: "Semester",
-  },
-  {
-    id: "coursenumber",
-    label: "Course Number",
-  },
-  {
-    id: "sectionnumber",
-    label: "Section Number",
-  },
-  {
-    id: "professor",
-    label: "Professor",
-  },
-] as const;
 
 const FormSchema = z.object({
   items: z.array(z.string()).refine((value) => value.some((item) => item), {
@@ -160,15 +84,11 @@ export default function AdminDownloadView() {
 
   return (
     <>
-      <Header
-        text="Download Tutoring Portal History"
-        subtext="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-      />
+      <Header text="Download Tutoring Portal History" subtext="" />
       <Tabs defaultValue="download" className="space-y-4 text-foreground">
         <TabsList>
-          <TabsTrigger value="download">Download</TabsTrigger>
-          <TabsTrigger value="query">Custom Query</TabsTrigger>
-          <TabsTrigger value="single">By Entity</TabsTrigger>
+          <TabsTrigger value="download">Download by Date</TabsTrigger>
+          <TabsTrigger value="query">Download by Entity</TabsTrigger>
         </TabsList>
         <TabsContent value="download" className="space-y-4">
           <div>
@@ -186,7 +106,7 @@ export default function AdminDownloadView() {
               <FormField
                 control={form.control}
                 name="dateTo"
-                render={({ field }) => (
+                render={({ field }: any) => (
                   <FormItem>
                     <div className="mb-4">
                       <FormLabel className="text-base">Select Date</FormLabel>
@@ -445,118 +365,6 @@ export default function AdminDownloadView() {
                       </Button>
                     </FormItem>
                   </>
-                )}
-              />
-            </form>
-          </Form>
-        </TabsContent>
-        <TabsContent value="single" className="space-y-4">
-          <div>
-            <div className="font-medium">Download Via Custom Query</div>
-            <div className="text-sm text-muted-foreground tracking-tight">
-              Write your own code to query the db (resonsably).
-            </div>
-          </div>
-          <Separator />
-          <Form {...form}>
-            <form
-              onSubmit={form.handleSubmit(onSubmit)}
-              className="space-y-8 text-foreground"
-            >
-              <FormField
-                control={form.control}
-                name="items"
-                render={() => (
-                  <FormItem>
-                    <div className="mb-4">
-                      <FormLabel className="text-base">Download Data</FormLabel>
-                      <FormDescription>
-                        Select the items you want to include in your csv file
-                        (header goes top to bottom as left to right).
-                      </FormDescription>
-                    </div>
-                    {items.map((item) => (
-                      <FormField
-                        key={item.id}
-                        control={form.control}
-                        name="items"
-                        render={({ field }) => {
-                          return (
-                            <FormItem
-                              key={item.id}
-                              className="flex flex-row items-start space-x-3 space-y-0"
-                            >
-                              <FormControl>
-                                <Checkbox
-                                  checked={field.value?.includes(item.id)}
-                                  onCheckedChange={(checked) => {
-                                    return checked
-                                      ? field.onChange([
-                                          ...field.value,
-                                          item.id,
-                                        ])
-                                      : field.onChange(
-                                          field.value?.filter(
-                                            (value) => value !== item.id,
-                                          ),
-                                        );
-                                  }}
-                                />
-                              </FormControl>
-                              <FormLabel className="text-sm font-normal">
-                                {item.label}
-                              </FormLabel>
-                            </FormItem>
-                          );
-                        }}
-                      />
-                    ))}
-                    <FormMessage />
-                    <div className="flex content-center pt-5 pl-5 pb-2">
-                      <div className="col-span-3 items-center content-center">
-                        <FormItem>
-                          <FormControl>
-                            <Input
-                              placeholder="Enter your date"
-                              className="rounded-none rounded-l-lg"
-                              onChange={(event) => {
-                                setFilename(event.target.value);
-                                form.setValue("filename", event.target.value);
-                              }}
-                              value={filename}
-                            />
-                          </FormControl>
-                          <FormDescription>
-                            This is the name that the file will be downloaded
-                            to.
-                          </FormDescription>
-                        </FormItem>
-                      </div>
-                      <div className="flex flex-wrap col-span-1 content-start items-center ">
-                        <FormItem>
-                          <Select
-                            onValueChange={(event) => {
-                              form.setValue("extension", event);
-                            }}
-                          >
-                            <SelectTrigger className="w-fit rounded-none border-l-0 rounded-r-lg">
-                              <SelectValue placeholder=".csv" />
-                            </SelectTrigger>
-                            <SelectContent>
-                              <SelectGroup>
-                                <SelectItem value="csv">.csv</SelectItem>
-                                <SelectItem value="xlsx">.xslx</SelectItem>
-                                <SelectItem value="xml">.xml</SelectItem>
-                              </SelectGroup>
-                            </SelectContent>
-                          </Select>
-                        </FormItem>
-                      </div>
-                    </div>
-                    <Button type="submit" className="ml-5 mt-5">
-                      Download Data
-                    </Button>
-                  </FormItem>
                 )}
               />
             </form>

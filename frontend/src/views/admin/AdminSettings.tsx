@@ -1,5 +1,7 @@
 import Header from "@/components/typography/Header";
-import { Card } from "@/components/ui/card";
+import { CardDescription } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function AdminSettings() {
@@ -12,12 +14,19 @@ export default function AdminSettings() {
       <Tabs defaultValue="tutor">
         <TabsList className="w-fit">
           <TabsTrigger value="tutor">Tutors</TabsTrigger>
-          <TabsTrigger value="hour">Hours</TabsTrigger>
+          <TabsTrigger value="hour">CSLC Hours</TabsTrigger>
           <TabsTrigger value="current">Current</TabsTrigger>
           <TabsTrigger value="upcoming">Upcoming</TabsTrigger>
         </TabsList>
         <TabsContent value="tutor">
-          <Card></Card>
+          <Label className="text-base text-foreground">
+            Add, Remove, and Modify Tutors
+          </Label>
+          <CardDescription>
+            Change the permissions of tutors, modify tutor hours, and add new
+            tutors.
+          </CardDescription>
+          <Separator className="mb-4 mt-2" />
         </TabsContent>
       </Tabs>
     </div>

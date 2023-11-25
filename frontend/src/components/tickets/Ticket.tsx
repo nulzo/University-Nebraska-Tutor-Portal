@@ -24,20 +24,16 @@ export default function Ticket({ ticket }: any) {
                 width={16}
                 height={16}
                 viewBox="0 0 24 24"
-                className="text-yellow-500 absolute"
+                className="text-notification absolute"
               />
-              <span className="bg-purple-400 animate-notif">
+              <span className="bg-notification animate-notif">
                 <CircleDashedIcon
                   width={16}
                   height={16}
                   viewBox="0 0 24 24"
-                  className="text-yellow-200"
+                  className="text-notification brightness-200"
                 />
               </span>
-              {/* <span className="relative flex h-3 w-3">
-                <span className="animate-notif absolute inline-flex h-full w-full rounded-full text-yellow-400 opacity-75"><CircleDashedIcon /></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 text-yellow-500"><CircleDashedIcon /></span>
-              </span> */}
             </div>
           )}
           {ticket.status === "OPENED" && <CircleIcon size="15" />}

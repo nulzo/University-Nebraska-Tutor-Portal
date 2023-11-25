@@ -86,7 +86,9 @@ export default function Navbar() {
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <Button variant="outline" size="icon">
-                      <GithubIcon size={20} />
+                      <a href="https://github.com/nulzo/University-Nebraska-Tutor-Portal">
+                        <GithubIcon size={20} />
+                      </a>
                     </Button>
                   </TooltipTrigger>
                   <TooltipContent className="bg-background border border-border text-foreground">
