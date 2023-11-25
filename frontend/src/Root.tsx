@@ -2,8 +2,11 @@ import { Outlet } from "react-router-dom";
 import { Sidebar } from "@/components/navigation/Sidebar";
 import Navbar from "@/components/navigation/Navbar";
 import { Toaster } from "@/components/ui/toaster";
+import useFetchTicket from "./API/tickets/useFetchTicket";
 
 export default function Root() {
+  // eslint-disable-next-line
+  const tickets = useFetchTicket("new", "?status=NEW");
   return (
     <div className="bg-background">
       <Navbar />

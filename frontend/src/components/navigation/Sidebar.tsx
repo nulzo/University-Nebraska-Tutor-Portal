@@ -23,6 +23,7 @@ import {
   LogInIcon,
 } from "lucide-react";
 import { useIsAuthenticated, useMsal } from "@azure/msal-react";
+import { useQueryClient } from "@tanstack/react-query";
 
 const isAdmin = false;
 const isTutor = true;
@@ -65,6 +66,7 @@ export function Sidebar({ isPopout = false }: any) {
               shapeRendering={shape_rendering}
             />
           }
+          // notification={Object(useQueryClient().getQueryData(['new-ticket'])).length !== 0}
         />
         <Navlink
           className="w-full justify-start"
@@ -225,15 +227,6 @@ export function Sidebar({ isPopout = false }: any) {
           Tutor Panel
         </h2>
         <div>
-          {/*{useQueryClient().getQueryCache().get('["open-ticket"]')?.state*/}
-          {/*  .data &&*/}
-          {/*  useQueryClient().getQueryCache().get('["open-ticket"]')?.state?.data*/}
-          {/*    ?.length && (*/}
-          {/*    <div className="relative flex p-0 m-0">*/}
-          {/*      <span className="animate-ping p-0 m-0 top-3 left-3 h-3 w-3 absolute inline-flex rounded-full bg-notification opacity-75"></span>*/}
-          {/*      <span className="relative inline-flex p-0 m-0 top-3 left-3 rounded-full h-3 w-3 bg-notification"></span>*/}
-          {/*    </div>*/}
-          {/*  )}*/}
           <Navlink
             className="w-full justify-start"
             isActive={path === "/tutor/dashboard"}
@@ -247,6 +240,9 @@ export function Sidebar({ isPopout = false }: any) {
                 height={20}
                 strokeWidth={stroke_width}
               />
+            }
+            notification={
+              Object(useQueryClient().getQueryData(["new-ticket"])).length !== 0
             }
           />
         </div>
