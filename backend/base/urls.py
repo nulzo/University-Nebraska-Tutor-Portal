@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from api.endpoints import course, issue, professor, section, ticket, user
+from api.endpoints import course, issue, professor, section, ticket, user, authenticate
 
 urlpatterns = [
     # API Config URLS
@@ -63,6 +63,8 @@ urlpatterns = [
     # Hours URLS
     # path("api/hours/"),
     # path("api/hours/<str:hour_pk"),
+    # Authentication
+    path("api/authenticate/", view=authenticate.APIAuthenticateList.as_view()),
     # Message URLS
     # path("api/messages/", view=routing.APIMessageView.as_view()),
     # path("api/messages/<str:message_id>", view=routing.MessageViewSet.as_view()),
@@ -70,6 +72,7 @@ urlpatterns = [
     # path("api/announcements/")
     # path("api/announcements/<str:annonucement_id>")
     # Course URLS
-    path("api/courses/", view=course.APICourseList.as_view(), name="Course List View"),
+    path("api/courses/", view=course.APICourseList.as_view(),
+         name="Course List View"),
     # path("api/courses/<str:course_pk>", view=routing.MessageViewSet.as_view()),
 ]

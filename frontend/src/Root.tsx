@@ -3,10 +3,22 @@ import { Sidebar } from "@/components/navigation/Sidebar";
 import Navbar from "@/components/navigation/Navbar";
 import { Toaster } from "@/components/ui/toaster";
 import useFetchTicket from "./API/tickets/useFetchTicket";
+import fetchOrCreateUser from "./API/authenticateRequests";
+import { useAccount, useIsAuthenticated, useMsal } from "@azure/msal-react";
 
 export default function Root() {
+  const isAuthenticated = useIsAuthenticated();
+  const { accounts } = useMsal();
+  const account = useAccount(accounts[0] || {});
   // eslint-disable-next-line
   const tickets = useFetchTicket("new", "?status=NEW");
+  if (isAuthenticated) {
+    const user = fetchOrCreateUser({
+      "name": account?.name,
+      "email": account?.username,
+      "MSOID": account?.idTokenClaims?.oid
+    });
+  }
   return (
     <div className="bg-background">
       <Navbar />

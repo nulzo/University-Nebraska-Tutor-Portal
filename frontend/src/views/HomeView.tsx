@@ -1,3 +1,4 @@
+import fetchOrCreateUser from "@/API/authenticateRequests";
 import Header from "@/components/typography/Header";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -12,6 +13,7 @@ import { useIsAuthenticated } from "@azure/msal-react";
 
 export default function HomeView() {
   const isAuthenticated = useIsAuthenticated();
+
   return (
     <div className="text-foreground">
       {isAuthenticated && (

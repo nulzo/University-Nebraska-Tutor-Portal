@@ -25,7 +25,7 @@ import {
 import { useIsAuthenticated, useMsal } from "@azure/msal-react";
 import { useQueryClient } from "@tanstack/react-query";
 
-const isAdmin = true;
+const isAdmin = false;
 const isTutor = true;
 const isStudent = false;
 const isDeveloper = false;
@@ -66,7 +66,7 @@ export function Sidebar({ isPopout = false }: any) {
               shapeRendering={shape_rendering}
             />
           }
-          // notification={Object(useQueryClient().getQueryData(['new-ticket'])).length !== 0}
+        // notification={Object(useQueryClient().getQueryData(['new-ticket'])).length !== 0}
         />
         <Navlink
           className="w-full justify-start"
@@ -512,14 +512,13 @@ export function Sidebar({ isPopout = false }: any) {
                   </>
                 )}
                 {/* If the user is a tutor */}
-                {isTutor && (
+                {isTutor && isAuthenticated && (
                   <>
                     <TutorSection />
-                    <GeneralSection />
                   </>
                 )}
                 {/* If the user is a student */}
-                {isStudent && <GeneralSection />}
+                <GeneralSection />
                 {/* If the user is a developer */}
                 {isDeveloper && <DevSettings />}
                 {isAuthenticated && <AccountSettings />}

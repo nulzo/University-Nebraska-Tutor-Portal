@@ -104,11 +104,11 @@ const router = createBrowserRouter([
         path: "sandbox/",
         element: <DevSandbox />,
       },
+      {
+        path: "login/",
+        element: <LoginView />,
+      },
     ],
-  },
-  {
-    path: "login/",
-    element: <LoginView />,
   },
 ]);
 

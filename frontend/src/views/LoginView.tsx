@@ -4,17 +4,18 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Link } from "@radix-ui/themes";
 import UNO from "@/components/assets/UNO";
-import { useIsAuthenticated } from "@azure/msal-react";
+import { useAccount, useIsAuthenticated } from "@azure/msal-react";
 import { useMsal } from "@azure/msal-react";
 import { loginRequest } from "../authConfig";
 import MicrosoftIcon from "@/components/assets/MicrosoftIcon";
 import { useNavigate } from "react-router-dom";
 
-interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> { }
 
 export default function LoginView({ className, ...props }: UserAuthFormProps) {
   const isAuthenticated = useIsAuthenticated();
-  const { instance } = useMsal();
+  const { instance, accounts, inProgress } = useMsal();
+  const account = useAccount(accounts[0] || {});
   const [isAuthCompleted, setIsAuthCompleted] = React.useState(false);
   const navigate = useNavigate();
 
@@ -23,17 +24,16 @@ export default function LoginView({ className, ...props }: UserAuthFormProps) {
       navigate("/home");
     }
   }, [isAuthCompleted, isAuthenticated]);
-  const handleLogin = () => {
-    instance.loginPopup(loginRequest).catch((e) => {
-      console.log(e);
-    });
-    setIsAuthCompleted(true);
+
+  const handleLogin = async () => {
+    await instance.loginPopup(loginRequest);
   };
 
   async function onSubmit(event: React.SyntheticEvent) {
     event.preventDefault();
-    handleLogin();
-  }
+    await handleLogin();
+    setIsAuthCompleted(true);
+  };
 
   return (
     <>
