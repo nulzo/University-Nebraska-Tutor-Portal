@@ -13,10 +13,11 @@ export default function Root() {
   // eslint-disable-next-line
   const tickets = useFetchTicket("new", "?status=NEW");
   if (isAuthenticated) {
+    // eslint-disable-next-line
     const user = fetchOrCreateUser({
-      "name": account?.name,
-      "email": account?.username,
-      "MSOID": account?.idTokenClaims?.oid
+      name: account?.name,
+      email: account?.username,
+      MSOID: account?.idTokenClaims?.oid,
     });
   }
   return (

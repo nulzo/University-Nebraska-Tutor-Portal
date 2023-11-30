@@ -1,4 +1,3 @@
-import fetchOrCreateUser from "@/API/authenticateRequests";
 import Header from "@/components/typography/Header";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
