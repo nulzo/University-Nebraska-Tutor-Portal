@@ -74,7 +74,7 @@ class ParseSemester:
             if len(row["instructor"]) <= 1:
                 continue
             # Get the professor ID (Some professors have two last names, so we need to check for that)
-            professor_id = (
+            professor_id: str = (
                 row["instructor"][2]
                 if (1 < len(row["instructor"]) <= 3)
                 else row["instructor"][3]
