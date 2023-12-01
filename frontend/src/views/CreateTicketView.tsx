@@ -1,4 +1,4 @@
-import TicketForm from "@/components/forms/TicketForm";
+import TicketForm from "@/forms/TicketForm";
 import Header from "@/components/typography/Header";
 import { Separator } from "@/components/ui/separator";
 

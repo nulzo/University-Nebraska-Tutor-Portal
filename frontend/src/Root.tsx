@@ -12,13 +12,6 @@ export default function Root() {
   const account = useAccount(accounts[0] || {});
   // eslint-disable-next-line
   const tickets = useFetchTicket("new", "?status=NEW");
-  if (isAuthenticated) {
-    const user = fetchOrCreateUser({
-      "name": account?.name,
-      "email": account?.username,
-      "MSOID": account?.idTokenClaims?.oid
-    });
-  }
   return (
     <div className="bg-background">
       <Navbar />

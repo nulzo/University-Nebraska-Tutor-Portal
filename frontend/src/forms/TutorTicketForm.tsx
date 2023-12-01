@@ -32,6 +32,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 // import useFetchTutor from "@/API/tutors/useFetchTutor";
 import TextareaField from "../components/fields/TextareaField";
 import DropdownField from "../components/fields/DropdownField";
+import useFetchTutor from "@/API/tutors/useFetchTutor";
 
 function DetailLink({ label, content }: any) {
   return (
@@ -45,6 +46,7 @@ function DetailLink({ label, content }: any) {
 const FormSchema = z.object({
   description: z.string().min(4).max(500),
   status: z.string().min(1).max(10),
+  tutor: z.string().min(2).max(50)
 });
 
 function onSubmit(data: z.infer<typeof FormSchema>) {
@@ -52,13 +54,15 @@ function onSubmit(data: z.infer<typeof FormSchema>) {
 }
 
 export default function TutorTicketForm({ ticket }: any) {
-  // const tutors = useFetchTutor();
+  const tutors = useFetchTutor();
+  console.log(tutors?.data)
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
       description: ticket.description,
       status: ticket.status,
+      tutor: "Tutor"
     },
   });
 
@@ -164,9 +168,9 @@ export default function TutorTicketForm({ ticket }: any) {
                           name={"status"}
                           value={ticket.status}
                           items={[
-                            { value: "todo", text: "New" },
-                            { value: "open", text: "Claimed" },
-                            { value: "closed", text: "Closed" },
+                            { value: "NEW", text: "New" },
+                            { value: "OPENED", text: "Claimed" },
+                            { value: "CLOSED", text: "Closed" },
                           ]}
                         />
                       </div>
@@ -221,7 +225,13 @@ export default function TutorTicketForm({ ticket }: any) {
                           Information provided by the tutor.
                         </div>
                         <Separator />
-                        <DetailLink label="Tutor" content={ticket.course} />
+                        <DetailLink label="Primary Tutor" content={
+                          <DropdownField
+                            control={form.control}
+                            name={"tutor"}
+                            value={ticket.tutor}
+                            items={tutors?.data?.map((tutor: any) => ({value: tutor.name, text: tutor.name}))}
+                          />} />
                         <DetailLink
                           label="Assistant Tutor"
                           content={ticket.course}

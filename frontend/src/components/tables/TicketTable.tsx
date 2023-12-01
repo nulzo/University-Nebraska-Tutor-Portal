@@ -1,5 +1,5 @@
-import TutorTicketForm from "../forms/TutorTicketForm";
-import { Button } from "../ui/button";
+import TutorTicketForm from "@/forms/TutorTicketForm";
+import { Button } from "@/components/ui/button";
 import {
   Table,
   TableBody,
@@ -7,7 +7,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "../ui/table";
+} from "@/components/ui/table";
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -28,7 +28,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { CaretSortIcon } from "@radix-ui/react-icons";
 import { useState } from "react";
-import { Input } from "../ui/input";
+import { Input } from "@/components/ui/input";
 import {
   CircleDashedIcon,
   CircleEqualIcon,
