@@ -124,5 +124,5 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         </ThemeProvider>
       </QueryClientProvider>
     </MsalProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );

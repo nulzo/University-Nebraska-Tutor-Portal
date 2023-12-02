@@ -44,7 +44,7 @@ export default function Zoom() {
               className="flex bg-zoom hover:bg-[#297EE5] text-white font-bold py-2 px-4 rounded"
             >
               <div className="px-2">
-                <ZoomInIcon/>
+                <ZoomInIcon />
               </div>
               Launch Zoom
             </button>

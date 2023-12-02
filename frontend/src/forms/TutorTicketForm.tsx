@@ -29,6 +29,7 @@ import DropdownField from "../components/fields/DropdownField";
 import useFetchTutor from "@/API/tutors/useFetchTutor";
 import SearchFilterField from "@/components/fields/SearchFilterField";
 import DropField from "@/components/fields/DropField";
+import CheckDropField from "@/components/fields/CheckDropField";
 
 function DetailLink({ label, content }: any) {
   return (
@@ -43,7 +44,7 @@ const FormSchema = z.object({
   description: z.string().min(4).max(500),
   status: z.string().min(1).max(10),
   tutor: z.string(),
-  was_successful: z.boolean()
+  was_successful: z.boolean(),
 });
 
 function onSubmit(data: z.infer<typeof FormSchema>) {
@@ -52,7 +53,7 @@ function onSubmit(data: z.infer<typeof FormSchema>) {
 
 export default function TutorTicketForm({ ticket }: any) {
   const tutors = useFetchTutor();
-  console.log(tutors?.data)
+  console.log(tutors?.data);
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -60,7 +61,7 @@ export default function TutorTicketForm({ ticket }: any) {
       description: ticket.description,
       status: ticket.status,
       tutor: "",
-      was_successful: ticket.was_successful
+      was_successful: ticket.was_successful,
     },
   });
 
@@ -140,26 +141,12 @@ export default function TutorTicketForm({ ticket }: any) {
                               </DropdownMenuItem>
                             </DropdownMenuContent>
                           </DropdownMenu>
-                          <DropdownMenu>
-                            <DropdownMenuTrigger asChild>
-                              <Button variant="outline" className="h-8 w-8 p-0">
-                                <span className="sr-only">Popout menu</span>
-                                <DotsHorizontalIcon className="h-4 w-4" />
-                              </Button>
-                            </DropdownMenuTrigger>
-                            <DropdownMenuContent align="end">
-                              <DropdownMenuCheckboxItem
-                                key={form.id}
-                                className="capitalize"
-                                checked={form.getValues('was_successful')}
-                                onCheckedChange={(e) =>
-                                  {form.setValue('was_successful', !form.getValues('was_successful'))}
-                                }
-                              >
-                                Successful
-                              </DropdownMenuCheckboxItem>
-                            </DropdownMenuContent>
-                          </DropdownMenu>
+                        
+                          <CheckDropField
+                            control={form.control}
+                            name="was_successful"
+                          />
+                          
                         </div>
                       </div>
                       <div>
@@ -225,15 +212,19 @@ export default function TutorTicketForm({ ticket }: any) {
                           Information provided by the tutor.
                         </div>
                         <Separator />
-                        <DetailLink label="Primary Tutor" content={
-                          <SearchFilterField
-                            control={form.control}
-                            name={"tutor"}
-                            value={ticket.tutor}
-                            form={form}
-                            key={form.id}
-                            items={tutors}
-                          />} />
+                        <DetailLink
+                          label="Primary Tutor"
+                          content={
+                            <SearchFilterField
+                              control={form.control}
+                              name={"tutor"}
+                              value={ticket.tutor}
+                              form={form}
+                              key={form.id}
+                              items={tutors}
+                            />
+                          }
+                        />
                         <DetailLink
                           label="Assistant Tutor"
                           content={
@@ -244,21 +235,24 @@ export default function TutorTicketForm({ ticket }: any) {
                               form={form}
                               key={form.id}
                               items={tutors}
-                            />}
+                            />
+                          }
                         />
                         <DetailLink
                           label="Difficulty"
-                          content={<DropField
-                            variant="difficulty"
-                          control={form.control}
-                          name={"status"}
-                          value={ticket.status}
-                          items={[
-                            { value: "EASY", text: "Easy" },
-                            { value: "MEDIUM", text: "Medium" },
-                            { value: "HARD", text: "Hard" },
-                          ]}
-                        />}
+                          content={
+                            <DropField
+                              variant="difficulty"
+                              control={form.control}
+                              name={"status"}
+                              value={ticket.status}
+                              items={[
+                                { value: "EASY", text: "Easy" },
+                                { value: "MEDIUM", text: "Medium" },
+                                { value: "HARD", text: "Hard" },
+                              ]}
+                            />
+                          }
                         />
                       </div>
                     </div>

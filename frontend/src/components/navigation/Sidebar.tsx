@@ -66,7 +66,7 @@ export function Sidebar({ isPopout = false }: any) {
               shapeRendering={shape_rendering}
             />
           }
-        // notification={Object(useQueryClient().getQueryData(['new-ticket'])).length !== 0}
+          // notification={Object(useQueryClient().getQueryData(['new-ticket'])).length !== 0}
         />
         <Navlink
           className="w-full justify-start"
