@@ -7,13 +7,13 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Separator } from "@/components/ui/separator";
-import { Switch } from "@/components/ui/switch";
 import {
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenu,
   DropdownMenuItem,
   DropdownMenuLabel,
+  DropdownMenuCheckboxItem,
 } from "../components/ui/dropdown-menu";
 import { CopyIcon, FlagIcon } from "lucide-react";
 import { DotsHorizontalIcon } from "@radix-ui/react-icons";
@@ -24,15 +24,11 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Form } from "@/components/ui/form";
 import { ScrollArea } from "@/components/ui/scroll-area";
-// import LoadingSelect from "@/components/loading/loading_select";
-// import { useMutation } from "@tanstack/react-query";
-// import { useToast } from "@/components/ui/use-toast";
-// import { createTicket } from "@/API/tickets/ticketRequests";
-// import { useNavigate } from "react-router-dom";
-// import useFetchTutor from "@/API/tutors/useFetchTutor";
 import TextareaField from "../components/fields/TextareaField";
 import DropdownField from "../components/fields/DropdownField";
 import useFetchTutor from "@/API/tutors/useFetchTutor";
+import SearchFilterField from "@/components/fields/SearchFilterField";
+import DropField from "@/components/fields/DropField";
 
 function DetailLink({ label, content }: any) {
   return (
@@ -46,7 +42,8 @@ function DetailLink({ label, content }: any) {
 const FormSchema = z.object({
   description: z.string().min(4).max(500),
   status: z.string().min(1).max(10),
-  tutor: z.string().min(2).max(50)
+  tutor: z.string(),
+  was_successful: z.boolean()
 });
 
 function onSubmit(data: z.infer<typeof FormSchema>) {
@@ -62,7 +59,8 @@ export default function TutorTicketForm({ ticket }: any) {
     defaultValues: {
       description: ticket.description,
       status: ticket.status,
-      tutor: "Tutor"
+      tutor: "",
+      was_successful: ticket.was_successful
     },
   });
 
@@ -150,14 +148,16 @@ export default function TutorTicketForm({ ticket }: any) {
                               </Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent align="end">
-                              <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                              <DropdownMenuItem
-                                onClick={() =>
-                                  navigator.clipboard.writeText(ticket.id)
+                              <DropdownMenuCheckboxItem
+                                key={form.id}
+                                className="capitalize"
+                                checked={form.getValues('was_successful')}
+                                onCheckedChange={(e) =>
+                                  {form.setValue('was_successful', !form.getValues('was_successful'))}
                                 }
                               >
-                                ...
-                              </DropdownMenuItem>
+                                Successful
+                              </DropdownMenuCheckboxItem>
                             </DropdownMenuContent>
                           </DropdownMenu>
                         </div>
@@ -226,23 +226,39 @@ export default function TutorTicketForm({ ticket }: any) {
                         </div>
                         <Separator />
                         <DetailLink label="Primary Tutor" content={
-                          <DropdownField
+                          <SearchFilterField
                             control={form.control}
                             name={"tutor"}
                             value={ticket.tutor}
-                            items={tutors?.data?.map((tutor: any) => ({value: tutor.name, text: tutor.name}))}
+                            form={form}
+                            key={form.id}
+                            items={tutors}
                           />} />
                         <DetailLink
                           label="Assistant Tutor"
-                          content={ticket.course}
+                          content={
+                            <SearchFilterField
+                              control={form.control}
+                              name={"tutor"}
+                              value={ticket.tutor}
+                              form={form}
+                              key={form.id}
+                              items={tutors}
+                            />}
                         />
                         <DetailLink
                           label="Difficulty"
-                          content={ticket.course}
-                        />
-                        <DetailLink
-                          label="Outcome"
-                          content={<Switch className="mt-1" />}
+                          content={<DropField
+                            variant="difficulty"
+                          control={form.control}
+                          name={"status"}
+                          value={ticket.status}
+                          items={[
+                            { value: "EASY", text: "Easy" },
+                            { value: "MEDIUM", text: "Medium" },
+                            { value: "HARD", text: "Hard" },
+                          ]}
+                        />}
                         />
                       </div>
                     </div>

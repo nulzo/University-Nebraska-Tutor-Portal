@@ -123,7 +123,6 @@ export default function TicketTable({ tickets }: any) {
       rowSelection,
     },
   });
-  console.log(tickets);
   if (tickets) {
     return (
       <div className="w-full px-4 pb-4">
