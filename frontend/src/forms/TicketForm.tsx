@@ -193,14 +193,14 @@ export default function TicketForm() {
                               className={cn(
                                 "w-full md:w-[35vw] lg:w-[30vw] xl:w-[40vw] justify-between",
                                 !field.value &&
-                                  "text-muted-foreground font-normal",
+                                "text-muted-foreground font-normal",
                               )}
                             >
                               {field.value
                                 ? professors?.data.find(
-                                    (professor: any) =>
-                                      professor.professor_id === field.value,
-                                  )?.full_name
+                                  (professor: any) =>
+                                    professor.professor_id === field.value,
+                                )?.full_name
                                 : "select a professor"}
                               <CaretSortIcon className="ml-2 h-4 w-4 shrink-0" />
                             </Button>
@@ -287,13 +287,13 @@ export default function TicketForm() {
                               className={cn(
                                 "w-full md:w-[35vw] lg:w-[30vw] xl:w-[40vw] justify-between",
                                 !field.value &&
-                                  "text-muted-foreground font-normal",
+                                "text-muted-foreground font-normal",
                               )}
                             >
                               {field.value
                                 ? courses?.data.find(
-                                    (course: any) => course.id === field.value,
-                                  )?.course_code
+                                  (course: any) => course.id === field.value,
+                                )?.course_code
                                 : "select a course"}
                               <CaretSortIcon
                                 key="course_sort_icon"
@@ -390,14 +390,14 @@ export default function TicketForm() {
                               className={cn(
                                 "w-full md:w-[35vw] lg:w-[30vw] xl:w-[40vw] justify-between",
                                 !field.value &&
-                                  "text-muted-foreground font-normal",
+                                "text-muted-foreground font-normal",
                               )}
                             >
                               {field.value
                                 ? issues?.data.find(
-                                    (issue: any) =>
-                                      issue.issue_id === field.value,
-                                  )?.problem_type
+                                  (issue: any) =>
+                                    issue.issue_id === field.value,
+                                )?.problem_type
                                 : "select an issue"}
                               <CaretSortIcon
                                 key="issue_sort_icon"

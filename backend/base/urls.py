@@ -29,11 +29,11 @@ urlpatterns = [
     path("api/issues/<str:pk>", view=issue.APIIssueDetail.as_view()),
     # Ticket URLS
     path("api/tickets/", view=ticket.APITicketView.as_view(), name="Tickets"),
-    # path(
-    #     "api/tickets/<str:ticket_pk>/",
-    #     view=routing.TicketDetailView.as_view(),
-    #     name="Query a Ticket",
-    # ),
+    path(
+        "api/tickets/<str:ticket_id>/",
+        view=ticket.APITicketDetail.as_view(),
+        name="Query a Ticket",
+    ),
     # Professor URLS
     path(
         "api/professors/",

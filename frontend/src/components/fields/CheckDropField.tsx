@@ -14,7 +14,6 @@ export default function CheckDropField({ control, name }: any) {
       control={control}
       name={name}
       key={name}
-      className="flex m-0 p-0 space-y-0"
       render={({ field }: any) => (
         <FormItem className="flex m-0 p-0 space-y-0">
           <DropdownMenu>

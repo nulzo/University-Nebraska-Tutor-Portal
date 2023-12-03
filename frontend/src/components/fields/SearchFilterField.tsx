@@ -41,8 +41,8 @@ export default function SearchFilterField({
                 >
                   {field.value
                     ? items?.data.find(
-                        (tutor: any) => tutor.name === field.value,
-                      )?.name
+                      (tutor: any) => tutor.MSOID === field.value,
+                    )?.name
                     : "select an issue"}
                   <CaretSortIcon
                     key="issue_sort_icon"
@@ -63,11 +63,11 @@ export default function SearchFilterField({
                   <ScrollArea className="h-fit rounded-md border">
                     {items?.data.map((tutor: any) => (
                       <CommandItem
-                        value={tutor.name}
+                        value={tutor.MSOID}
                         key={`${tutor.name}${tutor.MSOID}`}
                         onSelect={() => {
                           {
-                            form.setValue("tutor", tutor.name);
+                            form.setValue("tutor", tutor.MSOID);
                           }
                         }}
                       >
@@ -76,7 +76,7 @@ export default function SearchFilterField({
                           key={`issue-${tutor.name}-check-icon`}
                           className={cn(
                             "ml-auto h-3 w-3",
-                            tutor.name === field.value
+                            tutor.MSOID === field.value
                               ? "opacity-100"
                               : "opacity-0",
                           )}
