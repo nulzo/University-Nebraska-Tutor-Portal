@@ -1,6 +1,6 @@
 import Header from "@/components/typography/Header";
 import { Separator } from "@/components/ui/separator";
-import AnnouncementForm from "@/components/forms/AnnouncementForm";
+import AnnouncementForm from "@/forms/AnnouncementForm";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 

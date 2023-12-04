@@ -1,11 +1,11 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { ModeToggle } from '../components/forms/ModeToggle';
+import { ModeToggle } from '@/forms/ModeToggle';
 
 
 // Mock the useTheme hook
-jest.mock('../components/forms/ModeToggle', () => ({
+jest.mock('@/forms/ModeToggle', () => ({
     useTheme: () => ({
         setTheme: jest.fn(),
     }),

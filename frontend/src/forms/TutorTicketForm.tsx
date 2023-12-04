@@ -1,13 +1,11 @@
 import {
   AlertDialog,
-  AlertDialogCancel,
   AlertDialogContent,
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Separator } from "@/components/ui/separator";
-import { Switch } from "@/components/ui/switch";
 import {
   DropdownMenuTrigger,
   DropdownMenuContent,
@@ -24,14 +22,15 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Form } from "@/components/ui/form";
 import { ScrollArea } from "@/components/ui/scroll-area";
-// import LoadingSelect from "@/components/loading/loading_select";
-// import { useMutation } from "@tanstack/react-query";
-// import { useToast } from "@/components/ui/use-toast";
-// import { createTicket } from "@/API/tickets/ticketRequests";
-// import { useNavigate } from "react-router-dom";
-// import useFetchTutor from "@/API/tutors/useFetchTutor";
 import TextareaField from "../components/fields/TextareaField";
 import DropdownField from "../components/fields/DropdownField";
+import useFetchTutor from "@/API/tutors/useFetchTutor";
+import SearchFilterField from "@/components/fields/SearchFilterField";
+import DropField from "@/components/fields/DropField";
+import CheckDropField from "@/components/fields/CheckDropField";
+import { useMutation } from "@tanstack/react-query";
+import { updateTicket } from "@/API/tickets/ticketRequests";
+import { toast } from "@/components/ui/use-toast";
 
 function DetailLink({ label, content }: any) {
   return (
@@ -43,22 +42,41 @@ function DetailLink({ label, content }: any) {
 }
 
 const FormSchema = z.object({
+  id: z.number(),
   description: z.string().min(4).max(500),
   status: z.string().min(1).max(10),
+  tutor: z.string(),
+  was_successful: z.boolean(),
+  difficulty: z.string(),
 });
 
-function onSubmit(data: z.infer<typeof FormSchema>) {
-  console.log(data);
-}
-
 export default function TutorTicketForm({ ticket }: any) {
-  // const tutors = useFetchTutor();
+  const tutors = useFetchTutor();
+
+  const mutation = useMutation({
+    mutationFn: updateTicket,
+  });
+
+  function onSubmit(data: z.infer<typeof FormSchema>) {
+    mutation.mutate(data);
+    toast({
+      title: "Ticket updated!",
+      description:
+        "The ticket has successfully been updated! Thanks for being epic.",
+      className: "text-success border-success",
+    });
+    form.reset({ ...data }, { keepValues: true });
+  }
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
+      id: ticket.id,
       description: ticket.description,
       status: ticket.status,
+      tutor: "",
+      was_successful: ticket.was_successful,
+      difficulty: "",
     },
   });
 
@@ -72,10 +90,10 @@ export default function TutorTicketForm({ ticket }: any) {
           </Button>
         </AlertDialogTrigger>
         <AlertDialogContent className="bg-background max-h-[85%]">
-          <ScrollArea className="max-h-[85%]">
+          <ScrollArea className="max-h-100">
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)}>
-                <div className="mx-2">
+                <div className="mx-2 h-fit">
                   <AlertDialogHeader>
                     <div className="flex justify-between">
                       <div className="max-w-sm">
@@ -87,7 +105,7 @@ export default function TutorTicketForm({ ticket }: any) {
                             #{ticket.id}
                           </AlertDialogTitle>
                         </div>
-                        <div className="space-x-2 pt-2">
+                        <div className="flex space-x-2 pt-2">
                           <DropdownMenu>
                             <DropdownMenuTrigger asChild>
                               <Button variant="outline" className="h-8 w-8 p-0">
@@ -138,24 +156,10 @@ export default function TutorTicketForm({ ticket }: any) {
                               </DropdownMenuItem>
                             </DropdownMenuContent>
                           </DropdownMenu>
-                          <DropdownMenu>
-                            <DropdownMenuTrigger asChild>
-                              <Button variant="outline" className="h-8 w-8 p-0">
-                                <span className="sr-only">Popout menu</span>
-                                <DotsHorizontalIcon className="h-4 w-4" />
-                              </Button>
-                            </DropdownMenuTrigger>
-                            <DropdownMenuContent align="end">
-                              <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                              <DropdownMenuItem
-                                onClick={() =>
-                                  navigator.clipboard.writeText(ticket.id)
-                                }
-                              >
-                                ...
-                              </DropdownMenuItem>
-                            </DropdownMenuContent>
-                          </DropdownMenu>
+                          <CheckDropField
+                            control={form.control}
+                            name="was_successful"
+                          />
                         </div>
                       </div>
                       <div>
@@ -164,9 +168,9 @@ export default function TutorTicketForm({ ticket }: any) {
                           name={"status"}
                           value={ticket.status}
                           items={[
-                            { value: "todo", text: "New" },
-                            { value: "open", text: "Claimed" },
-                            { value: "closed", text: "Closed" },
+                            { value: "NEW", text: "New" },
+                            { value: "OPENED", text: "Claimed" },
+                            { value: "CLOSED", text: "Closed" },
                           ]}
                         />
                       </div>
@@ -188,7 +192,7 @@ export default function TutorTicketForm({ ticket }: any) {
                             max_length={500}
                           />
                         </div>
-                        <div className="">
+                        <div className="mt-6">
                           <div className="font-medium text-sm text-foreground">
                             Comments
                           </div>
@@ -196,6 +200,7 @@ export default function TutorTicketForm({ ticket }: any) {
                             Share some comments for yourself or other tutors.
                             Comments only viewable by tutors and admins.
                           </div>
+                          <Separator className="mb-4" />
                           <Input className="focus:border-none" />
                         </div>
                       </div>
@@ -221,26 +226,74 @@ export default function TutorTicketForm({ ticket }: any) {
                           Information provided by the tutor.
                         </div>
                         <Separator />
-                        <DetailLink label="Tutor" content={ticket.course} />
+                        <DetailLink
+                          label="Primary Tutor"
+                          content={
+                            <SearchFilterField
+                              control={form.control}
+                              name={"tutor"}
+                              value={ticket.tutor}
+                              form={form}
+                              key={form.id}
+                              items={tutors}
+                              submit={onSubmit}
+                            />
+                          }
+                        />
                         <DetailLink
                           label="Assistant Tutor"
-                          content={ticket.course}
+                          content={
+                            <SearchFilterField
+                              control={form.control}
+                              name={"tutor"}
+                              value={ticket.tutor}
+                              form={form}
+                              key={form.id}
+                              items={tutors}
+                            />
+                          }
                         />
                         <DetailLink
                           label="Difficulty"
-                          content={ticket.course}
+                          content={
+                            <DropField
+                              variant="difficulty"
+                              control={form.control}
+                              name={"difficulty"}
+                              value={ticket.status}
+                              items={[
+                                { value: "EASY", text: "Easy" },
+                                { value: "MEDIUM", text: "Medium" },
+                                { value: "HARD", text: "Hard" },
+                              ]}
+                            />
+                          }
                         />
-                        <DetailLink
-                          label="Outcome"
-                          content={<Switch className="mt-1" />}
-                        />
+                        <div className="flex justify-end space-x-2">
+                          <Button
+                            onClick={() => form.resetField("description")}
+                            disabled={!form.formState.isDirty}
+                            variant="outline"
+                            className={`mt-4 border-warning/50 text-warning hover:bg-warning/20 hover:text-warning ${
+                              !form.formState.isDirty && "hidden"
+                            }`}
+                          >
+                            Discard
+                          </Button>
+                          <Button
+                            type="submit"
+                            disabled={!form.formState.isDirty}
+                            variant="outline"
+                            className={`mt-4 ${
+                              !form.formState.isDirty && "hidden"
+                            }`}
+                          >
+                            Update
+                          </Button>
+                        </div>
                       </div>
                     </div>
                   </AlertDialogHeader>
-                  <div className="flex h-10 space-x-2 content-end align-baseline justify-end items-end">
-                    <AlertDialogCancel>Cancel</AlertDialogCancel>
-                    <Button type="submit">Save</Button>
-                  </div>
                 </div>
               </form>
             </Form>

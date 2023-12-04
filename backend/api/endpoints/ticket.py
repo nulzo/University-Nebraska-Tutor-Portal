@@ -10,11 +10,7 @@ from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from api.models.course import Course
-from api.models.issue import Issues
-from api.models.professor import Professor
 from api.models.ticket import Ticket
-from api.models.user import User
 from api.serializers import TicketGetSerializer, TicketSerializer
 
 # We don't need to check for duplicate class names and function names.
@@ -55,42 +51,25 @@ class APITicketView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-class APITicketList(APIView):
+class APITicketDetail(APIView):
     serializer_class = TicketGetSerializer
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
 
-    def get_querystring(self, request: Request) -> Response:
-        return request.GET
-
-    def sanitize(self, querystring: str) -> str:
-        return querystring.capitalize()
-
-    def get_professor_id(self, professor_name: str) -> Professor | None:
-        return Professor.generic.all().filter(full_name=professor_name).first()
-
-    def get_course_id(self, course_name: str) -> Course | None:
-        return Course.generic.all().filter(course_name=course_name).first()
-
-    def get_issue_id(self, issue_type: str) -> Issues | None:
-        return Issues.generic.all().filter(problem_type=issue_type).first()
-
-    def get_user_id(self, user: str) -> User | None:
-        return User.generic.all().filter(name=user).first()
-
-    def get(self, request: Request) -> Response:
-        tickets = Ticket.generic.all()
-        querystring = self.get_querystring(request=request)
-        if querystring:
-            if is_completed := querystring.get("completed"):
-                tickets = tickets.filter(completed=is_completed.capitalize())
-            if is_started := querystring.get("started"):
-                tickets = tickets.filter(started=is_started.capitalize())
-        serializer = TicketGetSerializer(tickets, many=True)
+    def get(self, request: Request, ticket_id: int) -> Response:
+        ticket = Ticket.generic.get(id=ticket_id)
+        serializer = TicketGetSerializer(ticket)
         return Response(serializer.data)
 
-    def post(self, request: Request, search: str | None = None) -> Response:
-        serializer = TicketSerializer(data=request.data)
+    def patch(self, request: Request, ticket_id: int) -> Response:
+        try:
+            ticket = Ticket.generic.get(id=ticket_id)
+        except Ticket.DoesNotExist:
+            return Response(
+                {"error": "Ticket not found"}, status=status.HTTP_404_NOT_FOUND
+            )
+
+        serializer = TicketSerializer(ticket, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+            return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

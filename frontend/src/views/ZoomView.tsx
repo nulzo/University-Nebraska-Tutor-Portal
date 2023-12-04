@@ -1,9 +1,9 @@
 import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/typography/Header";
 import { Badge } from "@/components/ui/badge";
-import ZoomIcon from "@/components/assets/ZoomIcon";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
+import { ZoomInIcon } from "lucide-react";
 
 export default function Zoom() {
   function onClick() {
@@ -16,12 +16,8 @@ export default function Zoom() {
     <>
       <Header
         text="Access Zoom"
-        subtext={
-          <>
-            Please click on the button to open Zoom and access online help from
-            our tutors in real-time.
-          </>
-        }
+        subtext="Please click on the button to open Zoom and access online help from
+            our tutors in real-time."
       />
       <Separator className="mb-4" />
       <Card className="text-foreground">
@@ -48,12 +44,7 @@ export default function Zoom() {
               className="flex bg-zoom hover:bg-[#297EE5] text-white font-bold py-2 px-4 rounded"
             >
               <div className="px-2">
-                <ZoomIcon
-                  width={24}
-                  height={24}
-                  viewBox={"0 0 24 24"}
-                  strokeWidth={2}
-                />
+                <ZoomInIcon />
               </div>
               Launch Zoom
             </button>

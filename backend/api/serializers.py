@@ -37,12 +37,9 @@ class TicketSerializer(serializers.ModelSerializer):
     professor = serializers.PrimaryKeyRelatedField(queryset=Professor.generic.all())
     course = serializers.PrimaryKeyRelatedField(queryset=Course.generic.all())
     issue = serializers.PrimaryKeyRelatedField(queryset=Issues.generic.all())
-    # student = serializers.PrimaryKeyRelatedField(
-    #     queryset=User.generic.all().filter(is_tutor=False)
-    # )
-    # tutor = serializers.PrimaryKeyRelatedField(
-    #     queryset=User.generic.all().filter(is_tutor=True)
-    # )
+    tutor = serializers.PrimaryKeyRelatedField(
+        queryset=User.generic.all().filter(is_tutor=True)
+    )
 
     class Meta:
         model = Ticket

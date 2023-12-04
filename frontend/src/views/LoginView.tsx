@@ -10,12 +10,11 @@ import { loginRequest } from "../authConfig";
 import MicrosoftIcon from "@/components/assets/MicrosoftIcon";
 import { useNavigate } from "react-router-dom";
 
-interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> { }
 
 export default function LoginView({ className, ...props }: UserAuthFormProps) {
   const isAuthenticated = useIsAuthenticated();
   const { instance } = useMsal();
-  // const account = useAccount(accounts[0] || {});
   const [isAuthCompleted, setIsAuthCompleted] = React.useState(false);
   const navigate = useNavigate();
 

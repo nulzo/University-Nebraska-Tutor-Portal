@@ -29,7 +29,7 @@ import { PublicClientApplication } from "@azure/msal-browser";
 import { MsalProvider } from "@azure/msal-react";
 import { msalConfig } from "./authConfig.ts";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { ThemeProvider } from "@/components/forms/ThemeProvider.tsx";
+import { ThemeProvider } from "@/forms/ThemeProvider.tsx";
 
 const queryClient = new QueryClient();
 

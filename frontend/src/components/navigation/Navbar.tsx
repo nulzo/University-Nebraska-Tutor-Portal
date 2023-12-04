@@ -1,5 +1,5 @@
 import { GithubIcon } from "lucide-react";
-import { ModeToggle } from "@/components/forms/ModeToggle";
+import { ModeToggle } from "@/forms/ModeToggle";
 import { Button } from "@/components/ui/button";
 import UNOIcon from "@/components/assets/UNOIcon";
 import { Separator } from "@/components/ui/separator";
