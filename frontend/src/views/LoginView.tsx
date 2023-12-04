@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Link } from "@radix-ui/themes";
 import UNO from "@/components/assets/UNO";
-import { useAccount, useIsAuthenticated } from "@azure/msal-react";
+import { useIsAuthenticated } from "@azure/msal-react";
 import { useMsal } from "@azure/msal-react";
 import { loginRequest } from "../authConfig";
 import MicrosoftIcon from "@/components/assets/MicrosoftIcon";
@@ -14,8 +14,7 @@ interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 export default function LoginView({ className, ...props }: UserAuthFormProps) {
   const isAuthenticated = useIsAuthenticated();
-  const { instance, accounts, inProgress } = useMsal();
-  const account = useAccount(accounts[0] || {});
+  const { instance } = useMsal();
   const [isAuthCompleted, setIsAuthCompleted] = React.useState(false);
   const navigate = useNavigate();
 
