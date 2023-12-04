@@ -25,7 +25,6 @@ VENV/
 ENV/
 
 # Misc stuff
-build/
 settings.json
 .python-version
 .mypy_cache/

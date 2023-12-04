@@ -1,0 +1,340 @@
+\begin{sphinxtheindex}
+\let\bigletter\sphinxstyleindexlettergroup
+\let\spxpagem \sphinxstyleindexpagemain
+\let\spxentry \sphinxstyleindexentry
+\let\spxextra \sphinxstyleindexextra
+
+  \bigletter A
+  \item \spxentry{admin}\spxextra{api.models.user.User attribute}, \hyperpage{16}
+  \item \spxentry{AdminManager}\spxextra{class in api.models.user}, \hyperpage{15}
+  \item \spxentry{api.endpoints.course}
+    \subitem \spxentry{module}, \hyperpage{3}
+  \item \spxentry{api.endpoints.issue}
+    \subitem \spxentry{module}, \hyperpage{3}
+  \item \spxentry{api.endpoints.professor}
+    \subitem \spxentry{module}, \hyperpage{4}
+  \item \spxentry{api.endpoints.section}
+    \subitem \spxentry{module}, \hyperpage{5}
+  \item \spxentry{api.endpoints.ticket}
+    \subitem \spxentry{module}, \hyperpage{5}
+  \item \spxentry{api.endpoints.user}
+    \subitem \spxentry{module}, \hyperpage{6}
+  \item \spxentry{api.models.course}
+    \subitem \spxentry{module}, \hyperpage{7}
+  \item \spxentry{api.models.issue}
+    \subitem \spxentry{module}, \hyperpage{9}
+  \item \spxentry{api.models.professor}
+    \subitem \spxentry{module}, \hyperpage{10}
+  \item \spxentry{api.models.ticket}
+    \subitem \spxentry{module}, \hyperpage{12}
+  \item \spxentry{api.models.user}
+    \subitem \spxentry{module}, \hyperpage{15}
+  \item \spxentry{APICourseList}\spxextra{class in api.endpoints.course}, \hyperpage{3}
+  \item \spxentry{APIIssueDetail}\spxextra{class in api.endpoints.issue}, \hyperpage{3}
+  \item \spxentry{APIIssueView}\spxextra{class in api.endpoints.issue}, \hyperpage{3}
+  \item \spxentry{APIProfessorDetail}\spxextra{class in api.endpoints.professor}, \hyperpage{4}
+  \item \spxentry{APIProfessorView}\spxextra{class in api.endpoints.professor}, \hyperpage{4}
+  \item \spxentry{APISectionDetail}\spxextra{class in api.endpoints.section}, \hyperpage{5}
+  \item \spxentry{APISectionView}\spxextra{class in api.endpoints.section}, \hyperpage{5}
+  \item \spxentry{APITicketDetail}\spxextra{class in api.endpoints.ticket}, \hyperpage{5}
+  \item \spxentry{APITicketView}\spxextra{class in api.endpoints.ticket}, \hyperpage{5}
+  \item \spxentry{APIUserDetail}\spxextra{class in api.endpoints.user}, \hyperpage{6}
+  \item \spxentry{APIUserView}\spxextra{class in api.endpoints.user}, \hyperpage{6}
+
+  \indexspace
+  \bigletter B
+  \item \spxentry{base}
+    \subitem \spxentry{module}, \hyperpage{22}
+  \item \spxentry{base.asgi}
+    \subitem \spxentry{module}, \hyperpage{21}
+  \item \spxentry{base.settings}
+    \subitem \spxentry{module}, \hyperpage{21}
+  \item \spxentry{base.urls}
+    \subitem \spxentry{module}, \hyperpage{21}
+  \item \spxentry{base.wsgi}
+    \subitem \spxentry{module}, \hyperpage{22}
+
+  \indexspace
+  \bigletter C
+  \item \spxentry{CLOSED}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{12}
+  \item \spxentry{closed\_at}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{12}
+  \item \spxentry{course}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{12}
+  \item \spxentry{Course}\spxextra{class in api.models.course}, \hyperpage{7}
+  \item \spxentry{Course.DoesNotExist}, \hyperpage{8}
+  \item \spxentry{Course.MultipleObjectsReturned}, \hyperpage{8}
+  \item \spxentry{course\_code}\spxextra{api.models.course.Course attribute}, \hyperpage{7, 8}
+  \item \spxentry{course\_department}\spxextra{api.models.course.Course attribute}, 
+		\hyperpage{7, 8}
+  \item \spxentry{course\_id}\spxextra{api.models.course.Course attribute}, \hyperpage{7, 8}
+  \item \spxentry{course\_id}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{12}
+  \item \spxentry{course\_name}\spxextra{api.models.course.Course attribute}, \hyperpage{7, 8}
+  \item \spxentry{courses\_taken}\spxextra{api.models.user.User attribute}, \hyperpage{16}
+  \item \spxentry{courses\_tutoring}\spxextra{api.models.user.User attribute}, \hyperpage{16}
+  \item \spxentry{created\_at}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{12}
+
+  \indexspace
+  \bigletter D
+  \item \spxentry{description}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{12}
+
+  \indexspace
+  \bigletter E
+  \item \spxentry{email}\spxextra{api.models.professor.Professor attribute}, \hyperpage{10}
+  \item \spxentry{email}\spxextra{api.models.user.User attribute}, \hyperpage{16}
+
+  \indexspace
+  \bigletter F
+  \item \spxentry{first\_name}\spxextra{api.models.professor.Professor attribute}, \hyperpage{10}
+  \item \spxentry{full\_name}\spxextra{api.models.professor.Professor attribute}, \hyperpage{10}
+
+  \indexspace
+  \bigletter G
+  \item \spxentry{generic}\spxextra{api.models.course.Course attribute}, \hyperpage{8}
+  \item \spxentry{generic}\spxextra{api.models.issue.Issues attribute}, \hyperpage{9}
+  \item \spxentry{generic}\spxextra{api.models.professor.Professor attribute}, \hyperpage{11}
+  \item \spxentry{generic}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{12}
+  \item \spxentry{generic}\spxextra{api.models.user.User attribute}, \hyperpage{16}
+  \item \spxentry{get()}\spxextra{api.endpoints.course.APICourseList method}, \hyperpage{3}
+  \item \spxentry{get()}\spxextra{api.endpoints.issue.APIIssueDetail method}, \hyperpage{3}
+  \item \spxentry{get()}\spxextra{api.endpoints.issue.APIIssueView method}, \hyperpage{3}
+  \item \spxentry{get()}\spxextra{api.endpoints.professor.APIProfessorDetail method}, \hyperpage{4}
+  \item \spxentry{get()}\spxextra{api.endpoints.professor.APIProfessorView method}, \hyperpage{4}
+  \item \spxentry{get()}\spxextra{api.endpoints.section.APISectionDetail method}, \hyperpage{5}
+  \item \spxentry{get()}\spxextra{api.endpoints.section.APISectionView method}, \hyperpage{5}
+  \item \spxentry{get()}\spxextra{api.endpoints.ticket.APITicketDetail method}, \hyperpage{5}
+  \item \spxentry{get()}\spxextra{api.endpoints.ticket.APITicketView method}, \hyperpage{5}
+  \item \spxentry{get()}\spxextra{api.endpoints.user.APIUserDetail method}, \hyperpage{6}
+  \item \spxentry{get()}\spxextra{api.endpoints.user.APIUserView method}, \hyperpage{6}
+  \item \spxentry{get\_active()}\spxextra{api.models.ticket.TicketManager method}, \hyperpage{14}
+  \item \spxentry{get\_admins()}\spxextra{api.models.user.AdminManager method}, \hyperpage{15}
+  \item \spxentry{get\_all()}\spxextra{api.models.ticket.TicketManager method}, \hyperpage{15}
+  \item \spxentry{get\_completed()}\spxextra{api.models.ticket.TicketManager method}, 
+		\hyperpage{15}
+  \item \spxentry{get\_course()}\spxextra{api.models.ticket.TicketManager method}, \hyperpage{15}
+  \item \spxentry{get\_issues()}\spxextra{api.models.issue.IssueManager method}, \hyperpage{9}
+  \item \spxentry{get\_next\_by\_created\_at()}\spxextra{api.models.ticket.Ticket method}, 
+		\hyperpage{12}
+  \item \spxentry{get\_next\_by\_updated\_at()}\spxextra{api.models.ticket.Ticket method}, 
+		\hyperpage{13}
+  \item \spxentry{get\_previous\_by\_created\_at()}\spxextra{api.models.ticket.Ticket method}, 
+		\hyperpage{13}
+  \item \spxentry{get\_previous\_by\_updated\_at()}\spxextra{api.models.ticket.Ticket method}, 
+		\hyperpage{13}
+  \item \spxentry{get\_professor()}\spxextra{api.models.professor.ProfessorManager method}, 
+		\hyperpage{11}
+  \item \spxentry{get\_professor()}\spxextra{api.models.ticket.TicketManager method}, 
+		\hyperpage{15}
+  \item \spxentry{get\_professors()}\spxextra{api.models.professor.ProfessorManager method}, 
+		\hyperpage{11}
+  \item \spxentry{get\_querystring()}\spxextra{api.endpoints.course.APICourseList method}, 
+		\hyperpage{3}
+  \item \spxentry{get\_querystring()}\spxextra{api.endpoints.professor.APIProfessorView method}, 
+		\hyperpage{4}
+  \item \spxentry{get\_querystring()}\spxextra{api.endpoints.section.APISectionView method}, 
+		\hyperpage{5}
+  \item \spxentry{get\_querystring()}\spxextra{api.endpoints.ticket.APITicketView method}, 
+		\hyperpage{6}
+  \item \spxentry{get\_querystring()}\spxextra{api.endpoints.user.APIUserView method}, 
+		\hyperpage{6}
+  \item \spxentry{get\_section()}\spxextra{api.models.ticket.TicketManager method}, \hyperpage{15}
+  \item \spxentry{get\_severity\_display()}\spxextra{api.models.issue.Issues method}, 
+		\hyperpage{10}
+  \item \spxentry{get\_status\_display()}\spxextra{api.models.ticket.Ticket method}, \hyperpage{13}
+  \item \spxentry{get\_student()}\spxextra{api.models.ticket.TicketManager method}, \hyperpage{15}
+  \item \spxentry{get\_student()}\spxextra{api.models.user.StudentManager method}, \hyperpage{15}
+  \item \spxentry{get\_students()}\spxextra{api.models.user.StudentManager method}, \hyperpage{15}
+  \item \spxentry{get\_successful()}\spxextra{api.models.ticket.TicketManager method}, 
+		\hyperpage{15}
+  \item \spxentry{get\_tutor()}\spxextra{api.models.ticket.TicketManager method}, \hyperpage{15}
+  \item \spxentry{get\_tutor()}\spxextra{api.models.user.TutorManager method}, \hyperpage{15}
+  \item \spxentry{get\_tutors()}\spxextra{api.models.user.TutorManager method}, \hyperpage{15}
+  \item \spxentry{get\_unclaimed()}\spxextra{api.models.ticket.TicketManager method}, 
+		\hyperpage{15}
+
+  \indexspace
+  \bigletter H
+  \item \spxentry{hour\_set}\spxextra{api.models.user.User attribute}, \hyperpage{16}
+
+  \indexspace
+  \bigletter I
+  \item \spxentry{id}\spxextra{api.models.course.Course attribute}, \hyperpage{8}
+  \item \spxentry{id}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{13}
+  \item \spxentry{is\_active}\spxextra{api.models.professor.Professor attribute}, \hyperpage{11}
+  \item \spxentry{is\_active}\spxextra{api.models.user.User attribute}, \hyperpage{16}
+  \item \spxentry{is\_admin}\spxextra{api.models.user.User attribute}, \hyperpage{16}
+  \item \spxentry{is\_tutor}\spxextra{api.models.user.User attribute}, \hyperpage{16}
+  \item \spxentry{is\_working}\spxextra{api.models.user.User attribute}, \hyperpage{17}
+  \item \spxentry{issue}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{13}
+  \item \spxentry{issue\_id}\spxextra{api.models.issue.Issues attribute}, \hyperpage{10}
+  \item \spxentry{issue\_id}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{13}
+  \item \spxentry{IssueManager}\spxextra{class in api.models.issue}, \hyperpage{9}
+  \item \spxentry{Issues}\spxextra{class in api.models.issue}, \hyperpage{9}
+  \item \spxentry{Issues.DoesNotExist}, \hyperpage{9}
+  \item \spxentry{Issues.MultipleObjectsReturned}, \hyperpage{9}
+
+  \indexspace
+  \bigletter L
+  \item \spxentry{last\_name}\spxextra{api.models.professor.Professor attribute}, \hyperpage{11}
+
+  \indexspace
+  \bigletter M
+  \item \spxentry{messages\_set}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{13}
+  \item \spxentry{messages\_set}\spxextra{api.models.user.User attribute}, \hyperpage{17}
+  \item \spxentry{module}
+    \subitem \spxentry{api.endpoints.course}, \hyperpage{3}
+    \subitem \spxentry{api.endpoints.issue}, \hyperpage{3}
+    \subitem \spxentry{api.endpoints.professor}, \hyperpage{4}
+    \subitem \spxentry{api.endpoints.section}, \hyperpage{5}
+    \subitem \spxentry{api.endpoints.ticket}, \hyperpage{5}
+    \subitem \spxentry{api.endpoints.user}, \hyperpage{6}
+    \subitem \spxentry{api.models.course}, \hyperpage{7}
+    \subitem \spxentry{api.models.issue}, \hyperpage{9}
+    \subitem \spxentry{api.models.professor}, \hyperpage{10}
+    \subitem \spxentry{api.models.ticket}, \hyperpage{12}
+    \subitem \spxentry{api.models.user}, \hyperpage{15}
+    \subitem \spxentry{base}, \hyperpage{22}
+    \subitem \spxentry{base.asgi}, \hyperpage{21}
+    \subitem \spxentry{base.settings}, \hyperpage{21}
+    \subitem \spxentry{base.urls}, \hyperpage{21}
+    \subitem \spxentry{base.wsgi}, \hyperpage{22}
+  \item \spxentry{MSOID}\spxextra{api.models.user.User attribute}, \hyperpage{15}
+
+  \indexspace
+  \bigletter N
+  \item \spxentry{name}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{13}
+  \item \spxentry{name}\spxextra{api.models.user.User attribute}, \hyperpage{17}
+  \item \spxentry{NEW}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{12}
+
+  \indexspace
+  \bigletter O
+  \item \spxentry{OPENED}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{12}
+  \item \spxentry{opened\_at}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{13}
+
+  \indexspace
+  \bigletter P
+  \item \spxentry{patch()}\spxextra{api.endpoints.ticket.APITicketDetail method}, \hyperpage{5}
+  \item \spxentry{post()}\spxextra{api.endpoints.course.APICourseList method}, \hyperpage{3}
+  \item \spxentry{post()}\spxextra{api.endpoints.issue.APIIssueView method}, \hyperpage{3}
+  \item \spxentry{post()}\spxextra{api.endpoints.professor.APIProfessorView method}, \hyperpage{4}
+  \item \spxentry{post()}\spxextra{api.endpoints.section.APISectionView method}, \hyperpage{5}
+  \item \spxentry{post()}\spxextra{api.endpoints.ticket.APITicketView method}, \hyperpage{6}
+  \item \spxentry{post()}\spxextra{api.endpoints.user.APIUserView method}, \hyperpage{6}
+  \item \spxentry{problem\_type}\spxextra{api.models.issue.Issues attribute}, \hyperpage{10}
+  \item \spxentry{professor}\spxextra{api.models.professor.Professor attribute}, \hyperpage{11}
+  \item \spxentry{professor}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{13}
+  \item \spxentry{Professor}\spxextra{class in api.models.professor}, \hyperpage{10}
+  \item \spxentry{Professor.DoesNotExist}, \hyperpage{10}
+  \item \spxentry{Professor.MultipleObjectsReturned}, \hyperpage{10}
+  \item \spxentry{professor\_id}\spxextra{api.models.professor.Professor attribute}, \hyperpage{11}
+  \item \spxentry{professor\_id}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{14}
+  \item \spxentry{ProfessorManager}\spxextra{class in api.models.professor}, \hyperpage{11}
+  \item \spxentry{put()}\spxextra{api.endpoints.issue.APIIssueDetail method}, \hyperpage{3}
+  \item \spxentry{put()}\spxextra{api.endpoints.professor.APIProfessorDetail method}, \hyperpage{4}
+  \item \spxentry{put()}\spxextra{api.endpoints.section.APISectionDetail method}, \hyperpage{5}
+  \item \spxentry{put()}\spxextra{api.endpoints.user.APIUserDetail method}, \hyperpage{6}
+
+  \indexspace
+  \bigletter Q
+  \item \spxentry{query\_obj()}\spxextra{api.endpoints.issue.APIIssueDetail method}, \hyperpage{3}
+  \item \spxentry{query\_obj()}\spxextra{api.endpoints.professor.APIProfessorDetail method}, 
+		\hyperpage{4}
+  \item \spxentry{query\_obj()}\spxextra{api.endpoints.section.APISectionDetail method}, 
+		\hyperpage{5}
+  \item \spxentry{query\_obj()}\spxextra{api.endpoints.user.APIUserDetail method}, \hyperpage{6}
+
+  \indexspace
+  \bigletter R
+  \item \spxentry{renderer\_classes}\spxextra{api.endpoints.course.APICourseList attribute}, 
+		\hyperpage{3}
+  \item \spxentry{renderer\_classes}\spxextra{api.endpoints.issue.APIIssueView attribute}, 
+		\hyperpage{3}
+  \item \spxentry{renderer\_classes}\spxextra{api.endpoints.professor.APIProfessorDetail attribute}, 
+		\hyperpage{4}
+  \item \spxentry{renderer\_classes}\spxextra{api.endpoints.professor.APIProfessorView attribute}, 
+		\hyperpage{4}
+  \item \spxentry{renderer\_classes}\spxextra{api.endpoints.section.APISectionDetail attribute}, 
+		\hyperpage{5}
+  \item \spxentry{renderer\_classes}\spxextra{api.endpoints.section.APISectionView attribute}, 
+		\hyperpage{5}
+  \item \spxentry{renderer\_classes}\spxextra{api.endpoints.ticket.APITicketDetail attribute}, 
+		\hyperpage{5}
+  \item \spxentry{renderer\_classes}\spxextra{api.endpoints.ticket.APITicketView attribute}, 
+		\hyperpage{6}
+  \item \spxentry{renderer\_classes}\spxextra{api.endpoints.user.APIUserDetail attribute}, 
+		\hyperpage{6}
+  \item \spxentry{renderer\_classes}\spxextra{api.endpoints.user.APIUserView attribute}, 
+		\hyperpage{6}
+
+  \indexspace
+  \bigletter S
+  \item \spxentry{sanitize()}\spxextra{api.endpoints.course.APICourseList method}, \hyperpage{3}
+  \item \spxentry{sanitize()}\spxextra{api.endpoints.professor.APIProfessorView method}, 
+		\hyperpage{4}
+  \item \spxentry{sanitize()}\spxextra{api.endpoints.section.APISectionView method}, \hyperpage{5}
+  \item \spxentry{sanitize()}\spxextra{api.endpoints.ticket.APITicketView method}, \hyperpage{6}
+  \item \spxentry{sanitize()}\spxextra{api.endpoints.user.APIUserView method}, \hyperpage{6}
+  \item \spxentry{section\_set}\spxextra{api.models.course.Course attribute}, \hyperpage{8}
+  \item \spxentry{section\_set}\spxextra{api.models.professor.Professor attribute}, \hyperpage{11}
+  \item \spxentry{serializer\_class}\spxextra{api.endpoints.course.APICourseList attribute}, 
+		\hyperpage{3}
+  \item \spxentry{serializer\_class}\spxextra{api.endpoints.issue.APIIssueView attribute}, 
+		\hyperpage{3}
+  \item \spxentry{serializer\_class}\spxextra{api.endpoints.professor.APIProfessorDetail attribute}, 
+		\hyperpage{4}
+  \item \spxentry{serializer\_class}\spxextra{api.endpoints.professor.APIProfessorView attribute}, 
+		\hyperpage{4}
+  \item \spxentry{serializer\_class}\spxextra{api.endpoints.section.APISectionDetail attribute}, 
+		\hyperpage{5}
+  \item \spxentry{serializer\_class}\spxextra{api.endpoints.section.APISectionView attribute}, 
+		\hyperpage{5}
+  \item \spxentry{serializer\_class}\spxextra{api.endpoints.ticket.APITicketDetail attribute}, 
+		\hyperpage{5}
+  \item \spxentry{serializer\_class}\spxextra{api.endpoints.ticket.APITicketView attribute}, 
+		\hyperpage{6}
+  \item \spxentry{serializer\_class}\spxextra{api.endpoints.user.APIUserDetail attribute}, 
+		\hyperpage{6}
+  \item \spxentry{serializer\_class}\spxextra{api.endpoints.user.APIUserView attribute}, 
+		\hyperpage{6}
+  \item \spxentry{severity}\spxextra{api.models.issue.Issues attribute}, \hyperpage{10}
+  \item \spxentry{status}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{14}
+  \item \spxentry{STATUS\_CHOICES}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{12}
+  \item \spxentry{student}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{14}
+  \item \spxentry{student}\spxextra{api.models.user.User attribute}, \hyperpage{17}
+  \item \spxentry{student\_id}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{14}
+  \item \spxentry{student\_nuid}\spxextra{api.models.user.User attribute}, \hyperpage{17}
+  \item \spxentry{student\_ticket}\spxextra{api.models.user.User attribute}, \hyperpage{17}
+  \item \spxentry{StudentManager}\spxextra{class in api.models.user}, \hyperpage{15}
+
+  \indexspace
+  \bigletter T
+  \item \spxentry{ticket}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{14}
+  \item \spxentry{Ticket}\spxextra{class in api.models.ticket}, \hyperpage{12}
+  \item \spxentry{Ticket.DoesNotExist}, \hyperpage{12}
+  \item \spxentry{Ticket.MultipleObjectsReturned}, \hyperpage{12}
+  \item \spxentry{ticket\_set}\spxextra{api.models.course.Course attribute}, \hyperpage{8}
+  \item \spxentry{ticket\_set}\spxextra{api.models.issue.Issues attribute}, \hyperpage{10}
+  \item \spxentry{ticket\_set}\spxextra{api.models.professor.Professor attribute}, \hyperpage{11}
+  \item \spxentry{TicketManager}\spxextra{class in api.models.ticket}, \hyperpage{14}
+  \item \spxentry{title}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{14}
+  \item \spxentry{tutor}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{14}
+  \item \spxentry{tutor}\spxextra{api.models.user.User attribute}, \hyperpage{17}
+  \item \spxentry{tutor\_id}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{14}
+  \item \spxentry{tutor\_ticket}\spxextra{api.models.user.User attribute}, \hyperpage{17}
+  \item \spxentry{TutorManager}\spxextra{class in api.models.user}, \hyperpage{15}
+
+  \indexspace
+  \bigletter U
+  \item \spxentry{updated\_at}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{14}
+  \item \spxentry{User}\spxextra{class in api.models.user}, \hyperpage{15}
+  \item \spxentry{User.DoesNotExist}, \hyperpage{15}
+  \item \spxentry{User.MultipleObjectsReturned}, \hyperpage{15}
+  \item \spxentry{user\_bio}\spxextra{api.models.user.User attribute}, \hyperpage{17}
+  \item \spxentry{usertocoursetaken}\spxextra{api.models.course.Course attribute}, \hyperpage{9}
+  \item \spxentry{usertocoursetutored}\spxextra{api.models.course.Course attribute}, \hyperpage{9}
+
+  \indexspace
+  \bigletter W
+  \item \spxentry{was\_reopened}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{14}
+  \item \spxentry{was\_successful}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{14}
+  \item \spxentry{workinghours\_set}\spxextra{api.models.user.User attribute}, \hyperpage{18}
+
+\end{sphinxtheindex}

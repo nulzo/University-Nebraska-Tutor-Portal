@@ -1,0 +1,221 @@
+\indexentry{module@\spxentry{module}!api.endpoints.course@\spxentry{api.endpoints.course}|hyperpage}{3}
+\indexentry{api.endpoints.course@\spxentry{api.endpoints.course}!module@\spxentry{module}|hyperpage}{3}
+\indexentry{APICourseList (class in api.endpoints.course)@\spxentry{APICourseList}\spxextra{class in api.endpoints.course}|hyperpage}{3}
+\indexentry{get() (api.endpoints.course.APICourseList method)@\spxentry{get()}\spxextra{api.endpoints.course.APICourseList method}|hyperpage}{3}
+\indexentry{get\_querystring() (api.endpoints.course.APICourseList method)@\spxentry{get\_querystring()}\spxextra{api.endpoints.course.APICourseList method}|hyperpage}{3}
+\indexentry{post() (api.endpoints.course.APICourseList method)@\spxentry{post()}\spxextra{api.endpoints.course.APICourseList method}|hyperpage}{3}
+\indexentry{renderer\_classes (api.endpoints.course.APICourseList attribute)@\spxentry{renderer\_classes}\spxextra{api.endpoints.course.APICourseList attribute}|hyperpage}{3}
+\indexentry{sanitize() (api.endpoints.course.APICourseList method)@\spxentry{sanitize()}\spxextra{api.endpoints.course.APICourseList method}|hyperpage}{3}
+\indexentry{serializer\_class (api.endpoints.course.APICourseList attribute)@\spxentry{serializer\_class}\spxextra{api.endpoints.course.APICourseList attribute}|hyperpage}{3}
+\indexentry{module@\spxentry{module}!api.endpoints.issue@\spxentry{api.endpoints.issue}|hyperpage}{3}
+\indexentry{api.endpoints.issue@\spxentry{api.endpoints.issue}!module@\spxentry{module}|hyperpage}{3}
+\indexentry{APIIssueDetail (class in api.endpoints.issue)@\spxentry{APIIssueDetail}\spxextra{class in api.endpoints.issue}|hyperpage}{3}
+\indexentry{get() (api.endpoints.issue.APIIssueDetail method)@\spxentry{get()}\spxextra{api.endpoints.issue.APIIssueDetail method}|hyperpage}{3}
+\indexentry{put() (api.endpoints.issue.APIIssueDetail method)@\spxentry{put()}\spxextra{api.endpoints.issue.APIIssueDetail method}|hyperpage}{3}
+\indexentry{query\_obj() (api.endpoints.issue.APIIssueDetail method)@\spxentry{query\_obj()}\spxextra{api.endpoints.issue.APIIssueDetail method}|hyperpage}{3}
+\indexentry{APIIssueView (class in api.endpoints.issue)@\spxentry{APIIssueView}\spxextra{class in api.endpoints.issue}|hyperpage}{3}
+\indexentry{get() (api.endpoints.issue.APIIssueView method)@\spxentry{get()}\spxextra{api.endpoints.issue.APIIssueView method}|hyperpage}{3}
+\indexentry{post() (api.endpoints.issue.APIIssueView method)@\spxentry{post()}\spxextra{api.endpoints.issue.APIIssueView method}|hyperpage}{3}
+\indexentry{renderer\_classes (api.endpoints.issue.APIIssueView attribute)@\spxentry{renderer\_classes}\spxextra{api.endpoints.issue.APIIssueView attribute}|hyperpage}{3}
+\indexentry{serializer\_class (api.endpoints.issue.APIIssueView attribute)@\spxentry{serializer\_class}\spxextra{api.endpoints.issue.APIIssueView attribute}|hyperpage}{3}
+\indexentry{module@\spxentry{module}!api.endpoints.professor@\spxentry{api.endpoints.professor}|hyperpage}{4}
+\indexentry{api.endpoints.professor@\spxentry{api.endpoints.professor}!module@\spxentry{module}|hyperpage}{4}
+\indexentry{APIProfessorDetail (class in api.endpoints.professor)@\spxentry{APIProfessorDetail}\spxextra{class in api.endpoints.professor}|hyperpage}{4}
+\indexentry{get() (api.endpoints.professor.APIProfessorDetail method)@\spxentry{get()}\spxextra{api.endpoints.professor.APIProfessorDetail method}|hyperpage}{4}
+\indexentry{put() (api.endpoints.professor.APIProfessorDetail method)@\spxentry{put()}\spxextra{api.endpoints.professor.APIProfessorDetail method}|hyperpage}{4}
+\indexentry{query\_obj() (api.endpoints.professor.APIProfessorDetail method)@\spxentry{query\_obj()}\spxextra{api.endpoints.professor.APIProfessorDetail method}|hyperpage}{4}
+\indexentry{renderer\_classes (api.endpoints.professor.APIProfessorDetail attribute)@\spxentry{renderer\_classes}\spxextra{api.endpoints.professor.APIProfessorDetail attribute}|hyperpage}{4}
+\indexentry{serializer\_class (api.endpoints.professor.APIProfessorDetail attribute)@\spxentry{serializer\_class}\spxextra{api.endpoints.professor.APIProfessorDetail attribute}|hyperpage}{4}
+\indexentry{APIProfessorView (class in api.endpoints.professor)@\spxentry{APIProfessorView}\spxextra{class in api.endpoints.professor}|hyperpage}{4}
+\indexentry{get() (api.endpoints.professor.APIProfessorView method)@\spxentry{get()}\spxextra{api.endpoints.professor.APIProfessorView method}|hyperpage}{4}
+\indexentry{get\_querystring() (api.endpoints.professor.APIProfessorView method)@\spxentry{get\_querystring()}\spxextra{api.endpoints.professor.APIProfessorView method}|hyperpage}{4}
+\indexentry{post() (api.endpoints.professor.APIProfessorView method)@\spxentry{post()}\spxextra{api.endpoints.professor.APIProfessorView method}|hyperpage}{4}
+\indexentry{renderer\_classes (api.endpoints.professor.APIProfessorView attribute)@\spxentry{renderer\_classes}\spxextra{api.endpoints.professor.APIProfessorView attribute}|hyperpage}{4}
+\indexentry{sanitize() (api.endpoints.professor.APIProfessorView method)@\spxentry{sanitize()}\spxextra{api.endpoints.professor.APIProfessorView method}|hyperpage}{4}
+\indexentry{serializer\_class (api.endpoints.professor.APIProfessorView attribute)@\spxentry{serializer\_class}\spxextra{api.endpoints.professor.APIProfessorView attribute}|hyperpage}{4}
+\indexentry{module@\spxentry{module}!api.endpoints.section@\spxentry{api.endpoints.section}|hyperpage}{5}
+\indexentry{api.endpoints.section@\spxentry{api.endpoints.section}!module@\spxentry{module}|hyperpage}{5}
+\indexentry{APISectionDetail (class in api.endpoints.section)@\spxentry{APISectionDetail}\spxextra{class in api.endpoints.section}|hyperpage}{5}
+\indexentry{get() (api.endpoints.section.APISectionDetail method)@\spxentry{get()}\spxextra{api.endpoints.section.APISectionDetail method}|hyperpage}{5}
+\indexentry{put() (api.endpoints.section.APISectionDetail method)@\spxentry{put()}\spxextra{api.endpoints.section.APISectionDetail method}|hyperpage}{5}
+\indexentry{query\_obj() (api.endpoints.section.APISectionDetail method)@\spxentry{query\_obj()}\spxextra{api.endpoints.section.APISectionDetail method}|hyperpage}{5}
+\indexentry{renderer\_classes (api.endpoints.section.APISectionDetail attribute)@\spxentry{renderer\_classes}\spxextra{api.endpoints.section.APISectionDetail attribute}|hyperpage}{5}
+\indexentry{serializer\_class (api.endpoints.section.APISectionDetail attribute)@\spxentry{serializer\_class}\spxextra{api.endpoints.section.APISectionDetail attribute}|hyperpage}{5}
+\indexentry{APISectionView (class in api.endpoints.section)@\spxentry{APISectionView}\spxextra{class in api.endpoints.section}|hyperpage}{5}
+\indexentry{get() (api.endpoints.section.APISectionView method)@\spxentry{get()}\spxextra{api.endpoints.section.APISectionView method}|hyperpage}{5}
+\indexentry{get\_querystring() (api.endpoints.section.APISectionView method)@\spxentry{get\_querystring()}\spxextra{api.endpoints.section.APISectionView method}|hyperpage}{5}
+\indexentry{post() (api.endpoints.section.APISectionView method)@\spxentry{post()}\spxextra{api.endpoints.section.APISectionView method}|hyperpage}{5}
+\indexentry{renderer\_classes (api.endpoints.section.APISectionView attribute)@\spxentry{renderer\_classes}\spxextra{api.endpoints.section.APISectionView attribute}|hyperpage}{5}
+\indexentry{sanitize() (api.endpoints.section.APISectionView method)@\spxentry{sanitize()}\spxextra{api.endpoints.section.APISectionView method}|hyperpage}{5}
+\indexentry{serializer\_class (api.endpoints.section.APISectionView attribute)@\spxentry{serializer\_class}\spxextra{api.endpoints.section.APISectionView attribute}|hyperpage}{5}
+\indexentry{module@\spxentry{module}!api.endpoints.ticket@\spxentry{api.endpoints.ticket}|hyperpage}{5}
+\indexentry{api.endpoints.ticket@\spxentry{api.endpoints.ticket}!module@\spxentry{module}|hyperpage}{5}
+\indexentry{APITicketDetail (class in api.endpoints.ticket)@\spxentry{APITicketDetail}\spxextra{class in api.endpoints.ticket}|hyperpage}{5}
+\indexentry{get() (api.endpoints.ticket.APITicketDetail method)@\spxentry{get()}\spxextra{api.endpoints.ticket.APITicketDetail method}|hyperpage}{5}
+\indexentry{patch() (api.endpoints.ticket.APITicketDetail method)@\spxentry{patch()}\spxextra{api.endpoints.ticket.APITicketDetail method}|hyperpage}{5}
+\indexentry{renderer\_classes (api.endpoints.ticket.APITicketDetail attribute)@\spxentry{renderer\_classes}\spxextra{api.endpoints.ticket.APITicketDetail attribute}|hyperpage}{5}
+\indexentry{serializer\_class (api.endpoints.ticket.APITicketDetail attribute)@\spxentry{serializer\_class}\spxextra{api.endpoints.ticket.APITicketDetail attribute}|hyperpage}{5}
+\indexentry{APITicketView (class in api.endpoints.ticket)@\spxentry{APITicketView}\spxextra{class in api.endpoints.ticket}|hyperpage}{5}
+\indexentry{get() (api.endpoints.ticket.APITicketView method)@\spxentry{get()}\spxextra{api.endpoints.ticket.APITicketView method}|hyperpage}{5}
+\indexentry{get\_querystring() (api.endpoints.ticket.APITicketView method)@\spxentry{get\_querystring()}\spxextra{api.endpoints.ticket.APITicketView method}|hyperpage}{6}
+\indexentry{post() (api.endpoints.ticket.APITicketView method)@\spxentry{post()}\spxextra{api.endpoints.ticket.APITicketView method}|hyperpage}{6}
+\indexentry{renderer\_classes (api.endpoints.ticket.APITicketView attribute)@\spxentry{renderer\_classes}\spxextra{api.endpoints.ticket.APITicketView attribute}|hyperpage}{6}
+\indexentry{sanitize() (api.endpoints.ticket.APITicketView method)@\spxentry{sanitize()}\spxextra{api.endpoints.ticket.APITicketView method}|hyperpage}{6}
+\indexentry{serializer\_class (api.endpoints.ticket.APITicketView attribute)@\spxentry{serializer\_class}\spxextra{api.endpoints.ticket.APITicketView attribute}|hyperpage}{6}
+\indexentry{module@\spxentry{module}!api.endpoints.user@\spxentry{api.endpoints.user}|hyperpage}{6}
+\indexentry{api.endpoints.user@\spxentry{api.endpoints.user}!module@\spxentry{module}|hyperpage}{6}
+\indexentry{APIUserDetail (class in api.endpoints.user)@\spxentry{APIUserDetail}\spxextra{class in api.endpoints.user}|hyperpage}{6}
+\indexentry{get() (api.endpoints.user.APIUserDetail method)@\spxentry{get()}\spxextra{api.endpoints.user.APIUserDetail method}|hyperpage}{6}
+\indexentry{put() (api.endpoints.user.APIUserDetail method)@\spxentry{put()}\spxextra{api.endpoints.user.APIUserDetail method}|hyperpage}{6}
+\indexentry{query\_obj() (api.endpoints.user.APIUserDetail method)@\spxentry{query\_obj()}\spxextra{api.endpoints.user.APIUserDetail method}|hyperpage}{6}
+\indexentry{renderer\_classes (api.endpoints.user.APIUserDetail attribute)@\spxentry{renderer\_classes}\spxextra{api.endpoints.user.APIUserDetail attribute}|hyperpage}{6}
+\indexentry{serializer\_class (api.endpoints.user.APIUserDetail attribute)@\spxentry{serializer\_class}\spxextra{api.endpoints.user.APIUserDetail attribute}|hyperpage}{6}
+\indexentry{APIUserView (class in api.endpoints.user)@\spxentry{APIUserView}\spxextra{class in api.endpoints.user}|hyperpage}{6}
+\indexentry{get() (api.endpoints.user.APIUserView method)@\spxentry{get()}\spxextra{api.endpoints.user.APIUserView method}|hyperpage}{6}
+\indexentry{get\_querystring() (api.endpoints.user.APIUserView method)@\spxentry{get\_querystring()}\spxextra{api.endpoints.user.APIUserView method}|hyperpage}{6}
+\indexentry{post() (api.endpoints.user.APIUserView method)@\spxentry{post()}\spxextra{api.endpoints.user.APIUserView method}|hyperpage}{6}
+\indexentry{renderer\_classes (api.endpoints.user.APIUserView attribute)@\spxentry{renderer\_classes}\spxextra{api.endpoints.user.APIUserView attribute}|hyperpage}{6}
+\indexentry{sanitize() (api.endpoints.user.APIUserView method)@\spxentry{sanitize()}\spxextra{api.endpoints.user.APIUserView method}|hyperpage}{6}
+\indexentry{serializer\_class (api.endpoints.user.APIUserView attribute)@\spxentry{serializer\_class}\spxextra{api.endpoints.user.APIUserView attribute}|hyperpage}{6}
+\indexentry{module@\spxentry{module}!api.models.course@\spxentry{api.models.course}|hyperpage}{7}
+\indexentry{api.models.course@\spxentry{api.models.course}!module@\spxentry{module}|hyperpage}{7}
+\indexentry{Course (class in api.models.course)@\spxentry{Course}\spxextra{class in api.models.course}|hyperpage}{7}
+\indexentry{course\_department (api.models.course.Course attribute)@\spxentry{course\_department}\spxextra{api.models.course.Course attribute}|hyperpage}{7}
+\indexentry{course\_name (api.models.course.Course attribute)@\spxentry{course\_name}\spxextra{api.models.course.Course attribute}|hyperpage}{7}
+\indexentry{course\_id (api.models.course.Course attribute)@\spxentry{course\_id}\spxextra{api.models.course.Course attribute}|hyperpage}{7}
+\indexentry{course\_code (api.models.course.Course attribute)@\spxentry{course\_code}\spxextra{api.models.course.Course attribute}|hyperpage}{7}
+\indexentry{Course.DoesNotExist@\spxentry{Course.DoesNotExist}|hyperpage}{8}
+\indexentry{Course.MultipleObjectsReturned@\spxentry{Course.MultipleObjectsReturned}|hyperpage}{8}
+\indexentry{course\_code (api.models.course.Course attribute)@\spxentry{course\_code}\spxextra{api.models.course.Course attribute}|hyperpage}{8}
+\indexentry{course\_department (api.models.course.Course attribute)@\spxentry{course\_department}\spxextra{api.models.course.Course attribute}|hyperpage}{8}
+\indexentry{course\_id (api.models.course.Course attribute)@\spxentry{course\_id}\spxextra{api.models.course.Course attribute}|hyperpage}{8}
+\indexentry{course\_name (api.models.course.Course attribute)@\spxentry{course\_name}\spxextra{api.models.course.Course attribute}|hyperpage}{8}
+\indexentry{generic (api.models.course.Course attribute)@\spxentry{generic}\spxextra{api.models.course.Course attribute}|hyperpage}{8}
+\indexentry{id (api.models.course.Course attribute)@\spxentry{id}\spxextra{api.models.course.Course attribute}|hyperpage}{8}
+\indexentry{section\_set (api.models.course.Course attribute)@\spxentry{section\_set}\spxextra{api.models.course.Course attribute}|hyperpage}{8}
+\indexentry{ticket\_set (api.models.course.Course attribute)@\spxentry{ticket\_set}\spxextra{api.models.course.Course attribute}|hyperpage}{8}
+\indexentry{usertocoursetaken (api.models.course.Course attribute)@\spxentry{usertocoursetaken}\spxextra{api.models.course.Course attribute}|hyperpage}{9}
+\indexentry{usertocoursetutored (api.models.course.Course attribute)@\spxentry{usertocoursetutored}\spxextra{api.models.course.Course attribute}|hyperpage}{9}
+\indexentry{module@\spxentry{module}!api.models.issue@\spxentry{api.models.issue}|hyperpage}{9}
+\indexentry{api.models.issue@\spxentry{api.models.issue}!module@\spxentry{module}|hyperpage}{9}
+\indexentry{IssueManager (class in api.models.issue)@\spxentry{IssueManager}\spxextra{class in api.models.issue}|hyperpage}{9}
+\indexentry{get\_issues() (api.models.issue.IssueManager method)@\spxentry{get\_issues()}\spxextra{api.models.issue.IssueManager method}|hyperpage}{9}
+\indexentry{Issues (class in api.models.issue)@\spxentry{Issues}\spxextra{class in api.models.issue}|hyperpage}{9}
+\indexentry{Issues.DoesNotExist@\spxentry{Issues.DoesNotExist}|hyperpage}{9}
+\indexentry{Issues.MultipleObjectsReturned@\spxentry{Issues.MultipleObjectsReturned}|hyperpage}{9}
+\indexentry{generic (api.models.issue.Issues attribute)@\spxentry{generic}\spxextra{api.models.issue.Issues attribute}|hyperpage}{9}
+\indexentry{get\_severity\_display() (api.models.issue.Issues method)@\spxentry{get\_severity\_display()}\spxextra{api.models.issue.Issues method}|hyperpage}{10}
+\indexentry{issue\_id (api.models.issue.Issues attribute)@\spxentry{issue\_id}\spxextra{api.models.issue.Issues attribute}|hyperpage}{10}
+\indexentry{problem\_type (api.models.issue.Issues attribute)@\spxentry{problem\_type}\spxextra{api.models.issue.Issues attribute}|hyperpage}{10}
+\indexentry{severity (api.models.issue.Issues attribute)@\spxentry{severity}\spxextra{api.models.issue.Issues attribute}|hyperpage}{10}
+\indexentry{ticket\_set (api.models.issue.Issues attribute)@\spxentry{ticket\_set}\spxextra{api.models.issue.Issues attribute}|hyperpage}{10}
+\indexentry{module@\spxentry{module}!api.models.professor@\spxentry{api.models.professor}|hyperpage}{10}
+\indexentry{api.models.professor@\spxentry{api.models.professor}!module@\spxentry{module}|hyperpage}{10}
+\indexentry{Professor (class in api.models.professor)@\spxentry{Professor}\spxextra{class in api.models.professor}|hyperpage}{10}
+\indexentry{Professor.DoesNotExist@\spxentry{Professor.DoesNotExist}|hyperpage}{10}
+\indexentry{Professor.MultipleObjectsReturned@\spxentry{Professor.MultipleObjectsReturned}|hyperpage}{10}
+\indexentry{email (api.models.professor.Professor attribute)@\spxentry{email}\spxextra{api.models.professor.Professor attribute}|hyperpage}{10}
+\indexentry{first\_name (api.models.professor.Professor attribute)@\spxentry{first\_name}\spxextra{api.models.professor.Professor attribute}|hyperpage}{10}
+\indexentry{full\_name (api.models.professor.Professor attribute)@\spxentry{full\_name}\spxextra{api.models.professor.Professor attribute}|hyperpage}{10}
+\indexentry{generic (api.models.professor.Professor attribute)@\spxentry{generic}\spxextra{api.models.professor.Professor attribute}|hyperpage}{11}
+\indexentry{is\_active (api.models.professor.Professor attribute)@\spxentry{is\_active}\spxextra{api.models.professor.Professor attribute}|hyperpage}{11}
+\indexentry{last\_name (api.models.professor.Professor attribute)@\spxentry{last\_name}\spxextra{api.models.professor.Professor attribute}|hyperpage}{11}
+\indexentry{professor (api.models.professor.Professor attribute)@\spxentry{professor}\spxextra{api.models.professor.Professor attribute}|hyperpage}{11}
+\indexentry{professor\_id (api.models.professor.Professor attribute)@\spxentry{professor\_id}\spxextra{api.models.professor.Professor attribute}|hyperpage}{11}
+\indexentry{section\_set (api.models.professor.Professor attribute)@\spxentry{section\_set}\spxextra{api.models.professor.Professor attribute}|hyperpage}{11}
+\indexentry{ticket\_set (api.models.professor.Professor attribute)@\spxentry{ticket\_set}\spxextra{api.models.professor.Professor attribute}|hyperpage}{11}
+\indexentry{ProfessorManager (class in api.models.professor)@\spxentry{ProfessorManager}\spxextra{class in api.models.professor}|hyperpage}{11}
+\indexentry{get\_professor() (api.models.professor.ProfessorManager method)@\spxentry{get\_professor()}\spxextra{api.models.professor.ProfessorManager method}|hyperpage}{11}
+\indexentry{get\_professors() (api.models.professor.ProfessorManager method)@\spxentry{get\_professors()}\spxextra{api.models.professor.ProfessorManager method}|hyperpage}{11}
+\indexentry{module@\spxentry{module}!api.models.ticket@\spxentry{api.models.ticket}|hyperpage}{12}
+\indexentry{api.models.ticket@\spxentry{api.models.ticket}!module@\spxentry{module}|hyperpage}{12}
+\indexentry{Ticket (class in api.models.ticket)@\spxentry{Ticket}\spxextra{class in api.models.ticket}|hyperpage}{12}
+\indexentry{CLOSED (api.models.ticket.Ticket attribute)@\spxentry{CLOSED}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{12}
+\indexentry{Ticket.DoesNotExist@\spxentry{Ticket.DoesNotExist}|hyperpage}{12}
+\indexentry{Ticket.MultipleObjectsReturned@\spxentry{Ticket.MultipleObjectsReturned}|hyperpage}{12}
+\indexentry{NEW (api.models.ticket.Ticket attribute)@\spxentry{NEW}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{12}
+\indexentry{OPENED (api.models.ticket.Ticket attribute)@\spxentry{OPENED}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{12}
+\indexentry{STATUS\_CHOICES (api.models.ticket.Ticket attribute)@\spxentry{STATUS\_CHOICES}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{12}
+\indexentry{closed\_at (api.models.ticket.Ticket attribute)@\spxentry{closed\_at}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{12}
+\indexentry{course (api.models.ticket.Ticket attribute)@\spxentry{course}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{12}
+\indexentry{course\_id (api.models.ticket.Ticket attribute)@\spxentry{course\_id}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{12}
+\indexentry{created\_at (api.models.ticket.Ticket attribute)@\spxentry{created\_at}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{12}
+\indexentry{description (api.models.ticket.Ticket attribute)@\spxentry{description}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{12}
+\indexentry{generic (api.models.ticket.Ticket attribute)@\spxentry{generic}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{12}
+\indexentry{get\_next\_by\_created\_at() (api.models.ticket.Ticket method)@\spxentry{get\_next\_by\_created\_at()}\spxextra{api.models.ticket.Ticket method}|hyperpage}{12}
+\indexentry{get\_next\_by\_updated\_at() (api.models.ticket.Ticket method)@\spxentry{get\_next\_by\_updated\_at()}\spxextra{api.models.ticket.Ticket method}|hyperpage}{13}
+\indexentry{get\_previous\_by\_created\_at() (api.models.ticket.Ticket method)@\spxentry{get\_previous\_by\_created\_at()}\spxextra{api.models.ticket.Ticket method}|hyperpage}{13}
+\indexentry{get\_previous\_by\_updated\_at() (api.models.ticket.Ticket method)@\spxentry{get\_previous\_by\_updated\_at()}\spxextra{api.models.ticket.Ticket method}|hyperpage}{13}
+\indexentry{get\_status\_display() (api.models.ticket.Ticket method)@\spxentry{get\_status\_display()}\spxextra{api.models.ticket.Ticket method}|hyperpage}{13}
+\indexentry{id (api.models.ticket.Ticket attribute)@\spxentry{id}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{13}
+\indexentry{issue (api.models.ticket.Ticket attribute)@\spxentry{issue}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{13}
+\indexentry{issue\_id (api.models.ticket.Ticket attribute)@\spxentry{issue\_id}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{13}
+\indexentry{messages\_set (api.models.ticket.Ticket attribute)@\spxentry{messages\_set}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{13}
+\indexentry{name (api.models.ticket.Ticket attribute)@\spxentry{name}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{13}
+\indexentry{opened\_at (api.models.ticket.Ticket attribute)@\spxentry{opened\_at}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{13}
+\indexentry{professor (api.models.ticket.Ticket attribute)@\spxentry{professor}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{13}
+\indexentry{professor\_id (api.models.ticket.Ticket attribute)@\spxentry{professor\_id}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{14}
+\indexentry{status (api.models.ticket.Ticket attribute)@\spxentry{status}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{14}
+\indexentry{student (api.models.ticket.Ticket attribute)@\spxentry{student}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{14}
+\indexentry{student\_id (api.models.ticket.Ticket attribute)@\spxentry{student\_id}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{14}
+\indexentry{ticket (api.models.ticket.Ticket attribute)@\spxentry{ticket}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{14}
+\indexentry{title (api.models.ticket.Ticket attribute)@\spxentry{title}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{14}
+\indexentry{tutor (api.models.ticket.Ticket attribute)@\spxentry{tutor}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{14}
+\indexentry{tutor\_id (api.models.ticket.Ticket attribute)@\spxentry{tutor\_id}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{14}
+\indexentry{updated\_at (api.models.ticket.Ticket attribute)@\spxentry{updated\_at}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{14}
+\indexentry{was\_reopened (api.models.ticket.Ticket attribute)@\spxentry{was\_reopened}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{14}
+\indexentry{was\_successful (api.models.ticket.Ticket attribute)@\spxentry{was\_successful}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{14}
+\indexentry{TicketManager (class in api.models.ticket)@\spxentry{TicketManager}\spxextra{class in api.models.ticket}|hyperpage}{14}
+\indexentry{get\_active() (api.models.ticket.TicketManager method)@\spxentry{get\_active()}\spxextra{api.models.ticket.TicketManager method}|hyperpage}{14}
+\indexentry{get\_all() (api.models.ticket.TicketManager method)@\spxentry{get\_all()}\spxextra{api.models.ticket.TicketManager method}|hyperpage}{15}
+\indexentry{get\_completed() (api.models.ticket.TicketManager method)@\spxentry{get\_completed()}\spxextra{api.models.ticket.TicketManager method}|hyperpage}{15}
+\indexentry{get\_course() (api.models.ticket.TicketManager method)@\spxentry{get\_course()}\spxextra{api.models.ticket.TicketManager method}|hyperpage}{15}
+\indexentry{get\_professor() (api.models.ticket.TicketManager method)@\spxentry{get\_professor()}\spxextra{api.models.ticket.TicketManager method}|hyperpage}{15}
+\indexentry{get\_section() (api.models.ticket.TicketManager method)@\spxentry{get\_section()}\spxextra{api.models.ticket.TicketManager method}|hyperpage}{15}
+\indexentry{get\_student() (api.models.ticket.TicketManager method)@\spxentry{get\_student()}\spxextra{api.models.ticket.TicketManager method}|hyperpage}{15}
+\indexentry{get\_successful() (api.models.ticket.TicketManager method)@\spxentry{get\_successful()}\spxextra{api.models.ticket.TicketManager method}|hyperpage}{15}
+\indexentry{get\_tutor() (api.models.ticket.TicketManager method)@\spxentry{get\_tutor()}\spxextra{api.models.ticket.TicketManager method}|hyperpage}{15}
+\indexentry{get\_unclaimed() (api.models.ticket.TicketManager method)@\spxentry{get\_unclaimed()}\spxextra{api.models.ticket.TicketManager method}|hyperpage}{15}
+\indexentry{module@\spxentry{module}!api.models.user@\spxentry{api.models.user}|hyperpage}{15}
+\indexentry{api.models.user@\spxentry{api.models.user}!module@\spxentry{module}|hyperpage}{15}
+\indexentry{AdminManager (class in api.models.user)@\spxentry{AdminManager}\spxextra{class in api.models.user}|hyperpage}{15}
+\indexentry{get\_admins() (api.models.user.AdminManager method)@\spxentry{get\_admins()}\spxextra{api.models.user.AdminManager method}|hyperpage}{15}
+\indexentry{StudentManager (class in api.models.user)@\spxentry{StudentManager}\spxextra{class in api.models.user}|hyperpage}{15}
+\indexentry{get\_student() (api.models.user.StudentManager method)@\spxentry{get\_student()}\spxextra{api.models.user.StudentManager method}|hyperpage}{15}
+\indexentry{get\_students() (api.models.user.StudentManager method)@\spxentry{get\_students()}\spxextra{api.models.user.StudentManager method}|hyperpage}{15}
+\indexentry{TutorManager (class in api.models.user)@\spxentry{TutorManager}\spxextra{class in api.models.user}|hyperpage}{15}
+\indexentry{get\_tutor() (api.models.user.TutorManager method)@\spxentry{get\_tutor()}\spxextra{api.models.user.TutorManager method}|hyperpage}{15}
+\indexentry{get\_tutors() (api.models.user.TutorManager method)@\spxentry{get\_tutors()}\spxextra{api.models.user.TutorManager method}|hyperpage}{15}
+\indexentry{User (class in api.models.user)@\spxentry{User}\spxextra{class in api.models.user}|hyperpage}{15}
+\indexentry{User.DoesNotExist@\spxentry{User.DoesNotExist}|hyperpage}{15}
+\indexentry{MSOID (api.models.user.User attribute)@\spxentry{MSOID}\spxextra{api.models.user.User attribute}|hyperpage}{15}
+\indexentry{User.MultipleObjectsReturned@\spxentry{User.MultipleObjectsReturned}|hyperpage}{15}
+\indexentry{admin (api.models.user.User attribute)@\spxentry{admin}\spxextra{api.models.user.User attribute}|hyperpage}{16}
+\indexentry{courses\_taken (api.models.user.User attribute)@\spxentry{courses\_taken}\spxextra{api.models.user.User attribute}|hyperpage}{16}
+\indexentry{courses\_tutoring (api.models.user.User attribute)@\spxentry{courses\_tutoring}\spxextra{api.models.user.User attribute}|hyperpage}{16}
+\indexentry{email (api.models.user.User attribute)@\spxentry{email}\spxextra{api.models.user.User attribute}|hyperpage}{16}
+\indexentry{generic (api.models.user.User attribute)@\spxentry{generic}\spxextra{api.models.user.User attribute}|hyperpage}{16}
+\indexentry{hour\_set (api.models.user.User attribute)@\spxentry{hour\_set}\spxextra{api.models.user.User attribute}|hyperpage}{16}
+\indexentry{is\_active (api.models.user.User attribute)@\spxentry{is\_active}\spxextra{api.models.user.User attribute}|hyperpage}{16}
+\indexentry{is\_admin (api.models.user.User attribute)@\spxentry{is\_admin}\spxextra{api.models.user.User attribute}|hyperpage}{16}
+\indexentry{is\_tutor (api.models.user.User attribute)@\spxentry{is\_tutor}\spxextra{api.models.user.User attribute}|hyperpage}{16}
+\indexentry{is\_working (api.models.user.User attribute)@\spxentry{is\_working}\spxextra{api.models.user.User attribute}|hyperpage}{17}
+\indexentry{messages\_set (api.models.user.User attribute)@\spxentry{messages\_set}\spxextra{api.models.user.User attribute}|hyperpage}{17}
+\indexentry{name (api.models.user.User attribute)@\spxentry{name}\spxextra{api.models.user.User attribute}|hyperpage}{17}
+\indexentry{student (api.models.user.User attribute)@\spxentry{student}\spxextra{api.models.user.User attribute}|hyperpage}{17}
+\indexentry{student\_nuid (api.models.user.User attribute)@\spxentry{student\_nuid}\spxextra{api.models.user.User attribute}|hyperpage}{17}
+\indexentry{student\_ticket (api.models.user.User attribute)@\spxentry{student\_ticket}\spxextra{api.models.user.User attribute}|hyperpage}{17}
+\indexentry{tutor (api.models.user.User attribute)@\spxentry{tutor}\spxextra{api.models.user.User attribute}|hyperpage}{17}
+\indexentry{tutor\_ticket (api.models.user.User attribute)@\spxentry{tutor\_ticket}\spxextra{api.models.user.User attribute}|hyperpage}{17}
+\indexentry{user\_bio (api.models.user.User attribute)@\spxentry{user\_bio}\spxextra{api.models.user.User attribute}|hyperpage}{17}
+\indexentry{workinghours\_set (api.models.user.User attribute)@\spxentry{workinghours\_set}\spxextra{api.models.user.User attribute}|hyperpage}{18}
+\indexentry{module@\spxentry{module}!base.asgi@\spxentry{base.asgi}|hyperpage}{21}
+\indexentry{base.asgi@\spxentry{base.asgi}!module@\spxentry{module}|hyperpage}{21}
+\indexentry{module@\spxentry{module}!base.settings@\spxentry{base.settings}|hyperpage}{21}
+\indexentry{base.settings@\spxentry{base.settings}!module@\spxentry{module}|hyperpage}{21}
+\indexentry{module@\spxentry{module}!base.urls@\spxentry{base.urls}|hyperpage}{21}
+\indexentry{base.urls@\spxentry{base.urls}!module@\spxentry{module}|hyperpage}{21}
+\indexentry{module@\spxentry{module}!base.wsgi@\spxentry{base.wsgi}|hyperpage}{22}
+\indexentry{base.wsgi@\spxentry{base.wsgi}!module@\spxentry{module}|hyperpage}{22}
+\indexentry{module@\spxentry{module}!base@\spxentry{base}|hyperpage}{22}
+\indexentry{base@\spxentry{base}!module@\spxentry{module}|hyperpage}{22}
