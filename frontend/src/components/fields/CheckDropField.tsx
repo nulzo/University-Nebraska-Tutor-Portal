@@ -28,8 +28,7 @@ export default function CheckDropField({ control, name }: any) {
                 key={field.id}
                 className="capitalize"
                 checked={field.value}
-                onCheckedChange={field.onChange
-                }
+                onCheckedChange={field.onChange}
               >
                 Successful
               </DropdownMenuCheckboxItem>

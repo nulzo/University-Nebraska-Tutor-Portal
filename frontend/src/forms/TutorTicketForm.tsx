@@ -47,7 +47,7 @@ const FormSchema = z.object({
   status: z.string().min(1).max(10),
   tutor: z.string(),
   was_successful: z.boolean(),
-  difficulty: z.string()
+  difficulty: z.string(),
 });
 
 export default function TutorTicketForm({ ticket }: any) {
@@ -76,7 +76,7 @@ export default function TutorTicketForm({ ticket }: any) {
       status: ticket.status,
       tutor: "",
       was_successful: ticket.was_successful,
-      difficulty: ""
+      difficulty: "",
     },
   });
 
@@ -270,8 +270,26 @@ export default function TutorTicketForm({ ticket }: any) {
                           }
                         />
                         <div className="flex justify-end space-x-2">
-                          <Button onClick={() => form.resetField('description')} disabled={!form.formState.isDirty} variant="outline" className={`mt-4 border-warning/50 text-warning hover:bg-warning/20 hover:text-warning ${!form.formState.isDirty && "hidden"}`}>Discard</Button>
-                          <Button type="submit" disabled={!form.formState.isDirty} variant="outline" className={`mt-4 ${!form.formState.isDirty && "hidden"}`}>Update</Button>
+                          <Button
+                            onClick={() => form.resetField("description")}
+                            disabled={!form.formState.isDirty}
+                            variant="outline"
+                            className={`mt-4 border-warning/50 text-warning hover:bg-warning/20 hover:text-warning ${
+                              !form.formState.isDirty && "hidden"
+                            }`}
+                          >
+                            Discard
+                          </Button>
+                          <Button
+                            type="submit"
+                            disabled={!form.formState.isDirty}
+                            variant="outline"
+                            className={`mt-4 ${
+                              !form.formState.isDirty && "hidden"
+                            }`}
+                          >
+                            Update
+                          </Button>
                         </div>
                       </div>
                     </div>

@@ -10,11 +10,7 @@ from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from api.models.course import Course
-from api.models.issue import Issues
-from api.models.professor import Professor
 from api.models.ticket import Ticket
-from api.models.user import User
 from api.serializers import TicketGetSerializer, TicketSerializer
 
 # We don't need to check for duplicate class names and function names.
@@ -36,8 +32,7 @@ class APITicketView(APIView):
         querystring = self.get_querystring(request=request)
         if len(querystring) > 0:
             if department := querystring.get("department"):
-                tickets = tickets.filter(
-                    course_department=self.sanitize(department))
+                tickets = tickets.filter(course_department=self.sanitize(department))
 
             if active := querystring.get("active"):
                 tickets = tickets.filter(is_active=active.capitalize())
@@ -69,7 +64,9 @@ class APITicketDetail(APIView):
         try:
             ticket = Ticket.generic.get(id=ticket_id)
         except Ticket.DoesNotExist:
-            return Response({"error": "Ticket not found"}, status=status.HTTP_404_NOT_FOUND)
+            return Response(
+                {"error": "Ticket not found"}, status=status.HTTP_404_NOT_FOUND
+            )
 
         serializer = TicketSerializer(ticket, data=request.data, partial=True)
         if serializer.is_valid():

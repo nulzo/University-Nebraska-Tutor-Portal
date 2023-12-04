@@ -41,8 +41,8 @@ export default function SearchFilterField({
                 >
                   {field.value
                     ? items?.data.find(
-                      (tutor: any) => tutor.MSOID === field.value,
-                    )?.name
+                        (tutor: any) => tutor.MSOID === field.value,
+                      )?.name
                     : "select an issue"}
                   <CaretSortIcon
                     key="issue_sort_icon"

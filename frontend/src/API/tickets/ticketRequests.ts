@@ -26,5 +26,6 @@ export function updateTicket(data: any) {
         "X-CSRFToken": csrftoken,
       },
     })
-    .then((res) => res.data).catch((e) => (console.log(e)));
+    .then((res) => res.data)
+    .catch((e) => console.log(e));
 }
