@@ -64,7 +64,7 @@
 
 
 \title{University of Nebraska \sphinxhyphen{} Computer Science Tutoring Portal}
-\date{Dec 03, 2023}
+\date{Dec 04, 2023}
 \release{0.0.1}
 \author{Nolan Gregory}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -2736,6 +2736,142 @@ For more information on this file, see
 
 \section{Module contents}
 \label{\detokenize{settings/settings:module-base}}\label{\detokenize{settings/settings:module-contents}}\index{module@\spxentry{module}!base@\spxentry{base}}\index{base@\spxentry{base}!module@\spxentry{module}}
+\sphinxstepscope
+
+\sphinxstepscope
+
+\sphinxstepscope
+
+
+\chapter{Forms}
+\label{\detokenize{forms/index:forms}}\label{\detokenize{forms/index::doc}}
+\sphinxstepscope
+
+
+\section{TicketForm TypeScript Module Documentation}
+\label{\detokenize{forms/ticket:ticketform-typescript-module-documentation}}\label{\detokenize{forms/ticket::doc}}
+\sphinxAtStartPar
+The \sphinxtitleref{TicketForm} TypeScript module defines a React component responsible for creating support tickets. This documentation provides an overview of the module’s structure, key components, and their responsibilities.
+
+
+\subsection{Overview}
+\label{\detokenize{forms/ticket:overview}}
+\sphinxAtStartPar
+The \sphinxtitleref{TicketForm} component facilitates the creation of support tickets by gathering information from users, such as their name, selected professor, course, issue type, and a detailed description of the problem. It leverages various utility functions, hooks, and external APIs to enhance its functionality.
+
+
+\subsection{Key Components}
+\label{\detokenize{forms/ticket:key-components}}
+\sphinxAtStartPar
+\#\#\# FormSchema
+
+\sphinxAtStartPar
+The \sphinxtitleref{FormSchema} is a Zod schema defining the shape and validation rules for the form data. It ensures that the user provides valid input for fields such as name, title, professor, course, issue, and description.
+
+\sphinxAtStartPar
+\#\#\# TicketLabel Component
+
+\sphinxAtStartPar
+This component renders a formatted label for certain form fields, such as the full name.
+
+\sphinxAtStartPar
+\#\#\# TicketDescription Component
+
+\sphinxAtStartPar
+Similar to \sphinxtitleref{TicketLabel}, this component renders a description for specific form fields, providing additional guidance or context.
+
+\sphinxAtStartPar
+\#\#\# TicketForm Component
+
+\sphinxAtStartPar
+The main \sphinxtitleref{TicketForm} component orchestrates the entire form. It uses the \sphinxtitleref{react\sphinxhyphen{}hook\sphinxhyphen{}form} library for form management and validation. The component includes form fields for user information, selects for professors, courses, and issue types, and a text area for the ticket description. It also handles form submission, triggering the creation of a support ticket through the \sphinxtitleref{createTicket} API.
+
+\sphinxAtStartPar
+\#\#\# useFetchProfessor, useFetchCourse, useFetchIssue Hooks
+
+\sphinxAtStartPar
+These custom hooks fetch data from external APIs related to professors, courses, and issue types, respectively. They ensure that the form has up\sphinxhyphen{}to\sphinxhyphen{}date information for dropdowns and selects.
+
+\sphinxAtStartPar
+\#\#\# LoadingSelect Component
+
+\sphinxAtStartPar
+This component provides a visual indication (e.g., loading spinner) when fetching data for selects.
+
+\sphinxAtStartPar
+\#\#\# useToast Hook
+
+\sphinxAtStartPar
+The \sphinxtitleref{useToast} hook manages the display of toast messages, providing user feedback on form submission.
+
+\sphinxAtStartPar
+\#\#\# useNavigate Hook
+
+\sphinxAtStartPar
+The \sphinxtitleref{useNavigate} hook from \sphinxtitleref{react\sphinxhyphen{}router\sphinxhyphen{}dom} facilitates navigation upon successful ticket submission.
+
+\sphinxAtStartPar
+\#\#\# Additional Notes
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+The \sphinxtitleref{max\_ticket\_length} constant defines the maximum character limit for the ticket description.
+
+\item {} 
+\sphinxAtStartPar
+The form utilizes the \sphinxtitleref{zodResolver} from \sphinxtitleref{@hookform/resolvers/zod} for Zod schema\sphinxhyphen{}based validation.
+
+\item {} 
+\sphinxAtStartPar
+The \sphinxtitleref{useMutation} hook from \sphinxtitleref{@tanstack/react\sphinxhyphen{}query} manages the asynchronous ticket creation process.
+
+\end{itemize}
+
+
+\subsection{Usage}
+\label{\detokenize{forms/ticket:usage}}
+\sphinxAtStartPar
+To use the \sphinxtitleref{TicketForm} component, integrate it into a parent component or page within a React application. Make sure to include the necessary dependencies and handle form submission accordingly.
+
+\sphinxAtStartPar
+Example:
+
+\sphinxAtStartPar
+{\color{red}\bfseries{}\textasciigrave{}\textasciigrave{}}{\color{red}\bfseries{}\textasciigrave{}}jsx
+import TicketForm from “@/path/to/TicketForm”;
+\begin{description}
+\sphinxlineitem{function SupportPage() \{}\begin{description}
+\sphinxlineitem{return (}\begin{description}
+\sphinxlineitem{\textless{}div\textgreater{}}
+\sphinxAtStartPar
+\textless{}h1\textgreater{}Submit a Support Ticket\textless{}/h1\textgreater{}
+\textless{}TicketForm /\textgreater{}
+
+\end{description}
+
+\sphinxAtStartPar
+\textless{}/div\textgreater{}
+
+\end{description}
+
+\sphinxAtStartPar
+);
+
+\end{description}
+
+\sphinxAtStartPar
+\}
+
+\sphinxstepscope
+
+\sphinxstepscope
+
+\sphinxstepscope
+
+\sphinxstepscope
+
+\sphinxstepscope
+
 
 \chapter{Indices and tables}
 \label{\detokenize{index:indices-and-tables}}\begin{itemize}
@@ -2754,29 +2890,6 @@ For more information on this file, see
 \end{itemize}
 
 
-\renewcommand{\indexname}{Python Module Index}
-\begin{sphinxtheindex}
-\let\bigletter\sphinxstyleindexlettergroup
-\bigletter{a}
-\item\relax\sphinxstyleindexentry{api.endpoints.course}\sphinxstyleindexpageref{endpoints/course:\detokenize{module-api.endpoints.course}}
-\item\relax\sphinxstyleindexentry{api.endpoints.issue}\sphinxstyleindexpageref{endpoints/issue:\detokenize{module-api.endpoints.issue}}
-\item\relax\sphinxstyleindexentry{api.endpoints.professor}\sphinxstyleindexpageref{endpoints/professor:\detokenize{module-api.endpoints.professor}}
-\item\relax\sphinxstyleindexentry{api.endpoints.section}\sphinxstyleindexpageref{endpoints/section:\detokenize{module-api.endpoints.section}}
-\item\relax\sphinxstyleindexentry{api.endpoints.ticket}\sphinxstyleindexpageref{endpoints/ticket:\detokenize{module-api.endpoints.ticket}}
-\item\relax\sphinxstyleindexentry{api.endpoints.user}\sphinxstyleindexpageref{endpoints/user:\detokenize{module-api.endpoints.user}}
-\item\relax\sphinxstyleindexentry{api.models.course}\sphinxstyleindexpageref{models/course:\detokenize{module-api.models.course}}
-\item\relax\sphinxstyleindexentry{api.models.issue}\sphinxstyleindexpageref{models/issue:\detokenize{module-api.models.issue}}
-\item\relax\sphinxstyleindexentry{api.models.professor}\sphinxstyleindexpageref{models/professor:\detokenize{module-api.models.professor}}
-\item\relax\sphinxstyleindexentry{api.models.ticket}\sphinxstyleindexpageref{models/ticket:\detokenize{module-api.models.ticket}}
-\item\relax\sphinxstyleindexentry{api.models.user}\sphinxstyleindexpageref{models/user:\detokenize{module-api.models.user}}
-\indexspace
-\bigletter{b}
-\item\relax\sphinxstyleindexentry{base}\sphinxstyleindexpageref{settings/settings:\detokenize{module-base}}
-\item\relax\sphinxstyleindexentry{base.asgi}\sphinxstyleindexpageref{settings/settings:\detokenize{module-base.asgi}}
-\item\relax\sphinxstyleindexentry{base.settings}\sphinxstyleindexpageref{settings/settings:\detokenize{module-base.settings}}
-\item\relax\sphinxstyleindexentry{base.urls}\sphinxstyleindexpageref{settings/settings:\detokenize{module-base.urls}}
-\item\relax\sphinxstyleindexentry{base.wsgi}\sphinxstyleindexpageref{settings/settings:\detokenize{module-base.wsgi}}
-\end{sphinxtheindex}
 
 \renewcommand{\indexname}{Index}
 \printindex

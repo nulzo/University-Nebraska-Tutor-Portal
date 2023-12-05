@@ -248,13 +248,11 @@
 <span class="kn">from</span> <span class="nn">api.models.professor</span> <span class="kn">import</span> <span class="n">Professor</span>
 <span class="kn">from</span> <span class="nn">api.models.sections</span> <span class="kn">import</span> <span class="n">Section</span>
 
-<span class="n">FILE</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;PATH_TO_FILE&quot;</span><span class="p">)</span>
-
 <span class="c1"># pylint: disable=E1101</span>
 
 
 <div class="viewcode-block" id="ParseSemester">
-<a class="viewcode-back" href="../../../scripts/load-semester.html#api.scripts.load_semester.ParseSemester">[docs]</a>
+<a class="viewcode-back" href="../../../api.scripts.html#api.scripts.load_semester.ParseSemester">[docs]</a>
 <span class="k">class</span> <span class="nc">ParseSemester</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">courses</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>
@@ -278,7 +276,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">read_csv</span><span class="p">()</span>
 
 <div class="viewcode-block" id="ParseSemester.read_csv">
-<a class="viewcode-back" href="../../../scripts/load-semester.html#api.scripts.load_semester.ParseSemester.read_csv">[docs]</a>
+<a class="viewcode-back" href="../../../api.scripts.html#api.scripts.load_semester.ParseSemester.read_csv">[docs]</a>
     <span class="k">def</span> <span class="nf">read_csv</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># Open the csv file and get all the headers we need</span>
         <span class="n">data</span><span class="p">:</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">csv_file</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
@@ -314,7 +312,7 @@
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;instructor&quot;</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="k">continue</span>
             <span class="c1"># Get the professor ID (Some professors have two last names, so we need to check for that)</span>
-            <span class="n">professor_id</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">professor_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">(</span>
                 <span class="n">row</span><span class="p">[</span><span class="s2">&quot;instructor&quot;</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
                 <span class="k">if</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;instructor&quot;</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">)</span>
                 <span class="k">else</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;instructor&quot;</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span>
@@ -390,25 +388,25 @@
         <span class="c1"># print(json.dumps(self.professors, indent=2))</span>
 
 <div class="viewcode-block" id="ParseSemester.get_professors">
-<a class="viewcode-back" href="../../../scripts/load-semester.html#api.scripts.load_semester.ParseSemester.get_professors">[docs]</a>
+<a class="viewcode-back" href="../../../api.scripts.html#api.scripts.load_semester.ParseSemester.get_professors">[docs]</a>
     <span class="k">def</span> <span class="nf">get_professors</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">professors</span></div>
 
 
 <div class="viewcode-block" id="ParseSemester.get_courses">
-<a class="viewcode-back" href="../../../scripts/load-semester.html#api.scripts.load_semester.ParseSemester.get_courses">[docs]</a>
+<a class="viewcode-back" href="../../../api.scripts.html#api.scripts.load_semester.ParseSemester.get_courses">[docs]</a>
     <span class="k">def</span> <span class="nf">get_courses</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">courses</span></div>
 
 
 <div class="viewcode-block" id="ParseSemester.get_sections">
-<a class="viewcode-back" href="../../../scripts/load-semester.html#api.scripts.load_semester.ParseSemester.get_sections">[docs]</a>
+<a class="viewcode-back" href="../../../api.scripts.html#api.scripts.load_semester.ParseSemester.get_sections">[docs]</a>
     <span class="k">def</span> <span class="nf">get_sections</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sections</span></div>
 
 
 <div class="viewcode-block" id="ParseSemester.normalize_text">
-<a class="viewcode-back" href="../../../scripts/load-semester.html#api.scripts.load_semester.ParseSemester.normalize_text">[docs]</a>
+<a class="viewcode-back" href="../../../api.scripts.html#api.scripts.load_semester.ParseSemester.normalize_text">[docs]</a>
     <span class="k">def</span> <span class="nf">normalize_text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="n">normalized</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
         <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>
@@ -451,7 +449,7 @@
 
 
 <div class="viewcode-block" id="ParseSemester.write_professors">
-<a class="viewcode-back" href="../../../scripts/load-semester.html#api.scripts.load_semester.ParseSemester.write_professors">[docs]</a>
+<a class="viewcode-back" href="../../../api.scripts.html#api.scripts.load_semester.ParseSemester.write_professors">[docs]</a>
     <span class="k">def</span> <span class="nf">write_professors</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">p_id</span><span class="p">,</span> <span class="n">p_data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">professors</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="n">professor</span> <span class="o">=</span> <span class="n">Professor</span><span class="p">()</span>
@@ -466,7 +464,7 @@
 
 
 <div class="viewcode-block" id="ParseSemester.write_courses">
-<a class="viewcode-back" href="../../../scripts/load-semester.html#api.scripts.load_semester.ParseSemester.write_courses">[docs]</a>
+<a class="viewcode-back" href="../../../api.scripts.html#api.scripts.load_semester.ParseSemester.write_courses">[docs]</a>
     <span class="k">def</span> <span class="nf">write_courses</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">slug</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">courses</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="k">try</span><span class="p">:</span>
@@ -484,7 +482,7 @@
 
 
 <div class="viewcode-block" id="ParseSemester.write_sections">
-<a class="viewcode-back" href="../../../scripts/load-semester.html#api.scripts.load_semester.ParseSemester.write_sections">[docs]</a>
+<a class="viewcode-back" href="../../../api.scripts.html#api.scripts.load_semester.ParseSemester.write_sections">[docs]</a>
     <span class="k">def</span> <span class="nf">write_sections</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">slug</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sections</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="n">section</span> <span class="o">=</span> <span class="n">Section</span><span class="p">()</span>
@@ -505,8 +503,9 @@
 
 
 <div class="viewcode-block" id="run">
-<a class="viewcode-back" href="../../../scripts/load-semester.html#api.scripts.load_semester.run">[docs]</a>
-<span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="n">FILE</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<a class="viewcode-back" href="../../../api.scripts.html#api.scripts.load_semester.run">[docs]</a>
+<span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="n">csv_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="n">FILE</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;PATH_TO_FILE&quot;</span><span class="p">)</span>
     <span class="n">parser</span> <span class="o">=</span> <span class="n">ParseSemester</span><span class="p">(</span><span class="n">FILE</span><span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">write_professors</span><span class="p">()</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">write_courses</span><span class="p">()</span>

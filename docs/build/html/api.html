@@ -1,0 +1,1175 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="author" title="About these documents" href="about.html" /><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" />
+
+    <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
+        <title>api package - University of Nebraska Tutoring Portal</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=36a5483c" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #272822;
+  --color-code-foreground: #f8f8f2;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #272822;
+  --color-code-foreground: #f8f8f2;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<div class="announcement">
+  <aside class="announcement-content">
+     <em>Important:</em> Beta Release coming soon! 
+  </aside>
+</div>
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">University of Nebraska Tutoring Portal</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="_static/docsico.png" alt="Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">University of Nebraska Tutoring Portal</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">CSLC Portal Backend</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="endpoints/index.html">API Endpoints</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of API Endpoints</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="endpoints/course.html">Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="endpoints/issue.html">Issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="endpoints/professor.html">Professor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="endpoints/section.html">Section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="endpoints/ticket.html">Ticket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="endpoints/user.html">User</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="models/index.html">Database Models</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Database Models</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="models/course.html">Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="models/issue.html">Issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="models/professor.html">Professor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="models/section.html">Section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="models/ticket.html">Ticket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="models/user.html">User</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="scripts/index.html">API Scripts</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of API Scripts</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="settings/index.html">API Config</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of API Config</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="settings/settings.html">Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings/settings.html#module-base.asgi">base.asgi module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings/settings.html#module-base.settings">base.settings module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings/settings.html#module-base.urls">base.urls module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings/settings.html#module-base.wsgi">base.wsgi module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings/settings.html#module-base">Module contents</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">CSLC Portal Frontend</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="forms/index.html">Forms</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Forms</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="forms/ticket.html">TicketForm TypeScript Module Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forms/ticket.html#ticketform-react-component-documentation">TicketForm React Component Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forms/announcement.html">AnnouncementForm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forms/theme.html">ThemeProvider React Component Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forms/toggle.html">ModeToggle React Component Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forms/tutor.html">TutorTicketForm React Component Documentation</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="api-package">
+<h1>api package<a class="headerlink" href="#api-package" title="Link to this heading">#</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api.endpoints.html">api.endpoints package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.endpoints.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.endpoints.html#module-api.endpoints.authenticate">api.endpoints.authenticate module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.endpoints.html#api.endpoints.authenticate.APIAuthenticateList"><code class="docutils literal notranslate"><span class="pre">APIAuthenticateList</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.authenticate.APIAuthenticateList.get"><code class="docutils literal notranslate"><span class="pre">APIAuthenticateList.get()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.authenticate.APIAuthenticateList.post"><code class="docutils literal notranslate"><span class="pre">APIAuthenticateList.post()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.authenticate.APIAuthenticateList.renderer_classes"><code class="docutils literal notranslate"><span class="pre">APIAuthenticateList.renderer_classes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.authenticate.APIAuthenticateList.serializer_class"><code class="docutils literal notranslate"><span class="pre">APIAuthenticateList.serializer_class</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.endpoints.html#module-api.endpoints.course">api.endpoints.course module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.endpoints.html#api.endpoints.course.APICourseList"><code class="docutils literal notranslate"><span class="pre">APICourseList</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.course.APICourseList.get"><code class="docutils literal notranslate"><span class="pre">APICourseList.get()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.course.APICourseList.get_querystring"><code class="docutils literal notranslate"><span class="pre">APICourseList.get_querystring()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.course.APICourseList.post"><code class="docutils literal notranslate"><span class="pre">APICourseList.post()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.course.APICourseList.renderer_classes"><code class="docutils literal notranslate"><span class="pre">APICourseList.renderer_classes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.course.APICourseList.sanitize"><code class="docutils literal notranslate"><span class="pre">APICourseList.sanitize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.course.APICourseList.serializer_class"><code class="docutils literal notranslate"><span class="pre">APICourseList.serializer_class</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.endpoints.html#module-api.endpoints.issue">api.endpoints.issue module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.endpoints.html#api.endpoints.issue.APIIssueDetail"><code class="docutils literal notranslate"><span class="pre">APIIssueDetail</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.issue.APIIssueDetail.get"><code class="docutils literal notranslate"><span class="pre">APIIssueDetail.get()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.issue.APIIssueDetail.put"><code class="docutils literal notranslate"><span class="pre">APIIssueDetail.put()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.issue.APIIssueDetail.query_obj"><code class="docutils literal notranslate"><span class="pre">APIIssueDetail.query_obj()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api.endpoints.html#api.endpoints.issue.APIIssueView"><code class="docutils literal notranslate"><span class="pre">APIIssueView</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.issue.APIIssueView.get"><code class="docutils literal notranslate"><span class="pre">APIIssueView.get()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.issue.APIIssueView.post"><code class="docutils literal notranslate"><span class="pre">APIIssueView.post()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.issue.APIIssueView.renderer_classes"><code class="docutils literal notranslate"><span class="pre">APIIssueView.renderer_classes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.issue.APIIssueView.serializer_class"><code class="docutils literal notranslate"><span class="pre">APIIssueView.serializer_class</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.endpoints.html#module-api.endpoints.professor">api.endpoints.professor module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.endpoints.html#api.endpoints.professor.APIProfessorDetail"><code class="docutils literal notranslate"><span class="pre">APIProfessorDetail</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.professor.APIProfessorDetail.get"><code class="docutils literal notranslate"><span class="pre">APIProfessorDetail.get()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.professor.APIProfessorDetail.put"><code class="docutils literal notranslate"><span class="pre">APIProfessorDetail.put()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.professor.APIProfessorDetail.query_obj"><code class="docutils literal notranslate"><span class="pre">APIProfessorDetail.query_obj()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.professor.APIProfessorDetail.renderer_classes"><code class="docutils literal notranslate"><span class="pre">APIProfessorDetail.renderer_classes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.professor.APIProfessorDetail.serializer_class"><code class="docutils literal notranslate"><span class="pre">APIProfessorDetail.serializer_class</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api.endpoints.html#api.endpoints.professor.APIProfessorView"><code class="docutils literal notranslate"><span class="pre">APIProfessorView</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.professor.APIProfessorView.get"><code class="docutils literal notranslate"><span class="pre">APIProfessorView.get()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.professor.APIProfessorView.get_querystring"><code class="docutils literal notranslate"><span class="pre">APIProfessorView.get_querystring()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.professor.APIProfessorView.post"><code class="docutils literal notranslate"><span class="pre">APIProfessorView.post()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.professor.APIProfessorView.renderer_classes"><code class="docutils literal notranslate"><span class="pre">APIProfessorView.renderer_classes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.professor.APIProfessorView.sanitize"><code class="docutils literal notranslate"><span class="pre">APIProfessorView.sanitize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.professor.APIProfessorView.serializer_class"><code class="docutils literal notranslate"><span class="pre">APIProfessorView.serializer_class</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.endpoints.html#module-api.endpoints.section">api.endpoints.section module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.endpoints.html#api.endpoints.section.APISectionDetail"><code class="docutils literal notranslate"><span class="pre">APISectionDetail</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.section.APISectionDetail.get"><code class="docutils literal notranslate"><span class="pre">APISectionDetail.get()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.section.APISectionDetail.put"><code class="docutils literal notranslate"><span class="pre">APISectionDetail.put()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.section.APISectionDetail.query_obj"><code class="docutils literal notranslate"><span class="pre">APISectionDetail.query_obj()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.section.APISectionDetail.renderer_classes"><code class="docutils literal notranslate"><span class="pre">APISectionDetail.renderer_classes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.section.APISectionDetail.serializer_class"><code class="docutils literal notranslate"><span class="pre">APISectionDetail.serializer_class</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api.endpoints.html#api.endpoints.section.APISectionView"><code class="docutils literal notranslate"><span class="pre">APISectionView</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.section.APISectionView.get"><code class="docutils literal notranslate"><span class="pre">APISectionView.get()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.section.APISectionView.get_querystring"><code class="docutils literal notranslate"><span class="pre">APISectionView.get_querystring()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.section.APISectionView.post"><code class="docutils literal notranslate"><span class="pre">APISectionView.post()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.section.APISectionView.renderer_classes"><code class="docutils literal notranslate"><span class="pre">APISectionView.renderer_classes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.section.APISectionView.sanitize"><code class="docutils literal notranslate"><span class="pre">APISectionView.sanitize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.section.APISectionView.serializer_class"><code class="docutils literal notranslate"><span class="pre">APISectionView.serializer_class</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.endpoints.html#module-api.endpoints.ticket">api.endpoints.ticket module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.endpoints.html#api.endpoints.ticket.APITicketDetail"><code class="docutils literal notranslate"><span class="pre">APITicketDetail</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.ticket.APITicketDetail.get"><code class="docutils literal notranslate"><span class="pre">APITicketDetail.get()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.ticket.APITicketDetail.patch"><code class="docutils literal notranslate"><span class="pre">APITicketDetail.patch()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.ticket.APITicketDetail.renderer_classes"><code class="docutils literal notranslate"><span class="pre">APITicketDetail.renderer_classes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.ticket.APITicketDetail.serializer_class"><code class="docutils literal notranslate"><span class="pre">APITicketDetail.serializer_class</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api.endpoints.html#api.endpoints.ticket.APITicketView"><code class="docutils literal notranslate"><span class="pre">APITicketView</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.ticket.APITicketView.get"><code class="docutils literal notranslate"><span class="pre">APITicketView.get()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.ticket.APITicketView.get_querystring"><code class="docutils literal notranslate"><span class="pre">APITicketView.get_querystring()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.ticket.APITicketView.post"><code class="docutils literal notranslate"><span class="pre">APITicketView.post()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.ticket.APITicketView.renderer_classes"><code class="docutils literal notranslate"><span class="pre">APITicketView.renderer_classes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.ticket.APITicketView.sanitize"><code class="docutils literal notranslate"><span class="pre">APITicketView.sanitize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.ticket.APITicketView.serializer_class"><code class="docutils literal notranslate"><span class="pre">APITicketView.serializer_class</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.endpoints.html#module-api.endpoints.user">api.endpoints.user module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.endpoints.html#api.endpoints.user.APIUserDetail"><code class="docutils literal notranslate"><span class="pre">APIUserDetail</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.user.APIUserDetail.get"><code class="docutils literal notranslate"><span class="pre">APIUserDetail.get()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.user.APIUserDetail.put"><code class="docutils literal notranslate"><span class="pre">APIUserDetail.put()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.user.APIUserDetail.query_obj"><code class="docutils literal notranslate"><span class="pre">APIUserDetail.query_obj()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.user.APIUserDetail.renderer_classes"><code class="docutils literal notranslate"><span class="pre">APIUserDetail.renderer_classes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.user.APIUserDetail.serializer_class"><code class="docutils literal notranslate"><span class="pre">APIUserDetail.serializer_class</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api.endpoints.html#api.endpoints.user.APIUserView"><code class="docutils literal notranslate"><span class="pre">APIUserView</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.user.APIUserView.get"><code class="docutils literal notranslate"><span class="pre">APIUserView.get()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.user.APIUserView.get_querystring"><code class="docutils literal notranslate"><span class="pre">APIUserView.get_querystring()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.user.APIUserView.post"><code class="docutils literal notranslate"><span class="pre">APIUserView.post()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.user.APIUserView.renderer_classes"><code class="docutils literal notranslate"><span class="pre">APIUserView.renderer_classes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.user.APIUserView.sanitize"><code class="docutils literal notranslate"><span class="pre">APIUserView.sanitize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.endpoints.html#api.endpoints.user.APIUserView.serializer_class"><code class="docutils literal notranslate"><span class="pre">APIUserView.serializer_class</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.endpoints.html#module-api.endpoints">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.migrations.html">api.migrations package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.migrations.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.migrations.html#module-api.migrations.0001_initial">api.migrations.0001_initial module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.migrations.html#api.migrations.0001_initial.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.migrations.html#api.migrations.0001_initial.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.migrations.html#api.migrations.0001_initial.Migration.initial"><code class="docutils literal notranslate"><span class="pre">Migration.initial</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.migrations.html#api.migrations.0001_initial.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.migrations.html#module-api.migrations.0002_alter_ticket_student_alter_ticket_tutor">api.migrations.0002_alter_ticket_student_alter_ticket_tutor module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.migrations.html#api.migrations.0002_alter_ticket_student_alter_ticket_tutor.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.migrations.html#api.migrations.0002_alter_ticket_student_alter_ticket_tutor.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.migrations.html#api.migrations.0002_alter_ticket_student_alter_ticket_tutor.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.migrations.html#module-api.migrations">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.models.html">api.models package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.models.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.models.html#module-api.models.announcement">api.models.announcement module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.models.html#api.models.announcement.Announcement"><code class="docutils literal notranslate"><span class="pre">Announcement</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.announcement.Announcement.CHOICES"><code class="docutils literal notranslate"><span class="pre">Announcement.CHOICES</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.announcement.Announcement.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Announcement.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.announcement.Announcement.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Announcement.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.announcement.Announcement.announcement_body"><code class="docutils literal notranslate"><span class="pre">Announcement.announcement_body</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.announcement.Announcement.announcement_header"><code class="docutils literal notranslate"><span class="pre">Announcement.announcement_header</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.announcement.Announcement.announcement_type"><code class="docutils literal notranslate"><span class="pre">Announcement.announcement_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.announcement.Announcement.display_from_date"><code class="docutils literal notranslate"><span class="pre">Announcement.display_from_date</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.announcement.Announcement.display_to_date"><code class="docutils literal notranslate"><span class="pre">Announcement.display_to_date</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.announcement.Announcement.get_announcement_type_display"><code class="docutils literal notranslate"><span class="pre">Announcement.get_announcement_type_display()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.announcement.Announcement.get_next_by_display_from_date"><code class="docutils literal notranslate"><span class="pre">Announcement.get_next_by_display_from_date()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.announcement.Announcement.get_next_by_display_to_date"><code class="docutils literal notranslate"><span class="pre">Announcement.get_next_by_display_to_date()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.announcement.Announcement.get_previous_by_display_from_date"><code class="docutils literal notranslate"><span class="pre">Announcement.get_previous_by_display_from_date()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.announcement.Announcement.get_previous_by_display_to_date"><code class="docutils literal notranslate"><span class="pre">Announcement.get_previous_by_display_to_date()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.announcement.Announcement.id"><code class="docutils literal notranslate"><span class="pre">Announcement.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.announcement.Announcement.objects"><code class="docutils literal notranslate"><span class="pre">Announcement.objects</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.announcement.Announcement.tutors_only"><code class="docutils literal notranslate"><span class="pre">Announcement.tutors_only</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.models.html#module-api.models.color">api.models.color module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.models.html#api.models.color.Color"><code class="docutils literal notranslate"><span class="pre">Color</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.color.Color.color_id"><code class="docutils literal notranslate"><span class="pre">Color.color_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.color.Color.verbose_name_plural"><code class="docutils literal notranslate"><span class="pre">Color.verbose_name_plural</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.color.Color.ColorChoices"><code class="docutils literal notranslate"><span class="pre">Color.ColorChoices</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.color.Color.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Color.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.color.Color.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Color.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#id0"><code class="docutils literal notranslate"><span class="pre">Color.color_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.color.Color.get_color_id_display"><code class="docutils literal notranslate"><span class="pre">Color.get_color_id_display()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.color.Color.id"><code class="docutils literal notranslate"><span class="pre">Color.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.color.Color.objects"><code class="docutils literal notranslate"><span class="pre">Color.objects</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.models.html#module-api.models.course">api.models.course module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.models.html#api.models.course.Course"><code class="docutils literal notranslate"><span class="pre">Course</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.course.Course.course_department"><code class="docutils literal notranslate"><span class="pre">Course.course_department</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.course.Course.course_name"><code class="docutils literal notranslate"><span class="pre">Course.course_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.course.Course.course_id"><code class="docutils literal notranslate"><span class="pre">Course.course_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.course.Course.course_code"><code class="docutils literal notranslate"><span class="pre">Course.course_code</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.course.Course.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Course.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.course.Course.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Course.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#id2"><code class="docutils literal notranslate"><span class="pre">Course.course_code</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#id3"><code class="docutils literal notranslate"><span class="pre">Course.course_department</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#id4"><code class="docutils literal notranslate"><span class="pre">Course.course_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#id5"><code class="docutils literal notranslate"><span class="pre">Course.course_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.course.Course.generic"><code class="docutils literal notranslate"><span class="pre">Course.generic</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.course.Course.id"><code class="docutils literal notranslate"><span class="pre">Course.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.course.Course.section_set"><code class="docutils literal notranslate"><span class="pre">Course.section_set</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.course.Course.ticket_set"><code class="docutils literal notranslate"><span class="pre">Course.ticket_set</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.course.Course.usertocoursetaken"><code class="docutils literal notranslate"><span class="pre">Course.usertocoursetaken</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.course.Course.usertocoursetutored"><code class="docutils literal notranslate"><span class="pre">Course.usertocoursetutored</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.models.html#module-api.models.hours">api.models.hours module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.models.html#api.models.hours.Hour"><code class="docutils literal notranslate"><span class="pre">Hour</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.hours.Hour.Day"><code class="docutils literal notranslate"><span class="pre">Hour.Day</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.hours.Hour.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Hour.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.hours.Hour.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Hour.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.hours.Hour.day_id"><code class="docutils literal notranslate"><span class="pre">Hour.day_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.hours.Hour.generic"><code class="docutils literal notranslate"><span class="pre">Hour.generic</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.hours.Hour.get_day_id_display"><code class="docutils literal notranslate"><span class="pre">Hour.get_day_id_display()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.hours.Hour.get_next_by_time_in"><code class="docutils literal notranslate"><span class="pre">Hour.get_next_by_time_in()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.hours.Hour.get_next_by_time_out"><code class="docutils literal notranslate"><span class="pre">Hour.get_next_by_time_out()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.hours.Hour.get_previous_by_time_in"><code class="docutils literal notranslate"><span class="pre">Hour.get_previous_by_time_in()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.hours.Hour.get_previous_by_time_out"><code class="docutils literal notranslate"><span class="pre">Hour.get_previous_by_time_out()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.hours.Hour.hours"><code class="docutils literal notranslate"><span class="pre">Hour.hours</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.hours.Hour.id"><code class="docutils literal notranslate"><span class="pre">Hour.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.hours.Hour.time_in"><code class="docutils literal notranslate"><span class="pre">Hour.time_in</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.hours.Hour.time_out"><code class="docutils literal notranslate"><span class="pre">Hour.time_out</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.hours.Hour.tutor"><code class="docutils literal notranslate"><span class="pre">Hour.tutor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.hours.Hour.tutor_id"><code class="docutils literal notranslate"><span class="pre">Hour.tutor_id</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api.models.html#api.models.hours.HourManager"><code class="docutils literal notranslate"><span class="pre">HourManager</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.hours.HourManager.get_all_hours"><code class="docutils literal notranslate"><span class="pre">HourManager.get_all_hours()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.hours.HourManager.get_tutor"><code class="docutils literal notranslate"><span class="pre">HourManager.get_tutor()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.models.html#module-api.models.issue">api.models.issue module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.models.html#api.models.issue.IssueManager"><code class="docutils literal notranslate"><span class="pre">IssueManager</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.issue.IssueManager.get_issues"><code class="docutils literal notranslate"><span class="pre">IssueManager.get_issues()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api.models.html#api.models.issue.Issues"><code class="docutils literal notranslate"><span class="pre">Issues</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.issue.Issues.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Issues.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.issue.Issues.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Issues.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.issue.Issues.generic"><code class="docutils literal notranslate"><span class="pre">Issues.generic</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.issue.Issues.get_severity_display"><code class="docutils literal notranslate"><span class="pre">Issues.get_severity_display()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.issue.Issues.issue_id"><code class="docutils literal notranslate"><span class="pre">Issues.issue_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.issue.Issues.problem_type"><code class="docutils literal notranslate"><span class="pre">Issues.problem_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.issue.Issues.severity"><code class="docutils literal notranslate"><span class="pre">Issues.severity</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.issue.Issues.ticket_set"><code class="docutils literal notranslate"><span class="pre">Issues.ticket_set</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.models.html#module-api.models.messages">api.models.messages module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.models.html#api.models.messages.Messages"><code class="docutils literal notranslate"><span class="pre">Messages</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.messages.Messages.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Messages.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.messages.Messages.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Messages.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.messages.Messages.created_date"><code class="docutils literal notranslate"><span class="pre">Messages.created_date</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.messages.Messages.generic"><code class="docutils literal notranslate"><span class="pre">Messages.generic</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.messages.Messages.get_next_by_created_date"><code class="docutils literal notranslate"><span class="pre">Messages.get_next_by_created_date()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.messages.Messages.get_previous_by_created_date"><code class="docutils literal notranslate"><span class="pre">Messages.get_previous_by_created_date()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.messages.Messages.id"><code class="docutils literal notranslate"><span class="pre">Messages.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.messages.Messages.message_content"><code class="docutils literal notranslate"><span class="pre">Messages.message_content</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.messages.Messages.sender"><code class="docutils literal notranslate"><span class="pre">Messages.sender</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.messages.Messages.sender_id"><code class="docutils literal notranslate"><span class="pre">Messages.sender_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.messages.Messages.ticket"><code class="docutils literal notranslate"><span class="pre">Messages.ticket</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.messages.Messages.ticket_id"><code class="docutils literal notranslate"><span class="pre">Messages.ticket_id</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.models.html#module-api.models.professor">api.models.professor module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.models.html#api.models.professor.Professor"><code class="docutils literal notranslate"><span class="pre">Professor</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.professor.Professor.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Professor.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.professor.Professor.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Professor.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.professor.Professor.email"><code class="docutils literal notranslate"><span class="pre">Professor.email</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.professor.Professor.first_name"><code class="docutils literal notranslate"><span class="pre">Professor.first_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.professor.Professor.full_name"><code class="docutils literal notranslate"><span class="pre">Professor.full_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.professor.Professor.generic"><code class="docutils literal notranslate"><span class="pre">Professor.generic</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.professor.Professor.is_active"><code class="docutils literal notranslate"><span class="pre">Professor.is_active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.professor.Professor.last_name"><code class="docutils literal notranslate"><span class="pre">Professor.last_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.professor.Professor.professor"><code class="docutils literal notranslate"><span class="pre">Professor.professor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.professor.Professor.professor_id"><code class="docutils literal notranslate"><span class="pre">Professor.professor_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.professor.Professor.section_set"><code class="docutils literal notranslate"><span class="pre">Professor.section_set</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.professor.Professor.ticket_set"><code class="docutils literal notranslate"><span class="pre">Professor.ticket_set</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api.models.html#api.models.professor.ProfessorManager"><code class="docutils literal notranslate"><span class="pre">ProfessorManager</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.professor.ProfessorManager.get_professor"><code class="docutils literal notranslate"><span class="pre">ProfessorManager.get_professor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.professor.ProfessorManager.get_professors"><code class="docutils literal notranslate"><span class="pre">ProfessorManager.get_professors()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.models.html#module-api.models.roles">api.models.roles module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.models.html#api.models.roles.Role"><code class="docutils literal notranslate"><span class="pre">Role</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.roles.Role.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Role.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.roles.Role.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Role.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.roles.Role.id"><code class="docutils literal notranslate"><span class="pre">Role.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.roles.Role.objects"><code class="docutils literal notranslate"><span class="pre">Role.objects</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.models.html#module-api.models.sections">api.models.sections module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.models.html#api.models.sections.Section"><code class="docutils literal notranslate"><span class="pre">Section</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.sections.Section.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Section.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.sections.Section.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Section.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.sections.Section.course"><code class="docutils literal notranslate"><span class="pre">Section.course</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.sections.Section.course_id"><code class="docutils literal notranslate"><span class="pre">Section.course_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.sections.Section.generic"><code class="docutils literal notranslate"><span class="pre">Section.generic</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.sections.Section.modality"><code class="docutils literal notranslate"><span class="pre">Section.modality</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.sections.Section.professor"><code class="docutils literal notranslate"><span class="pre">Section.professor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.sections.Section.professor_id"><code class="docutils literal notranslate"><span class="pre">Section.professor_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.sections.Section.section_id"><code class="docutils literal notranslate"><span class="pre">Section.section_id</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.models.html#module-api.models.ticket">api.models.ticket module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.models.html#api.models.ticket.Ticket"><code class="docutils literal notranslate"><span class="pre">Ticket</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.Ticket.CLOSED"><code class="docutils literal notranslate"><span class="pre">Ticket.CLOSED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.Ticket.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Ticket.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.Ticket.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Ticket.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.Ticket.NEW"><code class="docutils literal notranslate"><span class="pre">Ticket.NEW</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.Ticket.OPENED"><code class="docutils literal notranslate"><span class="pre">Ticket.OPENED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.Ticket.STATUS_CHOICES"><code class="docutils literal notranslate"><span class="pre">Ticket.STATUS_CHOICES</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.Ticket.closed_at"><code class="docutils literal notranslate"><span class="pre">Ticket.closed_at</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.Ticket.course"><code class="docutils literal notranslate"><span class="pre">Ticket.course</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.Ticket.course_id"><code class="docutils literal notranslate"><span class="pre">Ticket.course_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.Ticket.created_at"><code class="docutils literal notranslate"><span class="pre">Ticket.created_at</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.Ticket.description"><code class="docutils literal notranslate"><span class="pre">Ticket.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.Ticket.generic"><code class="docutils literal notranslate"><span class="pre">Ticket.generic</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.Ticket.get_next_by_created_at"><code class="docutils literal notranslate"><span class="pre">Ticket.get_next_by_created_at()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.Ticket.get_next_by_updated_at"><code class="docutils literal notranslate"><span class="pre">Ticket.get_next_by_updated_at()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.Ticket.get_previous_by_created_at"><code class="docutils literal notranslate"><span class="pre">Ticket.get_previous_by_created_at()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.Ticket.get_previous_by_updated_at"><code class="docutils literal notranslate"><span class="pre">Ticket.get_previous_by_updated_at()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.Ticket.get_status_display"><code class="docutils literal notranslate"><span class="pre">Ticket.get_status_display()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.Ticket.id"><code class="docutils literal notranslate"><span class="pre">Ticket.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.Ticket.issue"><code class="docutils literal notranslate"><span class="pre">Ticket.issue</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.Ticket.issue_id"><code class="docutils literal notranslate"><span class="pre">Ticket.issue_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.Ticket.messages_set"><code class="docutils literal notranslate"><span class="pre">Ticket.messages_set</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.Ticket.name"><code class="docutils literal notranslate"><span class="pre">Ticket.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.Ticket.opened_at"><code class="docutils literal notranslate"><span class="pre">Ticket.opened_at</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.Ticket.professor"><code class="docutils literal notranslate"><span class="pre">Ticket.professor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.Ticket.professor_id"><code class="docutils literal notranslate"><span class="pre">Ticket.professor_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.Ticket.status"><code class="docutils literal notranslate"><span class="pre">Ticket.status</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.Ticket.student"><code class="docutils literal notranslate"><span class="pre">Ticket.student</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.Ticket.student_id"><code class="docutils literal notranslate"><span class="pre">Ticket.student_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.Ticket.ticket"><code class="docutils literal notranslate"><span class="pre">Ticket.ticket</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.Ticket.title"><code class="docutils literal notranslate"><span class="pre">Ticket.title</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.Ticket.tutor"><code class="docutils literal notranslate"><span class="pre">Ticket.tutor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.Ticket.tutor_id"><code class="docutils literal notranslate"><span class="pre">Ticket.tutor_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.Ticket.updated_at"><code class="docutils literal notranslate"><span class="pre">Ticket.updated_at</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.Ticket.was_reopened"><code class="docutils literal notranslate"><span class="pre">Ticket.was_reopened</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.Ticket.was_successful"><code class="docutils literal notranslate"><span class="pre">Ticket.was_successful</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api.models.html#api.models.ticket.TicketManager"><code class="docutils literal notranslate"><span class="pre">TicketManager</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.TicketManager.get_active"><code class="docutils literal notranslate"><span class="pre">TicketManager.get_active()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.TicketManager.get_all"><code class="docutils literal notranslate"><span class="pre">TicketManager.get_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.TicketManager.get_completed"><code class="docutils literal notranslate"><span class="pre">TicketManager.get_completed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.TicketManager.get_course"><code class="docutils literal notranslate"><span class="pre">TicketManager.get_course()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.TicketManager.get_professor"><code class="docutils literal notranslate"><span class="pre">TicketManager.get_professor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.TicketManager.get_section"><code class="docutils literal notranslate"><span class="pre">TicketManager.get_section()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.TicketManager.get_student"><code class="docutils literal notranslate"><span class="pre">TicketManager.get_student()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.TicketManager.get_successful"><code class="docutils literal notranslate"><span class="pre">TicketManager.get_successful()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.TicketManager.get_tutor"><code class="docutils literal notranslate"><span class="pre">TicketManager.get_tutor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.ticket.TicketManager.get_unclaimed"><code class="docutils literal notranslate"><span class="pre">TicketManager.get_unclaimed()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.models.html#module-api.models.tutor">api.models.tutor module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.models.html#api.models.tutor.Tutor"><code class="docutils literal notranslate"><span class="pre">Tutor</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.tutor.Tutor.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Tutor.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.tutor.Tutor.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Tutor.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.tutor.Tutor.from_date"><code class="docutils literal notranslate"><span class="pre">Tutor.from_date</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.tutor.Tutor.get_next_by_from_date"><code class="docutils literal notranslate"><span class="pre">Tutor.get_next_by_from_date()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.tutor.Tutor.get_next_by_to_date"><code class="docutils literal notranslate"><span class="pre">Tutor.get_next_by_to_date()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.tutor.Tutor.get_previous_by_from_date"><code class="docutils literal notranslate"><span class="pre">Tutor.get_previous_by_from_date()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.tutor.Tutor.get_previous_by_to_date"><code class="docutils literal notranslate"><span class="pre">Tutor.get_previous_by_to_date()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.tutor.Tutor.id"><code class="docutils literal notranslate"><span class="pre">Tutor.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.tutor.Tutor.message_body"><code class="docutils literal notranslate"><span class="pre">Tutor.message_body</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.tutor.Tutor.message_header"><code class="docutils literal notranslate"><span class="pre">Tutor.message_header</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.tutor.Tutor.objects"><code class="docutils literal notranslate"><span class="pre">Tutor.objects</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.tutor.Tutor.to_date"><code class="docutils literal notranslate"><span class="pre">Tutor.to_date</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.models.html#module-api.models.user">api.models.user module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.models.html#api.models.user.AdminManager"><code class="docutils literal notranslate"><span class="pre">AdminManager</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.user.AdminManager.get_admins"><code class="docutils literal notranslate"><span class="pre">AdminManager.get_admins()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api.models.html#api.models.user.StudentManager"><code class="docutils literal notranslate"><span class="pre">StudentManager</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.user.StudentManager.get_student"><code class="docutils literal notranslate"><span class="pre">StudentManager.get_student()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.user.StudentManager.get_students"><code class="docutils literal notranslate"><span class="pre">StudentManager.get_students()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api.models.html#api.models.user.TutorManager"><code class="docutils literal notranslate"><span class="pre">TutorManager</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.user.TutorManager.get_tutor"><code class="docutils literal notranslate"><span class="pre">TutorManager.get_tutor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.user.TutorManager.get_tutors"><code class="docutils literal notranslate"><span class="pre">TutorManager.get_tutors()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api.models.html#api.models.user.User"><code class="docutils literal notranslate"><span class="pre">User</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.user.User.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">User.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.user.User.MSOID"><code class="docutils literal notranslate"><span class="pre">User.MSOID</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.user.User.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">User.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.user.User.admin"><code class="docutils literal notranslate"><span class="pre">User.admin</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.user.User.courses_taken"><code class="docutils literal notranslate"><span class="pre">User.courses_taken</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.user.User.courses_tutoring"><code class="docutils literal notranslate"><span class="pre">User.courses_tutoring</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.user.User.email"><code class="docutils literal notranslate"><span class="pre">User.email</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.user.User.generic"><code class="docutils literal notranslate"><span class="pre">User.generic</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.user.User.hour_set"><code class="docutils literal notranslate"><span class="pre">User.hour_set</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.user.User.is_active"><code class="docutils literal notranslate"><span class="pre">User.is_active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.user.User.is_admin"><code class="docutils literal notranslate"><span class="pre">User.is_admin</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.user.User.is_tutor"><code class="docutils literal notranslate"><span class="pre">User.is_tutor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.user.User.is_working"><code class="docutils literal notranslate"><span class="pre">User.is_working</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.user.User.messages_set"><code class="docutils literal notranslate"><span class="pre">User.messages_set</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.user.User.name"><code class="docutils literal notranslate"><span class="pre">User.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.user.User.student"><code class="docutils literal notranslate"><span class="pre">User.student</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.user.User.student_nuid"><code class="docutils literal notranslate"><span class="pre">User.student_nuid</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.user.User.student_ticket"><code class="docutils literal notranslate"><span class="pre">User.student_ticket</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.user.User.tutor"><code class="docutils literal notranslate"><span class="pre">User.tutor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.user.User.tutor_ticket"><code class="docutils literal notranslate"><span class="pre">User.tutor_ticket</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.user.User.user_bio"><code class="docutils literal notranslate"><span class="pre">User.user_bio</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.user.User.workinghours_set"><code class="docutils literal notranslate"><span class="pre">User.workinghours_set</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.models.html#module-api.models.work_hours">api.models.work_hours module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.models.html#api.models.work_hours.HourManager"><code class="docutils literal notranslate"><span class="pre">HourManager</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.work_hours.HourManager.get_all_hours"><code class="docutils literal notranslate"><span class="pre">HourManager.get_all_hours()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.work_hours.HourManager.get_tutor"><code class="docutils literal notranslate"><span class="pre">HourManager.get_tutor()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api.models.html#api.models.work_hours.WorkingHours"><code class="docutils literal notranslate"><span class="pre">WorkingHours</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.work_hours.WorkingHours.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">WorkingHours.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.work_hours.WorkingHours.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">WorkingHours.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.work_hours.WorkingHours.fridayIn"><code class="docutils literal notranslate"><span class="pre">WorkingHours.fridayIn</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.work_hours.WorkingHours.fridayOut"><code class="docutils literal notranslate"><span class="pre">WorkingHours.fridayOut</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.work_hours.WorkingHours.hours"><code class="docutils literal notranslate"><span class="pre">WorkingHours.hours</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.work_hours.WorkingHours.id"><code class="docutils literal notranslate"><span class="pre">WorkingHours.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.work_hours.WorkingHours.mondayIn"><code class="docutils literal notranslate"><span class="pre">WorkingHours.mondayIn</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.work_hours.WorkingHours.mondayOut"><code class="docutils literal notranslate"><span class="pre">WorkingHours.mondayOut</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.work_hours.WorkingHours.saturdayIn"><code class="docutils literal notranslate"><span class="pre">WorkingHours.saturdayIn</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.work_hours.WorkingHours.saturdayOut"><code class="docutils literal notranslate"><span class="pre">WorkingHours.saturdayOut</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.work_hours.WorkingHours.sundayIn"><code class="docutils literal notranslate"><span class="pre">WorkingHours.sundayIn</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.work_hours.WorkingHours.sundayOut"><code class="docutils literal notranslate"><span class="pre">WorkingHours.sundayOut</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.work_hours.WorkingHours.thursdayIn"><code class="docutils literal notranslate"><span class="pre">WorkingHours.thursdayIn</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.work_hours.WorkingHours.thursdayOut"><code class="docutils literal notranslate"><span class="pre">WorkingHours.thursdayOut</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.work_hours.WorkingHours.tuesdayIn"><code class="docutils literal notranslate"><span class="pre">WorkingHours.tuesdayIn</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.work_hours.WorkingHours.tuesdayOut"><code class="docutils literal notranslate"><span class="pre">WorkingHours.tuesdayOut</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.work_hours.WorkingHours.tutor"><code class="docutils literal notranslate"><span class="pre">WorkingHours.tutor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.work_hours.WorkingHours.tutor_id"><code class="docutils literal notranslate"><span class="pre">WorkingHours.tutor_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.work_hours.WorkingHours.wednesdayIn"><code class="docutils literal notranslate"><span class="pre">WorkingHours.wednesdayIn</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.models.html#api.models.work_hours.WorkingHours.wednesdayOut"><code class="docutils literal notranslate"><span class="pre">WorkingHours.wednesdayOut</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.models.html#module-api.models">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.scripts.html">api.scripts package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.scripts.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.scripts.html#module-api.scripts.load_seed">api.scripts.load_seed module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.scripts.html#api.scripts.load_seed.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.scripts.html#module-api.scripts.load_semester">api.scripts.load_semester module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.scripts.html#api.scripts.load_semester.ParseSemester"><code class="docutils literal notranslate"><span class="pre">ParseSemester</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api.scripts.html#api.scripts.load_semester.ParseSemester.get_courses"><code class="docutils literal notranslate"><span class="pre">ParseSemester.get_courses()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.scripts.html#api.scripts.load_semester.ParseSemester.get_professors"><code class="docutils literal notranslate"><span class="pre">ParseSemester.get_professors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.scripts.html#api.scripts.load_semester.ParseSemester.get_sections"><code class="docutils literal notranslate"><span class="pre">ParseSemester.get_sections()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.scripts.html#api.scripts.load_semester.ParseSemester.normalize_text"><code class="docutils literal notranslate"><span class="pre">ParseSemester.normalize_text()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.scripts.html#api.scripts.load_semester.ParseSemester.read_csv"><code class="docutils literal notranslate"><span class="pre">ParseSemester.read_csv()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.scripts.html#api.scripts.load_semester.ParseSemester.write_courses"><code class="docutils literal notranslate"><span class="pre">ParseSemester.write_courses()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.scripts.html#api.scripts.load_semester.ParseSemester.write_professors"><code class="docutils literal notranslate"><span class="pre">ParseSemester.write_professors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.scripts.html#api.scripts.load_semester.ParseSemester.write_sections"><code class="docutils literal notranslate"><span class="pre">ParseSemester.write_sections()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api.scripts.html#api.scripts.load_semester.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.scripts.html#module-api.scripts.load_students">api.scripts.load_students module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.scripts.html#api.scripts.load_students.loaddata"><code class="docutils literal notranslate"><span class="pre">loaddata()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.scripts.html#api.scripts.load_students.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.scripts.html#module-api.scripts">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-api.admin">
+<span id="api-admin-module"></span><h2>api.admin module<a class="headerlink" href="#module-api.admin" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-api.apps">
+<span id="api-apps-module"></span><h2>api.apps module<a class="headerlink" href="#module-api.apps" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="api.apps.ApiConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">api.apps.</span></span><span class="sig-name descname"><span class="pre">ApiConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_module</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/api/apps.html#ApiConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.apps.ApiConfig" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AppConfig</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="api.apps.ApiConfig.default_auto_field">
+<span class="sig-name descname"><span class="pre">default_auto_field</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'django.db.models.BigAutoField'</span></em><a class="headerlink" href="#api.apps.ApiConfig.default_auto_field" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="api.apps.ApiConfig.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'api'</span></em><a class="headerlink" href="#api.apps.ApiConfig.name" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-api.routing">
+<span id="api-routing-module"></span><h2>api.routing module<a class="headerlink" href="#module-api.routing" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-api.serializers">
+<span id="api-serializers-module"></span><h2>api.serializers module<a class="headerlink" href="#module-api.serializers" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="api.serializers.CourseSerializer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">api.serializers.</span></span><span class="sig-name descname"><span class="pre">CourseSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/api/serializers.html#CourseSerializer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.serializers.CourseSerializer" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelSerializer</span></code></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="api.serializers.CourseSerializer.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/api/serializers.html#CourseSerializer.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.serializers.CourseSerializer.Meta" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="api.serializers.CourseSerializer.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'__all__'</span></em><a class="headerlink" href="#api.serializers.CourseSerializer.Meta.fields" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="api.serializers.CourseSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#api.serializers.CourseSerializer.Meta.model" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="models/course.html#api.models.course.Course" title="api.models.course.Course"><code class="xref py py-class docutils literal notranslate"><span class="pre">Course</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="api.serializers.IssueSerializer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">api.serializers.</span></span><span class="sig-name descname"><span class="pre">IssueSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/api/serializers.html#IssueSerializer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.serializers.IssueSerializer" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelSerializer</span></code></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="api.serializers.IssueSerializer.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/api/serializers.html#IssueSerializer.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.serializers.IssueSerializer.Meta" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="api.serializers.IssueSerializer.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'__all__'</span></em><a class="headerlink" href="#api.serializers.IssueSerializer.Meta.fields" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="api.serializers.IssueSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#api.serializers.IssueSerializer.Meta.model" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="models/issue.html#api.models.issue.Issues" title="api.models.issue.Issues"><code class="xref py py-class docutils literal notranslate"><span class="pre">Issues</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="api.serializers.MessageSerializer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">api.serializers.</span></span><span class="sig-name descname"><span class="pre">MessageSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/api/serializers.html#MessageSerializer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.serializers.MessageSerializer" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelSerializer</span></code></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="api.serializers.MessageSerializer.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/api/serializers.html#MessageSerializer.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.serializers.MessageSerializer.Meta" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="api.serializers.MessageSerializer.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('message_type',</span> <span class="pre">'message_header',</span> <span class="pre">'message_body',</span> <span class="pre">'from_date',</span> <span class="pre">'to_date')</span></em><a class="headerlink" href="#api.serializers.MessageSerializer.Meta.fields" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="api.serializers.MessageSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#api.serializers.MessageSerializer.Meta.model" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="api.models.html#api.models.messages.Messages" title="api.models.messages.Messages"><code class="xref py py-class docutils literal notranslate"><span class="pre">Messages</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="api.serializers.ProfessorSerializer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">api.serializers.</span></span><span class="sig-name descname"><span class="pre">ProfessorSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/api/serializers.html#ProfessorSerializer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.serializers.ProfessorSerializer" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelSerializer</span></code></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="api.serializers.ProfessorSerializer.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/api/serializers.html#ProfessorSerializer.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.serializers.ProfessorSerializer.Meta" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="api.serializers.ProfessorSerializer.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'__all__'</span></em><a class="headerlink" href="#api.serializers.ProfessorSerializer.Meta.fields" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="api.serializers.ProfessorSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#api.serializers.ProfessorSerializer.Meta.model" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="models/professor.html#api.models.professor.Professor" title="api.models.professor.Professor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Professor</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="api.serializers.SectionSerializer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">api.serializers.</span></span><span class="sig-name descname"><span class="pre">SectionSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/api/serializers.html#SectionSerializer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.serializers.SectionSerializer" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelSerializer</span></code></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="api.serializers.SectionSerializer.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/api/serializers.html#SectionSerializer.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.serializers.SectionSerializer.Meta" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="api.serializers.SectionSerializer.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'__all__'</span></em><a class="headerlink" href="#api.serializers.SectionSerializer.Meta.fields" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="api.serializers.SectionSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#api.serializers.SectionSerializer.Meta.model" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="api.models.html#api.models.sections.Section" title="api.models.sections.Section"><code class="xref py py-class docutils literal notranslate"><span class="pre">Section</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="api.serializers.TicketGetSerializer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">api.serializers.</span></span><span class="sig-name descname"><span class="pre">TicketGetSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/api/serializers.html#TicketGetSerializer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.serializers.TicketGetSerializer" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelSerializer</span></code></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="api.serializers.TicketGetSerializer.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/api/serializers.html#TicketGetSerializer.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.serializers.TicketGetSerializer.Meta" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="api.serializers.TicketGetSerializer.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'__all__'</span></em><a class="headerlink" href="#api.serializers.TicketGetSerializer.Meta.fields" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="api.serializers.TicketGetSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#api.serializers.TicketGetSerializer.Meta.model" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="models/ticket.html#api.models.ticket.Ticket" title="api.models.ticket.Ticket"><code class="xref py py-class docutils literal notranslate"><span class="pre">Ticket</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="api.serializers.TicketSerializer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">api.serializers.</span></span><span class="sig-name descname"><span class="pre">TicketSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/api/serializers.html#TicketSerializer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.serializers.TicketSerializer" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelSerializer</span></code></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="api.serializers.TicketSerializer.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/api/serializers.html#TicketSerializer.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.serializers.TicketSerializer.Meta" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="api.serializers.TicketSerializer.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'__all__'</span></em><a class="headerlink" href="#api.serializers.TicketSerializer.Meta.fields" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="api.serializers.TicketSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#api.serializers.TicketSerializer.Meta.model" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="models/ticket.html#api.models.ticket.Ticket" title="api.models.ticket.Ticket"><code class="xref py py-class docutils literal notranslate"><span class="pre">Ticket</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="api.serializers.TutorHourSerializer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">api.serializers.</span></span><span class="sig-name descname"><span class="pre">TutorHourSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/api/serializers.html#TutorHourSerializer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.serializers.TutorHourSerializer" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelSerializer</span></code></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="api.serializers.TutorHourSerializer.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/api/serializers.html#TutorHourSerializer.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.serializers.TutorHourSerializer.Meta" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="api.serializers.TutorHourSerializer.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('tutor',</span> <span class="pre">'mondayIn',</span> <span class="pre">'mondayOut',</span> <span class="pre">'tuesdayIn',</span> <span class="pre">'tuesdayOut',</span> <span class="pre">'wednesdayIn',</span> <span class="pre">'wednesdayOut',</span> <span class="pre">'thursdayIn',</span> <span class="pre">'thursdayOut',</span> <span class="pre">'fridayIn',</span> <span class="pre">'fridayOut',</span> <span class="pre">'saturdayIn',</span> <span class="pre">'saturdayOut',</span> <span class="pre">'sundayIn',</span> <span class="pre">'sundayOut')</span></em><a class="headerlink" href="#api.serializers.TutorHourSerializer.Meta.fields" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="api.serializers.TutorHourSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#api.serializers.TutorHourSerializer.Meta.model" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="api.models.html#api.models.work_hours.WorkingHours" title="api.models.work_hours.WorkingHours"><code class="xref py py-class docutils literal notranslate"><span class="pre">WorkingHours</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="api.serializers.UserSerializer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">api.serializers.</span></span><span class="sig-name descname"><span class="pre">UserSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/api/serializers.html#UserSerializer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.serializers.UserSerializer" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelSerializer</span></code></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="api.serializers.UserSerializer.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/api/serializers.html#UserSerializer.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.serializers.UserSerializer.Meta" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="api.serializers.UserSerializer.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'__all__'</span></em><a class="headerlink" href="#api.serializers.UserSerializer.Meta.fields" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="api.serializers.UserSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#api.serializers.UserSerializer.Meta.model" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="models/user.html#api.models.user.User" title="api.models.user.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-api.websocket">
+<span id="api-websocket-module"></span><h2>api.websocket module<a class="headerlink" href="#module-api.websocket" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="api.websocket.TextRoomConsumer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">api.websocket.</span></span><span class="sig-name descname"><span class="pre">TextRoomConsumer</span></span><a class="reference internal" href="_modules/api/websocket.html#TextRoomConsumer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.websocket.TextRoomConsumer" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">WebsocketConsumer</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="api.websocket.TextRoomConsumer.chat_message">
+<span class="sig-name descname"><span class="pre">chat_message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/api/websocket.html#TextRoomConsumer.chat_message"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.websocket.TextRoomConsumer.chat_message" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="api.websocket.TextRoomConsumer.connect">
+<span class="sig-name descname"><span class="pre">connect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/api/websocket.html#TextRoomConsumer.connect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.websocket.TextRoomConsumer.connect" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="api.websocket.TextRoomConsumer.disconnect">
+<span class="sig-name descname"><span class="pre">disconnect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/api/websocket.html#TextRoomConsumer.disconnect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.websocket.TextRoomConsumer.disconnect" title="Link to this definition">#</a></dt>
+<dd><p>Called when a WebSocket connection is closed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="api.websocket.TextRoomConsumer.receive">
+<span class="sig-name descname"><span class="pre">receive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text_data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/api/websocket.html#TextRoomConsumer.receive"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.websocket.TextRoomConsumer.receive" title="Link to this definition">#</a></dt>
+<dd><p>Called with a decoded WebSocket frame.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-api">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-api" title="Link to this heading">#</a></h2>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2023, Nolan Gregory
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">api package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-api.admin">api.admin module</a></li>
+<li><a class="reference internal" href="#module-api.apps">api.apps module</a><ul>
+<li><a class="reference internal" href="#api.apps.ApiConfig"><code class="docutils literal notranslate"><span class="pre">ApiConfig</span></code></a><ul>
+<li><a class="reference internal" href="#api.apps.ApiConfig.default_auto_field"><code class="docutils literal notranslate"><span class="pre">ApiConfig.default_auto_field</span></code></a></li>
+<li><a class="reference internal" href="#api.apps.ApiConfig.name"><code class="docutils literal notranslate"><span class="pre">ApiConfig.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-api.routing">api.routing module</a></li>
+<li><a class="reference internal" href="#module-api.serializers">api.serializers module</a><ul>
+<li><a class="reference internal" href="#api.serializers.CourseSerializer"><code class="docutils literal notranslate"><span class="pre">CourseSerializer</span></code></a><ul>
+<li><a class="reference internal" href="#api.serializers.CourseSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">CourseSerializer.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#api.serializers.CourseSerializer.Meta.fields"><code class="docutils literal notranslate"><span class="pre">CourseSerializer.Meta.fields</span></code></a></li>
+<li><a class="reference internal" href="#api.serializers.CourseSerializer.Meta.model"><code class="docutils literal notranslate"><span class="pre">CourseSerializer.Meta.model</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#api.serializers.IssueSerializer"><code class="docutils literal notranslate"><span class="pre">IssueSerializer</span></code></a><ul>
+<li><a class="reference internal" href="#api.serializers.IssueSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">IssueSerializer.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#api.serializers.IssueSerializer.Meta.fields"><code class="docutils literal notranslate"><span class="pre">IssueSerializer.Meta.fields</span></code></a></li>
+<li><a class="reference internal" href="#api.serializers.IssueSerializer.Meta.model"><code class="docutils literal notranslate"><span class="pre">IssueSerializer.Meta.model</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#api.serializers.MessageSerializer"><code class="docutils literal notranslate"><span class="pre">MessageSerializer</span></code></a><ul>
+<li><a class="reference internal" href="#api.serializers.MessageSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">MessageSerializer.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#api.serializers.MessageSerializer.Meta.fields"><code class="docutils literal notranslate"><span class="pre">MessageSerializer.Meta.fields</span></code></a></li>
+<li><a class="reference internal" href="#api.serializers.MessageSerializer.Meta.model"><code class="docutils literal notranslate"><span class="pre">MessageSerializer.Meta.model</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#api.serializers.ProfessorSerializer"><code class="docutils literal notranslate"><span class="pre">ProfessorSerializer</span></code></a><ul>
+<li><a class="reference internal" href="#api.serializers.ProfessorSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">ProfessorSerializer.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#api.serializers.ProfessorSerializer.Meta.fields"><code class="docutils literal notranslate"><span class="pre">ProfessorSerializer.Meta.fields</span></code></a></li>
+<li><a class="reference internal" href="#api.serializers.ProfessorSerializer.Meta.model"><code class="docutils literal notranslate"><span class="pre">ProfessorSerializer.Meta.model</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#api.serializers.SectionSerializer"><code class="docutils literal notranslate"><span class="pre">SectionSerializer</span></code></a><ul>
+<li><a class="reference internal" href="#api.serializers.SectionSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">SectionSerializer.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#api.serializers.SectionSerializer.Meta.fields"><code class="docutils literal notranslate"><span class="pre">SectionSerializer.Meta.fields</span></code></a></li>
+<li><a class="reference internal" href="#api.serializers.SectionSerializer.Meta.model"><code class="docutils literal notranslate"><span class="pre">SectionSerializer.Meta.model</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#api.serializers.TicketGetSerializer"><code class="docutils literal notranslate"><span class="pre">TicketGetSerializer</span></code></a><ul>
+<li><a class="reference internal" href="#api.serializers.TicketGetSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">TicketGetSerializer.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#api.serializers.TicketGetSerializer.Meta.fields"><code class="docutils literal notranslate"><span class="pre">TicketGetSerializer.Meta.fields</span></code></a></li>
+<li><a class="reference internal" href="#api.serializers.TicketGetSerializer.Meta.model"><code class="docutils literal notranslate"><span class="pre">TicketGetSerializer.Meta.model</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#api.serializers.TicketSerializer"><code class="docutils literal notranslate"><span class="pre">TicketSerializer</span></code></a><ul>
+<li><a class="reference internal" href="#api.serializers.TicketSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">TicketSerializer.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#api.serializers.TicketSerializer.Meta.fields"><code class="docutils literal notranslate"><span class="pre">TicketSerializer.Meta.fields</span></code></a></li>
+<li><a class="reference internal" href="#api.serializers.TicketSerializer.Meta.model"><code class="docutils literal notranslate"><span class="pre">TicketSerializer.Meta.model</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#api.serializers.TutorHourSerializer"><code class="docutils literal notranslate"><span class="pre">TutorHourSerializer</span></code></a><ul>
+<li><a class="reference internal" href="#api.serializers.TutorHourSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">TutorHourSerializer.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#api.serializers.TutorHourSerializer.Meta.fields"><code class="docutils literal notranslate"><span class="pre">TutorHourSerializer.Meta.fields</span></code></a></li>
+<li><a class="reference internal" href="#api.serializers.TutorHourSerializer.Meta.model"><code class="docutils literal notranslate"><span class="pre">TutorHourSerializer.Meta.model</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#api.serializers.UserSerializer"><code class="docutils literal notranslate"><span class="pre">UserSerializer</span></code></a><ul>
+<li><a class="reference internal" href="#api.serializers.UserSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">UserSerializer.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#api.serializers.UserSerializer.Meta.fields"><code class="docutils literal notranslate"><span class="pre">UserSerializer.Meta.fields</span></code></a></li>
+<li><a class="reference internal" href="#api.serializers.UserSerializer.Meta.model"><code class="docutils literal notranslate"><span class="pre">UserSerializer.Meta.model</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-api.websocket">api.websocket module</a><ul>
+<li><a class="reference internal" href="#api.websocket.TextRoomConsumer"><code class="docutils literal notranslate"><span class="pre">TextRoomConsumer</span></code></a><ul>
+<li><a class="reference internal" href="#api.websocket.TextRoomConsumer.chat_message"><code class="docutils literal notranslate"><span class="pre">TextRoomConsumer.chat_message()</span></code></a></li>
+<li><a class="reference internal" href="#api.websocket.TextRoomConsumer.connect"><code class="docutils literal notranslate"><span class="pre">TextRoomConsumer.connect()</span></code></a></li>
+<li><a class="reference internal" href="#api.websocket.TextRoomConsumer.disconnect"><code class="docutils literal notranslate"><span class="pre">TextRoomConsumer.disconnect()</span></code></a></li>
+<li><a class="reference internal" href="#api.websocket.TextRoomConsumer.receive"><code class="docutils literal notranslate"><span class="pre">TextRoomConsumer.receive()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-api">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=d45e8c67"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    </body>
+</html>

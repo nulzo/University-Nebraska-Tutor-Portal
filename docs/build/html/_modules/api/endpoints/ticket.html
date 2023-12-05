@@ -232,7 +232,9 @@
         </div>
         <article role="main">
           <h1>Source code for api.endpoints.ticket</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">status</span>
+<span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
+
+<span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">status</span>
 <span class="kn">from</span> <span class="nn">rest_framework.renderers</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">BrowsableAPIRenderer</span><span class="p">,</span>
     <span class="n">HTMLFormRenderer</span><span class="p">,</span>
@@ -242,11 +244,7 @@
 <span class="kn">from</span> <span class="nn">rest_framework.response</span> <span class="kn">import</span> <span class="n">Response</span>
 <span class="kn">from</span> <span class="nn">rest_framework.views</span> <span class="kn">import</span> <span class="n">APIView</span>
 
-<span class="kn">from</span> <span class="nn">api.models.course</span> <span class="kn">import</span> <span class="n">Course</span>
-<span class="kn">from</span> <span class="nn">api.models.issue</span> <span class="kn">import</span> <span class="n">Issues</span>
-<span class="kn">from</span> <span class="nn">api.models.professor</span> <span class="kn">import</span> <span class="n">Professor</span>
 <span class="kn">from</span> <span class="nn">api.models.ticket</span> <span class="kn">import</span> <span class="n">Ticket</span>
-<span class="kn">from</span> <span class="nn">api.models.user</span> <span class="kn">import</span> <span class="n">User</span>
 <span class="kn">from</span> <span class="nn">api.serializers</span> <span class="kn">import</span> <span class="n">TicketGetSerializer</span><span class="p">,</span> <span class="n">TicketSerializer</span>
 
 <span class="c1"># We don&#39;t need to check for duplicate class names and function names.</span>
@@ -254,144 +252,82 @@
 
 
 <div class="viewcode-block" id="APITicketView">
-<a class="viewcode-back" href="../../../endpoints/ticket.html#api.endpoints.ticket.APITicketView">[docs]</a>
+<a class="viewcode-back" href="../../../api.endpoints.html#api.endpoints.ticket.APITicketView">[docs]</a>
 <span class="k">class</span> <span class="nc">APITicketView</span><span class="p">(</span><span class="n">APIView</span><span class="p">):</span>
     <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">TicketSerializer</span>
     <span class="n">renderer_classes</span> <span class="o">=</span> <span class="p">(</span><span class="n">BrowsableAPIRenderer</span><span class="p">,</span> <span class="n">JSONRenderer</span><span class="p">,</span> <span class="n">HTMLFormRenderer</span><span class="p">)</span>
 
 <div class="viewcode-block" id="APITicketView.get_querystring">
-<a class="viewcode-back" href="../../../endpoints/ticket.html#api.endpoints.ticket.APITicketView.get_querystring">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_querystring</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span></div>
+<a class="viewcode-back" href="../../../api.endpoints.html#api.endpoints.ticket.APITicketView.get_querystring">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_querystring</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">request</span><span class="o">.</span><span class="n">query_params</span></div>
 
 
 <div class="viewcode-block" id="APITicketView.sanitize">
-<a class="viewcode-back" href="../../../endpoints/ticket.html#api.endpoints.ticket.APITicketView.sanitize">[docs]</a>
+<a class="viewcode-back" href="../../../api.endpoints.html#api.endpoints.ticket.APITicketView.sanitize">[docs]</a>
     <span class="k">def</span> <span class="nf">sanitize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">querystring</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">querystring</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span></div>
 
 
 <div class="viewcode-block" id="APITicketView.get">
-<a class="viewcode-back" href="../../../endpoints/ticket.html#api.endpoints.ticket.APITicketView.get">[docs]</a>
+<a class="viewcode-back" href="../../../api.endpoints.html#api.endpoints.ticket.APITicketView.get">[docs]</a>
     <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
-        <span class="n">users</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">generic</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+        <span class="n">tickets</span> <span class="o">=</span> <span class="n">Ticket</span><span class="o">.</span><span class="n">generic</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
         <span class="n">querystring</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_querystring</span><span class="p">(</span><span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="n">querystring</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">querystring</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">department</span> <span class="o">:=</span> <span class="n">querystring</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;department&quot;</span><span class="p">):</span>
-                <span class="n">users</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">course_department</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">sanitize</span><span class="p">(</span><span class="n">department</span><span class="p">))</span>
-
-            <span class="k">if</span> <span class="n">name</span> <span class="o">:=</span> <span class="n">querystring</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">):</span>
-                <span class="n">users</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
-
-            <span class="k">if</span> <span class="n">name_contains</span> <span class="o">:=</span> <span class="n">querystring</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name-contains&quot;</span><span class="p">):</span>
-                <span class="n">users</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">name__icontains</span><span class="o">=</span><span class="n">name_contains</span><span class="p">)</span>
-
-            <span class="k">if</span> <span class="n">first_name</span> <span class="o">:=</span> <span class="n">querystring</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;first-name&quot;</span><span class="p">):</span>
-                <span class="n">users</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">name__istartswith</span><span class="o">=</span><span class="n">first_name</span><span class="p">)</span>
-
-            <span class="k">if</span> <span class="n">last_name</span> <span class="o">:=</span> <span class="n">querystring</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;last-name&quot;</span><span class="p">):</span>
-                <span class="n">users</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">name__iendswith</span><span class="o">=</span><span class="n">last_name</span><span class="p">)</span>
-
-            <span class="k">if</span> <span class="n">tutor</span> <span class="o">:=</span> <span class="n">querystring</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;tutor&quot;</span><span class="p">):</span>
-                <span class="n">users</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">is_tutor</span><span class="o">=</span><span class="n">tutor</span><span class="o">.</span><span class="n">capitalize</span><span class="p">())</span>
-
-            <span class="k">if</span> <span class="n">admin</span> <span class="o">:=</span> <span class="n">querystring</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;admin&quot;</span><span class="p">):</span>
-                <span class="n">users</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">is_admin</span><span class="o">=</span><span class="n">admin</span><span class="o">.</span><span class="n">capitalize</span><span class="p">())</span>
-
-            <span class="k">if</span> <span class="n">msoid</span> <span class="o">:=</span> <span class="n">querystring</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;msoid&quot;</span><span class="p">):</span>
-                <span class="n">users</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">MSOID</span><span class="o">=</span><span class="n">msoid</span><span class="p">)</span>
-
-            <span class="k">if</span> <span class="n">nuid</span> <span class="o">:=</span> <span class="n">querystring</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;nuid&quot;</span><span class="p">):</span>
-                <span class="n">users</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">student_nuid</span><span class="o">=</span><span class="n">nuid</span><span class="p">)</span>
-
-            <span class="k">if</span> <span class="n">working</span> <span class="o">:=</span> <span class="n">querystring</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;working&quot;</span><span class="p">):</span>
-                <span class="n">users</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">is_tutor</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
-                    <span class="n">is_working</span><span class="o">=</span><span class="n">working</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
-                <span class="p">)</span>
+                <span class="n">tickets</span> <span class="o">=</span> <span class="n">tickets</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">course_department</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">sanitize</span><span class="p">(</span><span class="n">department</span><span class="p">))</span>
 
             <span class="k">if</span> <span class="n">active</span> <span class="o">:=</span> <span class="n">querystring</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;active&quot;</span><span class="p">):</span>
-                <span class="n">users</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">is_active</span><span class="o">=</span><span class="n">active</span><span class="o">.</span><span class="n">capitalize</span><span class="p">())</span>
+                <span class="n">tickets</span> <span class="o">=</span> <span class="n">tickets</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">is_active</span><span class="o">=</span><span class="n">active</span><span class="o">.</span><span class="n">capitalize</span><span class="p">())</span>
 
-        <span class="n">serializer</span> <span class="o">=</span> <span class="n">TicketSerializer</span><span class="p">(</span><span class="n">users</span><span class="p">,</span> <span class="n">many</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">ticket_status</span> <span class="o">:=</span> <span class="n">querystring</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;status&quot;</span><span class="p">):</span>
+                <span class="n">tickets</span> <span class="o">=</span> <span class="n">tickets</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="n">ticket_status</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+
+        <span class="n">serializer</span> <span class="o">=</span> <span class="n">TicketGetSerializer</span><span class="p">(</span><span class="n">tickets</span><span class="p">,</span> <span class="n">many</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">serializer</span><span class="o">.</span><span class="n">data</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="APITicketView.post">
-<a class="viewcode-back" href="../../../endpoints/ticket.html#api.endpoints.ticket.APITicketView.post">[docs]</a>
+<a class="viewcode-back" href="../../../api.endpoints.html#api.endpoints.ticket.APITicketView.post">[docs]</a>
     <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
         <span class="n">serializer</span> <span class="o">=</span> <span class="n">TicketSerializer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">serializer</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
             <span class="n">serializer</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
             <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">serializer</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_201_CREATED</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">serializer</span><span class="o">.</span><span class="n">data</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">serializer</span><span class="o">.</span><span class="n">errors</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_400_BAD_REQUEST</span><span class="p">)</span></div>
 </div>
 
 
 
-<div class="viewcode-block" id="APITicketList">
-<a class="viewcode-back" href="../../../endpoints/ticket.html#api.endpoints.ticket.APITicketList">[docs]</a>
-<span class="k">class</span> <span class="nc">APITicketList</span><span class="p">(</span><span class="n">APIView</span><span class="p">):</span>
+<div class="viewcode-block" id="APITicketDetail">
+<a class="viewcode-back" href="../../../api.endpoints.html#api.endpoints.ticket.APITicketDetail">[docs]</a>
+<span class="k">class</span> <span class="nc">APITicketDetail</span><span class="p">(</span><span class="n">APIView</span><span class="p">):</span>
     <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">TicketGetSerializer</span>
     <span class="n">renderer_classes</span> <span class="o">=</span> <span class="p">(</span><span class="n">BrowsableAPIRenderer</span><span class="p">,</span> <span class="n">JSONRenderer</span><span class="p">,</span> <span class="n">HTMLFormRenderer</span><span class="p">)</span>
 
-<div class="viewcode-block" id="APITicketList.get_querystring">
-<a class="viewcode-back" href="../../../endpoints/ticket.html#api.endpoints.ticket.APITicketList.get_querystring">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_querystring</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span></div>
-
-
-<div class="viewcode-block" id="APITicketList.sanitize">
-<a class="viewcode-back" href="../../../endpoints/ticket.html#api.endpoints.ticket.APITicketList.sanitize">[docs]</a>
-    <span class="k">def</span> <span class="nf">sanitize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">querystring</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">querystring</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span></div>
-
-
-<div class="viewcode-block" id="APITicketList.get_professor_id">
-<a class="viewcode-back" href="../../../endpoints/ticket.html#api.endpoints.ticket.APITicketList.get_professor_id">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_professor_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">professor_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Professor</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">Professor</span><span class="o">.</span><span class="n">prof</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">full_name</span><span class="o">=</span><span class="n">professor_name</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span></div>
-
-
-<div class="viewcode-block" id="APITicketList.get_course_id">
-<a class="viewcode-back" href="../../../endpoints/ticket.html#api.endpoints.ticket.APITicketList.get_course_id">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_course_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">course_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Course</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">Course</span><span class="o">.</span><span class="n">generic</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">course_name</span><span class="o">=</span><span class="n">course_name</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span></div>
-
-
-<div class="viewcode-block" id="APITicketList.get_issue_id">
-<a class="viewcode-back" href="../../../endpoints/ticket.html#api.endpoints.ticket.APITicketList.get_issue_id">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_issue_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">issue_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Issues</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">Issues</span><span class="o">.</span><span class="n">generic</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">problem_type</span><span class="o">=</span><span class="n">issue_type</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span></div>
-
-
-<div class="viewcode-block" id="APITicketList.get_user_id">
-<a class="viewcode-back" href="../../../endpoints/ticket.html#api.endpoints.ticket.APITicketList.get_user_id">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_user_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">User</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">User</span><span class="o">.</span><span class="n">generic</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">user</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span></div>
-
-
-<div class="viewcode-block" id="APITicketList.get">
-<a class="viewcode-back" href="../../../endpoints/ticket.html#api.endpoints.ticket.APITicketList.get">[docs]</a>
-    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
-        <span class="n">tickets</span> <span class="o">=</span> <span class="n">Ticket</span><span class="o">.</span><span class="n">generic</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
-        <span class="n">querystring</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_querystring</span><span class="p">(</span><span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">querystring</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">is_completed</span> <span class="o">:=</span> <span class="n">querystring</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;completed&quot;</span><span class="p">):</span>
-                <span class="n">tickets</span> <span class="o">=</span> <span class="n">tickets</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">completed</span><span class="o">=</span><span class="n">is_completed</span><span class="o">.</span><span class="n">capitalize</span><span class="p">())</span>
-            <span class="k">if</span> <span class="n">is_started</span> <span class="o">:=</span> <span class="n">querystring</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;started&quot;</span><span class="p">):</span>
-                <span class="n">tickets</span> <span class="o">=</span> <span class="n">tickets</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">started</span><span class="o">=</span><span class="n">is_started</span><span class="o">.</span><span class="n">capitalize</span><span class="p">())</span>
-        <span class="n">serializer</span> <span class="o">=</span> <span class="n">TicketGetSerializer</span><span class="p">(</span><span class="n">tickets</span><span class="p">,</span> <span class="n">many</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="viewcode-block" id="APITicketDetail.get">
+<a class="viewcode-back" href="../../../api.endpoints.html#api.endpoints.ticket.APITicketDetail.get">[docs]</a>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span> <span class="n">ticket_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
+        <span class="n">ticket</span> <span class="o">=</span> <span class="n">Ticket</span><span class="o">.</span><span class="n">generic</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">ticket_id</span><span class="p">)</span>
+        <span class="n">serializer</span> <span class="o">=</span> <span class="n">TicketGetSerializer</span><span class="p">(</span><span class="n">ticket</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">serializer</span><span class="o">.</span><span class="n">data</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="APITicketList.post">
-<a class="viewcode-back" href="../../../endpoints/ticket.html#api.endpoints.ticket.APITicketList.post">[docs]</a>
-    <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span> <span class="n">search</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
-        <span class="n">serializer</span> <span class="o">=</span> <span class="n">TicketSerializer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<div class="viewcode-block" id="APITicketDetail.patch">
+<a class="viewcode-back" href="../../../api.endpoints.html#api.endpoints.ticket.APITicketDetail.patch">[docs]</a>
+    <span class="k">def</span> <span class="nf">patch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span> <span class="n">ticket_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">ticket</span> <span class="o">=</span> <span class="n">Ticket</span><span class="o">.</span><span class="n">generic</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">ticket_id</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">Ticket</span><span class="o">.</span><span class="n">DoesNotExist</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Response</span><span class="p">(</span>
+                <span class="p">{</span><span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="s2">&quot;Ticket not found&quot;</span><span class="p">},</span> <span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_404_NOT_FOUND</span>
+            <span class="p">)</span>
+
+        <span class="n">serializer</span> <span class="o">=</span> <span class="n">TicketSerializer</span><span class="p">(</span><span class="n">ticket</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">partial</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">serializer</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
             <span class="n">serializer</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
-            <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">serializer</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_201_CREATED</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">serializer</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">serializer</span><span class="o">.</span><span class="n">errors</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_400_BAD_REQUEST</span><span class="p">)</span></div>
 </div>
 

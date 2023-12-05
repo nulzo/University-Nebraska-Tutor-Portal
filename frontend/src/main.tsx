@@ -30,6 +30,7 @@ import { MsalProvider } from "@azure/msal-react";
 import { msalConfig } from "./authConfig.ts";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { ThemeProvider } from "@/forms/ThemeProvider.tsx";
+import ProjectPoster from "./views/ProjectPoster.tsx";
 
 const queryClient = new QueryClient();
 
@@ -118,7 +119,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <MsalProvider instance={msalInstance}>
       <QueryClientProvider client={queryClient}>
-        <ReactQueryDevtools />
+        {/* <ReactQueryDevtools /> */}
         <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
           <RouterProvider router={router} />
         </ThemeProvider>

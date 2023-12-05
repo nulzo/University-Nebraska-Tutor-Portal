@@ -235,69 +235,66 @@
 <span></span><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
 <span class="kn">from</span> <span class="nn">django.db.models.query</span> <span class="kn">import</span> <span class="n">QuerySet</span>
 
-<span class="kn">from</span> <span class="nn">.issue</span> <span class="kn">import</span> <span class="n">Issues</span>
-<span class="kn">from</span> <span class="nn">.professor</span> <span class="kn">import</span> <span class="n">Professor</span>
-
 
 <div class="viewcode-block" id="TicketManager">
-<a class="viewcode-back" href="../../../models/ticket.html#api.models.ticket.TicketManager">[docs]</a>
+<a class="viewcode-back" href="../../../api.models.html#api.models.ticket.TicketManager">[docs]</a>
 <span class="k">class</span> <span class="nc">TicketManager</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Manager</span><span class="p">):</span>
 <div class="viewcode-block" id="TicketManager.get_all">
-<a class="viewcode-back" href="../../../models/ticket.html#api.models.ticket.TicketManager.get_all">[docs]</a>
+<a class="viewcode-back" href="../../../api.models.html#api.models.ticket.TicketManager.get_all">[docs]</a>
     <span class="k">def</span> <span class="nf">get_all</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySet</span><span class="p">:</span>
         <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">get_queryset</span><span class="p">()</span></div>
 
 
 <div class="viewcode-block" id="TicketManager.get_student">
-<a class="viewcode-back" href="../../../models/ticket.html#api.models.ticket.TicketManager.get_student">[docs]</a>
+<a class="viewcode-back" href="../../../api.models.html#api.models.ticket.TicketManager.get_student">[docs]</a>
     <span class="k">def</span> <span class="nf">get_student</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">student</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySet</span><span class="p">:</span>
         <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">get_queryset</span><span class="p">()</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">student</span><span class="o">=</span><span class="n">student</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="TicketManager.get_professor">
-<a class="viewcode-back" href="../../../models/ticket.html#api.models.ticket.TicketManager.get_professor">[docs]</a>
+<a class="viewcode-back" href="../../../api.models.html#api.models.ticket.TicketManager.get_professor">[docs]</a>
     <span class="k">def</span> <span class="nf">get_professor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">professor</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySet</span><span class="p">:</span>
         <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">get_queryset</span><span class="p">()</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">professor</span><span class="o">=</span><span class="n">professor</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="TicketManager.get_tutor">
-<a class="viewcode-back" href="../../../models/ticket.html#api.models.ticket.TicketManager.get_tutor">[docs]</a>
+<a class="viewcode-back" href="../../../api.models.html#api.models.ticket.TicketManager.get_tutor">[docs]</a>
     <span class="k">def</span> <span class="nf">get_tutor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tutor</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySet</span><span class="p">:</span>
         <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">get_queryset</span><span class="p">()</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">tutor</span><span class="o">=</span><span class="n">tutor</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="TicketManager.get_section">
-<a class="viewcode-back" href="../../../models/ticket.html#api.models.ticket.TicketManager.get_section">[docs]</a>
+<a class="viewcode-back" href="../../../api.models.html#api.models.ticket.TicketManager.get_section">[docs]</a>
     <span class="k">def</span> <span class="nf">get_section</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">section</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySet</span><span class="p">:</span>
         <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">get_queryset</span><span class="p">()</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">section</span><span class="o">=</span><span class="n">section</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="TicketManager.get_course">
-<a class="viewcode-back" href="../../../models/ticket.html#api.models.ticket.TicketManager.get_course">[docs]</a>
+<a class="viewcode-back" href="../../../api.models.html#api.models.ticket.TicketManager.get_course">[docs]</a>
     <span class="k">def</span> <span class="nf">get_course</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">course</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySet</span><span class="p">:</span>
         <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">get_queryset</span><span class="p">()</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">section__course</span><span class="o">=</span><span class="n">course</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="TicketManager.get_active">
-<a class="viewcode-back" href="../../../models/ticket.html#api.models.ticket.TicketManager.get_active">[docs]</a>
+<a class="viewcode-back" href="../../../api.models.html#api.models.ticket.TicketManager.get_active">[docs]</a>
     <span class="k">def</span> <span class="nf">get_active</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySet</span><span class="p">:</span>
         <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">get_queryset</span><span class="p">()</span><span class="o">.</span><span class="n">exclude</span><span class="p">(</span><span class="n">completed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">exclude</span><span class="p">(</span><span class="n">started</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="TicketManager.get_completed">
-<a class="viewcode-back" href="../../../models/ticket.html#api.models.ticket.TicketManager.get_completed">[docs]</a>
+<a class="viewcode-back" href="../../../api.models.html#api.models.ticket.TicketManager.get_completed">[docs]</a>
     <span class="k">def</span> <span class="nf">get_completed</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySet</span><span class="p">:</span>
         <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">get_queryset</span><span class="p">()</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">completed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="TicketManager.get_unclaimed">
-<a class="viewcode-back" href="../../../models/ticket.html#api.models.ticket.TicketManager.get_unclaimed">[docs]</a>
+<a class="viewcode-back" href="../../../api.models.html#api.models.ticket.TicketManager.get_unclaimed">[docs]</a>
     <span class="k">def</span> <span class="nf">get_unclaimed</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySet</span><span class="p">:</span>
         <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">get_queryset</span><span class="p">()</span><span class="o">.</span><span class="n">exclude</span><span class="p">(</span><span class="n">started</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">exclude</span><span class="p">(</span><span class="n">completed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="TicketManager.get_successful">
-<a class="viewcode-back" href="../../../models/ticket.html#api.models.ticket.TicketManager.get_successful">[docs]</a>
+<a class="viewcode-back" href="../../../api.models.html#api.models.ticket.TicketManager.get_successful">[docs]</a>
     <span class="k">def</span> <span class="nf">get_successful</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySet</span><span class="p">:</span>
         <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">get_queryset</span><span class="p">()</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">was_successful</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">completed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
 </div>
@@ -305,7 +302,7 @@
 
 
 <div class="viewcode-block" id="Ticket">
-<a class="viewcode-back" href="../../../models/ticket.html#api.models.ticket.Ticket">[docs]</a>
+<a class="viewcode-back" href="../../../api.models.html#api.models.ticket.Ticket">[docs]</a>
 <span class="k">class</span> <span class="nc">Ticket</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The base class for tickets in the database. This is where the meat of the</span>
@@ -320,10 +317,19 @@
 <span class="sd">    reopened after it was closed.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">professor</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Professor</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">PROTECT</span><span class="p">)</span>
+    <span class="n">NEW</span> <span class="o">=</span> <span class="s2">&quot;NEW&quot;</span>
+    <span class="n">OPENED</span> <span class="o">=</span> <span class="s2">&quot;OPENED&quot;</span>
+    <span class="n">CLOSED</span> <span class="o">=</span> <span class="s2">&quot;CLOSED&quot;</span>
+    <span class="n">STATUS_CHOICES</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="n">NEW</span><span class="p">,</span> <span class="s2">&quot;New&quot;</span><span class="p">),</span>
+        <span class="p">(</span><span class="n">OPENED</span><span class="p">,</span> <span class="s2">&quot;Opened&quot;</span><span class="p">),</span>
+        <span class="p">(</span><span class="n">CLOSED</span><span class="p">,</span> <span class="s2">&quot;Closed&quot;</span><span class="p">),</span>
+    <span class="p">]</span>
+
+    <span class="n">professor</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s2">&quot;api.Professor&quot;</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">PROTECT</span><span class="p">)</span>
     <span class="c1"># section = models.ForeignKey(&quot;api.Section&quot;, null=True, on_delete=models.PROTECT)</span>
     <span class="n">course</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s2">&quot;api.Course&quot;</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">PROTECT</span><span class="p">)</span>
-    <span class="n">issue</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Issues</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">PROTECT</span><span class="p">)</span>
+    <span class="n">issue</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s2">&quot;api.Issues&quot;</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">PROTECT</span><span class="p">)</span>
     <span class="n">student</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span>
         <span class="s2">&quot;api.User&quot;</span><span class="p">,</span>
         <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
@@ -339,12 +345,13 @@
         <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">blank</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">blank</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
     <span class="n">description</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">1024</span><span class="p">)</span>
-    <span class="n">completed</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">BooleanField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-    <span class="n">started</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">BooleanField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-    <span class="n">start_time</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">end_time</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">tutor_comments</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="n">STATUS_CHOICES</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">NEW</span><span class="p">)</span>
+    <span class="n">created_at</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">null</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">auto_now_add</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">opened_at</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">updated_at</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">null</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">auto_now_add</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">closed_at</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">was_successful</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">BooleanField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">was_reopened</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">BooleanField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 

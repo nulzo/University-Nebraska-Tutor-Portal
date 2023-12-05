@@ -199,6 +199,15 @@
 <p class="caption" role="heading"><span class="caption-text">CSLC Portal Frontend</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../forms/index.html">Forms</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Forms</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../forms/ticket.html">TicketForm TypeScript Module Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forms/ticket.html#ticketform-react-component-documentation">TicketForm React Component Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forms/announcement.html">AnnouncementForm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forms/theme.html">ThemeProvider React Component Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forms/toggle.html">ModeToggle React Component Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forms/tutor.html">TutorTicketForm React Component Documentation</a></li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -249,6 +258,11 @@ the time the ticket was created, the date the ticket was created, the
 time the ticket was claimed (different than created), the time the
 ticket was closed, additional tutor comments, and if the ticket was
 reopened after it was closed.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="api.models.ticket.Ticket.CLOSED">
+<span class="sig-name descname"><span class="pre">CLOSED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'CLOSED'</span></em><a class="headerlink" href="#api.models.ticket.Ticket.CLOSED" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
 <dl class="py exception">
 <dt class="sig sig-object py" id="api.models.ticket.Ticket.DoesNotExist">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#api.models.ticket.Ticket.DoesNotExist" title="Link to this definition">#</a></dt>
@@ -262,8 +276,23 @@ reopened after it was closed.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="api.models.ticket.Ticket.completed">
-<span class="sig-name descname"><span class="pre">completed</span></span><a class="headerlink" href="#api.models.ticket.Ticket.completed" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="api.models.ticket.Ticket.NEW">
+<span class="sig-name descname"><span class="pre">NEW</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'NEW'</span></em><a class="headerlink" href="#api.models.ticket.Ticket.NEW" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="api.models.ticket.Ticket.OPENED">
+<span class="sig-name descname"><span class="pre">OPENED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'OPENED'</span></em><a class="headerlink" href="#api.models.ticket.Ticket.OPENED" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="api.models.ticket.Ticket.STATUS_CHOICES">
+<span class="sig-name descname"><span class="pre">STATUS_CHOICES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[('NEW',</span> <span class="pre">'New'),</span> <span class="pre">('OPENED',</span> <span class="pre">'Opened'),</span> <span class="pre">('CLOSED',</span> <span class="pre">'Closed')]</span></em><a class="headerlink" href="#api.models.ticket.Ticket.STATUS_CHOICES" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="api.models.ticket.Ticket.closed_at">
+<span class="sig-name descname"><span class="pre">closed_at</span></span><a class="headerlink" href="#api.models.ticket.Ticket.closed_at" title="Link to this definition">#</a></dt>
 <dd><p>A wrapper for a deferred-loading field. When the value is read from this
 object the first time, the query is executed.</p>
 </dd></dl>
@@ -287,6 +316,13 @@ one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="api.models.ticket.Ticket.created_at">
+<span class="sig-name descname"><span class="pre">created_at</span></span><a class="headerlink" href="#api.models.ticket.Ticket.created_at" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="api.models.ticket.Ticket.description">
 <span class="sig-name descname"><span class="pre">description</span></span><a class="headerlink" href="#api.models.ticket.Ticket.description" title="Link to this definition">#</a></dt>
 <dd><p>A wrapper for a deferred-loading field. When the value is read from this
@@ -294,15 +330,33 @@ object the first time, the query is executed.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="api.models.ticket.Ticket.end_time">
-<span class="sig-name descname"><span class="pre">end_time</span></span><a class="headerlink" href="#api.models.ticket.Ticket.end_time" title="Link to this definition">#</a></dt>
-<dd><p>A wrapper for a deferred-loading field. When the value is read from this
-object the first time, the query is executed.</p>
-</dd></dl>
-
-<dl class="py attribute">
 <dt class="sig sig-object py" id="api.models.ticket.Ticket.generic">
 <span class="sig-name descname"><span class="pre">generic</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#api.models.ticket.Ticket.generic" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="api.models.ticket.Ticket.get_next_by_created_at">
+<span class="sig-name descname"><span class="pre">get_next_by_created_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#api.models.ticket.Ticket.get_next_by_created_at" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="api.models.ticket.Ticket.get_next_by_updated_at">
+<span class="sig-name descname"><span class="pre">get_next_by_updated_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">updated_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#api.models.ticket.Ticket.get_next_by_updated_at" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="api.models.ticket.Ticket.get_previous_by_created_at">
+<span class="sig-name descname"><span class="pre">get_previous_by_created_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#api.models.ticket.Ticket.get_previous_by_created_at" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="api.models.ticket.Ticket.get_previous_by_updated_at">
+<span class="sig-name descname"><span class="pre">get_previous_by_updated_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">updated_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#api.models.ticket.Ticket.get_previous_by_updated_at" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="api.models.ticket.Ticket.get_status_display">
+<span class="sig-name descname"><span class="pre">get_status_display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.CharField:</span> <span class="pre">status&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#api.models.ticket.Ticket.get_status_display" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -331,8 +385,30 @@ one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="api.models.ticket.Ticket.messages_set">
+<span class="sig-name descname"><span class="pre">messages_set</span></span><a class="headerlink" href="#api.models.ticket.Ticket.messages_set" title="Link to this definition">#</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="api.models.ticket.Ticket.name">
 <span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#api.models.ticket.Ticket.name" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="api.models.ticket.Ticket.opened_at">
+<span class="sig-name descname"><span class="pre">opened_at</span></span><a class="headerlink" href="#api.models.ticket.Ticket.opened_at" title="Link to this definition">#</a></dt>
 <dd><p>A wrapper for a deferred-loading field. When the value is read from this
 object the first time, the query is executed.</p>
 </dd></dl>
@@ -356,15 +432,8 @@ one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="api.models.ticket.Ticket.start_time">
-<span class="sig-name descname"><span class="pre">start_time</span></span><a class="headerlink" href="#api.models.ticket.Ticket.start_time" title="Link to this definition">#</a></dt>
-<dd><p>A wrapper for a deferred-loading field. When the value is read from this
-object the first time, the query is executed.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.models.ticket.Ticket.started">
-<span class="sig-name descname"><span class="pre">started</span></span><a class="headerlink" href="#api.models.ticket.Ticket.started" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="api.models.ticket.Ticket.status">
+<span class="sig-name descname"><span class="pre">status</span></span><a class="headerlink" href="#api.models.ticket.Ticket.status" title="Link to this definition">#</a></dt>
 <dd><p>A wrapper for a deferred-loading field. When the value is read from this
 object the first time, the query is executed.</p>
 </dd></dl>
@@ -393,6 +462,13 @@ one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="api.models.ticket.Ticket.title">
+<span class="sig-name descname"><span class="pre">title</span></span><a class="headerlink" href="#api.models.ticket.Ticket.title" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="api.models.ticket.Ticket.tutor">
 <span class="sig-name descname"><span class="pre">tutor</span></span><a class="headerlink" href="#api.models.ticket.Ticket.tutor" title="Link to this definition">#</a></dt>
 <dd><p>Accessor to the related object on the forward side of a many-to-one or
@@ -406,16 +482,16 @@ one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="api.models.ticket.Ticket.tutor_comments">
-<span class="sig-name descname"><span class="pre">tutor_comments</span></span><a class="headerlink" href="#api.models.ticket.Ticket.tutor_comments" title="Link to this definition">#</a></dt>
-<dd><p>A wrapper for a deferred-loading field. When the value is read from this
-object the first time, the query is executed.</p>
-</dd></dl>
-
-<dl class="py attribute">
 <dt class="sig sig-object py" id="api.models.ticket.Ticket.tutor_id">
 <span class="sig-name descname"><span class="pre">tutor_id</span></span><a class="headerlink" href="#api.models.ticket.Ticket.tutor_id" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="api.models.ticket.Ticket.updated_at">
+<span class="sig-name descname"><span class="pre">updated_at</span></span><a class="headerlink" href="#api.models.ticket.Ticket.updated_at" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="api.models.ticket.Ticket.was_reopened">
@@ -548,28 +624,39 @@ object the first time, the query is executed.</p>
             <ul>
 <li><a class="reference internal" href="#">Ticket</a><ul>
 <li><a class="reference internal" href="#api.models.ticket.Ticket"><code class="docutils literal notranslate"><span class="pre">Ticket</span></code></a><ul>
+<li><a class="reference internal" href="#api.models.ticket.Ticket.CLOSED"><code class="docutils literal notranslate"><span class="pre">Ticket.CLOSED</span></code></a></li>
 <li><a class="reference internal" href="#api.models.ticket.Ticket.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Ticket.DoesNotExist</span></code></a></li>
 <li><a class="reference internal" href="#api.models.ticket.Ticket.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Ticket.MultipleObjectsReturned</span></code></a></li>
-<li><a class="reference internal" href="#api.models.ticket.Ticket.completed"><code class="docutils literal notranslate"><span class="pre">Ticket.completed</span></code></a></li>
+<li><a class="reference internal" href="#api.models.ticket.Ticket.NEW"><code class="docutils literal notranslate"><span class="pre">Ticket.NEW</span></code></a></li>
+<li><a class="reference internal" href="#api.models.ticket.Ticket.OPENED"><code class="docutils literal notranslate"><span class="pre">Ticket.OPENED</span></code></a></li>
+<li><a class="reference internal" href="#api.models.ticket.Ticket.STATUS_CHOICES"><code class="docutils literal notranslate"><span class="pre">Ticket.STATUS_CHOICES</span></code></a></li>
+<li><a class="reference internal" href="#api.models.ticket.Ticket.closed_at"><code class="docutils literal notranslate"><span class="pre">Ticket.closed_at</span></code></a></li>
 <li><a class="reference internal" href="#api.models.ticket.Ticket.course"><code class="docutils literal notranslate"><span class="pre">Ticket.course</span></code></a></li>
 <li><a class="reference internal" href="#api.models.ticket.Ticket.course_id"><code class="docutils literal notranslate"><span class="pre">Ticket.course_id</span></code></a></li>
+<li><a class="reference internal" href="#api.models.ticket.Ticket.created_at"><code class="docutils literal notranslate"><span class="pre">Ticket.created_at</span></code></a></li>
 <li><a class="reference internal" href="#api.models.ticket.Ticket.description"><code class="docutils literal notranslate"><span class="pre">Ticket.description</span></code></a></li>
-<li><a class="reference internal" href="#api.models.ticket.Ticket.end_time"><code class="docutils literal notranslate"><span class="pre">Ticket.end_time</span></code></a></li>
 <li><a class="reference internal" href="#api.models.ticket.Ticket.generic"><code class="docutils literal notranslate"><span class="pre">Ticket.generic</span></code></a></li>
+<li><a class="reference internal" href="#api.models.ticket.Ticket.get_next_by_created_at"><code class="docutils literal notranslate"><span class="pre">Ticket.get_next_by_created_at()</span></code></a></li>
+<li><a class="reference internal" href="#api.models.ticket.Ticket.get_next_by_updated_at"><code class="docutils literal notranslate"><span class="pre">Ticket.get_next_by_updated_at()</span></code></a></li>
+<li><a class="reference internal" href="#api.models.ticket.Ticket.get_previous_by_created_at"><code class="docutils literal notranslate"><span class="pre">Ticket.get_previous_by_created_at()</span></code></a></li>
+<li><a class="reference internal" href="#api.models.ticket.Ticket.get_previous_by_updated_at"><code class="docutils literal notranslate"><span class="pre">Ticket.get_previous_by_updated_at()</span></code></a></li>
+<li><a class="reference internal" href="#api.models.ticket.Ticket.get_status_display"><code class="docutils literal notranslate"><span class="pre">Ticket.get_status_display()</span></code></a></li>
 <li><a class="reference internal" href="#api.models.ticket.Ticket.id"><code class="docutils literal notranslate"><span class="pre">Ticket.id</span></code></a></li>
 <li><a class="reference internal" href="#api.models.ticket.Ticket.issue"><code class="docutils literal notranslate"><span class="pre">Ticket.issue</span></code></a></li>
 <li><a class="reference internal" href="#api.models.ticket.Ticket.issue_id"><code class="docutils literal notranslate"><span class="pre">Ticket.issue_id</span></code></a></li>
+<li><a class="reference internal" href="#api.models.ticket.Ticket.messages_set"><code class="docutils literal notranslate"><span class="pre">Ticket.messages_set</span></code></a></li>
 <li><a class="reference internal" href="#api.models.ticket.Ticket.name"><code class="docutils literal notranslate"><span class="pre">Ticket.name</span></code></a></li>
+<li><a class="reference internal" href="#api.models.ticket.Ticket.opened_at"><code class="docutils literal notranslate"><span class="pre">Ticket.opened_at</span></code></a></li>
 <li><a class="reference internal" href="#api.models.ticket.Ticket.professor"><code class="docutils literal notranslate"><span class="pre">Ticket.professor</span></code></a></li>
 <li><a class="reference internal" href="#api.models.ticket.Ticket.professor_id"><code class="docutils literal notranslate"><span class="pre">Ticket.professor_id</span></code></a></li>
-<li><a class="reference internal" href="#api.models.ticket.Ticket.start_time"><code class="docutils literal notranslate"><span class="pre">Ticket.start_time</span></code></a></li>
-<li><a class="reference internal" href="#api.models.ticket.Ticket.started"><code class="docutils literal notranslate"><span class="pre">Ticket.started</span></code></a></li>
+<li><a class="reference internal" href="#api.models.ticket.Ticket.status"><code class="docutils literal notranslate"><span class="pre">Ticket.status</span></code></a></li>
 <li><a class="reference internal" href="#api.models.ticket.Ticket.student"><code class="docutils literal notranslate"><span class="pre">Ticket.student</span></code></a></li>
 <li><a class="reference internal" href="#api.models.ticket.Ticket.student_id"><code class="docutils literal notranslate"><span class="pre">Ticket.student_id</span></code></a></li>
 <li><a class="reference internal" href="#api.models.ticket.Ticket.ticket"><code class="docutils literal notranslate"><span class="pre">Ticket.ticket</span></code></a></li>
+<li><a class="reference internal" href="#api.models.ticket.Ticket.title"><code class="docutils literal notranslate"><span class="pre">Ticket.title</span></code></a></li>
 <li><a class="reference internal" href="#api.models.ticket.Ticket.tutor"><code class="docutils literal notranslate"><span class="pre">Ticket.tutor</span></code></a></li>
-<li><a class="reference internal" href="#api.models.ticket.Ticket.tutor_comments"><code class="docutils literal notranslate"><span class="pre">Ticket.tutor_comments</span></code></a></li>
 <li><a class="reference internal" href="#api.models.ticket.Ticket.tutor_id"><code class="docutils literal notranslate"><span class="pre">Ticket.tutor_id</span></code></a></li>
+<li><a class="reference internal" href="#api.models.ticket.Ticket.updated_at"><code class="docutils literal notranslate"><span class="pre">Ticket.updated_at</span></code></a></li>
 <li><a class="reference internal" href="#api.models.ticket.Ticket.was_reopened"><code class="docutils literal notranslate"><span class="pre">Ticket.was_reopened</span></code></a></li>
 <li><a class="reference internal" href="#api.models.ticket.Ticket.was_successful"><code class="docutils literal notranslate"><span class="pre">Ticket.was_successful</span></code></a></li>
 </ul>

@@ -1,12 +1,12 @@
 # Fdb version 4
-["makeindex universityofnebraska-computersciencetutoringportal.idx"] 1701652874 "universityofnebraska-computersciencetutoringportal.idx" "universityofnebraska-computersciencetutoringportal.ind" "universityofnebraska-computersciencetutoringportal" 1701652880 0
-  "universityofnebraska-computersciencetutoringportal.idx" 1701652880 30690 16261e2e514c3ba081c2b0a3ac112143 "pdflatex"
+["makeindex universityofnebraska-computersciencetutoringportal.idx"] 1701652874 "universityofnebraska-computersciencetutoringportal.idx" "universityofnebraska-computersciencetutoringportal.ind" "universityofnebraska-computersciencetutoringportal" 1701749008 0
+  "universityofnebraska-computersciencetutoringportal.idx" 1701749008 30690 16261e2e514c3ba081c2b0a3ac112143 "pdflatex"
   (generated)
   "universityofnebraska-computersciencetutoringportal.ilg"
   "universityofnebraska-computersciencetutoringportal.ind"
   (rewritten before read)
-["pdflatex"] 1701652877 "universityofnebraska-computersciencetutoringportal.tex" "universityofnebraska-computersciencetutoringportal.pdf" "universityofnebraska-computersciencetutoringportal" 1701652880 0
-  "C:/Users/Nulzo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1701652864 124670 95f85dbf99ed9a1d38df8b5df5571d53 ""
+["pdflatex"] 1701748969 "universityofnebraska-computersciencetutoringportal.tex" "universityofnebraska-computersciencetutoringportal.pdf" "universityofnebraska-computersciencetutoringportal" 1701749008 2
+  "C:/Users/Nulzo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1701743444 124670 95f85dbf99ed9a1d38df8b5df5571d53 ""
   "C:/Users/Nulzo/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1684454781 23178960 629d249322d6c38979174c53da86b070 ""
   "C:/Users/Nulzo/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc" 1525740614 2457 aaabbccba4df2a7f7371410ee4e075a3 ""
   "C:/Users/Nulzo/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.enc" 1525740614 3124 3813fd4c981d99822890a2861b0d274c ""
@@ -30,6 +30,7 @@
   "C:/Users/Nulzo/AppData/Local/Programs/MiKTeX/fonts/tfm/public/tex-gyre/ec-qtmbi.tfm" 1254938640 11472 b811a416bd39656a86c1db63cdb5c643 ""
   "C:/Users/Nulzo/AppData/Local/Programs/MiKTeX/fonts/tfm/public/tex-gyre/ec-qtmr.tfm" 1254938640 11504 d8fa8a5259789ef3392b939d2a48464c ""
   "C:/Users/Nulzo/AppData/Local/Programs/MiKTeX/fonts/tfm/public/tex-gyre/ec-qtmri.tfm" 1254938640 11356 da1519f442d8a49b81c86cbaf25ef79f ""
+  "C:/Users/Nulzo/AppData/Local/Programs/MiKTeX/fonts/tfm/public/tex-gyre/ts1-qtmb.tfm" 1254938640 1608 bde4475c6eb5aa292519d95aa26b6413 ""
   "C:/Users/Nulzo/AppData/Local/Programs/MiKTeX/fonts/tfm/public/tex-gyre/ts1-qtmr.tfm" 1254938640 1600 20cdf11dab97d5d39e847571f9314407 ""
   "C:/Users/Nulzo/AppData/Local/Programs/MiKTeX/fonts/tfm/public/txfonts/t1xbtt.tfm" 977342760 1436 f00b2a275be56a8355f5c3b07a5a7a4c ""
   "C:/Users/Nulzo/AppData/Local/Programs/MiKTeX/fonts/tfm/public/txfonts/t1xtt.tfm" 977342760 1384 8943063000d26272532f74ca134dfecd ""
@@ -152,8 +153,9 @@
   "C:/Users/Nulzo/AppData/Local/Programs/MiKTeX/tex/latex/varwidth/varwidth.sty" 1238469540 10894 d359a13923460b2a73d4312d613554c8 ""
   "C:/Users/Nulzo/AppData/Local/Programs/MiKTeX/tex/latex/wrapfig/wrapfig.sty" 1044403200 26220 3701aebf80ccdef248c0c20dd062fea9 ""
   "C:/Users/Nulzo/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1656236890 56148 51a9a8571c07b9921892ae11063ae853 ""
+  "c:/Users/Nulzo/Desktop/github/University-Nebraska-Tutor-Portal/docs/build/latex/universityofnebraska-computersciencetutoringportal.tex" 1701748965 138924 856438ab6e60a0d56e8fb758617e0e30 ""
   "sphinx.sty" 1699935550 44560 f9fbf51072c954d129c9bd5284cc4ccf ""
-  "sphinxhighlight.sty" 1701652642 7683 83fb52292c17957d9f4aadcb28c57a87 ""
+  "sphinxhighlight.sty" 1701748965 7683 83fb52292c17957d9f4aadcb28c57a87 ""
   "sphinxlatexadmonitions.sty" 1699935550 10989 c38302e64c2bb47779f086869b246760 ""
   "sphinxlatexcontainers.sty" 1699935550 901 d3a3a1b7b2547f47ade2499350b5c420 ""
   "sphinxlatexgraphics.sty" 1699935550 4840 a9578332b6f3b35e198751fb632c9b79 ""
@@ -168,16 +170,16 @@
   "sphinxlatexstyletext.sty" 1699935550 8589 a7e8f95eb4fef6c1cd2623cd417d6467 ""
   "sphinxlatextables.sty" 1699935550 57830 16f2773b765508003aec5d08680f39b9 ""
   "sphinxmanual.cls" 1699935550 4241 7b0d7a37df7b5715fb0dbd585c52ecdb ""
-  "sphinxmessages.sty" 1701652642 765 3f5fcd6cdd7964ed608767954a8ced6f ""
+  "sphinxmessages.sty" 1701748965 765 3f5fcd6cdd7964ed608767954a8ced6f ""
   "sphinxoptionsgeometry.sty" 1699935550 2061 47bb34b8ed8a78823eb0c886abfb9f4d ""
   "sphinxoptionshyperref.sty" 1699935550 1094 79beb8b8a3f10784f8cce804e0f9d3aa ""
   "sphinxpackageboxes.sty" 1699935550 36615 1d74c63e665ede6c648fa08c42ea70fb ""
   "sphinxpackagefootnote.sty" 1699935550 15254 d93f70cf000a9adb198015bf1b2f136c ""
-  "universityofnebraska-computersciencetutoringportal.aux" 1701652880 27082 42bcdbf3eb430aa59e39e63b65a2987a "pdflatex"
-  "universityofnebraska-computersciencetutoringportal.ind" 1701652874 20294 53aebf70ceb49cee6bcf7c8bcc51f692 "makeindex universityofnebraska-computersciencetutoringportal.idx"
-  "universityofnebraska-computersciencetutoringportal.out" 1701652880 2693 fdd25fdaeef295540d92a0302ffc5235 "pdflatex"
-  "universityofnebraska-computersciencetutoringportal.tex" 1701652642 136304 7f68b7c699f17d0c4b29d5cd471d9c15 ""
-  "universityofnebraska-computersciencetutoringportal.toc" 1701652880 1812 87548e2b571776eb33171a3e13a6cc32 "pdflatex"
+  "universityofnebraska-computersciencetutoringportal.aux" 1701749008 28248 bf9e09c3ee8b419a429fea412d59f2c4 "pdflatex"
+  "universityofnebraska-computersciencetutoringportal.ind" 1701748976 20294 53aebf70ceb49cee6bcf7c8bcc51f692 "makeindex universityofnebraska-computersciencetutoringportal.idx"
+  "universityofnebraska-computersciencetutoringportal.out" 1701749008 3212 489a0a33bdb88d326d1e349f8b76c1ef "pdflatex"
+  "universityofnebraska-computersciencetutoringportal.tex" 1701748965 138924 856438ab6e60a0d56e8fb758617e0e30 ""
+  "universityofnebraska-computersciencetutoringportal.toc" 1701749008 2153 95bdfb6b0b95a1e9a40a19a991b067b3 "pdflatex"
   (generated)
   "universityofnebraska-computersciencetutoringportal.aux"
   "universityofnebraska-computersciencetutoringportal.idx"

@@ -45,7 +45,7 @@ const FormSchema = z.object({
   id: z.number(),
   description: z.string().min(4).max(500),
   status: z.string().min(1).max(10),
-  tutor: z.string(),
+  tutor: z.string().optional(),
   was_successful: z.boolean(),
   difficulty: z.string(),
 });
@@ -274,9 +274,8 @@ export default function TutorTicketForm({ ticket }: any) {
                             onClick={() => form.resetField("description")}
                             disabled={!form.formState.isDirty}
                             variant="outline"
-                            className={`mt-4 border-warning/50 text-warning hover:bg-warning/20 hover:text-warning ${
-                              !form.formState.isDirty && "hidden"
-                            }`}
+                            className={`mt-4 border-warning/50 text-warning hover:bg-warning/20 hover:text-warning ${!form.formState.isDirty && "hidden"
+                              }`}
                           >
                             Discard
                           </Button>
@@ -284,9 +283,8 @@ export default function TutorTicketForm({ ticket }: any) {
                             type="submit"
                             disabled={!form.formState.isDirty}
                             variant="outline"
-                            className={`mt-4 ${
-                              !form.formState.isDirty && "hidden"
-                            }`}
+                            className={`mt-4 ${!form.formState.isDirty && "hidden"
+                              }`}
                           >
                             Update
                           </Button>
