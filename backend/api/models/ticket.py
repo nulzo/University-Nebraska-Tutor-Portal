@@ -56,6 +56,7 @@ class Ticket(models.Model):
         (OPENED, "Opened"),
         (CLOSED, "Closed"),
     ]
+    DIFFICULTY_CHOICES = [("EASY", "Easy"), ("MEDIUM", "Medium"), ("HARD", "Hard")]
 
     professor = models.ForeignKey("api.Professor", on_delete=models.PROTECT)
     # section = models.ForeignKey("api.Section", null=True, on_delete=models.PROTECT)
@@ -75,6 +76,13 @@ class Ticket(models.Model):
         related_name="tutor_ticket",
         blank=True,
     )
+    asst_tutor = models.ForeignKey(
+        "api.User",
+        null=True,
+        on_delete=models.PROTECT,
+        related_name="assistant_tutor_ticket",
+        blank=True,
+    )
     name = models.CharField(blank=False, max_length=50)
     title = models.CharField(blank=False, max_length=25)
     description = models.TextField(max_length=1024)
@@ -85,6 +93,8 @@ class Ticket(models.Model):
     closed_at = models.DateTimeField(null=True, blank=True)
     was_successful = models.BooleanField(default=False)
     was_reopened = models.BooleanField(default=False)
+    was_flagged = models.BooleanField(default=False)
+    difficulty = models.CharField(max_length=20, choices=DIFFICULTY_CHOICES, blank=True, null=True)
 
     generic = models.Manager()
     ticket = TicketManager()

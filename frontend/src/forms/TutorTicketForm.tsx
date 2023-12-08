@@ -45,9 +45,11 @@ const FormSchema = z.object({
   id: z.number(),
   description: z.string().min(4).max(500),
   status: z.string().min(1).max(10),
-  tutor: z.string().optional(),
+  tutor: z.string().nullable().or(z.number().nullable()),
+  asst_tutor: z.string().nullable().or(z.number().nullable()),
   was_successful: z.boolean(),
-  difficulty: z.string(),
+  difficulty: z.string().nullable().optional(),
+  was_flagged: z.boolean(),
 });
 
 export default function TutorTicketForm({ ticket }: any) {
@@ -59,6 +61,7 @@ export default function TutorTicketForm({ ticket }: any) {
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
     mutation.mutate(data);
+    console.log("form")
     toast({
       title: "Ticket updated!",
       description:
@@ -74,9 +77,11 @@ export default function TutorTicketForm({ ticket }: any) {
       id: ticket.id,
       description: ticket.description,
       status: ticket.status,
-      tutor: "",
+      tutor: ticket.tutor,
+      asst_tutor: ticket.asst_tutor,
       was_successful: ticket.was_successful,
-      difficulty: "",
+      difficulty: ticket.difficulty,
+      was_flagged: ticket.was_flagged,
     },
   });
 
@@ -89,7 +94,7 @@ export default function TutorTicketForm({ ticket }: any) {
             <DotsHorizontalIcon className="h-4 w-4" />
           </Button>
         </AlertDialogTrigger>
-        <AlertDialogContent className="bg-background max-h-[85%]">
+        <AlertDialogContent className="bg-background">
           <ScrollArea className="max-h-100">
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -142,14 +147,14 @@ export default function TutorTicketForm({ ticket }: any) {
                             <DropdownMenuTrigger asChild>
                               <Button variant="outline" className="h-8 w-8 p-0">
                                 <span className="sr-only">Popout menu</span>
-                                <FlagIcon className="h-4 w-4" />
+                                { form.getValues("was_flagged") == false ? <FlagIcon className="h-4 w-4" /> : <FlagIcon className="h-4 w-4 stroke-orange-500" /> }
                               </Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent align="end">
                               <DropdownMenuLabel>Actions</DropdownMenuLabel>
                               <DropdownMenuItem
                                 onClick={() =>
-                                  navigator.clipboard.writeText(ticket.id)
+                                  {console.log(form.setValue("was_flagged", !form.getValues("was_flagged")))}
                                 }
                               >
                                 Flag ticket
@@ -245,8 +250,8 @@ export default function TutorTicketForm({ ticket }: any) {
                           content={
                             <SearchFilterField
                               control={form.control}
-                              name={"tutor"}
-                              value={ticket.tutor}
+                              name={"asst_tutor"}
+                              value={ticket.asst_tutor}
                               form={form}
                               key={form.id}
                               items={tutors}
@@ -274,8 +279,7 @@ export default function TutorTicketForm({ ticket }: any) {
                             onClick={() => form.resetField("description")}
                             disabled={!form.formState.isDirty}
                             variant="outline"
-                            className={`mt-4 border-warning/50 text-warning hover:bg-warning/20 hover:text-warning ${!form.formState.isDirty && "hidden"
-                              }`}
+                            className={"mt-4 border-warning/50 text-warning hover:bg-warning/20 hover:text-warning"}
                           >
                             Discard
                           </Button>
@@ -283,8 +287,7 @@ export default function TutorTicketForm({ ticket }: any) {
                             type="submit"
                             disabled={!form.formState.isDirty}
                             variant="outline"
-                            className={`mt-4 ${!form.formState.isDirty && "hidden"
-                              }`}
+                            className={"mt-4"}
                           >
                             Update
                           </Button>

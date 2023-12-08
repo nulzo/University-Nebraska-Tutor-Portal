@@ -119,7 +119,7 @@ export default function TicketForm() {
       className: "text-success border-success",
     });
     console.log(data)
-    // navigate("/home");
+    navigate("/home");
   }
 
   const form = useForm<z.infer<typeof FormSchema>>({
@@ -145,7 +145,7 @@ export default function TicketForm() {
                   <Input
                     className="text-foreground"
                     placeholder="Your name here..."
-                    autoComplete="false"
+                    autoComplete="off"
                     autoCorrect="false"
                     {...field}
                   />

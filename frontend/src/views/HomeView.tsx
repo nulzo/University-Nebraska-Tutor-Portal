@@ -1,3 +1,4 @@
+import { Announcement } from "@/components/display/Announcement";
 import Header from "@/components/typography/Header";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -8,17 +9,20 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { useIsAuthenticated } from "@azure/msal-react";
+import { useAccount, useIsAuthenticated, useMsal } from "@azure/msal-react";
 
 export default function HomeView() {
   const isAuthenticated = useIsAuthenticated();
+  const { accounts } = useMsal();
+  // eslint-disable-next-line
+  const account = useAccount(accounts[0] || {});
 
   return (
     <div className="text-foreground">
       {isAuthenticated && (
         <Header
-          text={"Welcome back, NAME!"}
-          subtext="Pick up where you last left off"
+          text={`Welcome back, ${account?.name}!`}
+          subtext="Pick up where you last left off."
         />
       )}
       {!isAuthenticated && (
@@ -29,24 +33,7 @@ export default function HomeView() {
       )}
       <div className="flex flex-col sm:block space-y-4">
         <div className="grid gap-4">
-          <Card className="w-[100%]">
-            <CardHeader>
-              <CardTitle>
-                <div className="flex justify-between">
-                  <p>Recent Announcements</p>
-                  <p className="animate-pulse">
-                    <Badge variant={"new_ticket"}>New</Badge>
-                  </p>
-                </div>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat
-              omnis, optio architecto, aut eveniet aperiam iste necessitatibus
-              dignissimos nihil, placeat illo obcaecati. Nulla voluptate illum
-              soluta fuga quod temporibus a!
-            </CardContent>
-          </Card>
+        <Announcement className="" variant="info" title="Demo Day is Today!" body="We are excited to present our application on Thursday, Decemeber 7th!"/>
         </div>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-7">
           <Card className="sm:col-span-4 w-[100%] md:w-full">

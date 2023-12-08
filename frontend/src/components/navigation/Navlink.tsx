@@ -7,6 +7,7 @@ export default function Navlink({
   onClick,
   text,
   icon,
+  type,
   notification = false,
   disabled = false,
 }: any) {
