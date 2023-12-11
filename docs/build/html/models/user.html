@@ -199,6 +199,15 @@
 <p class="caption" role="heading"><span class="caption-text">CSLC Portal Frontend</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../forms/index.html">Forms</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Forms</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../forms/ticket.html">TicketForm TypeScript Module Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forms/ticket.html#ticketform-react-component-documentation">TicketForm React Component Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forms/announcement.html">AnnouncementForm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forms/theme.html">ThemeProvider React Component Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forms/toggle.html">ModeToggle React Component Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forms/tutor.html">TutorTicketForm React Component Documentation</a></li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -400,6 +409,21 @@ object the first time, the query is executed.</p>
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="api.models.user.User.messages_set">
+<span class="sig-name descname"><span class="pre">messages_set</span></span><a class="headerlink" href="#api.models.user.User.messages_set" title="Link to this definition">#</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="api.models.user.User.name">
 <span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#api.models.user.User.name" title="Link to this definition">#</a></dt>
 <dd><p>A wrapper for a deferred-loading field. When the value is read from this
@@ -563,6 +587,7 @@ class built by <code class="docutils literal notranslate"><span class="pre">crea
 <li><a class="reference internal" href="#api.models.user.User.is_admin"><code class="docutils literal notranslate"><span class="pre">User.is_admin</span></code></a></li>
 <li><a class="reference internal" href="#api.models.user.User.is_tutor"><code class="docutils literal notranslate"><span class="pre">User.is_tutor</span></code></a></li>
 <li><a class="reference internal" href="#api.models.user.User.is_working"><code class="docutils literal notranslate"><span class="pre">User.is_working</span></code></a></li>
+<li><a class="reference internal" href="#api.models.user.User.messages_set"><code class="docutils literal notranslate"><span class="pre">User.messages_set</span></code></a></li>
 <li><a class="reference internal" href="#api.models.user.User.name"><code class="docutils literal notranslate"><span class="pre">User.name</span></code></a></li>
 <li><a class="reference internal" href="#api.models.user.User.student"><code class="docutils literal notranslate"><span class="pre">User.student</span></code></a></li>
 <li><a class="reference internal" href="#api.models.user.User.student_nuid"><code class="docutils literal notranslate"><span class="pre">User.student_nuid</span></code></a></li>

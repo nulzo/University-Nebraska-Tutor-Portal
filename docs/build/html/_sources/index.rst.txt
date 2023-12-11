@@ -19,6 +19,16 @@ University of Nebraska - CSLC Portal Documentation
    :hidden:
 
    about
+   api/index
+   components/index
+   forms/index
+   lib/index
+   routes/index
+   style/index
+   tests/index
+   views/index
+   config/index
+
 
 
 Indices and tables

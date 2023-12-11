@@ -64,7 +64,7 @@
 
 
 \title{University of Nebraska \sphinxhyphen{} Computer Science Tutoring Portal}
-\date{Dec 03, 2023}
+\date{Dec 11, 2023}
 \release{0.0.1}
 \author{Nolan Gregory}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -1601,6 +1601,15 @@ reopened after it was closed.
 \pysigstopsignatures
 \end{fulllineitems}
 
+\index{DIFFICULTY\_CHOICES (api.models.ticket.Ticket attribute)@\spxentry{DIFFICULTY\_CHOICES}\spxextra{api.models.ticket.Ticket attribute}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{models/ticket:api.models.ticket.Ticket.DIFFICULTY_CHOICES}}
+\pysigstartsignatures
+\pysigline{\sphinxbfcode{\sphinxupquote{DIFFICULTY\_CHOICES}}\sphinxbfcode{\sphinxupquote{\DUrole{w}{ }\DUrole{p}{=}\DUrole{w}{ }{[}(\textquotesingle{}EASY\textquotesingle{}, \textquotesingle{}Easy\textquotesingle{}), (\textquotesingle{}MEDIUM\textquotesingle{}, \textquotesingle{}Medium\textquotesingle{}), (\textquotesingle{}HARD\textquotesingle{}, \textquotesingle{}Hard\textquotesingle{}){]}}}}
+\pysigstopsignatures
+\end{fulllineitems}
+
 \index{Ticket.DoesNotExist@\spxentry{Ticket.DoesNotExist}}
 
 \begin{fulllineitems}
@@ -1649,6 +1658,39 @@ Bases: \sphinxcode{\sphinxupquote{MultipleObjectsReturned}}
 \phantomsection\label{\detokenize{models/ticket:api.models.ticket.Ticket.STATUS_CHOICES}}
 \pysigstartsignatures
 \pysigline{\sphinxbfcode{\sphinxupquote{STATUS\_CHOICES}}\sphinxbfcode{\sphinxupquote{\DUrole{w}{ }\DUrole{p}{=}\DUrole{w}{ }{[}(\textquotesingle{}NEW\textquotesingle{}, \textquotesingle{}New\textquotesingle{}), (\textquotesingle{}OPENED\textquotesingle{}, \textquotesingle{}Opened\textquotesingle{}), (\textquotesingle{}CLOSED\textquotesingle{}, \textquotesingle{}Closed\textquotesingle{}){]}}}}
+\pysigstopsignatures
+\end{fulllineitems}
+
+\index{asst\_tutor (api.models.ticket.Ticket attribute)@\spxentry{asst\_tutor}\spxextra{api.models.ticket.Ticket attribute}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{models/ticket:api.models.ticket.Ticket.asst_tutor}}
+\pysigstartsignatures
+\pysigline{\sphinxbfcode{\sphinxupquote{asst\_tutor}}}
+\pysigstopsignatures
+\sphinxAtStartPar
+Accessor to the related object on the forward side of a many\sphinxhyphen{}to\sphinxhyphen{}one or
+one\sphinxhyphen{}to\sphinxhyphen{}one (via ForwardOneToOneDescriptor subclass) relation.
+
+\sphinxAtStartPar
+In the example:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{class} \PYG{n+nc}{Child}\PYG{p}{(}\PYG{n}{Model}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{parent} \PYG{o}{=} \PYG{n}{ForeignKey}\PYG{p}{(}\PYG{n}{Parent}\PYG{p}{,} \PYG{n}{related\PYGZus{}name}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{children}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{Child.parent}} is a \sphinxcode{\sphinxupquote{ForwardManyToOneDescriptor}} instance.
+
+\end{fulllineitems}
+
+\index{asst\_tutor\_id (api.models.ticket.Ticket attribute)@\spxentry{asst\_tutor\_id}\spxextra{api.models.ticket.Ticket attribute}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{models/ticket:api.models.ticket.Ticket.asst_tutor_id}}
+\pysigstartsignatures
+\pysigline{\sphinxbfcode{\sphinxupquote{asst\_tutor\_id}}}
 \pysigstopsignatures
 \end{fulllineitems}
 
@@ -1724,12 +1766,34 @@ object the first time, the query is executed.
 
 \end{fulllineitems}
 
+\index{difficulty (api.models.ticket.Ticket attribute)@\spxentry{difficulty}\spxextra{api.models.ticket.Ticket attribute}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{models/ticket:api.models.ticket.Ticket.difficulty}}
+\pysigstartsignatures
+\pysigline{\sphinxbfcode{\sphinxupquote{difficulty}}}
+\pysigstopsignatures
+\sphinxAtStartPar
+A wrapper for a deferred\sphinxhyphen{}loading field. When the value is read from this
+object the first time, the query is executed.
+
+\end{fulllineitems}
+
 \index{generic (api.models.ticket.Ticket attribute)@\spxentry{generic}\spxextra{api.models.ticket.Ticket attribute}}
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{models/ticket:api.models.ticket.Ticket.generic}}
 \pysigstartsignatures
 \pysigline{\sphinxbfcode{\sphinxupquote{generic}}\sphinxbfcode{\sphinxupquote{\DUrole{w}{ }\DUrole{p}{=}\DUrole{w}{ }\textless{}django.db.models.manager.Manager object\textgreater{}}}}
+\pysigstopsignatures
+\end{fulllineitems}
+
+\index{get\_difficulty\_display() (api.models.ticket.Ticket method)@\spxentry{get\_difficulty\_display()}\spxextra{api.models.ticket.Ticket method}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{models/ticket:api.models.ticket.Ticket.get_difficulty_display}}
+\pysigstartsignatures
+\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{get\_difficulty\_display}}}{\sphinxparam{\DUrole{n}{*}}\sphinxparamcomma \sphinxparam{\DUrole{n}{field=\textless{}django.db.models.fields.CharField: difficulty\textgreater{}}}}{}
 \pysigstopsignatures
 \end{fulllineitems}
 
@@ -2018,6 +2082,19 @@ In the example:
 \phantomsection\label{\detokenize{models/ticket:api.models.ticket.Ticket.updated_at}}
 \pysigstartsignatures
 \pysigline{\sphinxbfcode{\sphinxupquote{updated\_at}}}
+\pysigstopsignatures
+\sphinxAtStartPar
+A wrapper for a deferred\sphinxhyphen{}loading field. When the value is read from this
+object the first time, the query is executed.
+
+\end{fulllineitems}
+
+\index{was\_flagged (api.models.ticket.Ticket attribute)@\spxentry{was\_flagged}\spxextra{api.models.ticket.Ticket attribute}}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{models/ticket:api.models.ticket.Ticket.was_flagged}}
+\pysigstartsignatures
+\pysigline{\sphinxbfcode{\sphinxupquote{was\_flagged}}}
 \pysigstopsignatures
 \sphinxAtStartPar
 A wrapper for a deferred\sphinxhyphen{}loading field. When the value is read from this
@@ -2736,6 +2813,564 @@ For more information on this file, see
 
 \section{Module contents}
 \label{\detokenize{settings/settings:module-base}}\label{\detokenize{settings/settings:module-contents}}\index{module@\spxentry{module}!base@\spxentry{base}}\index{base@\spxentry{base}!module@\spxentry{module}}
+\sphinxstepscope
+
+\sphinxstepscope
+
+\sphinxstepscope
+
+
+\chapter{Forms}
+\label{\detokenize{forms/index:forms}}\label{\detokenize{forms/index::doc}}
+\sphinxstepscope
+
+
+\section{TicketForm TypeScript Module Documentation}
+\label{\detokenize{forms/ticket:ticketform-typescript-module-documentation}}\label{\detokenize{forms/ticket::doc}}
+\sphinxAtStartPar
+The \sphinxtitleref{TicketForm} TypeScript module defines a React component responsible for creating support tickets. This documentation provides an overview of the module’s structure, key components, and their responsibilities.
+
+
+\subsection{Overview}
+\label{\detokenize{forms/ticket:overview}}
+\sphinxAtStartPar
+The \sphinxtitleref{TicketForm} component facilitates the creation of support tickets by gathering information from users, such as their name, selected professor, course, issue type, and a detailed description of the problem. It leverages various utility functions, hooks, and external APIs to enhance its functionality.
+
+
+\subsection{Key Components}
+\label{\detokenize{forms/ticket:key-components}}
+\sphinxAtStartPar
+\#\#\# FormSchema
+
+\sphinxAtStartPar
+The \sphinxtitleref{FormSchema} is a Zod schema defining the shape and validation rules for the form data. It ensures that the user provides valid input for fields such as name, title, professor, course, issue, and description.
+
+\sphinxAtStartPar
+\#\#\# TicketLabel Component
+
+\sphinxAtStartPar
+This component renders a formatted label for certain form fields, such as the full name.
+
+\sphinxAtStartPar
+\#\#\# TicketDescription Component
+
+\sphinxAtStartPar
+Similar to \sphinxtitleref{TicketLabel}, this component renders a description for specific form fields, providing additional guidance or context.
+
+\sphinxAtStartPar
+\#\#\# TicketForm Component
+
+\sphinxAtStartPar
+The main \sphinxtitleref{TicketForm} component orchestrates the entire form. It uses the \sphinxtitleref{react\sphinxhyphen{}hook\sphinxhyphen{}form} library for form management and validation. The component includes form fields for user information, selects for professors, courses, and issue types, and a text area for the ticket description. It also handles form submission, triggering the creation of a support ticket through the \sphinxtitleref{createTicket} API.
+
+\sphinxAtStartPar
+\#\#\# useFetchProfessor, useFetchCourse, useFetchIssue Hooks
+
+\sphinxAtStartPar
+These custom hooks fetch data from external APIs related to professors, courses, and issue types, respectively. They ensure that the form has up\sphinxhyphen{}to\sphinxhyphen{}date information for dropdowns and selects.
+
+\sphinxAtStartPar
+\#\#\# LoadingSelect Component
+
+\sphinxAtStartPar
+This component provides a visual indication (e.g., loading spinner) when fetching data for selects.
+
+\sphinxAtStartPar
+\#\#\# useToast Hook
+
+\sphinxAtStartPar
+The \sphinxtitleref{useToast} hook manages the display of toast messages, providing user feedback on form submission.
+
+\sphinxAtStartPar
+\#\#\# useNavigate Hook
+
+\sphinxAtStartPar
+The \sphinxtitleref{useNavigate} hook from \sphinxtitleref{react\sphinxhyphen{}router\sphinxhyphen{}dom} facilitates navigation upon successful ticket submission.
+
+
+\section{TicketForm React Component Documentation}
+\label{\detokenize{forms/ticket:ticketform-react-component-documentation}}
+\sphinxAtStartPar
+The \sphinxtitleref{TicketForm} component is a React form used to create a new ticket in a ticketing system. It allows users to provide information about their name, the professor, course, issue type, a brief summary, and a detailed description of their ticket. The form incorporates various UI components, including buttons, inputs, and popovers.
+
+
+\subsection{Overview}
+\label{\detokenize{forms/ticket:id1}}
+\sphinxAtStartPar
+The \sphinxtitleref{TicketForm} component comprises several key sections and components:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Form Initialization}: The form is initialized using the \sphinxtitleref{useForm} hook from \sphinxtitleref{react\sphinxhyphen{}hook\sphinxhyphen{}form}. It uses the \sphinxtitleref{FormSchema} provided by the \sphinxtitleref{zod} library for validation.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Form Submission}: The form submission is handled by the \sphinxtitleref{onSubmit} function, which triggers the \sphinxtitleref{createTicket} mutation and displays a success toast message.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{LoadingSelect}: A loading state is displayed for select dropdowns while fetching data.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Popovers and Commands}: Popovers are used for professor, course, and issue type selection, incorporating a search functionality (\sphinxtitleref{Command}). Each selection dropdown is triggered by a \sphinxtitleref{Button} and displays a list of items with a search input.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Form Fields and Validation}: Various form fields are utilized, including \sphinxtitleref{Input}, \sphinxtitleref{Textarea}, and custom \sphinxtitleref{FormField} components. The form includes validation for name, title, professor, course, issue type, and description.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{TicketLabel and TicketDescription}: Custom components (\sphinxtitleref{TicketLabel} and \sphinxtitleref{TicketDescription}) are used for styling labels and descriptions consistently.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Button Component}: The form submission is triggered by a \sphinxtitleref{Button} component with dynamic disabling based on the mutation’s pending state.
+
+\end{itemize}
+
+
+\subsection{Usage}
+\label{\detokenize{forms/ticket:usage}}
+\sphinxAtStartPar
+To use the \sphinxtitleref{TicketForm} component, integrate it into the desired page or component. The form handles the creation of new tickets, including input validation and mutation handling.
+
+\sphinxAtStartPar
+Example:
+
+\sphinxAtStartPar
+{\color{red}\bfseries{}\textasciigrave{}\textasciigrave{}}{\color{red}\bfseries{}\textasciigrave{}}jsx
+import TicketForm from “@/path/to/TicketForm”;
+\begin{description}
+\sphinxlineitem{function NewTicketPage() \{}\begin{description}
+\sphinxlineitem{return (}\begin{description}
+\sphinxlineitem{\textless{}div\textgreater{}}
+\sphinxAtStartPar
+\textless{}h1\textgreater{}Create a New Ticket\textless{}/h1\textgreater{}
+\textless{}TicketForm /\textgreater{}
+
+\end{description}
+
+\sphinxAtStartPar
+\textless{}/div\textgreater{}
+
+\end{description}
+
+\sphinxAtStartPar
+);
+
+\end{description}
+
+\sphinxAtStartPar
+\}
+
+\sphinxAtStartPar
+\#\#\# Additional Notes
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+The \sphinxtitleref{max\_ticket\_length} constant defines the maximum character limit for the ticket description.
+
+\item {} 
+\sphinxAtStartPar
+The form utilizes the \sphinxtitleref{zodResolver} from \sphinxtitleref{@hookform/resolvers/zod} for Zod schema\sphinxhyphen{}based validation.
+
+\item {} 
+\sphinxAtStartPar
+The \sphinxtitleref{useMutation} hook from \sphinxtitleref{@tanstack/react\sphinxhyphen{}query} manages the asynchronous ticket creation process.
+
+\end{itemize}
+
+
+\subsection{Usage}
+\label{\detokenize{forms/ticket:id6}}
+\sphinxAtStartPar
+To use the \sphinxtitleref{TicketForm} component, integrate it into a parent component or page within a React application. Make sure to include the necessary dependencies and handle form submission accordingly.
+
+\sphinxAtStartPar
+Example:
+
+\sphinxAtStartPar
+{\color{red}\bfseries{}\textasciigrave{}\textasciigrave{}}{\color{red}\bfseries{}\textasciigrave{}}jsx
+import TicketForm from “@/path/to/TicketForm”;
+\begin{description}
+\sphinxlineitem{function SupportPage() \{}\begin{description}
+\sphinxlineitem{return (}\begin{description}
+\sphinxlineitem{\textless{}div\textgreater{}}
+\sphinxAtStartPar
+\textless{}h1\textgreater{}Submit a Support Ticket\textless{}/h1\textgreater{}
+\textless{}TicketForm /\textgreater{}
+
+\end{description}
+
+\sphinxAtStartPar
+\textless{}/div\textgreater{}
+
+\end{description}
+
+\sphinxAtStartPar
+);
+
+\end{description}
+
+\sphinxAtStartPar
+\}
+
+\sphinxstepscope
+
+
+\section{AnnouncementForm}
+\label{\detokenize{forms/announcement:announcementform}}\label{\detokenize{forms/announcement::doc}}
+\sphinxAtStartPar
+This module contains the \sphinxtitleref{AnnouncementForm} component, which is used to create and submit announcements.
+
+
+\subsection{Form Schema}
+\label{\detokenize{forms/announcement:form-schema}}
+\sphinxAtStartPar
+The \sphinxtitleref{FormSchema} object defines the schema for the announcement form, including the title, body, variant, start date, end date, and show date. It also specifies the validation rules and error messages for each field.
+
+
+\subsection{Submitting the Form}
+\label{\detokenize{forms/announcement:submitting-the-form}}
+\sphinxAtStartPar
+When the form is submitted, the \sphinxtitleref{onSubmit} function is called, which triggers a toast notification displaying the submitted values in a formatted JSON style.
+
+
+\subsection{Rendering the Form}
+\label{\detokenize{forms/announcement:rendering-the-form}}
+\sphinxAtStartPar
+The \sphinxtitleref{AnnouncementForm} component renders a form using the \sphinxtitleref{useForm} hook from \sphinxtitleref{react\sphinxhyphen{}hook\sphinxhyphen{}form}. It includes input fields for the announcement title, body, variant, start date, end date, and show date. Each field is rendered with appropriate validation and error messages.
+
+
+\subsection{UI Components}
+\label{\detokenize{forms/announcement:ui-components}}
+\sphinxAtStartPar
+The form utilizes various UI components such as \sphinxtitleref{Textarea}, \sphinxtitleref{Select}, \sphinxtitleref{Input}, \sphinxtitleref{Button}, \sphinxtitleref{Switch}, \sphinxtitleref{Popover}, and \sphinxtitleref{CalendarIcon} for user interaction and input.
+
+
+\subsection{Character Limits}
+\label{\detokenize{forms/announcement:character-limits}}
+\sphinxAtStartPar
+The form also enforces character limits for the body field, with a maximum length of 255 characters. The character count is dynamically displayed as the user types in the \sphinxtitleref{Textarea}, providing real\sphinxhyphen{}time feedback to the user.
+
+
+\subsection{Form Submission}
+\label{\detokenize{forms/announcement:form-submission}}
+\sphinxAtStartPar
+Upon completion, the user can submit the form by clicking the “Schedule” button.
+
+\sphinxAtStartPar
+This RST documentation provides an overview of the \sphinxtitleref{AnnouncementForm} component and its functionality within the ticketing portal.
+
+\sphinxstepscope
+
+
+\section{ThemeProvider React Component Documentation}
+\label{\detokenize{forms/theme:themeprovider-react-component-documentation}}\label{\detokenize{forms/theme::doc}}
+\sphinxAtStartPar
+The \sphinxtitleref{ThemeProvider} component is a React context provider that manages the theme state for a ticketing portal. It allows users to customize the theme (dark, light, or system default) and persists the selected theme in local storage.
+
+
+\subsection{Overview}
+\label{\detokenize{forms/theme:overview}}
+\sphinxAtStartPar
+The \sphinxtitleref{ThemeProvider} component is responsible for providing a theme context to its children components. It offers functionality to set and retrieve the current theme, and it automatically syncs the theme with the user’s system preference when the “system” theme is selected.
+
+
+\subsection{Key Components}
+\label{\detokenize{forms/theme:key-components}}
+\sphinxAtStartPar
+\#\#\# createContext, useContext
+
+\sphinxAtStartPar
+These functions are used from the \sphinxtitleref{react} library to create and access the theme context, respectively.
+
+\sphinxAtStartPar
+\#\#\# useState
+
+\sphinxAtStartPar
+The \sphinxtitleref{useState} hook is used to manage the local state of the selected theme.
+
+\sphinxAtStartPar
+\#\#\# useEffect
+
+\sphinxAtStartPar
+The \sphinxtitleref{useEffect} hook is used to update the document’s root element with the selected theme class. It also listens for changes in the theme and adjusts the document accordingly.
+
+\sphinxAtStartPar
+\#\#\# ThemeProviderProps
+
+\sphinxAtStartPar
+This type defines the props expected by the \sphinxtitleref{ThemeProvider} component, including \sphinxtitleref{children}, \sphinxtitleref{defaultTheme}, and \sphinxtitleref{storageKey}.
+
+\sphinxAtStartPar
+\#\#\# ThemeProviderState
+
+\sphinxAtStartPar
+This type represents the state of the \sphinxtitleref{ThemeProvider} component, including the current theme and the \sphinxtitleref{setTheme} function.
+
+\sphinxAtStartPar
+\#\#\# initialState
+
+\sphinxAtStartPar
+This constant represents the initial state of the \sphinxtitleref{ThemeProvider} component, with the default theme set to “system.”
+
+\sphinxAtStartPar
+\#\#\# ThemeProviderContext
+
+\sphinxAtStartPar
+The context created using \sphinxtitleref{createContext} to provide theme\sphinxhyphen{}related values to child components.
+
+\sphinxAtStartPar
+\#\#\# ThemeProvider Component
+
+\sphinxAtStartPar
+The main \sphinxtitleref{ThemeProvider} component that manages the theme state, sets the theme class on the document root, and provides the theme context to its children.
+
+\sphinxAtStartPar
+\#\#\# useTheme Hook
+
+\sphinxAtStartPar
+The \sphinxtitleref{useTheme} hook is a custom hook that retrieves the current theme and \sphinxtitleref{setTheme} function from the context. It throws an error if used outside a \sphinxtitleref{ThemeProvider}.
+
+
+\subsection{Usage}
+\label{\detokenize{forms/theme:usage}}
+\sphinxAtStartPar
+To use the \sphinxtitleref{ThemeProvider} component, wrap it around the components that need access to the theme context within a React application. Customize the theme by providing the desired values for \sphinxtitleref{defaultTheme} and \sphinxtitleref{storageKey}.
+
+\sphinxAtStartPar
+Example:
+
+\sphinxAtStartPar
+{\color{red}\bfseries{}\textasciigrave{}\textasciigrave{}}{\color{red}\bfseries{}\textasciigrave{}}jsx
+import ThemeProvider, \{ useTheme \} from “@/path/to/ThemeProvider”;
+\begin{description}
+\sphinxlineitem{function App() \{}\begin{description}
+\sphinxlineitem{return (}\begin{description}
+\sphinxlineitem{\textless{}ThemeProvider defaultTheme=”dark”\textgreater{}}
+\sphinxAtStartPar
+\textless{}MainContent /\textgreater{}
+
+\end{description}
+
+\sphinxAtStartPar
+\textless{}/ThemeProvider\textgreater{}
+
+\end{description}
+
+\sphinxAtStartPar
+);
+
+\end{description}
+
+\sphinxAtStartPar
+\}
+\begin{description}
+\sphinxlineitem{function MainContent() \{}
+\sphinxAtStartPar
+const \{ theme, setTheme \} = useTheme();
+
+\sphinxAtStartPar
+// Implement theme\sphinxhyphen{}specific rendering or functionality based on the theme context.
+\begin{description}
+\sphinxlineitem{return (}\begin{description}
+\sphinxlineitem{\textless{}div\textgreater{}}
+\sphinxAtStartPar
+\textless{}h1\textgreater{}Theme is \{theme\}\textless{}/h1\textgreater{}
+\textless{}button onClick=\{() =\textgreater{} setTheme(“light”)\}\textgreater{}Switch to Light Theme\textless{}/button\textgreater{}
+
+\end{description}
+
+\sphinxAtStartPar
+\textless{}/div\textgreater{}
+
+\end{description}
+
+\sphinxAtStartPar
+);
+
+\end{description}
+
+\sphinxAtStartPar
+\}
+
+\sphinxstepscope
+
+
+\section{ModeToggle React Component Documentation}
+\label{\detokenize{forms/toggle:modetoggle-react-component-documentation}}\label{\detokenize{forms/toggle::doc}}
+\sphinxAtStartPar
+The \sphinxtitleref{ModeToggle} component is a React component that provides a mode toggle button for changing the theme of a ticketing portal. It utilizes icons for the sun and moon to represent light and dark themes, respectively. The component is implemented using the \sphinxtitleref{lucide\sphinxhyphen{}react} library for icon components and leverages the \sphinxtitleref{DropdownMenu} component for the theme selection options.
+
+
+\subsection{Overview}
+\label{\detokenize{forms/toggle:overview}}
+\sphinxAtStartPar
+The \sphinxtitleref{ModeToggle} component offers a user\sphinxhyphen{}friendly way to switch between light, dark, and system (default) themes in the ticketing portal. Users can click on the button to reveal a dropdown menu with theme options.
+
+
+\subsection{Key Components}
+\label{\detokenize{forms/toggle:key-components}}
+\sphinxAtStartPar
+\#\#\# Button Component
+
+\sphinxAtStartPar
+The \sphinxtitleref{Button} component from \sphinxtitleref{@/components/ui/button} is used to create the clickable button for toggling themes. It includes icons for the sun and moon, providing a visual representation of the available themes.
+
+\sphinxAtStartPar
+\#\#\# DropdownMenu Components
+
+\sphinxAtStartPar
+The \sphinxtitleref{DropdownMenu}, \sphinxtitleref{DropdownMenuTrigger}, \sphinxtitleref{DropdownMenuContent}, and \sphinxtitleref{DropdownMenuItem} components from \sphinxtitleref{@/components/ui/dropdown\sphinxhyphen{}menu} are utilized to create a dropdown menu for selecting different themes. The menu is triggered by clicking on the mode toggle button.
+
+\sphinxAtStartPar
+\#\#\# useTheme Hook
+
+\sphinxAtStartPar
+The \sphinxtitleref{useTheme} hook from \sphinxtitleref{@/forms/ThemeProvider} is used to access the \sphinxtitleref{setTheme} function, enabling the component to update the selected theme based on user input.
+
+
+\subsection{Usage}
+\label{\detokenize{forms/toggle:usage}}
+\sphinxAtStartPar
+To use the \sphinxtitleref{ModeToggle} component, integrate it into a parent component or page within a React application. Ensure that the necessary dependencies are imported, and handle theme changes accordingly.
+
+\sphinxAtStartPar
+Example:
+
+\sphinxAtStartPar
+{\color{red}\bfseries{}\textasciigrave{}\textasciigrave{}}{\color{red}\bfseries{}\textasciigrave{}}jsx
+import ModeToggle from “@/path/to/ModeToggle”;
+\begin{description}
+\sphinxlineitem{function ThemeSettingsPage() \{}\begin{description}
+\sphinxlineitem{return (}\begin{description}
+\sphinxlineitem{\textless{}div\textgreater{}}
+\sphinxAtStartPar
+\textless{}h1\textgreater{}Theme Settings\textless{}/h1\textgreater{}
+\textless{}ModeToggle /\textgreater{}
+
+\end{description}
+
+\sphinxAtStartPar
+\textless{}/div\textgreater{}
+
+\end{description}
+
+\sphinxAtStartPar
+);
+
+\end{description}
+
+\sphinxAtStartPar
+\}
+
+\sphinxstepscope
+
+
+\section{TutorTicketForm React Component Documentation}
+\label{\detokenize{forms/tutor:tutorticketform-react-component-documentation}}\label{\detokenize{forms/tutor::doc}}
+\sphinxAtStartPar
+The \sphinxtitleref{TutorTicketForm} component is a React form used in a ticketing portal to display and update ticket details. It includes various form fields for ticket information and provides functionality to update the ticket using the \sphinxtitleref{updateTicket} API. The form is built using the \sphinxtitleref{react\sphinxhyphen{}hook\sphinxhyphen{}form} library and incorporates components from the project’s UI library.
+
+
+\subsection{Overview}
+\label{\detokenize{forms/tutor:overview}}
+\sphinxAtStartPar
+The \sphinxtitleref{TutorTicketForm} component consists of several key sections and components:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Alert Dialog and Trigger}: The form is displayed within an \sphinxtitleref{AlertDialog}, triggered by a button with three dots.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Form Initialization}: The form is initialized using the \sphinxtitleref{useForm} hook from \sphinxtitleref{react\sphinxhyphen{}hook\sphinxhyphen{}form}. It uses a \sphinxtitleref{FormSchema} provided by the \sphinxtitleref{zod} library for validation.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Form Submission}: The form submission is handled by the \sphinxtitleref{onSubmit} function, which triggers the \sphinxtitleref{updateTicket} mutation and displays a success toast message.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Ticket Details Display}: Ticket details, including the title, ID, status, and actions, are displayed at the top of the form.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Dropdown Menus}: The form includes two dropdown menus with various actions, such as copying ticket details or flagging the ticket.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{CheckDropField}: A custom checkbox field (\sphinxtitleref{CheckDropField}) is used to toggle the \sphinxtitleref{was\_successful} property.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{TextareaField}: A custom textarea field (\sphinxtitleref{TextareaField}) is used for entering and displaying the ticket description.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{DropdownField}: A custom dropdown field (\sphinxtitleref{DropdownField}) is used for selecting the ticket status.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{SearchFilterField and DropField}: Custom fields are used for selecting tutors and difficulty levels, respectively.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{DetailLink Component}: The \sphinxtitleref{DetailLink} component displays labeled details, such as student, professor, and course information.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Button Components}: Various buttons are used for actions like updating the form, discarding changes, or copying ticket details.
+
+\end{itemize}
+
+
+\subsection{Usage}
+\label{\detokenize{forms/tutor:usage}}
+\sphinxAtStartPar
+To use the \sphinxtitleref{TutorTicketForm} component, pass the ticket object as a prop. The form handles the display and editing of ticket details. It relies on the \sphinxtitleref{react\sphinxhyphen{}hook\sphinxhyphen{}form} library for form management and incorporates components from the project’s UI library for consistent styling.
+
+\sphinxAtStartPar
+Example:
+
+\sphinxAtStartPar
+{\color{red}\bfseries{}\textasciigrave{}\textasciigrave{}}{\color{red}\bfseries{}\textasciigrave{}}jsx
+import TutorTicketForm from “@/path/to/TutorTicketForm”;
+\begin{description}
+\sphinxlineitem{function TicketDetailsPage(\{ ticket \}) \{}\begin{description}
+\sphinxlineitem{return (}\begin{description}
+\sphinxlineitem{\textless{}div\textgreater{}}
+\sphinxAtStartPar
+\textless{}h1\textgreater{}Ticket Details\textless{}/h1\textgreater{}
+\textless{}TutorTicketForm ticket=\{ticket\} /\textgreater{}
+
+\end{description}
+
+\sphinxAtStartPar
+\textless{}/div\textgreater{}
+
+\end{description}
+
+\sphinxAtStartPar
+);
+
+\end{description}
+
+\sphinxAtStartPar
+\}
+
+\sphinxstepscope
+
+\sphinxstepscope
+
+\sphinxstepscope
+
+\sphinxstepscope
+
+\sphinxstepscope
+
 
 \chapter{Indices and tables}
 \label{\detokenize{index:indices-and-tables}}\begin{itemize}
@@ -2764,11 +3399,7 @@ For more information on this file, see
 \item\relax\sphinxstyleindexentry{api.endpoints.section}\sphinxstyleindexpageref{endpoints/section:\detokenize{module-api.endpoints.section}}
 \item\relax\sphinxstyleindexentry{api.endpoints.ticket}\sphinxstyleindexpageref{endpoints/ticket:\detokenize{module-api.endpoints.ticket}}
 \item\relax\sphinxstyleindexentry{api.endpoints.user}\sphinxstyleindexpageref{endpoints/user:\detokenize{module-api.endpoints.user}}
-\item\relax\sphinxstyleindexentry{api.models.course}\sphinxstyleindexpageref{models/course:\detokenize{module-api.models.course}}
-\item\relax\sphinxstyleindexentry{api.models.issue}\sphinxstyleindexpageref{models/issue:\detokenize{module-api.models.issue}}
-\item\relax\sphinxstyleindexentry{api.models.professor}\sphinxstyleindexpageref{models/professor:\detokenize{module-api.models.professor}}
 \item\relax\sphinxstyleindexentry{api.models.ticket}\sphinxstyleindexpageref{models/ticket:\detokenize{module-api.models.ticket}}
-\item\relax\sphinxstyleindexentry{api.models.user}\sphinxstyleindexpageref{models/user:\detokenize{module-api.models.user}}
 \indexspace
 \bigletter{b}
 \item\relax\sphinxstyleindexentry{base}\sphinxstyleindexpageref{settings/settings:\detokenize{module-base}}

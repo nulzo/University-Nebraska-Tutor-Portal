@@ -1,0 +1,72 @@
+\contentsline {chapter}{\numberline {1}Introduction}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Motivation}{3}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Similar Applications}{3}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Theoretical Foundations of the Project}{4}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Software Engineering Challenges}{4}{section.1.4}%
+\contentsline {section}{\numberline {1.5}System Context}{4}{section.1.5}%
+\contentsline {subsection}{\numberline {1.5.1}Subject Facet}{4}{subsection.1.5.1}%
+\contentsline {subsection}{\numberline {1.5.2}Usage Facet}{4}{subsection.1.5.2}%
+\contentsline {subsection}{\numberline {1.5.3}IT System Facet}{5}{subsection.1.5.3}%
+\contentsline {subsection}{\numberline {1.5.4}Development Facet}{5}{subsection.1.5.4}%
+\contentsline {subsection}{\numberline {1.5.5}Legal \& Ethical Facet}{5}{subsection.1.5.5}%
+\contentsline {chapter}{\numberline {2}Requirements}{6}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Goals}{6}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Goal Model}{6}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Goal Descriptions}{6}{subsection.2.1.2}%
+\contentsline {section}{\numberline {2.2}Functional Requirements}{7}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Wireframes}{8}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Object Model}{8}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Nonfunctional Requirements}{8}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Analysis Requirements}{9}{section.2.6}%
+\contentsline {section}{\numberline {2.7}External System Interfaces}{9}{section.2.7}%
+\contentsline {section}{\numberline {2.8}Requirements Not Implemented}{9}{section.2.8}%
+\contentsline {chapter}{\numberline {3}Architecture and Design}{10}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Overview}{10}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Logical Decomposition View}{10}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Technology Stack}{11}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Languages}{11}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Libraries \& Services}{11}{subsection.3.3.2}%
+\contentsline {section}{\numberline {3.4}Deployment View}{12}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Development View}{12}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Data View}{15}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Concurrency View}{22}{section.3.7}%
+\contentsline {section}{\numberline {3.8}Execution Flow View}{22}{section.3.8}%
+\contentsline {section}{\numberline {3.9}Screenshots}{22}{section.3.9}%
+\contentsline {section}{\numberline {3.10}Summary of Design Changes}{22}{section.3.10}%
+\contentsline {section}{\numberline {3.11}Design Modularity and Extensibility}{26}{section.3.11}%
+\contentsline {chapter}{\numberline {4}Implementation}{27}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Directory Structure}{27}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Technical Issues Encountered}{28}{section.4.2}%
+\contentsline {section}{\numberline {4.3}User-Reported Bugs}{29}{section.4.3}%
+\contentsline {chapter}{\numberline {5}Testing}{30}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Test Plan}{30}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Obtaining Realistic Test Data}{30}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Tests Conducted}{30}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Test Results}{31}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Automated Test Outputs}{31}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Tests Not Conducted}{32}{section.5.6}%
+\contentsline {chapter}{\numberline {6}Summary}{33}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Summary of Project Organization}{33}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Outcome of Risks}{33}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Milestone Summary}{33}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Lessons Learned}{34}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Future Extensions}{34}{section.6.5}%
+\contentsline {chapter}{\numberline {7}Local and Global Impacts}{35}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Appendix}{36}{chapter.8}%
+\contentsline {section}{\numberline {8.1}{Project Proposal}}{37}{section*.2}%
+\contentsline {section}{\numberline {8.2}{Project Plan}}{54}{section*.2}%
+\contentsline {section}{\numberline {8.3}{Initial Requirements}}{76}{section*.2}%
+\contentsline {section}{\numberline {8.4}{Context Document}}{78}{section*.2}%
+\contentsline {section}{\numberline {8.5}{Mid Semester Project Report}}{81}{section*.2}%
+\contentsline {section}{\numberline {8.6}Setup \& Deployment Instructions}{99}{section.8.6}%
+\contentsline {section}{\numberline {8.7}Team Meeting Notes}{104}{section.8.7}%
+\contentsline {section}{\numberline {8.8}Individual Journals}{105}{section.8.8}%
+\contentsline {subsection}{\numberline {8.8.1}Austin Bailey}{105}{subsection.8.8.1}%
+\contentsline {subsection}{\numberline {8.8.2}Mya Bell}{105}{subsection.8.8.2}%
+\contentsline {subsection}{\numberline {8.8.3}Nolan Gregory}{106}{subsection.8.8.3}%
+\contentsline {subsection}{\numberline {8.8.4}Lindsey Langdon}{108}{subsection.8.8.4}%
+\contentsline {section}{\numberline {8.9}Transcripts of Client Meetings}{108}{section.8.9}%
+\contentsline {subsection}{\numberline {8.9.1}{Transcript of Initial Client Meeting}}{108}{section*.3}%
+\contentsline {subsection}{\numberline {8.9.2}{Transcript of 19 October Client Check-In Meeting}}{120}{section*.3}%
+\contentsline {section}{\numberline {8.10}Rasterized Documentation of Module Interfaces}{155}{section.8.10}%
+\contentsline {chapter}{\numberline {9}References}{198}{chapter.9}%

@@ -66,7 +66,6 @@ export function Sidebar({ isPopout = false }: any) {
               shapeRendering={shape_rendering}
             />
           }
-          // notification={Object(useQueryClient().getQueryData(['new-ticket'])).length !== 0}
         />
         <Navlink
           className="w-full justify-start"
@@ -206,6 +205,7 @@ export function Sidebar({ isPopout = false }: any) {
             isActive={path === "/hours"}
             onClick={() => navigate("/hours")}
             text="CSLC Hours"
+            disabled={true}
             icon={
               <CalendarClockIcon
                 width={20}
@@ -254,6 +254,7 @@ export function Sidebar({ isPopout = false }: any) {
           isActive={path === "/tutor/schedule"}
           onClick={() => navigate("/tutor/schedule")}
           text="Schedule"
+          disabled={true}
           icon={
             <CalendarIcon
               viewBox="0 0 24 24"
@@ -268,6 +269,7 @@ export function Sidebar({ isPopout = false }: any) {
           className="w-full justify-start"
           isActive={path === "/tutor/tutors"}
           onClick={() => navigate("/tutor/tutors")}
+          disabled={true}
           text="Tutors"
           icon={
             <UsersIcon
@@ -295,6 +297,7 @@ export function Sidebar({ isPopout = false }: any) {
             isActive={path === "/profile"}
             onClick={() => navigate("/profile")}
             text="Profile"
+            disabled={true}
             icon={
               <UserIcon
                 viewBox="0 0 24 24"
@@ -310,6 +313,7 @@ export function Sidebar({ isPopout = false }: any) {
             isActive={path === "/messages"}
             onClick={() => navigate("/messages")}
             text="Messages"
+            disabled={true}
             icon={
               <MessagesSquareIcon
                 viewBox="0 0 24 24"
@@ -325,6 +329,7 @@ export function Sidebar({ isPopout = false }: any) {
             isActive={path === "/settings"}
             onClick={() => navigate("/settings")}
             text="Settings"
+            disabled={true}
             icon={
               <SettingsIcon
                 viewBox="0 0 24 24"

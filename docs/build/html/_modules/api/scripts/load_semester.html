@@ -198,6 +198,15 @@
 <p class="caption" role="heading"><span class="caption-text">CSLC Portal Frontend</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../about.html">About</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../forms/index.html">Forms</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Forms</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../forms/ticket.html">TicketForm TypeScript Module Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../forms/ticket.html#ticketform-react-component-documentation">TicketForm React Component Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../forms/announcement.html">AnnouncementForm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../forms/theme.html">ThemeProvider React Component Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../forms/toggle.html">ModeToggle React Component Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../forms/tutor.html">TutorTicketForm React Component Documentation</a></li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -248,14 +257,130 @@
 <span class="kn">from</span> <span class="nn">api.models.professor</span> <span class="kn">import</span> <span class="n">Professor</span>
 <span class="kn">from</span> <span class="nn">api.models.sections</span> <span class="kn">import</span> <span class="n">Section</span>
 
-<span class="n">FILE</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;PATH_TO_FILE&quot;</span><span class="p">)</span>
-
 <span class="c1"># pylint: disable=E1101</span>
 
 
 <div class="viewcode-block" id="ParseSemester">
 <a class="viewcode-back" href="../../../scripts/load-semester.html#api.scripts.load_semester.ParseSemester">[docs]</a>
 <span class="k">class</span> <span class="nc">ParseSemester</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    A class used to parse and process semester data from a CSV file</span>
+
+<span class="sd">    ...</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    courses : dict</span>
+<span class="sd">    a dictionary to store course data</span>
+<span class="sd">    sections : dict</span>
+<span class="sd">    a dictionary to store section data</span>
+<span class="sd">    professors : dict</span>
+<span class="sd">    a dictionary to store professor data</span>
+<span class="sd">    csv_file : str</span>
+<span class="sd">    the file directory of the CSV data</span>
+<span class="sd">    column_names : list</span>
+<span class="sd">    a list of column names from the CSV file</span>
+<span class="sd">    professor_data : pandas.DataFrame</span>
+<span class="sd">    a DataFrame to store professor data from the CSV file</span>
+
+<span class="sd">    Methods</span>
+<span class="sd">    -------</span>
+<span class="sd">    read_csv()</span>
+<span class="sd">    Reads the CSV file and processes the data into dictionaries for courses, sections, and professors</span>
+<span class="sd">    get_professors() -&gt; dict</span>
+<span class="sd">    Returns the dictionary of professor data</span>
+<span class="sd">    get_courses() -&gt; dict</span>
+<span class="sd">    Returns the dictionary of course data</span>
+<span class="sd">    get_sections() -&gt; dict</span>
+<span class="sd">    Returns the dictionary of section data</span>
+<span class="sd">    normalize_text(text: str) -&gt; str</span>
+<span class="sd">    Normalizes the input text and returns the normalized string</span>
+<span class="sd">    write_professors()</span>
+<span class="sd">    Writes professor data to the database</span>
+<span class="sd">    write_courses()</span>
+<span class="sd">    Writes course data to the database</span>
+<span class="sd">    write_sections()</span>
+<span class="sd">    Writes section data to the database</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    def __init__(self, file_dir: str) -&gt; None:</span>
+<span class="sd">    pass</span>
+
+<span class="sd">    def read_csv(self):</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    Reads the CSV file and processes the data into dictionaries for courses, sections, and professors</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    pass</span>
+
+<span class="sd">    def get_professors(self) -&gt; dict:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    Returns the dictionary of professor data</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    pass</span>
+
+<span class="sd">    def get_courses(self) -&gt; dict:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    Returns the dictionary of course data</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    pass</span>
+
+<span class="sd">    def get_sections(self) -&gt; dict:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    Returns the dictionary of section data</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    pass</span>
+
+<span class="sd">    def normalize_text(self, text: str) -&gt; str:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    Normalizes the input text and returns the normalized string</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    text : str</span>
+<span class="sd">    The text to be normalized</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    str</span>
+<span class="sd">    The normalized text</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    pass</span>
+
+<span class="sd">    def write_professors(self) -&gt; None:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    Writes professor data to the database</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    pass</span>
+
+<span class="sd">    def write_courses(self) -&gt; None:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    Writes course data to the database</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    pass</span>
+
+<span class="sd">    def write_sections(self) -&gt; None:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    Writes section data to the database</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    pass</span>
+
+
+<span class="sd">    def run(csv_file: str | None = None) -&gt; bool:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    Runs the data processing and writing tasks for the CSV file</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    csv_file : str, optional</span>
+<span class="sd">    The file directory of the CSV data</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    bool</span>
+<span class="sd">    True if the process is successful, False otherwise</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    pass</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">courses</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sections</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>
@@ -314,7 +439,7 @@
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;instructor&quot;</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="k">continue</span>
             <span class="c1"># Get the professor ID (Some professors have two last names, so we need to check for that)</span>
-            <span class="n">professor_id</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">professor_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">(</span>
                 <span class="n">row</span><span class="p">[</span><span class="s2">&quot;instructor&quot;</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
                 <span class="k">if</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;instructor&quot;</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">)</span>
                 <span class="k">else</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;instructor&quot;</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span>
@@ -506,7 +631,8 @@
 
 <div class="viewcode-block" id="run">
 <a class="viewcode-back" href="../../../scripts/load-semester.html#api.scripts.load_semester.run">[docs]</a>
-<span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="n">FILE</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="n">csv_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="n">FILE</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;PATH_TO_FILE&quot;</span><span class="p">)</span>
     <span class="n">parser</span> <span class="o">=</span> <span class="n">ParseSemester</span><span class="p">(</span><span class="n">FILE</span><span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">write_professors</span><span class="p">()</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">write_courses</span><span class="p">()</span>

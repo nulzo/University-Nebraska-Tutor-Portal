@@ -40,6 +40,8 @@
   \item \spxentry{APITicketView}\spxextra{class in api.endpoints.ticket}, \hyperpage{5}
   \item \spxentry{APIUserDetail}\spxextra{class in api.endpoints.user}, \hyperpage{6}
   \item \spxentry{APIUserView}\spxextra{class in api.endpoints.user}, \hyperpage{6}
+  \item \spxentry{asst\_tutor}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{12}
+  \item \spxentry{asst\_tutor\_id}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{12}
 
   \indexspace
   \bigletter B
@@ -70,11 +72,13 @@
   \item \spxentry{course\_name}\spxextra{api.models.course.Course attribute}, \hyperpage{7, 8}
   \item \spxentry{courses\_taken}\spxextra{api.models.user.User attribute}, \hyperpage{16}
   \item \spxentry{courses\_tutoring}\spxextra{api.models.user.User attribute}, \hyperpage{16}
-  \item \spxentry{created\_at}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{12}
+  \item \spxentry{created\_at}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{13}
 
   \indexspace
   \bigletter D
-  \item \spxentry{description}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{12}
+  \item \spxentry{description}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{13}
+  \item \spxentry{difficulty}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{13}
+  \item \spxentry{DIFFICULTY\_CHOICES}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{12}
 
   \indexspace
   \bigletter E
@@ -91,7 +95,7 @@
   \item \spxentry{generic}\spxextra{api.models.course.Course attribute}, \hyperpage{8}
   \item \spxentry{generic}\spxextra{api.models.issue.Issues attribute}, \hyperpage{9}
   \item \spxentry{generic}\spxextra{api.models.professor.Professor attribute}, \hyperpage{11}
-  \item \spxentry{generic}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{12}
+  \item \spxentry{generic}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{13}
   \item \spxentry{generic}\spxextra{api.models.user.User attribute}, \hyperpage{16}
   \item \spxentry{get()}\spxextra{api.endpoints.course.APICourseList method}, \hyperpage{3}
   \item \spxentry{get()}\spxextra{api.endpoints.issue.APIIssueDetail method}, \hyperpage{3}
@@ -104,15 +108,17 @@
   \item \spxentry{get()}\spxextra{api.endpoints.ticket.APITicketView method}, \hyperpage{5}
   \item \spxentry{get()}\spxextra{api.endpoints.user.APIUserDetail method}, \hyperpage{6}
   \item \spxentry{get()}\spxextra{api.endpoints.user.APIUserView method}, \hyperpage{6}
-  \item \spxentry{get\_active()}\spxextra{api.models.ticket.TicketManager method}, \hyperpage{14}
+  \item \spxentry{get\_active()}\spxextra{api.models.ticket.TicketManager method}, \hyperpage{15}
   \item \spxentry{get\_admins()}\spxextra{api.models.user.AdminManager method}, \hyperpage{15}
   \item \spxentry{get\_all()}\spxextra{api.models.ticket.TicketManager method}, \hyperpage{15}
   \item \spxentry{get\_completed()}\spxextra{api.models.ticket.TicketManager method}, 
 		\hyperpage{15}
   \item \spxentry{get\_course()}\spxextra{api.models.ticket.TicketManager method}, \hyperpage{15}
+  \item \spxentry{get\_difficulty\_display()}\spxextra{api.models.ticket.Ticket method}, 
+		\hyperpage{13}
   \item \spxentry{get\_issues()}\spxextra{api.models.issue.IssueManager method}, \hyperpage{9}
   \item \spxentry{get\_next\_by\_created\_at()}\spxextra{api.models.ticket.Ticket method}, 
-		\hyperpage{12}
+		\hyperpage{13}
   \item \spxentry{get\_next\_by\_updated\_at()}\spxextra{api.models.ticket.Ticket method}, 
 		\hyperpage{13}
   \item \spxentry{get\_previous\_by\_created\_at()}\spxextra{api.models.ticket.Ticket method}, 
@@ -146,7 +152,7 @@
 		\hyperpage{15}
   \item \spxentry{get\_tutor()}\spxextra{api.models.ticket.TicketManager method}, \hyperpage{15}
   \item \spxentry{get\_tutor()}\spxextra{api.models.user.TutorManager method}, \hyperpage{15}
-  \item \spxentry{get\_tutors()}\spxextra{api.models.user.TutorManager method}, \hyperpage{15}
+  \item \spxentry{get\_tutors()}\spxextra{api.models.user.TutorManager method}, \hyperpage{16}
   \item \spxentry{get\_unclaimed()}\spxextra{api.models.ticket.TicketManager method}, 
 		\hyperpage{15}
 
@@ -159,9 +165,9 @@
   \item \spxentry{id}\spxextra{api.models.course.Course attribute}, \hyperpage{8}
   \item \spxentry{id}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{13}
   \item \spxentry{is\_active}\spxextra{api.models.professor.Professor attribute}, \hyperpage{11}
-  \item \spxentry{is\_active}\spxextra{api.models.user.User attribute}, \hyperpage{16}
-  \item \spxentry{is\_admin}\spxextra{api.models.user.User attribute}, \hyperpage{16}
-  \item \spxentry{is\_tutor}\spxextra{api.models.user.User attribute}, \hyperpage{16}
+  \item \spxentry{is\_active}\spxextra{api.models.user.User attribute}, \hyperpage{17}
+  \item \spxentry{is\_admin}\spxextra{api.models.user.User attribute}, \hyperpage{17}
+  \item \spxentry{is\_tutor}\spxextra{api.models.user.User attribute}, \hyperpage{17}
   \item \spxentry{is\_working}\spxextra{api.models.user.User attribute}, \hyperpage{17}
   \item \spxentry{issue}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{13}
   \item \spxentry{issue\_id}\spxextra{api.models.issue.Issues attribute}, \hyperpage{10}
@@ -196,18 +202,18 @@
     \subitem \spxentry{base.settings}, \hyperpage{21}
     \subitem \spxentry{base.urls}, \hyperpage{21}
     \subitem \spxentry{base.wsgi}, \hyperpage{22}
-  \item \spxentry{MSOID}\spxextra{api.models.user.User attribute}, \hyperpage{15}
+  \item \spxentry{MSOID}\spxextra{api.models.user.User attribute}, \hyperpage{16}
 
   \indexspace
   \bigletter N
-  \item \spxentry{name}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{13}
+  \item \spxentry{name}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{14}
   \item \spxentry{name}\spxextra{api.models.user.User attribute}, \hyperpage{17}
   \item \spxentry{NEW}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{12}
 
   \indexspace
   \bigletter O
   \item \spxentry{OPENED}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{12}
-  \item \spxentry{opened\_at}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{13}
+  \item \spxentry{opened\_at}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{14}
 
   \indexspace
   \bigletter P
@@ -220,7 +226,7 @@
   \item \spxentry{post()}\spxextra{api.endpoints.user.APIUserView method}, \hyperpage{6}
   \item \spxentry{problem\_type}\spxextra{api.models.issue.Issues attribute}, \hyperpage{10}
   \item \spxentry{professor}\spxextra{api.models.professor.Professor attribute}, \hyperpage{11}
-  \item \spxentry{professor}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{13}
+  \item \spxentry{professor}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{14}
   \item \spxentry{Professor}\spxextra{class in api.models.professor}, \hyperpage{10}
   \item \spxentry{Professor.DoesNotExist}, \hyperpage{10}
   \item \spxentry{Professor.MultipleObjectsReturned}, \hyperpage{10}
@@ -313,28 +319,29 @@
   \item \spxentry{ticket\_set}\spxextra{api.models.course.Course attribute}, \hyperpage{8}
   \item \spxentry{ticket\_set}\spxextra{api.models.issue.Issues attribute}, \hyperpage{10}
   \item \spxentry{ticket\_set}\spxextra{api.models.professor.Professor attribute}, \hyperpage{11}
-  \item \spxentry{TicketManager}\spxextra{class in api.models.ticket}, \hyperpage{14}
+  \item \spxentry{TicketManager}\spxextra{class in api.models.ticket}, \hyperpage{15}
   \item \spxentry{title}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{14}
   \item \spxentry{tutor}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{14}
-  \item \spxentry{tutor}\spxextra{api.models.user.User attribute}, \hyperpage{17}
+  \item \spxentry{tutor}\spxextra{api.models.user.User attribute}, \hyperpage{18}
   \item \spxentry{tutor\_id}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{14}
-  \item \spxentry{tutor\_ticket}\spxextra{api.models.user.User attribute}, \hyperpage{17}
+  \item \spxentry{tutor\_ticket}\spxextra{api.models.user.User attribute}, \hyperpage{18}
   \item \spxentry{TutorManager}\spxextra{class in api.models.user}, \hyperpage{15}
 
   \indexspace
   \bigletter U
-  \item \spxentry{updated\_at}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{14}
-  \item \spxentry{User}\spxextra{class in api.models.user}, \hyperpage{15}
-  \item \spxentry{User.DoesNotExist}, \hyperpage{15}
-  \item \spxentry{User.MultipleObjectsReturned}, \hyperpage{15}
-  \item \spxentry{user\_bio}\spxextra{api.models.user.User attribute}, \hyperpage{17}
+  \item \spxentry{updated\_at}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{15}
+  \item \spxentry{User}\spxextra{class in api.models.user}, \hyperpage{16}
+  \item \spxentry{User.DoesNotExist}, \hyperpage{16}
+  \item \spxentry{User.MultipleObjectsReturned}, \hyperpage{16}
+  \item \spxentry{user\_bio}\spxextra{api.models.user.User attribute}, \hyperpage{18}
   \item \spxentry{usertocoursetaken}\spxextra{api.models.course.Course attribute}, \hyperpage{9}
   \item \spxentry{usertocoursetutored}\spxextra{api.models.course.Course attribute}, \hyperpage{9}
 
   \indexspace
   \bigletter W
-  \item \spxentry{was\_reopened}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{14}
-  \item \spxentry{was\_successful}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{14}
+  \item \spxentry{was\_flagged}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{15}
+  \item \spxentry{was\_reopened}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{15}
+  \item \spxentry{was\_successful}\spxextra{api.models.ticket.Ticket attribute}, \hyperpage{15}
   \item \spxentry{workinghours\_set}\spxextra{api.models.user.User attribute}, \hyperpage{18}
 
 \end{sphinxtheindex}

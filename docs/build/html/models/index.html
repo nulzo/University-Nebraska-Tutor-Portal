@@ -199,6 +199,15 @@
 <p class="caption" role="heading"><span class="caption-text">CSLC Portal Frontend</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../forms/index.html">Forms</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Forms</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../forms/ticket.html">TicketForm TypeScript Module Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forms/ticket.html#ticketform-react-component-documentation">TicketForm React Component Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forms/announcement.html">AnnouncementForm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forms/theme.html">ThemeProvider React Component Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forms/toggle.html">ModeToggle React Component Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forms/tutor.html">TutorTicketForm React Component Documentation</a></li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -284,9 +293,9 @@
 <li class="toctree-l3"><a class="reference internal" href="professor.html#api.models.professor.Professor.email"><code class="docutils literal notranslate"><span class="pre">Professor.email</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="professor.html#api.models.professor.Professor.first_name"><code class="docutils literal notranslate"><span class="pre">Professor.first_name</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="professor.html#api.models.professor.Professor.full_name"><code class="docutils literal notranslate"><span class="pre">Professor.full_name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="professor.html#api.models.professor.Professor.generic"><code class="docutils literal notranslate"><span class="pre">Professor.generic</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="professor.html#api.models.professor.Professor.is_active"><code class="docutils literal notranslate"><span class="pre">Professor.is_active</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="professor.html#api.models.professor.Professor.last_name"><code class="docutils literal notranslate"><span class="pre">Professor.last_name</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="professor.html#api.models.professor.Professor.prof"><code class="docutils literal notranslate"><span class="pre">Professor.prof</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="professor.html#api.models.professor.Professor.professor"><code class="docutils literal notranslate"><span class="pre">Professor.professor</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="professor.html#api.models.professor.Professor.professor_id"><code class="docutils literal notranslate"><span class="pre">Professor.professor_id</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="professor.html#api.models.professor.Professor.section_set"><code class="docutils literal notranslate"><span class="pre">Professor.section_set</span></code></a></li>
@@ -303,28 +312,45 @@
 <li class="toctree-l1"><a class="reference internal" href="section.html">Section</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ticket.html">Ticket</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket"><code class="docutils literal notranslate"><span class="pre">Ticket</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.CLOSED"><code class="docutils literal notranslate"><span class="pre">Ticket.CLOSED</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.DIFFICULTY_CHOICES"><code class="docutils literal notranslate"><span class="pre">Ticket.DIFFICULTY_CHOICES</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Ticket.DoesNotExist</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Ticket.MultipleObjectsReturned</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.completed"><code class="docutils literal notranslate"><span class="pre">Ticket.completed</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.NEW"><code class="docutils literal notranslate"><span class="pre">Ticket.NEW</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.OPENED"><code class="docutils literal notranslate"><span class="pre">Ticket.OPENED</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.STATUS_CHOICES"><code class="docutils literal notranslate"><span class="pre">Ticket.STATUS_CHOICES</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.asst_tutor"><code class="docutils literal notranslate"><span class="pre">Ticket.asst_tutor</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.asst_tutor_id"><code class="docutils literal notranslate"><span class="pre">Ticket.asst_tutor_id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.closed_at"><code class="docutils literal notranslate"><span class="pre">Ticket.closed_at</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.course"><code class="docutils literal notranslate"><span class="pre">Ticket.course</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.course_id"><code class="docutils literal notranslate"><span class="pre">Ticket.course_id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.created_at"><code class="docutils literal notranslate"><span class="pre">Ticket.created_at</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.description"><code class="docutils literal notranslate"><span class="pre">Ticket.description</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.end_time"><code class="docutils literal notranslate"><span class="pre">Ticket.end_time</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.difficulty"><code class="docutils literal notranslate"><span class="pre">Ticket.difficulty</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.generic"><code class="docutils literal notranslate"><span class="pre">Ticket.generic</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.get_difficulty_display"><code class="docutils literal notranslate"><span class="pre">Ticket.get_difficulty_display()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.get_next_by_created_at"><code class="docutils literal notranslate"><span class="pre">Ticket.get_next_by_created_at()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.get_next_by_updated_at"><code class="docutils literal notranslate"><span class="pre">Ticket.get_next_by_updated_at()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.get_previous_by_created_at"><code class="docutils literal notranslate"><span class="pre">Ticket.get_previous_by_created_at()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.get_previous_by_updated_at"><code class="docutils literal notranslate"><span class="pre">Ticket.get_previous_by_updated_at()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.get_status_display"><code class="docutils literal notranslate"><span class="pre">Ticket.get_status_display()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.id"><code class="docutils literal notranslate"><span class="pre">Ticket.id</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.issue"><code class="docutils literal notranslate"><span class="pre">Ticket.issue</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.issue_id"><code class="docutils literal notranslate"><span class="pre">Ticket.issue_id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.messages_set"><code class="docutils literal notranslate"><span class="pre">Ticket.messages_set</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.name"><code class="docutils literal notranslate"><span class="pre">Ticket.name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.opened_at"><code class="docutils literal notranslate"><span class="pre">Ticket.opened_at</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.professor"><code class="docutils literal notranslate"><span class="pre">Ticket.professor</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.professor_id"><code class="docutils literal notranslate"><span class="pre">Ticket.professor_id</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.start_time"><code class="docutils literal notranslate"><span class="pre">Ticket.start_time</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.started"><code class="docutils literal notranslate"><span class="pre">Ticket.started</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.status"><code class="docutils literal notranslate"><span class="pre">Ticket.status</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.student"><code class="docutils literal notranslate"><span class="pre">Ticket.student</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.student_id"><code class="docutils literal notranslate"><span class="pre">Ticket.student_id</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.ticket"><code class="docutils literal notranslate"><span class="pre">Ticket.ticket</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.title"><code class="docutils literal notranslate"><span class="pre">Ticket.title</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.tutor"><code class="docutils literal notranslate"><span class="pre">Ticket.tutor</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.tutor_comments"><code class="docutils literal notranslate"><span class="pre">Ticket.tutor_comments</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.tutor_id"><code class="docutils literal notranslate"><span class="pre">Ticket.tutor_id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.updated_at"><code class="docutils literal notranslate"><span class="pre">Ticket.updated_at</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.was_flagged"><code class="docutils literal notranslate"><span class="pre">Ticket.was_flagged</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.was_reopened"><code class="docutils literal notranslate"><span class="pre">Ticket.was_reopened</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="ticket.html#api.models.ticket.Ticket.was_successful"><code class="docutils literal notranslate"><span class="pre">Ticket.was_successful</span></code></a></li>
 </ul>
@@ -373,6 +399,7 @@
 <li class="toctree-l3"><a class="reference internal" href="user.html#api.models.user.User.is_admin"><code class="docutils literal notranslate"><span class="pre">User.is_admin</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="user.html#api.models.user.User.is_tutor"><code class="docutils literal notranslate"><span class="pre">User.is_tutor</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="user.html#api.models.user.User.is_working"><code class="docutils literal notranslate"><span class="pre">User.is_working</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="user.html#api.models.user.User.messages_set"><code class="docutils literal notranslate"><span class="pre">User.messages_set</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="user.html#api.models.user.User.name"><code class="docutils literal notranslate"><span class="pre">User.name</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="user.html#api.models.user.User.student"><code class="docutils literal notranslate"><span class="pre">User.student</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="user.html#api.models.user.User.student_nuid"><code class="docutils literal notranslate"><span class="pre">User.student_nuid</span></code></a></li>

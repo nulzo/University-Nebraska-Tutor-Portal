@@ -256,25 +256,25 @@
 
 
 <div class="viewcode-block" id="APISectionView">
-<a class="viewcode-back" href="../../../endpoints/section.html#api.endpoints.section.APISectionView">[docs]</a>
+<a class="viewcode-back" href="../../../api.endpoints.html#api.endpoints.section.APISectionView">[docs]</a>
 <span class="k">class</span> <span class="nc">APISectionView</span><span class="p">(</span><span class="n">APIView</span><span class="p">):</span>
     <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">SectionSerializer</span>
     <span class="n">renderer_classes</span> <span class="o">=</span> <span class="p">(</span><span class="n">BrowsableAPIRenderer</span><span class="p">,</span> <span class="n">JSONRenderer</span><span class="p">,</span> <span class="n">HTMLFormRenderer</span><span class="p">)</span>
 
 <div class="viewcode-block" id="APISectionView.get_querystring">
-<a class="viewcode-back" href="../../../endpoints/section.html#api.endpoints.section.APISectionView.get_querystring">[docs]</a>
+<a class="viewcode-back" href="../../../api.endpoints.html#api.endpoints.section.APISectionView.get_querystring">[docs]</a>
     <span class="k">def</span> <span class="nf">get_querystring</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QueryDict</span> <span class="o">|</span> <span class="n">Any</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">request</span><span class="o">.</span><span class="n">query_params</span></div>
 
 
 <div class="viewcode-block" id="APISectionView.sanitize">
-<a class="viewcode-back" href="../../../endpoints/section.html#api.endpoints.section.APISectionView.sanitize">[docs]</a>
+<a class="viewcode-back" href="../../../api.endpoints.html#api.endpoints.section.APISectionView.sanitize">[docs]</a>
     <span class="k">def</span> <span class="nf">sanitize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">querystring</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">querystring</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span></div>
 
 
 <div class="viewcode-block" id="APISectionView.get">
-<a class="viewcode-back" href="../../../endpoints/section.html#api.endpoints.section.APISectionView.get">[docs]</a>
+<a class="viewcode-back" href="../../../api.endpoints.html#api.endpoints.section.APISectionView.get">[docs]</a>
     <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
         <span class="n">sections</span> <span class="o">=</span> <span class="n">Section</span><span class="o">.</span><span class="n">generic</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
         <span class="n">querystring</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_querystring</span><span class="p">(</span><span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">)</span>
@@ -283,17 +283,17 @@
                 <span class="n">sections</span> <span class="o">=</span> <span class="n">sections</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">section</span><span class="o">=</span><span class="n">section</span><span class="p">)</span>
 
             <span class="k">if</span> <span class="n">professor</span> <span class="o">:=</span> <span class="n">querystring</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;professor&quot;</span><span class="p">):</span>
-                <span class="n">professor_query</span> <span class="o">=</span> <span class="n">Professor</span><span class="o">.</span><span class="n">prof</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">full_name</span><span class="o">=</span><span class="n">professor</span><span class="p">)</span>
+                <span class="n">professor_query</span> <span class="o">=</span> <span class="n">Professor</span><span class="o">.</span><span class="n">generic</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">full_name</span><span class="o">=</span><span class="n">professor</span><span class="p">)</span>
                 <span class="n">sections</span> <span class="o">=</span> <span class="n">sections</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">professor</span><span class="o">=</span><span class="n">professor_query</span><span class="p">)</span>
 
             <span class="k">if</span> <span class="n">last_name</span> <span class="o">:=</span> <span class="n">querystring</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;last-name&quot;</span><span class="p">):</span>
-                <span class="n">last_name_query</span> <span class="o">=</span> <span class="n">Professor</span><span class="o">.</span><span class="n">prof</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+                <span class="n">last_name_query</span> <span class="o">=</span> <span class="n">Professor</span><span class="o">.</span><span class="n">generic</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
                     <span class="n">last_name</span><span class="o">=</span><span class="n">last_name</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
                 <span class="p">)</span>
                 <span class="n">sections</span> <span class="o">=</span> <span class="n">sections</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">professor__in</span><span class="o">=</span><span class="n">last_name_query</span><span class="p">)</span>
 
             <span class="k">if</span> <span class="n">first_name</span> <span class="o">:=</span> <span class="n">querystring</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;first-name&quot;</span><span class="p">):</span>
-                <span class="n">first_name_query</span> <span class="o">=</span> <span class="n">Professor</span><span class="o">.</span><span class="n">prof</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+                <span class="n">first_name_query</span> <span class="o">=</span> <span class="n">Professor</span><span class="o">.</span><span class="n">generic</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
                     <span class="n">first_name</span><span class="o">=</span><span class="n">first_name</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
                 <span class="p">)</span>
                 <span class="n">sections</span> <span class="o">=</span> <span class="n">sections</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">professor__in</span><span class="o">=</span><span class="n">first_name_query</span><span class="p">)</span>
@@ -310,7 +310,7 @@
 
 
 <div class="viewcode-block" id="APISectionView.post">
-<a class="viewcode-back" href="../../../endpoints/section.html#api.endpoints.section.APISectionView.post">[docs]</a>
+<a class="viewcode-back" href="../../../api.endpoints.html#api.endpoints.section.APISectionView.post">[docs]</a>
     <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
         <span class="n">serializer</span> <span class="o">=</span> <span class="n">SectionSerializer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">serializer</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
@@ -322,13 +322,13 @@
 
 
 <div class="viewcode-block" id="APISectionDetail">
-<a class="viewcode-back" href="../../../endpoints/section.html#api.endpoints.section.APISectionDetail">[docs]</a>
+<a class="viewcode-back" href="../../../api.endpoints.html#api.endpoints.section.APISectionDetail">[docs]</a>
 <span class="k">class</span> <span class="nc">APISectionDetail</span><span class="p">(</span><span class="n">APIView</span><span class="p">):</span>
     <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">SectionSerializer</span>
     <span class="n">renderer_classes</span> <span class="o">=</span> <span class="p">(</span><span class="n">BrowsableAPIRenderer</span><span class="p">,</span> <span class="n">JSONRenderer</span><span class="p">,</span> <span class="n">HTMLFormRenderer</span><span class="p">)</span>
 
 <div class="viewcode-block" id="APISectionDetail.query_obj">
-<a class="viewcode-back" href="../../../endpoints/section.html#api.endpoints.section.APISectionDetail.query_obj">[docs]</a>
+<a class="viewcode-back" href="../../../api.endpoints.html#api.endpoints.section.APISectionDetail.query_obj">[docs]</a>
     <span class="k">def</span> <span class="nf">query_obj</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pk</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySet</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">Section</span><span class="o">.</span><span class="n">generic</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">pk</span><span class="p">)</span>
@@ -337,7 +337,7 @@
 
 
 <div class="viewcode-block" id="APISectionDetail.get">
-<a class="viewcode-back" href="../../../endpoints/section.html#api.endpoints.section.APISectionDetail.get">[docs]</a>
+<a class="viewcode-back" href="../../../api.endpoints.html#api.endpoints.section.APISectionDetail.get">[docs]</a>
     <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span> <span class="n">section_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
         <span class="n">queryset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query_obj</span><span class="p">(</span><span class="n">section_id</span><span class="p">)</span>
         <span class="n">serializer</span> <span class="o">=</span> <span class="n">SectionSerializer</span><span class="p">(</span><span class="n">queryset</span><span class="p">,</span> <span class="n">many</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -345,7 +345,7 @@
 
 
 <div class="viewcode-block" id="APISectionDetail.put">
-<a class="viewcode-back" href="../../../endpoints/section.html#api.endpoints.section.APISectionDetail.put">[docs]</a>
+<a class="viewcode-back" href="../../../api.endpoints.html#api.endpoints.section.APISectionDetail.put">[docs]</a>
     <span class="k">def</span> <span class="nf">put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span> <span class="n">section_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
         <span class="n">modified</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query_obj</span><span class="p">(</span><span class="n">section_id</span><span class="p">)</span>
         <span class="n">serializer</span> <span class="o">=</span> <span class="n">SectionSerializer</span><span class="p">(</span><span class="n">modified</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>

@@ -5,6 +5,26 @@ from .user import User
 
 
 class HourManager(models.Manager):
+    '''A manager for the Hour model that provides custom query methods for managing tutor hours."""
+
+    def get_all_hours(self) -> QuerySet:
+    """Returns all tutor hours.
+
+    Returns:
+    QuerySet: A queryset containing all tutor hours.
+    """
+    return super().get_queryset().all()
+
+    def get_tutor(self, name: str) -> QuerySet:
+    """Returns tutor hours filtered by tutor name.
+
+    Args:
+    name (str): The name of the tutor.
+
+    Returns:
+    QuerySet: A queryset containing tutor hours filtered by the given tutor name.
+    '''
+
     def get_all_hours(self) -> QuerySet:
         return super().get_queryset().all()
 
@@ -13,7 +33,11 @@ class HourManager(models.Manager):
 
 
 class Hour(models.Model):
+    """A model to represent tutor hours."""
+
     class Day(models.IntegerChoices):
+        """An enumeration of days of the week."""
+
         MONDAY = 1
         TUESDAY = 2
         WEDNESDAY = 3

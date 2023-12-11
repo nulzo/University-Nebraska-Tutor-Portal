@@ -197,6 +197,15 @@
 <p class="caption" role="heading"><span class="caption-text">CSLC Portal Frontend</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="forms/index.html">Forms</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Forms</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="forms/ticket.html">TicketForm TypeScript Module Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forms/ticket.html#ticketform-react-component-documentation">TicketForm React Component Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forms/announcement.html">AnnouncementForm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forms/theme.html">ThemeProvider React Component Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forms/toggle.html">ModeToggle React Component Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forms/tutor.html">TutorTicketForm React Component Documentation</a></li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -233,123 +242,306 @@
           
 <section class="genindex-section">
   <h1 id="index">Index</h1>
-  <div class="genindex-jumpbox"><a href="#A"><strong>A</strong></a> | <a href="#B"><strong>B</strong></a> | <a href="#C"><strong>C</strong></a> | <a href="#D"><strong>D</strong></a> | <a href="#E"><strong>E</strong></a> | <a href="#F"><strong>F</strong></a> | <a href="#G"><strong>G</strong></a> | <a href="#H"><strong>H</strong></a> | <a href="#I"><strong>I</strong></a> | <a href="#L"><strong>L</strong></a> | <a href="#M"><strong>M</strong></a> | <a href="#N"><strong>N</strong></a> | <a href="#P"><strong>P</strong></a> | <a href="#Q"><strong>Q</strong></a> | <a href="#R"><strong>R</strong></a> | <a href="#S"><strong>S</strong></a> | <a href="#T"><strong>T</strong></a> | <a href="#U"><strong>U</strong></a> | <a href="#W"><strong>W</strong></a></div>
+  <div class="genindex-jumpbox"><a href="#A"><strong>A</strong></a> | <a href="#B"><strong>B</strong></a> | <a href="#C"><strong>C</strong></a> | <a href="#D"><strong>D</strong></a> | <a href="#E"><strong>E</strong></a> | <a href="#F"><strong>F</strong></a> | <a href="#G"><strong>G</strong></a> | <a href="#H"><strong>H</strong></a> | <a href="#I"><strong>I</strong></a> | <a href="#L"><strong>L</strong></a> | <a href="#M"><strong>M</strong></a> | <a href="#N"><strong>N</strong></a> | <a href="#O"><strong>O</strong></a> | <a href="#P"><strong>P</strong></a> | <a href="#Q"><strong>Q</strong></a> | <a href="#R"><strong>R</strong></a> | <a href="#S"><strong>S</strong></a> | <a href="#T"><strong>T</strong></a> | <a href="#U"><strong>U</strong></a> | <a href="#V"><strong>V</strong></a> | <a href="#W"><strong>W</strong></a> | <a href="#Y"><strong>Y</strong></a></div>
 </section>
 <section id="A" class="genindex-section">
   <h2>A</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="models/user.html#api.models.user.User.admin">admin (api.models.user.User attribute)</a>
+        <li><a href="api.models.html#api.models.user.User.admin">admin (api.models.user.User attribute)</a>, <a href="models/user.html#api.models.user.User.admin">[1]</a>
 </li>
-        <li><a href="models/user.html#api.models.user.AdminManager">AdminManager (class in api.models.user)</a>
+        <li><a href="api.models.html#api.models.user.AdminManager">AdminManager (class in api.models.user)</a>, <a href="models/user.html#api.models.user.AdminManager">[1]</a>
 </li>
+        <li><a href="api.models.html#api.models.announcement.Announcement">Announcement (class in api.models.announcement)</a>
+</li>
+        <li><a href="api.models.html#api.models.announcement.Announcement.DoesNotExist">Announcement.DoesNotExist</a>
+</li>
+        <li><a href="api.models.html#api.models.announcement.Announcement.MultipleObjectsReturned">Announcement.MultipleObjectsReturned</a>
+</li>
+        <li><a href="api.models.html#api.models.announcement.Announcement.announcement_body">announcement_body (api.models.announcement.Announcement attribute)</a>
+</li>
+        <li><a href="api.models.html#api.models.announcement.Announcement.announcement_header">announcement_header (api.models.announcement.Announcement attribute)</a>
+</li>
+        <li><a href="api.models.html#api.models.announcement.Announcement.announcement_type">announcement_type (api.models.announcement.Announcement attribute)</a>
+</li>
+        <li>
+    api
+
+        <ul>
+          <li><a href="api.html#module-api">module</a>
+</li>
+        </ul></li>
+        <li>
+    api.admin
+
+        <ul>
+          <li><a href="api.html#module-api.admin">module</a>
+</li>
+        </ul></li>
+        <li>
+    api.apps
+
+        <ul>
+          <li><a href="api.html#module-api.apps">module</a>
+</li>
+        </ul></li>
+        <li>
+    api.endpoints
+
+        <ul>
+          <li><a href="api.endpoints.html#module-api.endpoints">module</a>
+</li>
+        </ul></li>
+        <li>
+    api.endpoints.authenticate
+
+        <ul>
+          <li><a href="api.endpoints.html#module-api.endpoints.authenticate">module</a>
+</li>
+        </ul></li>
         <li>
     api.endpoints.course
 
         <ul>
-          <li><a href="endpoints/course.html#module-api.endpoints.course">module</a>
+          <li><a href="api.endpoints.html#module-api.endpoints.course">module</a>, <a href="endpoints/course.html#module-api.endpoints.course">[1]</a>
 </li>
         </ul></li>
         <li>
     api.endpoints.issue
 
         <ul>
-          <li><a href="endpoints/issue.html#module-api.endpoints.issue">module</a>
+          <li><a href="api.endpoints.html#module-api.endpoints.issue">module</a>, <a href="endpoints/issue.html#module-api.endpoints.issue">[1]</a>
 </li>
         </ul></li>
         <li>
     api.endpoints.professor
 
         <ul>
-          <li><a href="endpoints/professor.html#module-api.endpoints.professor">module</a>
+          <li><a href="api.endpoints.html#module-api.endpoints.professor">module</a>, <a href="endpoints/professor.html#module-api.endpoints.professor">[1]</a>
 </li>
         </ul></li>
         <li>
     api.endpoints.section
 
         <ul>
-          <li><a href="endpoints/section.html#module-api.endpoints.section">module</a>
+          <li><a href="api.endpoints.html#module-api.endpoints.section">module</a>, <a href="endpoints/section.html#module-api.endpoints.section">[1]</a>
 </li>
         </ul></li>
         <li>
     api.endpoints.ticket
 
         <ul>
-          <li><a href="endpoints/ticket.html#module-api.endpoints.ticket">module</a>
+          <li><a href="api.endpoints.html#module-api.endpoints.ticket">module</a>, <a href="endpoints/ticket.html#module-api.endpoints.ticket">[1]</a>
 </li>
         </ul></li>
         <li>
     api.endpoints.user
 
         <ul>
-          <li><a href="endpoints/user.html#module-api.endpoints.user">module</a>
+          <li><a href="api.endpoints.html#module-api.endpoints.user">module</a>, <a href="endpoints/user.html#module-api.endpoints.user">[1]</a>
+</li>
+        </ul></li>
+        <li>
+    api.migrations
+
+        <ul>
+          <li><a href="api.migrations.html#module-api.migrations">module</a>
+</li>
+        </ul></li>
+        <li>
+    api.migrations.0001_initial
+
+        <ul>
+          <li><a href="api.migrations.html#module-api.migrations.0001_initial">module</a>
+</li>
+        </ul></li>
+        <li>
+    api.migrations.0002_alter_ticket_student_alter_ticket_tutor
+
+        <ul>
+          <li><a href="api.migrations.html#module-api.migrations.0002_alter_ticket_student_alter_ticket_tutor">module</a>
+</li>
+        </ul></li>
+        <li>
+    api.models
+
+        <ul>
+          <li><a href="api.models.html#module-api.models">module</a>
+</li>
+        </ul></li>
+        <li>
+    api.models.announcement
+
+        <ul>
+          <li><a href="api.models.html#module-api.models.announcement">module</a>
+</li>
+        </ul></li>
+        <li>
+    api.models.color
+
+        <ul>
+          <li><a href="api.models.html#module-api.models.color">module</a>
 </li>
         </ul></li>
         <li>
     api.models.course
 
         <ul>
-          <li><a href="models/course.html#module-api.models.course">module</a>
+          <li><a href="api.models.html#module-api.models.course">module</a>, <a href="models/course.html#module-api.models.course">[1]</a>
+</li>
+        </ul></li>
+        <li>
+    api.models.hours
+
+        <ul>
+          <li><a href="api.models.html#module-api.models.hours">module</a>
 </li>
         </ul></li>
         <li>
     api.models.issue
 
         <ul>
-          <li><a href="models/issue.html#module-api.models.issue">module</a>
+          <li><a href="api.models.html#module-api.models.issue">module</a>, <a href="models/issue.html#module-api.models.issue">[1]</a>
 </li>
         </ul></li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
         <li>
+    api.models.messages
+
+        <ul>
+          <li><a href="api.models.html#module-api.models.messages">module</a>
+</li>
+        </ul></li>
+        <li>
     api.models.professor
 
         <ul>
-          <li><a href="models/professor.html#module-api.models.professor">module</a>
+          <li><a href="api.models.html#module-api.models.professor">module</a>, <a href="models/professor.html#module-api.models.professor">[1]</a>
+</li>
+        </ul></li>
+        <li>
+    api.models.roles
+
+        <ul>
+          <li><a href="api.models.html#module-api.models.roles">module</a>
+</li>
+        </ul></li>
+        <li>
+    api.models.sections
+
+        <ul>
+          <li><a href="api.models.html#module-api.models.sections">module</a>
 </li>
         </ul></li>
         <li>
     api.models.ticket
 
         <ul>
-          <li><a href="models/ticket.html#module-api.models.ticket">module</a>
+          <li><a href="api.models.html#module-api.models.ticket">module</a>, <a href="models/ticket.html#module-api.models.ticket">[1]</a>
+</li>
+        </ul></li>
+        <li>
+    api.models.tutor
+
+        <ul>
+          <li><a href="api.models.html#module-api.models.tutor">module</a>
 </li>
         </ul></li>
         <li>
     api.models.user
 
         <ul>
-          <li><a href="models/user.html#module-api.models.user">module</a>
+          <li><a href="api.models.html#module-api.models.user">module</a>, <a href="models/user.html#module-api.models.user">[1]</a>
+</li>
+        </ul></li>
+        <li>
+    api.models.work_hours
+
+        <ul>
+          <li><a href="api.models.html#module-api.models.work_hours">module</a>
+</li>
+        </ul></li>
+        <li>
+    api.routing
+
+        <ul>
+          <li><a href="api.html#module-api.routing">module</a>
+</li>
+        </ul></li>
+        <li>
+    api.scripts
+
+        <ul>
+          <li><a href="api.scripts.html#module-api.scripts">module</a>
+</li>
+        </ul></li>
+        <li>
+    api.scripts.load_seed
+
+        <ul>
+          <li><a href="api.scripts.html#module-api.scripts.load_seed">module</a>
 </li>
         </ul></li>
         <li>
     api.scripts.load_semester
 
         <ul>
-          <li><a href="scripts/load-semester.html#module-api.scripts.load_semester">module</a>
+          <li><a href="api.scripts.html#module-api.scripts.load_semester">module</a>, <a href="scripts/load-semester.html#module-api.scripts.load_semester">[1]</a>
 </li>
         </ul></li>
-        <li><a href="endpoints/course.html#api.endpoints.course.APICourseList">APICourseList (class in api.endpoints.course)</a>
+        <li>
+    api.scripts.load_students
+
+        <ul>
+          <li><a href="api.scripts.html#module-api.scripts.load_students">module</a>
 </li>
-        <li><a href="endpoints/issue.html#api.endpoints.issue.APIIssueDetail">APIIssueDetail (class in api.endpoints.issue)</a>
+        </ul></li>
+        <li>
+    api.serializers
+
+        <ul>
+          <li><a href="api.html#module-api.serializers">module</a>
 </li>
-        <li><a href="endpoints/issue.html#api.endpoints.issue.APIIssueView">APIIssueView (class in api.endpoints.issue)</a>
+        </ul></li>
+        <li>
+    api.websocket
+
+        <ul>
+          <li><a href="api.html#module-api.websocket">module</a>
 </li>
-        <li><a href="endpoints/professor.html#api.endpoints.professor.APIProfessorDetail">APIProfessorDetail (class in api.endpoints.professor)</a>
+        </ul></li>
+        <li><a href="api.endpoints.html#api.endpoints.authenticate.APIAuthenticateList">APIAuthenticateList (class in api.endpoints.authenticate)</a>
 </li>
-        <li><a href="endpoints/professor.html#api.endpoints.professor.APIProfessorView">APIProfessorView (class in api.endpoints.professor)</a>
+        <li><a href="api.html#api.apps.ApiConfig">ApiConfig (class in api.apps)</a>
 </li>
-        <li><a href="endpoints/section.html#api.endpoints.section.APISectionDetail">APISectionDetail (class in api.endpoints.section)</a>
+        <li><a href="api.endpoints.html#api.endpoints.course.APICourseList">APICourseList (class in api.endpoints.course)</a>, <a href="endpoints/course.html#api.endpoints.course.APICourseList">[1]</a>
 </li>
-        <li><a href="endpoints/section.html#api.endpoints.section.APISectionView">APISectionView (class in api.endpoints.section)</a>
+        <li><a href="api.endpoints.html#api.endpoints.issue.APIIssueDetail">APIIssueDetail (class in api.endpoints.issue)</a>, <a href="endpoints/issue.html#api.endpoints.issue.APIIssueDetail">[1]</a>
 </li>
-        <li><a href="endpoints/ticket.html#api.endpoints.ticket.APITicketList">APITicketList (class in api.endpoints.ticket)</a>
+        <li><a href="api.endpoints.html#api.endpoints.issue.APIIssueView">APIIssueView (class in api.endpoints.issue)</a>, <a href="endpoints/issue.html#api.endpoints.issue.APIIssueView">[1]</a>
 </li>
-        <li><a href="endpoints/ticket.html#api.endpoints.ticket.APITicketView">APITicketView (class in api.endpoints.ticket)</a>
+        <li><a href="api.endpoints.html#api.endpoints.professor.APIProfessorDetail">APIProfessorDetail (class in api.endpoints.professor)</a>, <a href="endpoints/professor.html#api.endpoints.professor.APIProfessorDetail">[1]</a>
 </li>
-        <li><a href="endpoints/user.html#api.endpoints.user.APIUserDetail">APIUserDetail (class in api.endpoints.user)</a>
+        <li><a href="api.endpoints.html#api.endpoints.professor.APIProfessorView">APIProfessorView (class in api.endpoints.professor)</a>, <a href="endpoints/professor.html#api.endpoints.professor.APIProfessorView">[1]</a>
 </li>
-        <li><a href="endpoints/user.html#api.endpoints.user.APIUserView">APIUserView (class in api.endpoints.user)</a>
+        <li><a href="api.endpoints.html#api.endpoints.section.APISectionDetail">APISectionDetail (class in api.endpoints.section)</a>, <a href="endpoints/section.html#api.endpoints.section.APISectionDetail">[1]</a>
+</li>
+        <li><a href="api.endpoints.html#api.endpoints.section.APISectionView">APISectionView (class in api.endpoints.section)</a>, <a href="endpoints/section.html#api.endpoints.section.APISectionView">[1]</a>
+</li>
+        <li><a href="api.endpoints.html#api.endpoints.ticket.APITicketDetail">APITicketDetail (class in api.endpoints.ticket)</a>, <a href="endpoints/ticket.html#api.endpoints.ticket.APITicketDetail">[1]</a>
+</li>
+        <li><a href="api.endpoints.html#api.endpoints.ticket.APITicketView">APITicketView (class in api.endpoints.ticket)</a>, <a href="endpoints/ticket.html#api.endpoints.ticket.APITicketView">[1]</a>
+</li>
+        <li><a href="api.endpoints.html#api.endpoints.user.APIUserDetail">APIUserDetail (class in api.endpoints.user)</a>, <a href="endpoints/user.html#api.endpoints.user.APIUserDetail">[1]</a>
+</li>
+        <li><a href="api.endpoints.html#api.endpoints.user.APIUserView">APIUserView (class in api.endpoints.user)</a>, <a href="endpoints/user.html#api.endpoints.user.APIUserView">[1]</a>
+</li>
+        <li><a href="api.models.html#api.models.user.User.assistant_tutor_ticket">assistant_tutor_ticket (api.models.user.User attribute)</a>
+</li>
+        <li><a href="api.models.html#api.models.ticket.Ticket.asst_tutor">asst_tutor (api.models.ticket.Ticket attribute)</a>, <a href="models/ticket.html#api.models.ticket.Ticket.asst_tutor">[1]</a>
+</li>
+        <li><a href="api.models.html#api.models.ticket.Ticket.asst_tutor_id">asst_tutor_id (api.models.ticket.Ticket attribute)</a>, <a href="models/ticket.html#api.models.ticket.Ticket.asst_tutor_id">[1]</a>
 </li>
     </ul></td>
   </tr></table>
@@ -363,21 +555,21 @@
     base
 
         <ul>
-          <li><a href="settings/settings.html#module-base">module</a>
+          <li><a href="base.html#module-base">module</a>, <a href="settings/settings.html#module-base">[1]</a>
 </li>
         </ul></li>
         <li>
     base.asgi
 
         <ul>
-          <li><a href="settings/settings.html#module-base.asgi">module</a>
+          <li><a href="base.html#module-base.asgi">module</a>, <a href="settings/settings.html#module-base.asgi">[1]</a>
 </li>
         </ul></li>
         <li>
     base.settings
 
         <ul>
-          <li><a href="settings/settings.html#module-base.settings">module</a>
+          <li><a href="base.html#module-base.settings">module</a>, <a href="settings/settings.html#module-base.settings">[1]</a>
 </li>
         </ul></li>
     </ul></td>
@@ -386,16 +578,18 @@
     base.urls
 
         <ul>
-          <li><a href="settings/settings.html#module-base.urls">module</a>
+          <li><a href="base.html#module-base.urls">module</a>, <a href="settings/settings.html#module-base.urls">[1]</a>
 </li>
         </ul></li>
         <li>
     base.wsgi
 
         <ul>
-          <li><a href="settings/settings.html#module-base.wsgi">module</a>
+          <li><a href="base.html#module-base.wsgi">module</a>, <a href="settings/settings.html#module-base.wsgi">[1]</a>
 </li>
         </ul></li>
+        <li><a href="api.models.html#api.models.color.Color.ColorChoices.BLUE">BLUE (api.models.color.Color.ColorChoices attribute)</a>
+</li>
     </ul></td>
   </tr></table>
 </section>
@@ -404,33 +598,73 @@
   <h2>C</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="models/ticket.html#api.models.ticket.Ticket.completed">completed (api.models.ticket.Ticket attribute)</a>
+        <li><a href="api.html#api.websocket.TextRoomConsumer.chat_message">chat_message() (api.websocket.TextRoomConsumer method)</a>
 </li>
-        <li><a href="models/ticket.html#api.models.ticket.Ticket.course">course (api.models.ticket.Ticket attribute)</a>
+        <li><a href="api.models.html#api.models.announcement.Announcement.CHOICES">CHOICES (api.models.announcement.Announcement attribute)</a>
 </li>
-        <li><a href="models/course.html#api.models.course.Course">Course (class in api.models.course)</a>
+        <li><a href="api.models.html#api.models.ticket.Ticket.CLOSED">CLOSED (api.models.ticket.Ticket attribute)</a>, <a href="models/ticket.html#api.models.ticket.Ticket.CLOSED">[1]</a>
 </li>
-        <li><a href="models/course.html#api.models.course.Course.DoesNotExist">Course.DoesNotExist</a>
+        <li><a href="api.models.html#api.models.ticket.Ticket.closed_at">closed_at (api.models.ticket.Ticket attribute)</a>, <a href="models/ticket.html#api.models.ticket.Ticket.closed_at">[1]</a>
 </li>
-        <li><a href="models/course.html#api.models.course.Course.MultipleObjectsReturned">Course.MultipleObjectsReturned</a>
+        <li><a href="api.models.html#api.models.color.Color">Color (class in api.models.color)</a>
 </li>
-        <li><a href="models/course.html#api.models.course.Course.course_code">course_code (api.models.course.Course attribute)</a>, <a href="models/course.html#id0">[1]</a>
+        <li><a href="api.models.html#api.models.color.Color.ColorChoices">Color.ColorChoices (class in api.models.color)</a>
+</li>
+        <li><a href="api.models.html#api.models.color.Color.DoesNotExist">Color.DoesNotExist</a>
+</li>
+        <li><a href="api.models.html#api.models.color.Color.MultipleObjectsReturned">Color.MultipleObjectsReturned</a>
+</li>
+        <li><a href="api.models.html#api.models.color.Color.color_id">color_id (api.models.color.Color attribute)</a>, <a href="api.models.html#id0">[1]</a>
+</li>
+        <li><a href="api.scripts.html#api.scripts.load_semester.ParseSemester.column_names">column_names (api.scripts.load_semester.ParseSemester attribute)</a>, <a href="scripts/load-semester.html#api.scripts.load_semester.ParseSemester.column_names">[1]</a>
+</li>
+        <li><a href="api.html#api.websocket.TextRoomConsumer.connect">connect() (api.websocket.TextRoomConsumer method)</a>
+</li>
+        <li><a href="api.models.html#api.models.sections.Section.course">course (api.models.sections.Section attribute)</a>
+
+        <ul>
+          <li><a href="api.models.html#api.models.ticket.Ticket.course">(api.models.ticket.Ticket attribute)</a>, <a href="models/ticket.html#api.models.ticket.Ticket.course">[1]</a>
+</li>
+        </ul></li>
+        <li><a href="api.models.html#api.models.course.Course">Course (class in api.models.course)</a>, <a href="models/course.html#api.models.course.Course">[1]</a>
+</li>
+        <li><a href="api.models.html#api.models.course.Course.DoesNotExist">Course.DoesNotExist</a>, <a href="models/course.html#api.models.course.Course.DoesNotExist">[1]</a>
 </li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="models/course.html#api.models.course.Course.course_department">course_department (api.models.course.Course attribute)</a>, <a href="models/course.html#id2">[1]</a>
+        <li><a href="api.models.html#api.models.course.Course.MultipleObjectsReturned">Course.MultipleObjectsReturned</a>, <a href="models/course.html#api.models.course.Course.MultipleObjectsReturned">[1]</a>
 </li>
-        <li><a href="models/course.html#api.models.course.Course.course_id">course_id (api.models.course.Course attribute)</a>, <a href="models/course.html#id3">[1]</a>
+        <li><a href="api.models.html#api.models.course.Course.course_code">course_code (api.models.course.Course attribute)</a>, <a href="api.models.html#id2">[1]</a>, <a href="models/course.html#api.models.course.Course.course_code">[2]</a>, <a href="models/course.html#id0">[3]</a>
+</li>
+        <li><a href="api.models.html#api.models.course.Course.course_department">course_department (api.models.course.Course attribute)</a>, <a href="api.models.html#id3">[1]</a>, <a href="models/course.html#api.models.course.Course.course_department">[2]</a>, <a href="models/course.html#id2">[3]</a>
+</li>
+        <li><a href="api.models.html#api.models.course.Course.course_id">course_id (api.models.course.Course attribute)</a>, <a href="api.models.html#id4">[1]</a>, <a href="models/course.html#api.models.course.Course.course_id">[2]</a>, <a href="models/course.html#id3">[3]</a>
 
         <ul>
-          <li><a href="models/ticket.html#api.models.ticket.Ticket.course_id">(api.models.ticket.Ticket attribute)</a>
+          <li><a href="api.models.html#api.models.sections.Section.course_id">(api.models.sections.Section attribute)</a>
+</li>
+          <li><a href="api.models.html#api.models.ticket.Ticket.course_id">(api.models.ticket.Ticket attribute)</a>, <a href="models/ticket.html#api.models.ticket.Ticket.course_id">[1]</a>
 </li>
         </ul></li>
-        <li><a href="models/course.html#api.models.course.Course.course_name">course_name (api.models.course.Course attribute)</a>, <a href="models/course.html#id4">[1]</a>
+        <li><a href="api.models.html#api.models.course.Course.course_name">course_name (api.models.course.Course attribute)</a>, <a href="api.models.html#id5">[1]</a>, <a href="models/course.html#api.models.course.Course.course_name">[2]</a>, <a href="models/course.html#id4">[3]</a>
 </li>
-        <li><a href="models/user.html#api.models.user.User.courses_taken">courses_taken (api.models.user.User attribute)</a>
+        <li><a href="api.scripts.html#api.scripts.load_semester.ParseSemester.courses">courses (api.scripts.load_semester.ParseSemester attribute)</a>, <a href="scripts/load-semester.html#api.scripts.load_semester.ParseSemester.courses">[1]</a>
 </li>
-        <li><a href="models/user.html#api.models.user.User.courses_tutoring">courses_tutoring (api.models.user.User attribute)</a>
+        <li><a href="api.models.html#api.models.user.User.courses_taken">courses_taken (api.models.user.User attribute)</a>, <a href="models/user.html#api.models.user.User.courses_taken">[1]</a>
+</li>
+        <li><a href="api.models.html#api.models.user.User.courses_tutoring">courses_tutoring (api.models.user.User attribute)</a>, <a href="models/user.html#api.models.user.User.courses_tutoring">[1]</a>
+</li>
+        <li><a href="api.html#api.serializers.CourseSerializer">CourseSerializer (class in api.serializers)</a>
+</li>
+        <li><a href="api.html#api.serializers.CourseSerializer.Meta">CourseSerializer.Meta (class in api.serializers)</a>
+</li>
+        <li><a href="api.models.html#api.models.ticket.Ticket.created_at">created_at (api.models.ticket.Ticket attribute)</a>, <a href="models/ticket.html#api.models.ticket.Ticket.created_at">[1]</a>
+</li>
+        <li><a href="api.models.html#api.models.messages.Messages.created_date">created_date (api.models.messages.Messages attribute)</a>
+</li>
+        <li><a href="api.scripts.html#api.scripts.load_semester.ParseSemester.csv_file">csv_file (api.scripts.load_semester.ParseSemester attribute)</a>, <a href="scripts/load-semester.html#api.scripts.load_semester.ParseSemester.csv_file">[1]</a>
+</li>
+        <li><a href="api.models.html#api.models.color.Color.ColorChoices.CYAN">CYAN (api.models.color.Color.ColorChoices attribute)</a>
 </li>
     </ul></td>
   </tr></table>
@@ -440,7 +674,29 @@
   <h2>D</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="models/ticket.html#api.models.ticket.Ticket.description">description (api.models.ticket.Ticket attribute)</a>
+        <li><a href="api.models.html#api.models.hours.Hour.day_id">day_id (api.models.hours.Hour attribute)</a>
+</li>
+        <li><a href="api.html#api.apps.ApiConfig.default_auto_field">default_auto_field (api.apps.ApiConfig attribute)</a>
+</li>
+        <li><a href="api.migrations.html#api.migrations.0001_initial.Migration.dependencies">dependencies (api.migrations.0001_initial.Migration attribute)</a>
+
+        <ul>
+          <li><a href="api.migrations.html#api.migrations.0002_alter_ticket_student_alter_ticket_tutor.Migration.dependencies">(api.migrations.0002_alter_ticket_student_alter_ticket_tutor.Migration attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="api.models.html#api.models.ticket.Ticket.description">description (api.models.ticket.Ticket attribute)</a>, <a href="models/ticket.html#api.models.ticket.Ticket.description">[1]</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api.models.html#api.models.ticket.Ticket.difficulty">difficulty (api.models.ticket.Ticket attribute)</a>, <a href="models/ticket.html#api.models.ticket.Ticket.difficulty">[1]</a>
+</li>
+        <li><a href="api.models.html#api.models.ticket.Ticket.DIFFICULTY_CHOICES">DIFFICULTY_CHOICES (api.models.ticket.Ticket attribute)</a>, <a href="models/ticket.html#api.models.ticket.Ticket.DIFFICULTY_CHOICES">[1]</a>
+</li>
+        <li><a href="api.html#api.websocket.TextRoomConsumer.disconnect">disconnect() (api.websocket.TextRoomConsumer method)</a>
+</li>
+        <li><a href="api.models.html#api.models.announcement.Announcement.display_from_date">display_from_date (api.models.announcement.Announcement attribute)</a>
+</li>
+        <li><a href="api.models.html#api.models.announcement.Announcement.display_to_date">display_to_date (api.models.announcement.Announcement attribute)</a>
 </li>
     </ul></td>
   </tr></table>
@@ -450,16 +706,12 @@
   <h2>E</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="models/professor.html#api.models.professor.Professor.email">email (api.models.professor.Professor attribute)</a>
+        <li><a href="api.models.html#api.models.professor.Professor.email">email (api.models.professor.Professor attribute)</a>, <a href="models/professor.html#api.models.professor.Professor.email">[1]</a>
 
         <ul>
-          <li><a href="models/user.html#api.models.user.User.email">(api.models.user.User attribute)</a>
+          <li><a href="api.models.html#api.models.user.User.email">(api.models.user.User attribute)</a>, <a href="models/user.html#api.models.user.User.email">[1]</a>
 </li>
         </ul></li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="models/ticket.html#api.models.ticket.Ticket.end_time">end_time (api.models.ticket.Ticket attribute)</a>
-</li>
     </ul></td>
   </tr></table>
 </section>
@@ -468,11 +720,39 @@
   <h2>F</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="models/professor.html#api.models.professor.Professor.first_name">first_name (api.models.professor.Professor attribute)</a>
+        <li><a href="api.html#api.serializers.CourseSerializer.Meta.fields">fields (api.serializers.CourseSerializer.Meta attribute)</a>
+
+        <ul>
+          <li><a href="api.html#api.serializers.IssueSerializer.Meta.fields">(api.serializers.IssueSerializer.Meta attribute)</a>
 </li>
+          <li><a href="api.html#api.serializers.MessageSerializer.Meta.fields">(api.serializers.MessageSerializer.Meta attribute)</a>
+</li>
+          <li><a href="api.html#api.serializers.ProfessorSerializer.Meta.fields">(api.serializers.ProfessorSerializer.Meta attribute)</a>
+</li>
+          <li><a href="api.html#api.serializers.SectionSerializer.Meta.fields">(api.serializers.SectionSerializer.Meta attribute)</a>
+</li>
+          <li><a href="api.html#api.serializers.TicketGetSerializer.Meta.fields">(api.serializers.TicketGetSerializer.Meta attribute)</a>
+</li>
+          <li><a href="api.html#api.serializers.TicketSerializer.Meta.fields">(api.serializers.TicketSerializer.Meta attribute)</a>
+</li>
+          <li><a href="api.html#api.serializers.TutorHourSerializer.Meta.fields">(api.serializers.TutorHourSerializer.Meta attribute)</a>
+</li>
+          <li><a href="api.html#api.serializers.UserSerializer.Meta.fields">(api.serializers.UserSerializer.Meta attribute)</a>
+</li>
+        </ul></li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="models/professor.html#api.models.professor.Professor.full_name">full_name (api.models.professor.Professor attribute)</a>
+        <li><a href="api.models.html#api.models.professor.Professor.first_name">first_name (api.models.professor.Professor attribute)</a>, <a href="models/professor.html#api.models.professor.Professor.first_name">[1]</a>
+</li>
+        <li><a href="api.models.html#api.models.hours.Hour.Day.FRIDAY">FRIDAY (api.models.hours.Hour.Day attribute)</a>
+</li>
+        <li><a href="api.models.html#api.models.work_hours.WorkingHours.fridayIn">fridayIn (api.models.work_hours.WorkingHours attribute)</a>
+</li>
+        <li><a href="api.models.html#api.models.work_hours.WorkingHours.fridayOut">fridayOut (api.models.work_hours.WorkingHours attribute)</a>
+</li>
+        <li><a href="api.models.html#api.models.tutor.Tutor.from_date">from_date (api.models.tutor.Tutor attribute)</a>
+</li>
+        <li><a href="api.models.html#api.models.professor.Professor.full_name">full_name (api.models.professor.Professor attribute)</a>, <a href="models/professor.html#api.models.professor.Professor.full_name">[1]</a>
 </li>
     </ul></td>
   </tr></table>
@@ -482,115 +762,173 @@
   <h2>G</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="models/course.html#api.models.course.Course.generic">generic (api.models.course.Course attribute)</a>
+        <li><a href="api.models.html#api.models.course.Course.generic">generic (api.models.course.Course attribute)</a>, <a href="models/course.html#api.models.course.Course.generic">[1]</a>
 
         <ul>
-          <li><a href="models/issue.html#api.models.issue.Issues.generic">(api.models.issue.Issues attribute)</a>
+          <li><a href="api.models.html#api.models.hours.Hour.generic">(api.models.hours.Hour attribute)</a>
 </li>
-          <li><a href="models/ticket.html#api.models.ticket.Ticket.generic">(api.models.ticket.Ticket attribute)</a>
+          <li><a href="api.models.html#api.models.issue.Issues.generic">(api.models.issue.Issues attribute)</a>, <a href="models/issue.html#api.models.issue.Issues.generic">[1]</a>
 </li>
-          <li><a href="models/user.html#api.models.user.User.generic">(api.models.user.User attribute)</a>
+          <li><a href="api.models.html#api.models.messages.Messages.generic">(api.models.messages.Messages attribute)</a>
+</li>
+          <li><a href="api.models.html#api.models.professor.Professor.generic">(api.models.professor.Professor attribute)</a>, <a href="models/professor.html#api.models.professor.Professor.generic">[1]</a>
+</li>
+          <li><a href="api.models.html#api.models.sections.Section.generic">(api.models.sections.Section attribute)</a>
+</li>
+          <li><a href="api.models.html#api.models.ticket.Ticket.generic">(api.models.ticket.Ticket attribute)</a>, <a href="models/ticket.html#api.models.ticket.Ticket.generic">[1]</a>
+</li>
+          <li><a href="api.models.html#api.models.user.User.generic">(api.models.user.User attribute)</a>, <a href="models/user.html#api.models.user.User.generic">[1]</a>
 </li>
         </ul></li>
-        <li><a href="endpoints/course.html#api.endpoints.course.APICourseList.get">get() (api.endpoints.course.APICourseList method)</a>
+        <li><a href="api.endpoints.html#api.endpoints.authenticate.APIAuthenticateList.get">get() (api.endpoints.authenticate.APIAuthenticateList method)</a>
 
         <ul>
-          <li><a href="endpoints/issue.html#api.endpoints.issue.APIIssueDetail.get">(api.endpoints.issue.APIIssueDetail method)</a>
+          <li><a href="api.endpoints.html#api.endpoints.course.APICourseList.get">(api.endpoints.course.APICourseList method)</a>, <a href="endpoints/course.html#api.endpoints.course.APICourseList.get">[1]</a>
 </li>
-          <li><a href="endpoints/issue.html#api.endpoints.issue.APIIssueView.get">(api.endpoints.issue.APIIssueView method)</a>
+          <li><a href="api.endpoints.html#api.endpoints.issue.APIIssueDetail.get">(api.endpoints.issue.APIIssueDetail method)</a>, <a href="endpoints/issue.html#api.endpoints.issue.APIIssueDetail.get">[1]</a>
 </li>
-          <li><a href="endpoints/professor.html#api.endpoints.professor.APIProfessorDetail.get">(api.endpoints.professor.APIProfessorDetail method)</a>
+          <li><a href="api.endpoints.html#api.endpoints.issue.APIIssueView.get">(api.endpoints.issue.APIIssueView method)</a>, <a href="endpoints/issue.html#api.endpoints.issue.APIIssueView.get">[1]</a>
 </li>
-          <li><a href="endpoints/professor.html#api.endpoints.professor.APIProfessorView.get">(api.endpoints.professor.APIProfessorView method)</a>
+          <li><a href="api.endpoints.html#api.endpoints.professor.APIProfessorDetail.get">(api.endpoints.professor.APIProfessorDetail method)</a>, <a href="endpoints/professor.html#api.endpoints.professor.APIProfessorDetail.get">[1]</a>
 </li>
-          <li><a href="endpoints/section.html#api.endpoints.section.APISectionDetail.get">(api.endpoints.section.APISectionDetail method)</a>
+          <li><a href="api.endpoints.html#api.endpoints.professor.APIProfessorView.get">(api.endpoints.professor.APIProfessorView method)</a>, <a href="endpoints/professor.html#api.endpoints.professor.APIProfessorView.get">[1]</a>
 </li>
-          <li><a href="endpoints/section.html#api.endpoints.section.APISectionView.get">(api.endpoints.section.APISectionView method)</a>
+          <li><a href="api.endpoints.html#api.endpoints.section.APISectionDetail.get">(api.endpoints.section.APISectionDetail method)</a>, <a href="endpoints/section.html#api.endpoints.section.APISectionDetail.get">[1]</a>
 </li>
-          <li><a href="endpoints/ticket.html#api.endpoints.ticket.APITicketList.get">(api.endpoints.ticket.APITicketList method)</a>
+          <li><a href="api.endpoints.html#api.endpoints.section.APISectionView.get">(api.endpoints.section.APISectionView method)</a>, <a href="endpoints/section.html#api.endpoints.section.APISectionView.get">[1]</a>
 </li>
-          <li><a href="endpoints/ticket.html#api.endpoints.ticket.APITicketView.get">(api.endpoints.ticket.APITicketView method)</a>
+          <li><a href="api.endpoints.html#api.endpoints.ticket.APITicketDetail.get">(api.endpoints.ticket.APITicketDetail method)</a>, <a href="endpoints/ticket.html#api.endpoints.ticket.APITicketDetail.get">[1]</a>
 </li>
-          <li><a href="endpoints/user.html#api.endpoints.user.APIUserDetail.get">(api.endpoints.user.APIUserDetail method)</a>
+          <li><a href="api.endpoints.html#api.endpoints.ticket.APITicketView.get">(api.endpoints.ticket.APITicketView method)</a>, <a href="endpoints/ticket.html#api.endpoints.ticket.APITicketView.get">[1]</a>
 </li>
-          <li><a href="endpoints/user.html#api.endpoints.user.APIUserView.get">(api.endpoints.user.APIUserView method)</a>
+          <li><a href="api.endpoints.html#api.endpoints.user.APIUserDetail.get">(api.endpoints.user.APIUserDetail method)</a>, <a href="endpoints/user.html#api.endpoints.user.APIUserDetail.get">[1]</a>
+</li>
+          <li><a href="api.endpoints.html#api.endpoints.user.APIUserView.get">(api.endpoints.user.APIUserView method)</a>, <a href="endpoints/user.html#api.endpoints.user.APIUserView.get">[1]</a>
 </li>
         </ul></li>
-        <li><a href="models/ticket.html#api.models.ticket.TicketManager.get_active">get_active() (api.models.ticket.TicketManager method)</a>
+        <li><a href="api.models.html#api.models.ticket.TicketManager.get_active">get_active() (api.models.ticket.TicketManager method)</a>, <a href="models/ticket.html#api.models.ticket.TicketManager.get_active">[1]</a>
 </li>
-        <li><a href="models/user.html#api.models.user.AdminManager.get_admins">get_admins() (api.models.user.AdminManager method)</a>
+        <li><a href="api.models.html#api.models.user.AdminManager.get_admins">get_admins() (api.models.user.AdminManager method)</a>, <a href="models/user.html#api.models.user.AdminManager.get_admins">[1]</a>
 </li>
-        <li><a href="models/ticket.html#api.models.ticket.TicketManager.get_all">get_all() (api.models.ticket.TicketManager method)</a>
+        <li><a href="api.models.html#api.models.ticket.TicketManager.get_all">get_all() (api.models.ticket.TicketManager method)</a>, <a href="models/ticket.html#api.models.ticket.TicketManager.get_all">[1]</a>
 </li>
-        <li><a href="models/ticket.html#api.models.ticket.TicketManager.get_completed">get_completed() (api.models.ticket.TicketManager method)</a>
+        <li><a href="api.models.html#api.models.hours.HourManager.get_all_hours">get_all_hours() (api.models.hours.HourManager method)</a>
+
+        <ul>
+          <li><a href="api.models.html#api.models.work_hours.HourManager.get_all_hours">(api.models.work_hours.HourManager method)</a>
 </li>
-        <li><a href="models/ticket.html#api.models.ticket.TicketManager.get_course">get_course() (api.models.ticket.TicketManager method)</a>
+        </ul></li>
+        <li><a href="api.models.html#api.models.announcement.Announcement.get_announcement_type_display">get_announcement_type_display() (api.models.announcement.Announcement method)</a>
 </li>
-        <li><a href="endpoints/ticket.html#api.endpoints.ticket.APITicketList.get_course_id">get_course_id() (api.endpoints.ticket.APITicketList method)</a>
+        <li><a href="api.models.html#api.models.color.Color.get_color_id_display">get_color_id_display() (api.models.color.Color method)</a>
 </li>
-        <li><a href="scripts/load-semester.html#api.scripts.load_semester.ParseSemester.get_courses">get_courses() (api.scripts.load_semester.ParseSemester method)</a>
+        <li><a href="api.models.html#api.models.ticket.TicketManager.get_completed">get_completed() (api.models.ticket.TicketManager method)</a>, <a href="models/ticket.html#api.models.ticket.TicketManager.get_completed">[1]</a>
 </li>
-        <li><a href="endpoints/ticket.html#api.endpoints.ticket.APITicketList.get_issue_id">get_issue_id() (api.endpoints.ticket.APITicketList method)</a>
+        <li><a href="api.models.html#api.models.ticket.TicketManager.get_course">get_course() (api.models.ticket.TicketManager method)</a>, <a href="models/ticket.html#api.models.ticket.TicketManager.get_course">[1]</a>
+</li>
+        <li><a href="api.scripts.html#api.scripts.load_semester.ParseSemester.get_courses">get_courses() (api.scripts.load_semester.ParseSemester method)</a>, <a href="api.scripts.html#id4">[1]</a>, <a href="scripts/load-semester.html#api.scripts.load_semester.ParseSemester.get_courses">[2]</a>, <a href="scripts/load-semester.html#id4">[3]</a>
+</li>
+        <li><a href="api.models.html#api.models.hours.Hour.get_day_id_display">get_day_id_display() (api.models.hours.Hour method)</a>
+</li>
+        <li><a href="api.models.html#api.models.ticket.Ticket.get_difficulty_display">get_difficulty_display() (api.models.ticket.Ticket method)</a>, <a href="models/ticket.html#api.models.ticket.Ticket.get_difficulty_display">[1]</a>
+</li>
+        <li><a href="api.models.html#api.models.issue.IssueManager.get_issues">get_issues() (api.models.issue.IssueManager method)</a>, <a href="models/issue.html#api.models.issue.IssueManager.get_issues">[1]</a>
+</li>
+        <li><a href="api.models.html#api.models.ticket.Ticket.get_next_by_created_at">get_next_by_created_at() (api.models.ticket.Ticket method)</a>, <a href="models/ticket.html#api.models.ticket.Ticket.get_next_by_created_at">[1]</a>
+</li>
+        <li><a href="api.models.html#api.models.messages.Messages.get_next_by_created_date">get_next_by_created_date() (api.models.messages.Messages method)</a>
+</li>
+        <li><a href="api.models.html#api.models.announcement.Announcement.get_next_by_display_from_date">get_next_by_display_from_date() (api.models.announcement.Announcement method)</a>
+</li>
+        <li><a href="api.models.html#api.models.announcement.Announcement.get_next_by_display_to_date">get_next_by_display_to_date() (api.models.announcement.Announcement method)</a>
 </li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="models/issue.html#api.models.issue.IssueManager.get_issues">get_issues() (api.models.issue.IssueManager method)</a>
+        <li><a href="api.models.html#api.models.tutor.Tutor.get_next_by_from_date">get_next_by_from_date() (api.models.tutor.Tutor method)</a>
 </li>
-        <li><a href="models/professor.html#api.models.professor.ProfessorManager.get_professor">get_professor() (api.models.professor.ProfessorManager method)</a>
+        <li><a href="api.models.html#api.models.hours.Hour.get_next_by_time_in">get_next_by_time_in() (api.models.hours.Hour method)</a>
+</li>
+        <li><a href="api.models.html#api.models.hours.Hour.get_next_by_time_out">get_next_by_time_out() (api.models.hours.Hour method)</a>
+</li>
+        <li><a href="api.models.html#api.models.tutor.Tutor.get_next_by_to_date">get_next_by_to_date() (api.models.tutor.Tutor method)</a>
+</li>
+        <li><a href="api.models.html#api.models.ticket.Ticket.get_next_by_updated_at">get_next_by_updated_at() (api.models.ticket.Ticket method)</a>, <a href="models/ticket.html#api.models.ticket.Ticket.get_next_by_updated_at">[1]</a>
+</li>
+        <li><a href="api.models.html#api.models.ticket.Ticket.get_previous_by_created_at">get_previous_by_created_at() (api.models.ticket.Ticket method)</a>, <a href="models/ticket.html#api.models.ticket.Ticket.get_previous_by_created_at">[1]</a>
+</li>
+        <li><a href="api.models.html#api.models.messages.Messages.get_previous_by_created_date">get_previous_by_created_date() (api.models.messages.Messages method)</a>
+</li>
+        <li><a href="api.models.html#api.models.announcement.Announcement.get_previous_by_display_from_date">get_previous_by_display_from_date() (api.models.announcement.Announcement method)</a>
+</li>
+        <li><a href="api.models.html#api.models.announcement.Announcement.get_previous_by_display_to_date">get_previous_by_display_to_date() (api.models.announcement.Announcement method)</a>
+</li>
+        <li><a href="api.models.html#api.models.tutor.Tutor.get_previous_by_from_date">get_previous_by_from_date() (api.models.tutor.Tutor method)</a>
+</li>
+        <li><a href="api.models.html#api.models.hours.Hour.get_previous_by_time_in">get_previous_by_time_in() (api.models.hours.Hour method)</a>
+</li>
+        <li><a href="api.models.html#api.models.hours.Hour.get_previous_by_time_out">get_previous_by_time_out() (api.models.hours.Hour method)</a>
+</li>
+        <li><a href="api.models.html#api.models.tutor.Tutor.get_previous_by_to_date">get_previous_by_to_date() (api.models.tutor.Tutor method)</a>
+</li>
+        <li><a href="api.models.html#api.models.ticket.Ticket.get_previous_by_updated_at">get_previous_by_updated_at() (api.models.ticket.Ticket method)</a>, <a href="models/ticket.html#api.models.ticket.Ticket.get_previous_by_updated_at">[1]</a>
+</li>
+        <li><a href="api.models.html#api.models.professor.ProfessorManager.get_professor">get_professor() (api.models.professor.ProfessorManager method)</a>, <a href="models/professor.html#api.models.professor.ProfessorManager.get_professor">[1]</a>
 
         <ul>
-          <li><a href="models/ticket.html#api.models.ticket.TicketManager.get_professor">(api.models.ticket.TicketManager method)</a>
+          <li><a href="api.models.html#api.models.ticket.TicketManager.get_professor">(api.models.ticket.TicketManager method)</a>, <a href="models/ticket.html#api.models.ticket.TicketManager.get_professor">[1]</a>
 </li>
         </ul></li>
-        <li><a href="endpoints/ticket.html#api.endpoints.ticket.APITicketList.get_professor_id">get_professor_id() (api.endpoints.ticket.APITicketList method)</a>
-</li>
-        <li><a href="models/professor.html#api.models.professor.ProfessorManager.get_professors">get_professors() (api.models.professor.ProfessorManager method)</a>
+        <li><a href="api.models.html#api.models.professor.ProfessorManager.get_professors">get_professors() (api.models.professor.ProfessorManager method)</a>, <a href="models/professor.html#api.models.professor.ProfessorManager.get_professors">[1]</a>
 
         <ul>
-          <li><a href="scripts/load-semester.html#api.scripts.load_semester.ParseSemester.get_professors">(api.scripts.load_semester.ParseSemester method)</a>
+          <li><a href="api.scripts.html#api.scripts.load_semester.ParseSemester.get_professors">(api.scripts.load_semester.ParseSemester method)</a>, <a href="api.scripts.html#id5">[1]</a>, <a href="scripts/load-semester.html#api.scripts.load_semester.ParseSemester.get_professors">[2]</a>, <a href="scripts/load-semester.html#id5">[3]</a>
 </li>
         </ul></li>
-        <li><a href="endpoints/course.html#api.endpoints.course.APICourseList.get_querystring">get_querystring() (api.endpoints.course.APICourseList method)</a>
+        <li><a href="api.endpoints.html#api.endpoints.course.APICourseList.get_querystring">get_querystring() (api.endpoints.course.APICourseList method)</a>, <a href="endpoints/course.html#api.endpoints.course.APICourseList.get_querystring">[1]</a>
 
         <ul>
-          <li><a href="endpoints/professor.html#api.endpoints.professor.APIProfessorView.get_querystring">(api.endpoints.professor.APIProfessorView method)</a>
+          <li><a href="api.endpoints.html#api.endpoints.professor.APIProfessorView.get_querystring">(api.endpoints.professor.APIProfessorView method)</a>, <a href="endpoints/professor.html#api.endpoints.professor.APIProfessorView.get_querystring">[1]</a>
 </li>
-          <li><a href="endpoints/section.html#api.endpoints.section.APISectionView.get_querystring">(api.endpoints.section.APISectionView method)</a>
+          <li><a href="api.endpoints.html#api.endpoints.section.APISectionView.get_querystring">(api.endpoints.section.APISectionView method)</a>, <a href="endpoints/section.html#api.endpoints.section.APISectionView.get_querystring">[1]</a>
 </li>
-          <li><a href="endpoints/ticket.html#api.endpoints.ticket.APITicketList.get_querystring">(api.endpoints.ticket.APITicketList method)</a>
+          <li><a href="api.endpoints.html#api.endpoints.ticket.APITicketView.get_querystring">(api.endpoints.ticket.APITicketView method)</a>, <a href="endpoints/ticket.html#api.endpoints.ticket.APITicketView.get_querystring">[1]</a>
 </li>
-          <li><a href="endpoints/ticket.html#api.endpoints.ticket.APITicketView.get_querystring">(api.endpoints.ticket.APITicketView method)</a>
-</li>
-          <li><a href="endpoints/user.html#api.endpoints.user.APIUserView.get_querystring">(api.endpoints.user.APIUserView method)</a>
+          <li><a href="api.endpoints.html#api.endpoints.user.APIUserView.get_querystring">(api.endpoints.user.APIUserView method)</a>, <a href="endpoints/user.html#api.endpoints.user.APIUserView.get_querystring">[1]</a>
 </li>
         </ul></li>
-        <li><a href="models/ticket.html#api.models.ticket.TicketManager.get_section">get_section() (api.models.ticket.TicketManager method)</a>
+        <li><a href="api.models.html#api.models.ticket.TicketManager.get_section">get_section() (api.models.ticket.TicketManager method)</a>, <a href="models/ticket.html#api.models.ticket.TicketManager.get_section">[1]</a>
 </li>
-        <li><a href="scripts/load-semester.html#api.scripts.load_semester.ParseSemester.get_sections">get_sections() (api.scripts.load_semester.ParseSemester method)</a>
+        <li><a href="api.scripts.html#api.scripts.load_semester.ParseSemester.get_sections">get_sections() (api.scripts.load_semester.ParseSemester method)</a>, <a href="api.scripts.html#id6">[1]</a>, <a href="scripts/load-semester.html#api.scripts.load_semester.ParseSemester.get_sections">[2]</a>, <a href="scripts/load-semester.html#id6">[3]</a>
 </li>
-        <li><a href="models/issue.html#api.models.issue.Issues.get_severity_display">get_severity_display() (api.models.issue.Issues method)</a>
+        <li><a href="api.models.html#api.models.issue.Issues.get_severity_display">get_severity_display() (api.models.issue.Issues method)</a>, <a href="models/issue.html#api.models.issue.Issues.get_severity_display">[1]</a>
 </li>
-        <li><a href="models/ticket.html#api.models.ticket.TicketManager.get_student">get_student() (api.models.ticket.TicketManager method)</a>
+        <li><a href="api.models.html#api.models.ticket.Ticket.get_status_display">get_status_display() (api.models.ticket.Ticket method)</a>, <a href="models/ticket.html#api.models.ticket.Ticket.get_status_display">[1]</a>
+</li>
+        <li><a href="api.models.html#api.models.ticket.TicketManager.get_student">get_student() (api.models.ticket.TicketManager method)</a>, <a href="models/ticket.html#api.models.ticket.TicketManager.get_student">[1]</a>
 
         <ul>
-          <li><a href="models/user.html#api.models.user.StudentManager.get_student">(api.models.user.StudentManager method)</a>
+          <li><a href="api.models.html#api.models.user.StudentManager.get_student">(api.models.user.StudentManager method)</a>, <a href="models/user.html#api.models.user.StudentManager.get_student">[1]</a>
 </li>
         </ul></li>
-        <li><a href="models/user.html#api.models.user.StudentManager.get_students">get_students() (api.models.user.StudentManager method)</a>
+        <li><a href="api.models.html#api.models.user.StudentManager.get_students">get_students() (api.models.user.StudentManager method)</a>, <a href="models/user.html#api.models.user.StudentManager.get_students">[1]</a>
 </li>
-        <li><a href="models/ticket.html#api.models.ticket.TicketManager.get_successful">get_successful() (api.models.ticket.TicketManager method)</a>
+        <li><a href="api.models.html#api.models.ticket.TicketManager.get_successful">get_successful() (api.models.ticket.TicketManager method)</a>, <a href="models/ticket.html#api.models.ticket.TicketManager.get_successful">[1]</a>
 </li>
-        <li><a href="models/ticket.html#api.models.ticket.TicketManager.get_tutor">get_tutor() (api.models.ticket.TicketManager method)</a>
+        <li><a href="api.models.html#api.models.hours.HourManager.get_tutor">get_tutor() (api.models.hours.HourManager method)</a>
 
         <ul>
-          <li><a href="models/user.html#api.models.user.TutorManager.get_tutor">(api.models.user.TutorManager method)</a>
+          <li><a href="api.models.html#api.models.ticket.TicketManager.get_tutor">(api.models.ticket.TicketManager method)</a>, <a href="models/ticket.html#api.models.ticket.TicketManager.get_tutor">[1]</a>
+</li>
+          <li><a href="api.models.html#api.models.user.TutorManager.get_tutor">(api.models.user.TutorManager method)</a>, <a href="models/user.html#api.models.user.TutorManager.get_tutor">[1]</a>
+</li>
+          <li><a href="api.models.html#api.models.work_hours.HourManager.get_tutor">(api.models.work_hours.HourManager method)</a>
 </li>
         </ul></li>
-        <li><a href="models/user.html#api.models.user.TutorManager.get_tutors">get_tutors() (api.models.user.TutorManager method)</a>
+        <li><a href="api.models.html#api.models.user.TutorManager.get_tutors">get_tutors() (api.models.user.TutorManager method)</a>, <a href="models/user.html#api.models.user.TutorManager.get_tutors">[1]</a>
 </li>
-        <li><a href="models/ticket.html#api.models.ticket.TicketManager.get_unclaimed">get_unclaimed() (api.models.ticket.TicketManager method)</a>
+        <li><a href="api.models.html#api.models.ticket.TicketManager.get_unclaimed">get_unclaimed() (api.models.ticket.TicketManager method)</a>, <a href="models/ticket.html#api.models.ticket.TicketManager.get_unclaimed">[1]</a>
 </li>
-        <li><a href="endpoints/ticket.html#api.endpoints.ticket.APITicketList.get_user_id">get_user_id() (api.endpoints.ticket.APITicketList method)</a>
+        <li><a href="api.models.html#api.models.color.Color.ColorChoices.GREEN">GREEN (api.models.color.Color.ColorChoices attribute)</a>
 </li>
     </ul></td>
   </tr></table>
@@ -600,8 +938,30 @@
   <h2>H</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="models/user.html#api.models.user.User.hour_set">hour_set (api.models.user.User attribute)</a>
+        <li><a href="api.models.html#api.models.hours.Hour">Hour (class in api.models.hours)</a>
 </li>
+        <li><a href="api.models.html#api.models.hours.Hour.Day">Hour.Day (class in api.models.hours)</a>
+</li>
+        <li><a href="api.models.html#api.models.hours.Hour.DoesNotExist">Hour.DoesNotExist</a>
+</li>
+        <li><a href="api.models.html#api.models.hours.Hour.MultipleObjectsReturned">Hour.MultipleObjectsReturned</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api.models.html#api.models.user.User.hour_set">hour_set (api.models.user.User attribute)</a>, <a href="models/user.html#api.models.user.User.hour_set">[1]</a>
+</li>
+        <li><a href="api.models.html#api.models.hours.HourManager">HourManager (class in api.models.hours)</a>
+
+        <ul>
+          <li><a href="api.models.html#api.models.work_hours.HourManager">(class in api.models.work_hours)</a>
+</li>
+        </ul></li>
+        <li><a href="api.models.html#api.models.hours.Hour.hours">hours (api.models.hours.Hour attribute)</a>
+
+        <ul>
+          <li><a href="api.models.html#api.models.work_hours.WorkingHours.hours">(api.models.work_hours.WorkingHours attribute)</a>
+</li>
+        </ul></li>
     </ul></td>
   </tr></table>
 </section>
@@ -610,41 +970,63 @@
   <h2>I</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="models/course.html#api.models.course.Course.id">id (api.models.course.Course attribute)</a>
+        <li><a href="api.models.html#api.models.announcement.Announcement.id">id (api.models.announcement.Announcement attribute)</a>
 
         <ul>
-          <li><a href="models/ticket.html#api.models.ticket.Ticket.id">(api.models.ticket.Ticket attribute)</a>
+          <li><a href="api.models.html#api.models.color.Color.id">(api.models.color.Color attribute)</a>
+</li>
+          <li><a href="api.models.html#api.models.course.Course.id">(api.models.course.Course attribute)</a>, <a href="models/course.html#api.models.course.Course.id">[1]</a>
+</li>
+          <li><a href="api.models.html#api.models.hours.Hour.id">(api.models.hours.Hour attribute)</a>
+</li>
+          <li><a href="api.models.html#api.models.messages.Messages.id">(api.models.messages.Messages attribute)</a>
+</li>
+          <li><a href="api.models.html#api.models.roles.Role.id">(api.models.roles.Role attribute)</a>
+</li>
+          <li><a href="api.models.html#api.models.ticket.Ticket.id">(api.models.ticket.Ticket attribute)</a>, <a href="models/ticket.html#api.models.ticket.Ticket.id">[1]</a>
+</li>
+          <li><a href="api.models.html#api.models.tutor.Tutor.id">(api.models.tutor.Tutor attribute)</a>
+</li>
+          <li><a href="api.models.html#api.models.work_hours.WorkingHours.id">(api.models.work_hours.WorkingHours attribute)</a>
 </li>
         </ul></li>
-        <li><a href="models/professor.html#api.models.professor.Professor.is_active">is_active (api.models.professor.Professor attribute)</a>
+        <li><a href="api.models.html#api.models.color.Color.ColorChoices.INDIGO">INDIGO (api.models.color.Color.ColorChoices attribute)</a>
+</li>
+        <li><a href="api.migrations.html#api.migrations.0001_initial.Migration.initial">initial (api.migrations.0001_initial.Migration attribute)</a>
+</li>
+        <li><a href="api.models.html#api.models.professor.Professor.is_active">is_active (api.models.professor.Professor attribute)</a>, <a href="models/professor.html#api.models.professor.Professor.is_active">[1]</a>
 
         <ul>
-          <li><a href="models/user.html#api.models.user.User.is_active">(api.models.user.User attribute)</a>
+          <li><a href="api.models.html#api.models.user.User.is_active">(api.models.user.User attribute)</a>, <a href="models/user.html#api.models.user.User.is_active">[1]</a>
 </li>
         </ul></li>
-        <li><a href="models/user.html#api.models.user.User.is_admin">is_admin (api.models.user.User attribute)</a>
-</li>
-        <li><a href="models/user.html#api.models.user.User.is_tutor">is_tutor (api.models.user.User attribute)</a>
-</li>
-        <li><a href="models/user.html#api.models.user.User.is_working">is_working (api.models.user.User attribute)</a>
-</li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="models/ticket.html#api.models.ticket.Ticket.issue">issue (api.models.ticket.Ticket attribute)</a>
+        <li><a href="api.models.html#api.models.user.User.is_admin">is_admin (api.models.user.User attribute)</a>, <a href="models/user.html#api.models.user.User.is_admin">[1]</a>
 </li>
-        <li><a href="models/issue.html#api.models.issue.Issues.issue_id">issue_id (api.models.issue.Issues attribute)</a>
+        <li><a href="api.models.html#api.models.user.User.is_tutor">is_tutor (api.models.user.User attribute)</a>, <a href="models/user.html#api.models.user.User.is_tutor">[1]</a>
+</li>
+        <li><a href="api.models.html#api.models.user.User.is_working">is_working (api.models.user.User attribute)</a>, <a href="models/user.html#api.models.user.User.is_working">[1]</a>
+</li>
+        <li><a href="api.models.html#api.models.ticket.Ticket.issue">issue (api.models.ticket.Ticket attribute)</a>, <a href="models/ticket.html#api.models.ticket.Ticket.issue">[1]</a>
+</li>
+        <li><a href="api.models.html#api.models.issue.Issues.issue_id">issue_id (api.models.issue.Issues attribute)</a>, <a href="models/issue.html#api.models.issue.Issues.issue_id">[1]</a>
 
         <ul>
-          <li><a href="models/ticket.html#api.models.ticket.Ticket.issue_id">(api.models.ticket.Ticket attribute)</a>
+          <li><a href="api.models.html#api.models.ticket.Ticket.issue_id">(api.models.ticket.Ticket attribute)</a>, <a href="models/ticket.html#api.models.ticket.Ticket.issue_id">[1]</a>
 </li>
         </ul></li>
-        <li><a href="models/issue.html#api.models.issue.IssueManager">IssueManager (class in api.models.issue)</a>
+        <li><a href="api.models.html#api.models.issue.IssueManager">IssueManager (class in api.models.issue)</a>, <a href="models/issue.html#api.models.issue.IssueManager">[1]</a>
 </li>
-        <li><a href="models/issue.html#api.models.issue.Issues">Issues (class in api.models.issue)</a>
+        <li><a href="api.models.html#api.models.issue.Issues">Issues (class in api.models.issue)</a>, <a href="models/issue.html#api.models.issue.Issues">[1]</a>
 </li>
-        <li><a href="models/issue.html#api.models.issue.Issues.DoesNotExist">Issues.DoesNotExist</a>
+        <li><a href="api.models.html#api.models.issue.Issues.DoesNotExist">Issues.DoesNotExist</a>, <a href="models/issue.html#api.models.issue.Issues.DoesNotExist">[1]</a>
 </li>
-        <li><a href="models/issue.html#api.models.issue.Issues.MultipleObjectsReturned">Issues.MultipleObjectsReturned</a>
+        <li><a href="api.models.html#api.models.issue.Issues.MultipleObjectsReturned">Issues.MultipleObjectsReturned</a>, <a href="models/issue.html#api.models.issue.Issues.MultipleObjectsReturned">[1]</a>
+</li>
+        <li><a href="api.html#api.serializers.IssueSerializer">IssueSerializer (class in api.serializers)</a>
+</li>
+        <li><a href="api.html#api.serializers.IssueSerializer.Meta">IssueSerializer.Meta (class in api.serializers)</a>
 </li>
     </ul></td>
   </tr></table>
@@ -654,7 +1036,11 @@
   <h2>L</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="models/professor.html#api.models.professor.Professor.last_name">last_name (api.models.professor.Professor attribute)</a>
+        <li><a href="api.models.html#api.models.professor.Professor.last_name">last_name (api.models.professor.Professor attribute)</a>, <a href="models/professor.html#api.models.professor.Professor.last_name">[1]</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api.scripts.html#api.scripts.load_students.loaddata">loaddata() (in module api.scripts.load_students)</a>
 </li>
     </ul></td>
   </tr></table>
@@ -664,48 +1050,161 @@
   <h2>M</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="manage.html#manage.main">main() (in module manage)</a>
+</li>
+        <li>
+    manage
+
+        <ul>
+          <li><a href="manage.html#module-manage">module</a>
+</li>
+        </ul></li>
+        <li><a href="api.models.html#api.models.tutor.Tutor.message_body">message_body (api.models.tutor.Tutor attribute)</a>
+</li>
+        <li><a href="api.models.html#api.models.messages.Messages.message_content">message_content (api.models.messages.Messages attribute)</a>
+</li>
+        <li><a href="api.models.html#api.models.tutor.Tutor.message_header">message_header (api.models.tutor.Tutor attribute)</a>
+</li>
+        <li><a href="api.models.html#api.models.messages.Messages">Messages (class in api.models.messages)</a>
+</li>
+        <li><a href="api.models.html#api.models.messages.Messages.DoesNotExist">Messages.DoesNotExist</a>
+</li>
+        <li><a href="api.models.html#api.models.messages.Messages.MultipleObjectsReturned">Messages.MultipleObjectsReturned</a>
+</li>
+        <li><a href="api.models.html#api.models.ticket.Ticket.messages_set">messages_set (api.models.ticket.Ticket attribute)</a>, <a href="models/ticket.html#api.models.ticket.Ticket.messages_set">[1]</a>
+
+        <ul>
+          <li><a href="api.models.html#api.models.user.User.messages_set">(api.models.user.User attribute)</a>, <a href="models/user.html#api.models.user.User.messages_set">[1]</a>
+</li>
+        </ul></li>
+        <li><a href="api.html#api.serializers.MessageSerializer">MessageSerializer (class in api.serializers)</a>
+</li>
+        <li><a href="api.html#api.serializers.MessageSerializer.Meta">MessageSerializer.Meta (class in api.serializers)</a>
+</li>
+        <li><a href="api.migrations.html#api.migrations.0001_initial.Migration">Migration (class in api.migrations.0001_initial)</a>
+
+        <ul>
+          <li><a href="api.migrations.html#api.migrations.0002_alter_ticket_student_alter_ticket_tutor.Migration">(class in api.migrations.0002_alter_ticket_student_alter_ticket_tutor)</a>
+</li>
+        </ul></li>
+        <li><a href="api.models.html#api.models.sections.Section.modality">modality (api.models.sections.Section attribute)</a>
+</li>
+        <li><a href="api.html#api.serializers.CourseSerializer.Meta.model">model (api.serializers.CourseSerializer.Meta attribute)</a>
+
+        <ul>
+          <li><a href="api.html#api.serializers.IssueSerializer.Meta.model">(api.serializers.IssueSerializer.Meta attribute)</a>
+</li>
+          <li><a href="api.html#api.serializers.MessageSerializer.Meta.model">(api.serializers.MessageSerializer.Meta attribute)</a>
+</li>
+          <li><a href="api.html#api.serializers.ProfessorSerializer.Meta.model">(api.serializers.ProfessorSerializer.Meta attribute)</a>
+</li>
+          <li><a href="api.html#api.serializers.SectionSerializer.Meta.model">(api.serializers.SectionSerializer.Meta attribute)</a>
+</li>
+          <li><a href="api.html#api.serializers.TicketGetSerializer.Meta.model">(api.serializers.TicketGetSerializer.Meta attribute)</a>
+</li>
+          <li><a href="api.html#api.serializers.TicketSerializer.Meta.model">(api.serializers.TicketSerializer.Meta attribute)</a>
+</li>
+          <li><a href="api.html#api.serializers.TutorHourSerializer.Meta.model">(api.serializers.TutorHourSerializer.Meta attribute)</a>
+</li>
+          <li><a href="api.html#api.serializers.UserSerializer.Meta.model">(api.serializers.UserSerializer.Meta attribute)</a>
+</li>
+        </ul></li>
         <li>
     module
 
         <ul>
-          <li><a href="endpoints/course.html#module-api.endpoints.course">api.endpoints.course</a>
+          <li><a href="api.html#module-api">api</a>
 </li>
-          <li><a href="endpoints/issue.html#module-api.endpoints.issue">api.endpoints.issue</a>
+          <li><a href="api.html#module-api.admin">api.admin</a>
 </li>
-          <li><a href="endpoints/professor.html#module-api.endpoints.professor">api.endpoints.professor</a>
+          <li><a href="api.html#module-api.apps">api.apps</a>
 </li>
-          <li><a href="endpoints/section.html#module-api.endpoints.section">api.endpoints.section</a>
+          <li><a href="api.endpoints.html#module-api.endpoints">api.endpoints</a>
 </li>
-          <li><a href="endpoints/ticket.html#module-api.endpoints.ticket">api.endpoints.ticket</a>
+          <li><a href="api.endpoints.html#module-api.endpoints.authenticate">api.endpoints.authenticate</a>
 </li>
-          <li><a href="endpoints/user.html#module-api.endpoints.user">api.endpoints.user</a>
+          <li><a href="api.endpoints.html#module-api.endpoints.course">api.endpoints.course</a>, <a href="endpoints/course.html#module-api.endpoints.course">[1]</a>
 </li>
-          <li><a href="models/course.html#module-api.models.course">api.models.course</a>
+          <li><a href="api.endpoints.html#module-api.endpoints.issue">api.endpoints.issue</a>, <a href="endpoints/issue.html#module-api.endpoints.issue">[1]</a>
 </li>
-          <li><a href="models/issue.html#module-api.models.issue">api.models.issue</a>
+          <li><a href="api.endpoints.html#module-api.endpoints.professor">api.endpoints.professor</a>, <a href="endpoints/professor.html#module-api.endpoints.professor">[1]</a>
 </li>
-          <li><a href="models/professor.html#module-api.models.professor">api.models.professor</a>
+          <li><a href="api.endpoints.html#module-api.endpoints.section">api.endpoints.section</a>, <a href="endpoints/section.html#module-api.endpoints.section">[1]</a>
 </li>
-          <li><a href="models/ticket.html#module-api.models.ticket">api.models.ticket</a>
+          <li><a href="api.endpoints.html#module-api.endpoints.ticket">api.endpoints.ticket</a>, <a href="endpoints/ticket.html#module-api.endpoints.ticket">[1]</a>
 </li>
-          <li><a href="models/user.html#module-api.models.user">api.models.user</a>
+          <li><a href="api.endpoints.html#module-api.endpoints.user">api.endpoints.user</a>, <a href="endpoints/user.html#module-api.endpoints.user">[1]</a>
 </li>
-          <li><a href="scripts/load-semester.html#module-api.scripts.load_semester">api.scripts.load_semester</a>
+          <li><a href="api.migrations.html#module-api.migrations">api.migrations</a>
 </li>
-          <li><a href="settings/settings.html#module-base">base</a>
+          <li><a href="api.migrations.html#module-api.migrations.0001_initial">api.migrations.0001_initial</a>
 </li>
-          <li><a href="settings/settings.html#module-base.asgi">base.asgi</a>
+          <li><a href="api.migrations.html#module-api.migrations.0002_alter_ticket_student_alter_ticket_tutor">api.migrations.0002_alter_ticket_student_alter_ticket_tutor</a>
 </li>
-          <li><a href="settings/settings.html#module-base.settings">base.settings</a>
+          <li><a href="api.models.html#module-api.models">api.models</a>
 </li>
-          <li><a href="settings/settings.html#module-base.urls">base.urls</a>
+          <li><a href="api.models.html#module-api.models.announcement">api.models.announcement</a>
 </li>
-          <li><a href="settings/settings.html#module-base.wsgi">base.wsgi</a>
+          <li><a href="api.models.html#module-api.models.color">api.models.color</a>
+</li>
+          <li><a href="api.models.html#module-api.models.course">api.models.course</a>, <a href="models/course.html#module-api.models.course">[1]</a>
+</li>
+          <li><a href="api.models.html#module-api.models.hours">api.models.hours</a>
+</li>
+          <li><a href="api.models.html#module-api.models.issue">api.models.issue</a>, <a href="models/issue.html#module-api.models.issue">[1]</a>
+</li>
+          <li><a href="api.models.html#module-api.models.messages">api.models.messages</a>
+</li>
+          <li><a href="api.models.html#module-api.models.professor">api.models.professor</a>, <a href="models/professor.html#module-api.models.professor">[1]</a>
+</li>
+          <li><a href="api.models.html#module-api.models.roles">api.models.roles</a>
+</li>
+          <li><a href="api.models.html#module-api.models.sections">api.models.sections</a>
+</li>
+          <li><a href="api.models.html#module-api.models.ticket">api.models.ticket</a>, <a href="models/ticket.html#module-api.models.ticket">[1]</a>
+</li>
+          <li><a href="api.models.html#module-api.models.tutor">api.models.tutor</a>
+</li>
+          <li><a href="api.models.html#module-api.models.user">api.models.user</a>, <a href="models/user.html#module-api.models.user">[1]</a>
+</li>
+          <li><a href="api.models.html#module-api.models.work_hours">api.models.work_hours</a>
+</li>
+          <li><a href="api.html#module-api.routing">api.routing</a>
+</li>
+          <li><a href="api.scripts.html#module-api.scripts">api.scripts</a>
+</li>
+          <li><a href="api.scripts.html#module-api.scripts.load_seed">api.scripts.load_seed</a>
+</li>
+          <li><a href="api.scripts.html#module-api.scripts.load_semester">api.scripts.load_semester</a>, <a href="scripts/load-semester.html#module-api.scripts.load_semester">[1]</a>
+</li>
+          <li><a href="api.scripts.html#module-api.scripts.load_students">api.scripts.load_students</a>
+</li>
+          <li><a href="api.html#module-api.serializers">api.serializers</a>
+</li>
+          <li><a href="api.html#module-api.websocket">api.websocket</a>
+</li>
+          <li><a href="base.html#module-base">base</a>, <a href="settings/settings.html#module-base">[1]</a>
+</li>
+          <li><a href="base.html#module-base.asgi">base.asgi</a>, <a href="settings/settings.html#module-base.asgi">[1]</a>
+</li>
+          <li><a href="base.html#module-base.settings">base.settings</a>, <a href="settings/settings.html#module-base.settings">[1]</a>
+</li>
+          <li><a href="base.html#module-base.urls">base.urls</a>, <a href="settings/settings.html#module-base.urls">[1]</a>
+</li>
+          <li><a href="base.html#module-base.wsgi">base.wsgi</a>, <a href="settings/settings.html#module-base.wsgi">[1]</a>
+</li>
+          <li><a href="manage.html#module-manage">manage</a>
 </li>
         </ul></li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="models/user.html#api.models.user.User.MSOID">MSOID (api.models.user.User attribute)</a>
+        <li><a href="api.models.html#api.models.hours.Hour.Day.MONDAY">MONDAY (api.models.hours.Hour.Day attribute)</a>
+</li>
+        <li><a href="api.models.html#api.models.work_hours.WorkingHours.mondayIn">mondayIn (api.models.work_hours.WorkingHours attribute)</a>
+</li>
+        <li><a href="api.models.html#api.models.work_hours.WorkingHours.mondayOut">mondayOut (api.models.work_hours.WorkingHours attribute)</a>
+</li>
+        <li><a href="api.models.html#api.models.user.User.MSOID">MSOID (api.models.user.User attribute)</a>, <a href="models/user.html#api.models.user.User.MSOID">[1]</a>
 </li>
     </ul></td>
   </tr></table>
@@ -715,15 +1214,51 @@
   <h2>N</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="models/ticket.html#api.models.ticket.Ticket.name">name (api.models.ticket.Ticket attribute)</a>
+        <li><a href="api.html#api.apps.ApiConfig.name">name (api.apps.ApiConfig attribute)</a>
 
         <ul>
-          <li><a href="models/user.html#api.models.user.User.name">(api.models.user.User attribute)</a>
+          <li><a href="api.models.html#api.models.ticket.Ticket.name">(api.models.ticket.Ticket attribute)</a>, <a href="models/ticket.html#api.models.ticket.Ticket.name">[1]</a>
+</li>
+          <li><a href="api.models.html#api.models.user.User.name">(api.models.user.User attribute)</a>, <a href="models/user.html#api.models.user.User.name">[1]</a>
 </li>
         </ul></li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="scripts/load-semester.html#api.scripts.load_semester.ParseSemester.normalize_text">normalize_text() (api.scripts.load_semester.ParseSemester method)</a>
+        <li><a href="api.models.html#api.models.ticket.Ticket.NEW">NEW (api.models.ticket.Ticket attribute)</a>, <a href="models/ticket.html#api.models.ticket.Ticket.NEW">[1]</a>
+</li>
+        <li><a href="api.scripts.html#api.scripts.load_semester.ParseSemester.normalize_text">normalize_text() (api.scripts.load_semester.ParseSemester method)</a>, <a href="api.scripts.html#id7">[1]</a>, <a href="scripts/load-semester.html#api.scripts.load_semester.ParseSemester.normalize_text">[2]</a>, <a href="scripts/load-semester.html#id7">[3]</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="O" class="genindex-section">
+  <h2>O</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api.models.html#api.models.announcement.Announcement.objects">objects (api.models.announcement.Announcement attribute)</a>
+
+        <ul>
+          <li><a href="api.models.html#api.models.color.Color.objects">(api.models.color.Color attribute)</a>
+</li>
+          <li><a href="api.models.html#api.models.roles.Role.objects">(api.models.roles.Role attribute)</a>
+</li>
+          <li><a href="api.models.html#api.models.tutor.Tutor.objects">(api.models.tutor.Tutor attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api.models.html#api.models.ticket.Ticket.OPENED">OPENED (api.models.ticket.Ticket attribute)</a>, <a href="models/ticket.html#api.models.ticket.Ticket.OPENED">[1]</a>
+</li>
+        <li><a href="api.models.html#api.models.ticket.Ticket.opened_at">opened_at (api.models.ticket.Ticket attribute)</a>, <a href="models/ticket.html#api.models.ticket.Ticket.opened_at">[1]</a>
+</li>
+        <li><a href="api.migrations.html#api.migrations.0001_initial.Migration.operations">operations (api.migrations.0001_initial.Migration attribute)</a>
+
+        <ul>
+          <li><a href="api.migrations.html#api.migrations.0002_alter_ticket_student_alter_ticket_tutor.Migration.operations">(api.migrations.0002_alter_ticket_student_alter_ticket_tutor.Migration attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="api.models.html#api.models.color.Color.ColorChoices.ORANGE">ORANGE (api.models.color.Color.ColorChoices attribute)</a>
 </li>
     </ul></td>
   </tr></table>
@@ -733,58 +1268,74 @@
   <h2>P</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="scripts/load-semester.html#api.scripts.load_semester.ParseSemester">ParseSemester (class in api.scripts.load_semester)</a>
+        <li><a href="api.scripts.html#api.scripts.load_semester.ParseSemester">ParseSemester (class in api.scripts.load_semester)</a>, <a href="scripts/load-semester.html#api.scripts.load_semester.ParseSemester">[1]</a>
 </li>
-        <li><a href="endpoints/course.html#api.endpoints.course.APICourseList.post">post() (api.endpoints.course.APICourseList method)</a>
+        <li><a href="api.scripts.html#api.scripts.load_semester.ParseSemester.pass">pass() (api.scripts.load_semester.ParseSemester method)</a>, <a href="api.scripts.html#id0">[1]</a>, <a href="api.scripts.html#id1">[2]</a>, <a href="api.scripts.html#id2">[3]</a>, <a href="api.scripts.html#id3">[4]</a>, <a href="scripts/load-semester.html#api.scripts.load_semester.ParseSemester.pass">[5]</a>, <a href="scripts/load-semester.html#id0">[6]</a>, <a href="scripts/load-semester.html#id1">[7]</a>, <a href="scripts/load-semester.html#id2">[8]</a>, <a href="scripts/load-semester.html#id3">[9]</a>
+</li>
+        <li><a href="api.endpoints.html#api.endpoints.ticket.APITicketDetail.patch">patch() (api.endpoints.ticket.APITicketDetail method)</a>, <a href="endpoints/ticket.html#api.endpoints.ticket.APITicketDetail.patch">[1]</a>
+</li>
+        <li><a href="api.models.html#api.models.color.Color.ColorChoices.PINK">PINK (api.models.color.Color.ColorChoices attribute)</a>
+</li>
+        <li><a href="api.endpoints.html#api.endpoints.authenticate.APIAuthenticateList.post">post() (api.endpoints.authenticate.APIAuthenticateList method)</a>
 
         <ul>
-          <li><a href="endpoints/issue.html#api.endpoints.issue.APIIssueView.post">(api.endpoints.issue.APIIssueView method)</a>
+          <li><a href="api.endpoints.html#api.endpoints.course.APICourseList.post">(api.endpoints.course.APICourseList method)</a>, <a href="endpoints/course.html#api.endpoints.course.APICourseList.post">[1]</a>
 </li>
-          <li><a href="endpoints/professor.html#api.endpoints.professor.APIProfessorView.post">(api.endpoints.professor.APIProfessorView method)</a>
+          <li><a href="api.endpoints.html#api.endpoints.issue.APIIssueView.post">(api.endpoints.issue.APIIssueView method)</a>, <a href="endpoints/issue.html#api.endpoints.issue.APIIssueView.post">[1]</a>
 </li>
-          <li><a href="endpoints/section.html#api.endpoints.section.APISectionView.post">(api.endpoints.section.APISectionView method)</a>
+          <li><a href="api.endpoints.html#api.endpoints.professor.APIProfessorView.post">(api.endpoints.professor.APIProfessorView method)</a>, <a href="endpoints/professor.html#api.endpoints.professor.APIProfessorView.post">[1]</a>
 </li>
-          <li><a href="endpoints/ticket.html#api.endpoints.ticket.APITicketList.post">(api.endpoints.ticket.APITicketList method)</a>
+          <li><a href="api.endpoints.html#api.endpoints.section.APISectionView.post">(api.endpoints.section.APISectionView method)</a>, <a href="endpoints/section.html#api.endpoints.section.APISectionView.post">[1]</a>
 </li>
-          <li><a href="endpoints/ticket.html#api.endpoints.ticket.APITicketView.post">(api.endpoints.ticket.APITicketView method)</a>
+          <li><a href="api.endpoints.html#api.endpoints.ticket.APITicketView.post">(api.endpoints.ticket.APITicketView method)</a>, <a href="endpoints/ticket.html#api.endpoints.ticket.APITicketView.post">[1]</a>
 </li>
-          <li><a href="endpoints/user.html#api.endpoints.user.APIUserView.post">(api.endpoints.user.APIUserView method)</a>
+          <li><a href="api.endpoints.html#api.endpoints.user.APIUserView.post">(api.endpoints.user.APIUserView method)</a>, <a href="endpoints/user.html#api.endpoints.user.APIUserView.post">[1]</a>
 </li>
         </ul></li>
-        <li><a href="models/issue.html#api.models.issue.Issues.problem_type">problem_type (api.models.issue.Issues attribute)</a>
+        <li><a href="api.models.html#api.models.issue.Issues.problem_type">problem_type (api.models.issue.Issues attribute)</a>, <a href="models/issue.html#api.models.issue.Issues.problem_type">[1]</a>
 </li>
-        <li><a href="models/professor.html#api.models.professor.Professor.prof">prof (api.models.professor.Professor attribute)</a>
-</li>
-        <li><a href="models/professor.html#api.models.professor.Professor.professor">professor (api.models.professor.Professor attribute)</a>
+        <li><a href="api.models.html#api.models.professor.Professor.professor">professor (api.models.professor.Professor attribute)</a>, <a href="models/professor.html#api.models.professor.Professor.professor">[1]</a>
 
         <ul>
-          <li><a href="models/ticket.html#api.models.ticket.Ticket.professor">(api.models.ticket.Ticket attribute)</a>
+          <li><a href="api.models.html#api.models.sections.Section.professor">(api.models.sections.Section attribute)</a>
+</li>
+          <li><a href="api.models.html#api.models.ticket.Ticket.professor">(api.models.ticket.Ticket attribute)</a>, <a href="models/ticket.html#api.models.ticket.Ticket.professor">[1]</a>
 </li>
         </ul></li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="models/professor.html#api.models.professor.Professor">Professor (class in api.models.professor)</a>
+        <li><a href="api.models.html#api.models.professor.Professor">Professor (class in api.models.professor)</a>, <a href="models/professor.html#api.models.professor.Professor">[1]</a>
 </li>
-        <li><a href="models/professor.html#api.models.professor.Professor.DoesNotExist">Professor.DoesNotExist</a>
+        <li><a href="api.models.html#api.models.professor.Professor.DoesNotExist">Professor.DoesNotExist</a>, <a href="models/professor.html#api.models.professor.Professor.DoesNotExist">[1]</a>
 </li>
-        <li><a href="models/professor.html#api.models.professor.Professor.MultipleObjectsReturned">Professor.MultipleObjectsReturned</a>
+        <li><a href="api.models.html#api.models.professor.Professor.MultipleObjectsReturned">Professor.MultipleObjectsReturned</a>, <a href="models/professor.html#api.models.professor.Professor.MultipleObjectsReturned">[1]</a>
 </li>
-        <li><a href="models/professor.html#api.models.professor.Professor.professor_id">professor_id (api.models.professor.Professor attribute)</a>
+        <li><a href="api.scripts.html#api.scripts.load_semester.ParseSemester.professor_data">professor_data (api.scripts.load_semester.ParseSemester attribute)</a>, <a href="scripts/load-semester.html#api.scripts.load_semester.ParseSemester.professor_data">[1]</a>
+</li>
+        <li><a href="api.models.html#api.models.professor.Professor.professor_id">professor_id (api.models.professor.Professor attribute)</a>, <a href="models/professor.html#api.models.professor.Professor.professor_id">[1]</a>
 
         <ul>
-          <li><a href="models/ticket.html#api.models.ticket.Ticket.professor_id">(api.models.ticket.Ticket attribute)</a>
+          <li><a href="api.models.html#api.models.sections.Section.professor_id">(api.models.sections.Section attribute)</a>
+</li>
+          <li><a href="api.models.html#api.models.ticket.Ticket.professor_id">(api.models.ticket.Ticket attribute)</a>, <a href="models/ticket.html#api.models.ticket.Ticket.professor_id">[1]</a>
 </li>
         </ul></li>
-        <li><a href="models/professor.html#api.models.professor.ProfessorManager">ProfessorManager (class in api.models.professor)</a>
+        <li><a href="api.models.html#api.models.professor.ProfessorManager">ProfessorManager (class in api.models.professor)</a>, <a href="models/professor.html#api.models.professor.ProfessorManager">[1]</a>
 </li>
-        <li><a href="endpoints/issue.html#api.endpoints.issue.APIIssueDetail.put">put() (api.endpoints.issue.APIIssueDetail method)</a>
+        <li><a href="api.scripts.html#api.scripts.load_semester.ParseSemester.professors">professors (api.scripts.load_semester.ParseSemester attribute)</a>, <a href="scripts/load-semester.html#api.scripts.load_semester.ParseSemester.professors">[1]</a>
+</li>
+        <li><a href="api.html#api.serializers.ProfessorSerializer">ProfessorSerializer (class in api.serializers)</a>
+</li>
+        <li><a href="api.html#api.serializers.ProfessorSerializer.Meta">ProfessorSerializer.Meta (class in api.serializers)</a>
+</li>
+        <li><a href="api.endpoints.html#api.endpoints.issue.APIIssueDetail.put">put() (api.endpoints.issue.APIIssueDetail method)</a>, <a href="endpoints/issue.html#api.endpoints.issue.APIIssueDetail.put">[1]</a>
 
         <ul>
-          <li><a href="endpoints/professor.html#api.endpoints.professor.APIProfessorDetail.put">(api.endpoints.professor.APIProfessorDetail method)</a>
+          <li><a href="api.endpoints.html#api.endpoints.professor.APIProfessorDetail.put">(api.endpoints.professor.APIProfessorDetail method)</a>, <a href="endpoints/professor.html#api.endpoints.professor.APIProfessorDetail.put">[1]</a>
 </li>
-          <li><a href="endpoints/section.html#api.endpoints.section.APISectionDetail.put">(api.endpoints.section.APISectionDetail method)</a>
+          <li><a href="api.endpoints.html#api.endpoints.section.APISectionDetail.put">(api.endpoints.section.APISectionDetail method)</a>, <a href="endpoints/section.html#api.endpoints.section.APISectionDetail.put">[1]</a>
 </li>
-          <li><a href="endpoints/user.html#api.endpoints.user.APIUserDetail.put">(api.endpoints.user.APIUserDetail method)</a>
+          <li><a href="api.endpoints.html#api.endpoints.user.APIUserDetail.put">(api.endpoints.user.APIUserDetail method)</a>, <a href="endpoints/user.html#api.endpoints.user.APIUserDetail.put">[1]</a>
 </li>
         </ul></li>
     </ul></td>
@@ -795,14 +1346,14 @@
   <h2>Q</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="endpoints/issue.html#api.endpoints.issue.APIIssueDetail.query_obj">query_obj() (api.endpoints.issue.APIIssueDetail method)</a>
+        <li><a href="api.endpoints.html#api.endpoints.issue.APIIssueDetail.query_obj">query_obj() (api.endpoints.issue.APIIssueDetail method)</a>, <a href="endpoints/issue.html#api.endpoints.issue.APIIssueDetail.query_obj">[1]</a>
 
         <ul>
-          <li><a href="endpoints/professor.html#api.endpoints.professor.APIProfessorDetail.query_obj">(api.endpoints.professor.APIProfessorDetail method)</a>
+          <li><a href="api.endpoints.html#api.endpoints.professor.APIProfessorDetail.query_obj">(api.endpoints.professor.APIProfessorDetail method)</a>, <a href="endpoints/professor.html#api.endpoints.professor.APIProfessorDetail.query_obj">[1]</a>
 </li>
-          <li><a href="endpoints/section.html#api.endpoints.section.APISectionDetail.query_obj">(api.endpoints.section.APISectionDetail method)</a>
+          <li><a href="api.endpoints.html#api.endpoints.section.APISectionDetail.query_obj">(api.endpoints.section.APISectionDetail method)</a>, <a href="endpoints/section.html#api.endpoints.section.APISectionDetail.query_obj">[1]</a>
 </li>
-          <li><a href="endpoints/user.html#api.endpoints.user.APIUserDetail.query_obj">(api.endpoints.user.APIUserDetail method)</a>
+          <li><a href="api.endpoints.html#api.endpoints.user.APIUserDetail.query_obj">(api.endpoints.user.APIUserDetail method)</a>, <a href="endpoints/user.html#api.endpoints.user.APIUserDetail.query_obj">[1]</a>
 </li>
         </ul></li>
     </ul></td>
@@ -813,34 +1364,52 @@
   <h2>R</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="scripts/load-semester.html#api.scripts.load_semester.ParseSemester.read_csv">read_csv() (api.scripts.load_semester.ParseSemester method)</a>
+        <li><a href="api.scripts.html#api.scripts.load_semester.ParseSemester.read_csv">read_csv() (api.scripts.load_semester.ParseSemester method)</a>, <a href="api.scripts.html#id8">[1]</a>, <a href="scripts/load-semester.html#api.scripts.load_semester.ParseSemester.read_csv">[2]</a>, <a href="scripts/load-semester.html#id8">[3]</a>
 </li>
-        <li><a href="endpoints/course.html#api.endpoints.course.APICourseList.renderer_classes">renderer_classes (api.endpoints.course.APICourseList attribute)</a>
+        <li><a href="api.html#api.websocket.TextRoomConsumer.receive">receive() (api.websocket.TextRoomConsumer method)</a>
+</li>
+        <li><a href="api.models.html#api.models.color.Color.ColorChoices.RED">RED (api.models.color.Color.ColorChoices attribute)</a>
+</li>
+        <li><a href="api.endpoints.html#api.endpoints.authenticate.APIAuthenticateList.renderer_classes">renderer_classes (api.endpoints.authenticate.APIAuthenticateList attribute)</a>
 
         <ul>
-          <li><a href="endpoints/issue.html#api.endpoints.issue.APIIssueView.renderer_classes">(api.endpoints.issue.APIIssueView attribute)</a>
+          <li><a href="api.endpoints.html#api.endpoints.course.APICourseList.renderer_classes">(api.endpoints.course.APICourseList attribute)</a>, <a href="endpoints/course.html#api.endpoints.course.APICourseList.renderer_classes">[1]</a>
 </li>
-          <li><a href="endpoints/professor.html#api.endpoints.professor.APIProfessorDetail.renderer_classes">(api.endpoints.professor.APIProfessorDetail attribute)</a>
+          <li><a href="api.endpoints.html#api.endpoints.issue.APIIssueView.renderer_classes">(api.endpoints.issue.APIIssueView attribute)</a>, <a href="endpoints/issue.html#api.endpoints.issue.APIIssueView.renderer_classes">[1]</a>
 </li>
-          <li><a href="endpoints/professor.html#api.endpoints.professor.APIProfessorView.renderer_classes">(api.endpoints.professor.APIProfessorView attribute)</a>
+          <li><a href="api.endpoints.html#api.endpoints.professor.APIProfessorDetail.renderer_classes">(api.endpoints.professor.APIProfessorDetail attribute)</a>, <a href="endpoints/professor.html#api.endpoints.professor.APIProfessorDetail.renderer_classes">[1]</a>
 </li>
-          <li><a href="endpoints/section.html#api.endpoints.section.APISectionDetail.renderer_classes">(api.endpoints.section.APISectionDetail attribute)</a>
+          <li><a href="api.endpoints.html#api.endpoints.professor.APIProfessorView.renderer_classes">(api.endpoints.professor.APIProfessorView attribute)</a>, <a href="endpoints/professor.html#api.endpoints.professor.APIProfessorView.renderer_classes">[1]</a>
 </li>
-          <li><a href="endpoints/section.html#api.endpoints.section.APISectionView.renderer_classes">(api.endpoints.section.APISectionView attribute)</a>
+          <li><a href="api.endpoints.html#api.endpoints.section.APISectionDetail.renderer_classes">(api.endpoints.section.APISectionDetail attribute)</a>, <a href="endpoints/section.html#api.endpoints.section.APISectionDetail.renderer_classes">[1]</a>
 </li>
-          <li><a href="endpoints/ticket.html#api.endpoints.ticket.APITicketList.renderer_classes">(api.endpoints.ticket.APITicketList attribute)</a>
+          <li><a href="api.endpoints.html#api.endpoints.section.APISectionView.renderer_classes">(api.endpoints.section.APISectionView attribute)</a>, <a href="endpoints/section.html#api.endpoints.section.APISectionView.renderer_classes">[1]</a>
 </li>
-          <li><a href="endpoints/ticket.html#api.endpoints.ticket.APITicketView.renderer_classes">(api.endpoints.ticket.APITicketView attribute)</a>
+          <li><a href="api.endpoints.html#api.endpoints.ticket.APITicketDetail.renderer_classes">(api.endpoints.ticket.APITicketDetail attribute)</a>, <a href="endpoints/ticket.html#api.endpoints.ticket.APITicketDetail.renderer_classes">[1]</a>
 </li>
-          <li><a href="endpoints/user.html#api.endpoints.user.APIUserDetail.renderer_classes">(api.endpoints.user.APIUserDetail attribute)</a>
+          <li><a href="api.endpoints.html#api.endpoints.ticket.APITicketView.renderer_classes">(api.endpoints.ticket.APITicketView attribute)</a>, <a href="endpoints/ticket.html#api.endpoints.ticket.APITicketView.renderer_classes">[1]</a>
 </li>
-          <li><a href="endpoints/user.html#api.endpoints.user.APIUserView.renderer_classes">(api.endpoints.user.APIUserView attribute)</a>
+          <li><a href="api.endpoints.html#api.endpoints.user.APIUserDetail.renderer_classes">(api.endpoints.user.APIUserDetail attribute)</a>, <a href="endpoints/user.html#api.endpoints.user.APIUserDetail.renderer_classes">[1]</a>
+</li>
+          <li><a href="api.endpoints.html#api.endpoints.user.APIUserView.renderer_classes">(api.endpoints.user.APIUserView attribute)</a>, <a href="endpoints/user.html#api.endpoints.user.APIUserView.renderer_classes">[1]</a>
 </li>
         </ul></li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="scripts/load-semester.html#api.scripts.load_semester.run">run() (in module api.scripts.load_semester)</a>
+        <li><a href="api.models.html#api.models.roles.Role">Role (class in api.models.roles)</a>
 </li>
+        <li><a href="api.models.html#api.models.roles.Role.DoesNotExist">Role.DoesNotExist</a>
+</li>
+        <li><a href="api.models.html#api.models.roles.Role.MultipleObjectsReturned">Role.MultipleObjectsReturned</a>
+</li>
+        <li><a href="api.scripts.html#api.scripts.load_seed.run">run() (in module api.scripts.load_seed)</a>
+
+        <ul>
+          <li><a href="api.scripts.html#api.scripts.load_semester.run">(in module api.scripts.load_semester)</a>, <a href="scripts/load-semester.html#api.scripts.load_semester.run">[1]</a>
+</li>
+          <li><a href="api.scripts.html#api.scripts.load_students.run">(in module api.scripts.load_students)</a>
+</li>
+        </ul></li>
     </ul></td>
   </tr></table>
 </section>
@@ -849,69 +1418,99 @@
   <h2>S</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="endpoints/course.html#api.endpoints.course.APICourseList.sanitize">sanitize() (api.endpoints.course.APICourseList method)</a>
+        <li><a href="api.endpoints.html#api.endpoints.course.APICourseList.sanitize">sanitize() (api.endpoints.course.APICourseList method)</a>, <a href="endpoints/course.html#api.endpoints.course.APICourseList.sanitize">[1]</a>
 
         <ul>
-          <li><a href="endpoints/professor.html#api.endpoints.professor.APIProfessorView.sanitize">(api.endpoints.professor.APIProfessorView method)</a>
+          <li><a href="api.endpoints.html#api.endpoints.professor.APIProfessorView.sanitize">(api.endpoints.professor.APIProfessorView method)</a>, <a href="endpoints/professor.html#api.endpoints.professor.APIProfessorView.sanitize">[1]</a>
 </li>
-          <li><a href="endpoints/section.html#api.endpoints.section.APISectionView.sanitize">(api.endpoints.section.APISectionView method)</a>
+          <li><a href="api.endpoints.html#api.endpoints.section.APISectionView.sanitize">(api.endpoints.section.APISectionView method)</a>, <a href="endpoints/section.html#api.endpoints.section.APISectionView.sanitize">[1]</a>
 </li>
-          <li><a href="endpoints/ticket.html#api.endpoints.ticket.APITicketList.sanitize">(api.endpoints.ticket.APITicketList method)</a>
+          <li><a href="api.endpoints.html#api.endpoints.ticket.APITicketView.sanitize">(api.endpoints.ticket.APITicketView method)</a>, <a href="endpoints/ticket.html#api.endpoints.ticket.APITicketView.sanitize">[1]</a>
 </li>
-          <li><a href="endpoints/ticket.html#api.endpoints.ticket.APITicketView.sanitize">(api.endpoints.ticket.APITicketView method)</a>
-</li>
-          <li><a href="endpoints/user.html#api.endpoints.user.APIUserView.sanitize">(api.endpoints.user.APIUserView method)</a>
+          <li><a href="api.endpoints.html#api.endpoints.user.APIUserView.sanitize">(api.endpoints.user.APIUserView method)</a>, <a href="endpoints/user.html#api.endpoints.user.APIUserView.sanitize">[1]</a>
 </li>
         </ul></li>
-        <li><a href="models/course.html#api.models.course.Course.section_set">section_set (api.models.course.Course attribute)</a>
+        <li><a href="api.models.html#api.models.hours.Hour.Day.SATURDAY">SATURDAY (api.models.hours.Hour.Day attribute)</a>
+</li>
+        <li><a href="api.models.html#api.models.work_hours.WorkingHours.saturdayIn">saturdayIn (api.models.work_hours.WorkingHours attribute)</a>
+</li>
+        <li><a href="api.models.html#api.models.work_hours.WorkingHours.saturdayOut">saturdayOut (api.models.work_hours.WorkingHours attribute)</a>
+</li>
+        <li><a href="api.models.html#api.models.sections.Section">Section (class in api.models.sections)</a>
+</li>
+        <li><a href="api.models.html#api.models.sections.Section.DoesNotExist">Section.DoesNotExist</a>
+</li>
+        <li><a href="api.models.html#api.models.sections.Section.MultipleObjectsReturned">Section.MultipleObjectsReturned</a>
+</li>
+        <li><a href="api.models.html#api.models.sections.Section.section_id">section_id (api.models.sections.Section attribute)</a>
+</li>
+        <li><a href="api.models.html#api.models.course.Course.section_set">section_set (api.models.course.Course attribute)</a>, <a href="models/course.html#api.models.course.Course.section_set">[1]</a>
 
         <ul>
-          <li><a href="models/professor.html#api.models.professor.Professor.section_set">(api.models.professor.Professor attribute)</a>
+          <li><a href="api.models.html#api.models.professor.Professor.section_set">(api.models.professor.Professor attribute)</a>, <a href="models/professor.html#api.models.professor.Professor.section_set">[1]</a>
 </li>
         </ul></li>
-        <li><a href="endpoints/course.html#api.endpoints.course.APICourseList.serializer_class">serializer_class (api.endpoints.course.APICourseList attribute)</a>
+        <li><a href="api.scripts.html#api.scripts.load_semester.ParseSemester.sections">sections (api.scripts.load_semester.ParseSemester attribute)</a>, <a href="scripts/load-semester.html#api.scripts.load_semester.ParseSemester.sections">[1]</a>
+</li>
+        <li><a href="api.html#api.serializers.SectionSerializer">SectionSerializer (class in api.serializers)</a>
+</li>
+        <li><a href="api.html#api.serializers.SectionSerializer.Meta">SectionSerializer.Meta (class in api.serializers)</a>
+</li>
+        <li><a href="api.models.html#api.models.messages.Messages.sender">sender (api.models.messages.Messages attribute)</a>
+</li>
+        <li><a href="api.models.html#api.models.messages.Messages.sender_id">sender_id (api.models.messages.Messages attribute)</a>
+</li>
+        <li><a href="api.endpoints.html#api.endpoints.authenticate.APIAuthenticateList.serializer_class">serializer_class (api.endpoints.authenticate.APIAuthenticateList attribute)</a>
 
         <ul>
-          <li><a href="endpoints/issue.html#api.endpoints.issue.APIIssueView.serializer_class">(api.endpoints.issue.APIIssueView attribute)</a>
+          <li><a href="api.endpoints.html#api.endpoints.course.APICourseList.serializer_class">(api.endpoints.course.APICourseList attribute)</a>, <a href="endpoints/course.html#api.endpoints.course.APICourseList.serializer_class">[1]</a>
 </li>
-          <li><a href="endpoints/professor.html#api.endpoints.professor.APIProfessorDetail.serializer_class">(api.endpoints.professor.APIProfessorDetail attribute)</a>
+          <li><a href="api.endpoints.html#api.endpoints.issue.APIIssueView.serializer_class">(api.endpoints.issue.APIIssueView attribute)</a>, <a href="endpoints/issue.html#api.endpoints.issue.APIIssueView.serializer_class">[1]</a>
 </li>
-          <li><a href="endpoints/professor.html#api.endpoints.professor.APIProfessorView.serializer_class">(api.endpoints.professor.APIProfessorView attribute)</a>
+          <li><a href="api.endpoints.html#api.endpoints.professor.APIProfessorDetail.serializer_class">(api.endpoints.professor.APIProfessorDetail attribute)</a>, <a href="endpoints/professor.html#api.endpoints.professor.APIProfessorDetail.serializer_class">[1]</a>
 </li>
-          <li><a href="endpoints/section.html#api.endpoints.section.APISectionDetail.serializer_class">(api.endpoints.section.APISectionDetail attribute)</a>
+          <li><a href="api.endpoints.html#api.endpoints.professor.APIProfessorView.serializer_class">(api.endpoints.professor.APIProfessorView attribute)</a>, <a href="endpoints/professor.html#api.endpoints.professor.APIProfessorView.serializer_class">[1]</a>
 </li>
-          <li><a href="endpoints/section.html#api.endpoints.section.APISectionView.serializer_class">(api.endpoints.section.APISectionView attribute)</a>
+          <li><a href="api.endpoints.html#api.endpoints.section.APISectionDetail.serializer_class">(api.endpoints.section.APISectionDetail attribute)</a>, <a href="endpoints/section.html#api.endpoints.section.APISectionDetail.serializer_class">[1]</a>
 </li>
-          <li><a href="endpoints/ticket.html#api.endpoints.ticket.APITicketList.serializer_class">(api.endpoints.ticket.APITicketList attribute)</a>
+          <li><a href="api.endpoints.html#api.endpoints.section.APISectionView.serializer_class">(api.endpoints.section.APISectionView attribute)</a>, <a href="endpoints/section.html#api.endpoints.section.APISectionView.serializer_class">[1]</a>
 </li>
-          <li><a href="endpoints/ticket.html#api.endpoints.ticket.APITicketView.serializer_class">(api.endpoints.ticket.APITicketView attribute)</a>
+          <li><a href="api.endpoints.html#api.endpoints.ticket.APITicketDetail.serializer_class">(api.endpoints.ticket.APITicketDetail attribute)</a>, <a href="endpoints/ticket.html#api.endpoints.ticket.APITicketDetail.serializer_class">[1]</a>
 </li>
-          <li><a href="endpoints/user.html#api.endpoints.user.APIUserDetail.serializer_class">(api.endpoints.user.APIUserDetail attribute)</a>
+          <li><a href="api.endpoints.html#api.endpoints.ticket.APITicketView.serializer_class">(api.endpoints.ticket.APITicketView attribute)</a>, <a href="endpoints/ticket.html#api.endpoints.ticket.APITicketView.serializer_class">[1]</a>
 </li>
-          <li><a href="endpoints/user.html#api.endpoints.user.APIUserView.serializer_class">(api.endpoints.user.APIUserView attribute)</a>
+          <li><a href="api.endpoints.html#api.endpoints.user.APIUserDetail.serializer_class">(api.endpoints.user.APIUserDetail attribute)</a>, <a href="endpoints/user.html#api.endpoints.user.APIUserDetail.serializer_class">[1]</a>
+</li>
+          <li><a href="api.endpoints.html#api.endpoints.user.APIUserView.serializer_class">(api.endpoints.user.APIUserView attribute)</a>, <a href="endpoints/user.html#api.endpoints.user.APIUserView.serializer_class">[1]</a>
 </li>
         </ul></li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="models/issue.html#api.models.issue.Issues.severity">severity (api.models.issue.Issues attribute)</a>
+        <li><a href="api.models.html#api.models.issue.Issues.severity">severity (api.models.issue.Issues attribute)</a>, <a href="models/issue.html#api.models.issue.Issues.severity">[1]</a>
 </li>
-        <li><a href="models/ticket.html#api.models.ticket.Ticket.start_time">start_time (api.models.ticket.Ticket attribute)</a>
+        <li><a href="api.models.html#api.models.ticket.Ticket.status">status (api.models.ticket.Ticket attribute)</a>, <a href="models/ticket.html#api.models.ticket.Ticket.status">[1]</a>
 </li>
-        <li><a href="models/ticket.html#api.models.ticket.Ticket.started">started (api.models.ticket.Ticket attribute)</a>
+        <li><a href="api.models.html#api.models.ticket.Ticket.STATUS_CHOICES">STATUS_CHOICES (api.models.ticket.Ticket attribute)</a>, <a href="models/ticket.html#api.models.ticket.Ticket.STATUS_CHOICES">[1]</a>
 </li>
-        <li><a href="models/ticket.html#api.models.ticket.Ticket.student">student (api.models.ticket.Ticket attribute)</a>
+        <li><a href="api.models.html#api.models.ticket.Ticket.student">student (api.models.ticket.Ticket attribute)</a>, <a href="models/ticket.html#api.models.ticket.Ticket.student">[1]</a>
 
         <ul>
-          <li><a href="models/user.html#api.models.user.User.student">(api.models.user.User attribute)</a>
+          <li><a href="api.models.html#api.models.user.User.student">(api.models.user.User attribute)</a>, <a href="models/user.html#api.models.user.User.student">[1]</a>
 </li>
         </ul></li>
-        <li><a href="models/ticket.html#api.models.ticket.Ticket.student_id">student_id (api.models.ticket.Ticket attribute)</a>
+        <li><a href="api.models.html#api.models.ticket.Ticket.student_id">student_id (api.models.ticket.Ticket attribute)</a>, <a href="models/ticket.html#api.models.ticket.Ticket.student_id">[1]</a>
 </li>
-        <li><a href="models/user.html#api.models.user.User.student_nuid">student_nuid (api.models.user.User attribute)</a>
+        <li><a href="api.models.html#api.models.user.User.student_nuid">student_nuid (api.models.user.User attribute)</a>, <a href="models/user.html#api.models.user.User.student_nuid">[1]</a>
 </li>
-        <li><a href="models/user.html#api.models.user.User.student_ticket">student_ticket (api.models.user.User attribute)</a>
+        <li><a href="api.models.html#api.models.user.User.student_ticket">student_ticket (api.models.user.User attribute)</a>, <a href="models/user.html#api.models.user.User.student_ticket">[1]</a>
 </li>
-        <li><a href="models/user.html#api.models.user.StudentManager">StudentManager (class in api.models.user)</a>
+        <li><a href="api.models.html#api.models.user.StudentManager">StudentManager (class in api.models.user)</a>, <a href="models/user.html#api.models.user.StudentManager">[1]</a>
+</li>
+        <li><a href="api.models.html#api.models.hours.Hour.Day.SUNDAY">SUNDAY (api.models.hours.Hour.Day attribute)</a>
+</li>
+        <li><a href="api.models.html#api.models.work_hours.WorkingHours.sundayIn">sundayIn (api.models.work_hours.WorkingHours attribute)</a>
+</li>
+        <li><a href="api.models.html#api.models.work_hours.WorkingHours.sundayOut">sundayOut (api.models.work_hours.WorkingHours attribute)</a>
 </li>
     </ul></td>
   </tr></table>
@@ -921,39 +1520,95 @@
   <h2>T</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="models/ticket.html#api.models.ticket.Ticket.ticket">ticket (api.models.ticket.Ticket attribute)</a>
+        <li><a href="api.html#api.websocket.TextRoomConsumer">TextRoomConsumer (class in api.websocket)</a>
 </li>
-        <li><a href="models/ticket.html#api.models.ticket.Ticket">Ticket (class in api.models.ticket)</a>
+        <li><a href="api.models.html#api.models.hours.Hour.Day.THURSDAY">THURSDAY (api.models.hours.Hour.Day attribute)</a>
 </li>
-        <li><a href="models/ticket.html#api.models.ticket.Ticket.DoesNotExist">Ticket.DoesNotExist</a>
+        <li><a href="api.models.html#api.models.work_hours.WorkingHours.thursdayIn">thursdayIn (api.models.work_hours.WorkingHours attribute)</a>
 </li>
-        <li><a href="models/ticket.html#api.models.ticket.Ticket.MultipleObjectsReturned">Ticket.MultipleObjectsReturned</a>
+        <li><a href="api.models.html#api.models.work_hours.WorkingHours.thursdayOut">thursdayOut (api.models.work_hours.WorkingHours attribute)</a>
 </li>
-        <li><a href="models/course.html#api.models.course.Course.ticket_set">ticket_set (api.models.course.Course attribute)</a>
+        <li><a href="api.models.html#api.models.messages.Messages.ticket">ticket (api.models.messages.Messages attribute)</a>
 
         <ul>
-          <li><a href="models/issue.html#api.models.issue.Issues.ticket_set">(api.models.issue.Issues attribute)</a>
-</li>
-          <li><a href="models/professor.html#api.models.professor.Professor.ticket_set">(api.models.professor.Professor attribute)</a>
+          <li><a href="api.models.html#api.models.ticket.Ticket.ticket">(api.models.ticket.Ticket attribute)</a>, <a href="models/ticket.html#api.models.ticket.Ticket.ticket">[1]</a>
 </li>
         </ul></li>
+        <li><a href="api.models.html#api.models.ticket.Ticket">Ticket (class in api.models.ticket)</a>, <a href="models/ticket.html#api.models.ticket.Ticket">[1]</a>
+</li>
+        <li><a href="api.models.html#api.models.ticket.Ticket.DoesNotExist">Ticket.DoesNotExist</a>, <a href="models/ticket.html#api.models.ticket.Ticket.DoesNotExist">[1]</a>
+</li>
+        <li><a href="api.models.html#api.models.ticket.Ticket.MultipleObjectsReturned">Ticket.MultipleObjectsReturned</a>, <a href="models/ticket.html#api.models.ticket.Ticket.MultipleObjectsReturned">[1]</a>
+</li>
+        <li><a href="api.models.html#api.models.messages.Messages.ticket_id">ticket_id (api.models.messages.Messages attribute)</a>
+</li>
+        <li><a href="api.models.html#api.models.course.Course.ticket_set">ticket_set (api.models.course.Course attribute)</a>, <a href="models/course.html#api.models.course.Course.ticket_set">[1]</a>
+
+        <ul>
+          <li><a href="api.models.html#api.models.issue.Issues.ticket_set">(api.models.issue.Issues attribute)</a>, <a href="models/issue.html#api.models.issue.Issues.ticket_set">[1]</a>
+</li>
+          <li><a href="api.models.html#api.models.professor.Professor.ticket_set">(api.models.professor.Professor attribute)</a>, <a href="models/professor.html#api.models.professor.Professor.ticket_set">[1]</a>
+</li>
+        </ul></li>
+        <li><a href="api.html#api.serializers.TicketGetSerializer">TicketGetSerializer (class in api.serializers)</a>
+</li>
+        <li><a href="api.html#api.serializers.TicketGetSerializer.Meta">TicketGetSerializer.Meta (class in api.serializers)</a>
+</li>
+        <li><a href="api.models.html#api.models.ticket.TicketManager">TicketManager (class in api.models.ticket)</a>, <a href="models/ticket.html#api.models.ticket.TicketManager">[1]</a>
+</li>
+        <li><a href="api.html#api.serializers.TicketSerializer">TicketSerializer (class in api.serializers)</a>
+</li>
+        <li><a href="api.html#api.serializers.TicketSerializer.Meta">TicketSerializer.Meta (class in api.serializers)</a>
+</li>
+        <li><a href="api.models.html#api.models.hours.Hour.time_in">time_in (api.models.hours.Hour attribute)</a>
+</li>
+        <li><a href="api.models.html#api.models.hours.Hour.time_out">time_out (api.models.hours.Hour attribute)</a>
+</li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="models/ticket.html#api.models.ticket.TicketManager">TicketManager (class in api.models.ticket)</a>
+        <li><a href="api.models.html#api.models.ticket.Ticket.title">title (api.models.ticket.Ticket attribute)</a>, <a href="models/ticket.html#api.models.ticket.Ticket.title">[1]</a>
 </li>
-        <li><a href="models/ticket.html#api.models.ticket.Ticket.tutor">tutor (api.models.ticket.Ticket attribute)</a>
+        <li><a href="api.models.html#api.models.tutor.Tutor.to_date">to_date (api.models.tutor.Tutor attribute)</a>
+</li>
+        <li><a href="api.models.html#api.models.hours.Hour.Day.TUESDAY">TUESDAY (api.models.hours.Hour.Day attribute)</a>
+</li>
+        <li><a href="api.models.html#api.models.work_hours.WorkingHours.tuesdayIn">tuesdayIn (api.models.work_hours.WorkingHours attribute)</a>
+</li>
+        <li><a href="api.models.html#api.models.work_hours.WorkingHours.tuesdayOut">tuesdayOut (api.models.work_hours.WorkingHours attribute)</a>
+</li>
+        <li><a href="api.models.html#api.models.hours.Hour.tutor">tutor (api.models.hours.Hour attribute)</a>
 
         <ul>
-          <li><a href="models/user.html#api.models.user.User.tutor">(api.models.user.User attribute)</a>
+          <li><a href="api.models.html#api.models.ticket.Ticket.tutor">(api.models.ticket.Ticket attribute)</a>, <a href="models/ticket.html#api.models.ticket.Ticket.tutor">[1]</a>
+</li>
+          <li><a href="api.models.html#api.models.user.User.tutor">(api.models.user.User attribute)</a>, <a href="models/user.html#api.models.user.User.tutor">[1]</a>
+</li>
+          <li><a href="api.models.html#api.models.work_hours.WorkingHours.tutor">(api.models.work_hours.WorkingHours attribute)</a>
 </li>
         </ul></li>
-        <li><a href="models/ticket.html#api.models.ticket.Ticket.tutor_comments">tutor_comments (api.models.ticket.Ticket attribute)</a>
+        <li><a href="api.models.html#api.models.tutor.Tutor">Tutor (class in api.models.tutor)</a>
 </li>
-        <li><a href="models/ticket.html#api.models.ticket.Ticket.tutor_id">tutor_id (api.models.ticket.Ticket attribute)</a>
+        <li><a href="api.models.html#api.models.tutor.Tutor.DoesNotExist">Tutor.DoesNotExist</a>
 </li>
-        <li><a href="models/user.html#api.models.user.User.tutor_ticket">tutor_ticket (api.models.user.User attribute)</a>
+        <li><a href="api.models.html#api.models.tutor.Tutor.MultipleObjectsReturned">Tutor.MultipleObjectsReturned</a>
 </li>
-        <li><a href="models/user.html#api.models.user.TutorManager">TutorManager (class in api.models.user)</a>
+        <li><a href="api.models.html#api.models.hours.Hour.tutor_id">tutor_id (api.models.hours.Hour attribute)</a>
+
+        <ul>
+          <li><a href="api.models.html#api.models.ticket.Ticket.tutor_id">(api.models.ticket.Ticket attribute)</a>, <a href="models/ticket.html#api.models.ticket.Ticket.tutor_id">[1]</a>
+</li>
+          <li><a href="api.models.html#api.models.work_hours.WorkingHours.tutor_id">(api.models.work_hours.WorkingHours attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="api.models.html#api.models.user.User.tutor_ticket">tutor_ticket (api.models.user.User attribute)</a>, <a href="models/user.html#api.models.user.User.tutor_ticket">[1]</a>
+</li>
+        <li><a href="api.html#api.serializers.TutorHourSerializer">TutorHourSerializer (class in api.serializers)</a>
+</li>
+        <li><a href="api.html#api.serializers.TutorHourSerializer.Meta">TutorHourSerializer.Meta (class in api.serializers)</a>
+</li>
+        <li><a href="api.models.html#api.models.user.TutorManager">TutorManager (class in api.models.user)</a>, <a href="models/user.html#api.models.user.TutorManager">[1]</a>
+</li>
+        <li><a href="api.models.html#api.models.announcement.Announcement.tutors_only">tutors_only (api.models.announcement.Announcement attribute)</a>
 </li>
     </ul></td>
   </tr></table>
@@ -963,19 +1618,39 @@
   <h2>U</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="models/user.html#api.models.user.User">User (class in api.models.user)</a>
+        <li><a href="api.models.html#api.models.ticket.Ticket.updated_at">updated_at (api.models.ticket.Ticket attribute)</a>, <a href="models/ticket.html#api.models.ticket.Ticket.updated_at">[1]</a>
 </li>
-        <li><a href="models/user.html#api.models.user.User.DoesNotExist">User.DoesNotExist</a>
+        <li><a href="api.models.html#api.models.user.User">User (class in api.models.user)</a>, <a href="models/user.html#api.models.user.User">[1]</a>
 </li>
-        <li><a href="models/user.html#api.models.user.User.MultipleObjectsReturned">User.MultipleObjectsReturned</a>
+        <li><a href="api.models.html#api.models.user.User.DoesNotExist">User.DoesNotExist</a>, <a href="models/user.html#api.models.user.User.DoesNotExist">[1]</a>
+</li>
+        <li><a href="api.models.html#api.models.user.User.MultipleObjectsReturned">User.MultipleObjectsReturned</a>, <a href="models/user.html#api.models.user.User.MultipleObjectsReturned">[1]</a>
 </li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="models/user.html#api.models.user.User.user_bio">user_bio (api.models.user.User attribute)</a>
+        <li><a href="api.models.html#api.models.user.User.user_bio">user_bio (api.models.user.User attribute)</a>, <a href="models/user.html#api.models.user.User.user_bio">[1]</a>
 </li>
-        <li><a href="models/course.html#api.models.course.Course.usertocoursetaken">usertocoursetaken (api.models.course.Course attribute)</a>
+        <li><a href="api.html#api.serializers.UserSerializer">UserSerializer (class in api.serializers)</a>
 </li>
-        <li><a href="models/course.html#api.models.course.Course.usertocoursetutored">usertocoursetutored (api.models.course.Course attribute)</a>
+        <li><a href="api.html#api.serializers.UserSerializer.Meta">UserSerializer.Meta (class in api.serializers)</a>
+</li>
+        <li><a href="api.models.html#api.models.course.Course.usertocoursetaken">usertocoursetaken (api.models.course.Course attribute)</a>, <a href="models/course.html#api.models.course.Course.usertocoursetaken">[1]</a>
+</li>
+        <li><a href="api.models.html#api.models.course.Course.usertocoursetutored">usertocoursetutored (api.models.course.Course attribute)</a>, <a href="models/course.html#api.models.course.Course.usertocoursetutored">[1]</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="V" class="genindex-section">
+  <h2>V</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api.models.html#api.models.color.Color.verbose_name_plural">verbose_name_plural (api.models.color.Color attribute)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api.models.html#api.models.color.Color.ColorChoices.VIOLET">VIOLET (api.models.color.Color.ColorChoices attribute)</a>
 </li>
     </ul></td>
   </tr></table>
@@ -985,19 +1660,43 @@
   <h2>W</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="models/ticket.html#api.models.ticket.Ticket.was_reopened">was_reopened (api.models.ticket.Ticket attribute)</a>
+        <li><a href="api.models.html#api.models.ticket.Ticket.was_flagged">was_flagged (api.models.ticket.Ticket attribute)</a>, <a href="models/ticket.html#api.models.ticket.Ticket.was_flagged">[1]</a>
 </li>
-        <li><a href="models/ticket.html#api.models.ticket.Ticket.was_successful">was_successful (api.models.ticket.Ticket attribute)</a>
+        <li><a href="api.models.html#api.models.ticket.Ticket.was_reopened">was_reopened (api.models.ticket.Ticket attribute)</a>, <a href="models/ticket.html#api.models.ticket.Ticket.was_reopened">[1]</a>
 </li>
-        <li><a href="models/user.html#api.models.user.User.workinghours_set">workinghours_set (api.models.user.User attribute)</a>
+        <li><a href="api.models.html#api.models.ticket.Ticket.was_successful">was_successful (api.models.ticket.Ticket attribute)</a>, <a href="models/ticket.html#api.models.ticket.Ticket.was_successful">[1]</a>
+</li>
+        <li><a href="api.models.html#api.models.hours.Hour.Day.WEDNESDAY">WEDNESDAY (api.models.hours.Hour.Day attribute)</a>
+</li>
+        <li><a href="api.models.html#api.models.work_hours.WorkingHours.wednesdayIn">wednesdayIn (api.models.work_hours.WorkingHours attribute)</a>
+</li>
+        <li><a href="api.models.html#api.models.work_hours.WorkingHours.wednesdayOut">wednesdayOut (api.models.work_hours.WorkingHours attribute)</a>
 </li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="scripts/load-semester.html#api.scripts.load_semester.ParseSemester.write_courses">write_courses() (api.scripts.load_semester.ParseSemester method)</a>
+        <li><a href="api.models.html#api.models.work_hours.WorkingHours">WorkingHours (class in api.models.work_hours)</a>
 </li>
-        <li><a href="scripts/load-semester.html#api.scripts.load_semester.ParseSemester.write_professors">write_professors() (api.scripts.load_semester.ParseSemester method)</a>
+        <li><a href="api.models.html#api.models.work_hours.WorkingHours.DoesNotExist">WorkingHours.DoesNotExist</a>
 </li>
-        <li><a href="scripts/load-semester.html#api.scripts.load_semester.ParseSemester.write_sections">write_sections() (api.scripts.load_semester.ParseSemester method)</a>
+        <li><a href="api.models.html#api.models.work_hours.WorkingHours.MultipleObjectsReturned">WorkingHours.MultipleObjectsReturned</a>
+</li>
+        <li><a href="api.models.html#api.models.user.User.workinghours_set">workinghours_set (api.models.user.User attribute)</a>, <a href="models/user.html#api.models.user.User.workinghours_set">[1]</a>
+</li>
+        <li><a href="api.scripts.html#api.scripts.load_semester.ParseSemester.write_courses">write_courses() (api.scripts.load_semester.ParseSemester method)</a>, <a href="api.scripts.html#id9">[1]</a>, <a href="scripts/load-semester.html#api.scripts.load_semester.ParseSemester.write_courses">[2]</a>, <a href="scripts/load-semester.html#id9">[3]</a>
+</li>
+        <li><a href="api.scripts.html#api.scripts.load_semester.ParseSemester.write_professors">write_professors() (api.scripts.load_semester.ParseSemester method)</a>, <a href="api.scripts.html#id10">[1]</a>, <a href="scripts/load-semester.html#api.scripts.load_semester.ParseSemester.write_professors">[2]</a>, <a href="scripts/load-semester.html#id10">[3]</a>
+</li>
+        <li><a href="api.scripts.html#api.scripts.load_semester.ParseSemester.write_sections">write_sections() (api.scripts.load_semester.ParseSemester method)</a>, <a href="api.scripts.html#id11">[1]</a>, <a href="scripts/load-semester.html#api.scripts.load_semester.ParseSemester.write_sections">[2]</a>, <a href="scripts/load-semester.html#id11">[3]</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="Y" class="genindex-section">
+  <h2>Y</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api.models.html#api.models.color.Color.ColorChoices.YELLOW">YELLOW (api.models.color.Color.ColorChoices attribute)</a>
 </li>
     </ul></td>
   </tr></table>

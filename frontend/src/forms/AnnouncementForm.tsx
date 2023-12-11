@@ -1,3 +1,47 @@
+/**
+ * AnnouncementForm React Component Documentation
+ * -------------------------------------------------------------
+ * The `AnnouncementForm` component is a React form used for creating announcements. It includes fields for the announcement title,
+ * body, variant, start date, end date, and an option to show dates. The form provides input validation, dynamic character count display,
+ * date selection using a calendar, and announcement type selection using a dropdown.
+ *
+ * Overview:
+ * - **Form Initialization**: The form is initialized using the `useForm` hook from `react-hook-form`. It uses the `FormSchema` provided by
+ * the `zod` library for validation.
+ *
+ * - **Form Submission**: The form submission is handled by the `onSubmit` function, which displays a toast message with the submitted values.
+ *
+ * - **Form Fields and Validation**: Various form fields are utilized, including `Input`, `Textarea`, `Select`, and custom components such
+ * as `Switch`. The form includes validation for title, body, variant, start date, end date, and show date.
+ *
+ * - **Popover and Calendar**: The form uses a `Popover` with a `Calendar` component for date selection, providing an interactive calendar
+ * for users to choose start and end dates.
+ *
+ * - **Character Count Display**: The character count for the announcement body is dynamically displayed, providing visual feedback to users.
+ *
+ * - **Toast Message**: A toast message is displayed upon successful form submission, showing the submitted values.
+ *
+ * Usage:
+ * To use the `AnnouncementForm` component, integrate it into the desired page or component. The form handles the creation of new announcements,
+ * including input validation, dynamic character count display, and date selection.
+ *
+ * Example:
+ * ```jsx
+ * import AnnouncementForm from "@/path/to/AnnouncementForm";
+ *
+ * function CreateAnnouncementPage() {
+ *   return (
+ *     <div>
+ *       <h1>Create a New Announcement</h1>
+ *       <AnnouncementForm />
+ *     </div>
+ *   );
+ * }
+ * ```
+ *
+ * This documentation provides an overview of the `AnnouncementForm` component and its key features. For more detailed information on specific
+ * functions or components, refer to the source code and relevant inline comments.
+ */
 import { CalendarIcon } from "@radix-ui/react-icons";
 import { cn } from "@/lib/utils";
 import { Calendar } from "@/components/ui/calendar";

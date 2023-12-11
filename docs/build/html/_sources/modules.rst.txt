@@ -6,4 +6,4 @@ University of Nebraska Tutor Portal
    :caption: please...
    :hidden:
 
-   endpoints/index
+   index

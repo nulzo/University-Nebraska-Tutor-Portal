@@ -199,6 +199,15 @@
 <p class="caption" role="heading"><span class="caption-text">CSLC Portal Frontend</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../forms/index.html">Forms</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Forms</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../forms/ticket.html">TicketForm TypeScript Module Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forms/ticket.html#ticketform-react-component-documentation">TicketForm React Component Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forms/announcement.html">AnnouncementForm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forms/theme.html">ThemeProvider React Component Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forms/toggle.html">ModeToggle React Component Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forms/tutor.html">TutorTicketForm React Component Documentation</a></li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -281,6 +290,11 @@ object the first time, the query is executed.</p>
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="api.models.professor.Professor.generic">
+<span class="sig-name descname"><span class="pre">generic</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#api.models.professor.Professor.generic" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="api.models.professor.Professor.is_active">
 <span class="sig-name descname"><span class="pre">is_active</span></span><a class="headerlink" href="#api.models.professor.Professor.is_active" title="Link to this definition">#</a></dt>
 <dd><p>A wrapper for a deferred-loading field. When the value is read from this
@@ -293,11 +307,6 @@ object the first time, the query is executed.</p>
 <dd><p>A wrapper for a deferred-loading field. When the value is read from this
 object the first time, the query is executed.</p>
 </dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="api.models.professor.Professor.prof">
-<span class="sig-name descname"><span class="pre">prof</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#api.models.professor.Professor.prof" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="api.models.professor.Professor.professor">
@@ -423,9 +432,9 @@ class built by <code class="docutils literal notranslate"><span class="pre">crea
 <li><a class="reference internal" href="#api.models.professor.Professor.email"><code class="docutils literal notranslate"><span class="pre">Professor.email</span></code></a></li>
 <li><a class="reference internal" href="#api.models.professor.Professor.first_name"><code class="docutils literal notranslate"><span class="pre">Professor.first_name</span></code></a></li>
 <li><a class="reference internal" href="#api.models.professor.Professor.full_name"><code class="docutils literal notranslate"><span class="pre">Professor.full_name</span></code></a></li>
+<li><a class="reference internal" href="#api.models.professor.Professor.generic"><code class="docutils literal notranslate"><span class="pre">Professor.generic</span></code></a></li>
 <li><a class="reference internal" href="#api.models.professor.Professor.is_active"><code class="docutils literal notranslate"><span class="pre">Professor.is_active</span></code></a></li>
 <li><a class="reference internal" href="#api.models.professor.Professor.last_name"><code class="docutils literal notranslate"><span class="pre">Professor.last_name</span></code></a></li>
-<li><a class="reference internal" href="#api.models.professor.Professor.prof"><code class="docutils literal notranslate"><span class="pre">Professor.prof</span></code></a></li>
 <li><a class="reference internal" href="#api.models.professor.Professor.professor"><code class="docutils literal notranslate"><span class="pre">Professor.professor</span></code></a></li>
 <li><a class="reference internal" href="#api.models.professor.Professor.professor_id"><code class="docutils literal notranslate"><span class="pre">Professor.professor_id</span></code></a></li>
 <li><a class="reference internal" href="#api.models.professor.Professor.section_set"><code class="docutils literal notranslate"><span class="pre">Professor.section_set</span></code></a></li>

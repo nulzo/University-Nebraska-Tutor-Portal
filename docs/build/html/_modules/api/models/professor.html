@@ -237,16 +237,16 @@
 
 
 <div class="viewcode-block" id="ProfessorManager">
-<a class="viewcode-back" href="../../../models/professor.html#api.models.professor.ProfessorManager">[docs]</a>
+<a class="viewcode-back" href="../../../api.models.html#api.models.professor.ProfessorManager">[docs]</a>
 <span class="k">class</span> <span class="nc">ProfessorManager</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Manager</span><span class="p">):</span>
 <div class="viewcode-block" id="ProfessorManager.get_professors">
-<a class="viewcode-back" href="../../../models/professor.html#api.models.professor.ProfessorManager.get_professors">[docs]</a>
+<a class="viewcode-back" href="../../../api.models.html#api.models.professor.ProfessorManager.get_professors">[docs]</a>
     <span class="k">def</span> <span class="nf">get_professors</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySet</span><span class="p">:</span>
         <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">get_queryset</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span></div>
 
 
 <div class="viewcode-block" id="ProfessorManager.get_professor">
-<a class="viewcode-back" href="../../../models/professor.html#api.models.professor.ProfessorManager.get_professor">[docs]</a>
+<a class="viewcode-back" href="../../../api.models.html#api.models.professor.ProfessorManager.get_professor">[docs]</a>
     <span class="k">def</span> <span class="nf">get_professor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">professor</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySet</span><span class="p">:</span>
         <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">get_queryset</span><span class="p">()</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">full_name</span><span class="o">=</span><span class="n">professor</span><span class="p">)</span></div>
 </div>
@@ -254,7 +254,7 @@
 
 
 <div class="viewcode-block" id="Professor">
-<a class="viewcode-back" href="../../../models/professor.html#api.models.professor.Professor">[docs]</a>
+<a class="viewcode-back" href="../../../api.models.html#api.models.professor.Professor">[docs]</a>
 <span class="k">class</span> <span class="nc">Professor</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The professor table holds all details attributed to a professor.</span>
@@ -273,11 +273,11 @@
     <span class="n">email</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
     <span class="n">is_active</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">BooleanField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">professor_id</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">BigIntegerField</span><span class="p">(</span>
-        <span class="n">unique</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span>
+        <span class="n">unique</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span>
     <span class="p">)</span>
 
     <span class="n">professor</span> <span class="o">=</span> <span class="n">ProfessorManager</span><span class="p">()</span>
-    <span class="n">prof</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Manager</span><span class="p">()</span>
+    <span class="n">generic</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Manager</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">full_name</span><span class="p">)</span></div>

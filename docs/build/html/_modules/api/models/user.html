@@ -239,16 +239,16 @@
 
 
 <div class="viewcode-block" id="StudentManager">
-<a class="viewcode-back" href="../../../models/user.html#api.models.user.StudentManager">[docs]</a>
+<a class="viewcode-back" href="../../../api.models.html#api.models.user.StudentManager">[docs]</a>
 <span class="k">class</span> <span class="nc">StudentManager</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Manager</span><span class="p">):</span>
 <div class="viewcode-block" id="StudentManager.get_students">
-<a class="viewcode-back" href="../../../models/user.html#api.models.user.StudentManager.get_students">[docs]</a>
+<a class="viewcode-back" href="../../../api.models.html#api.models.user.StudentManager.get_students">[docs]</a>
     <span class="k">def</span> <span class="nf">get_students</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySet</span><span class="p">:</span>
         <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">get_queryset</span><span class="p">()</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">is_tutor</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">is_admin</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="StudentManager.get_student">
-<a class="viewcode-back" href="../../../models/user.html#api.models.user.StudentManager.get_student">[docs]</a>
+<a class="viewcode-back" href="../../../api.models.html#api.models.user.StudentManager.get_student">[docs]</a>
     <span class="k">def</span> <span class="nf">get_student</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySet</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">(</span>
             <span class="nb">super</span><span class="p">()</span>
@@ -262,16 +262,16 @@
 
 
 <div class="viewcode-block" id="TutorManager">
-<a class="viewcode-back" href="../../../models/user.html#api.models.user.TutorManager">[docs]</a>
+<a class="viewcode-back" href="../../../api.models.html#api.models.user.TutorManager">[docs]</a>
 <span class="k">class</span> <span class="nc">TutorManager</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Manager</span><span class="p">):</span>
 <div class="viewcode-block" id="TutorManager.get_tutors">
-<a class="viewcode-back" href="../../../models/user.html#api.models.user.TutorManager.get_tutors">[docs]</a>
+<a class="viewcode-back" href="../../../api.models.html#api.models.user.TutorManager.get_tutors">[docs]</a>
     <span class="k">def</span> <span class="nf">get_tutors</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySet</span><span class="p">:</span>
         <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">get_queryset</span><span class="p">()</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">is_tutor</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="TutorManager.get_tutor">
-<a class="viewcode-back" href="../../../models/user.html#api.models.user.TutorManager.get_tutor">[docs]</a>
+<a class="viewcode-back" href="../../../api.models.html#api.models.user.TutorManager.get_tutor">[docs]</a>
     <span class="k">def</span> <span class="nf">get_tutor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySet</span><span class="p">:</span>
         <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">get_queryset</span><span class="p">()</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">is_tutor</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">name</span><span class="p">)</span></div>
 </div>
@@ -279,10 +279,10 @@
 
 
 <div class="viewcode-block" id="AdminManager">
-<a class="viewcode-back" href="../../../models/user.html#api.models.user.AdminManager">[docs]</a>
+<a class="viewcode-back" href="../../../api.models.html#api.models.user.AdminManager">[docs]</a>
 <span class="k">class</span> <span class="nc">AdminManager</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Manager</span><span class="p">):</span>
 <div class="viewcode-block" id="AdminManager.get_admins">
-<a class="viewcode-back" href="../../../models/user.html#api.models.user.AdminManager.get_admins">[docs]</a>
+<a class="viewcode-back" href="../../../api.models.html#api.models.user.AdminManager.get_admins">[docs]</a>
     <span class="k">def</span> <span class="nf">get_admins</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySet</span><span class="p">:</span>
         <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">get_queryset</span><span class="p">()</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">is_admin</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
 </div>
@@ -290,7 +290,7 @@
 
 
 <div class="viewcode-block" id="User">
-<a class="viewcode-back" href="../../../models/user.html#api.models.user.User">[docs]</a>
+<a class="viewcode-back" href="../../../api.models.html#api.models.user.User">[docs]</a>
 <span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Generic user model for all active users of the application. Flags are used</span>

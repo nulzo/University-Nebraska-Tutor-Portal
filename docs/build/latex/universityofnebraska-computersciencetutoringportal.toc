@@ -22,6 +22,32 @@
 \contentsline {section}{\numberline {5.4}base.urls module}{21}{section.5.4}%
 \contentsline {section}{\numberline {5.5}base.wsgi module}{22}{section.5.5}%
 \contentsline {section}{\numberline {5.6}Module contents}{22}{section.5.6}%
-\contentsline {chapter}{\numberline {6}Indices and tables}{23}{chapter.6}%
-\contentsline {chapter}{Python Module Index}{25}{section*.192}%
-\contentsline {chapter}{Index}{27}{section*.193}%
+\contentsline {chapter}{\numberline {6}Forms}{23}{chapter.6}%
+\contentsline {section}{\numberline {6.1}TicketForm TypeScript Module Documentation}{23}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Overview}{23}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Key Components}{23}{subsection.6.1.2}%
+\contentsline {section}{\numberline {6.2}TicketForm React Component Documentation}{24}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Overview}{24}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Usage}{24}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}Usage}{25}{subsection.6.2.3}%
+\contentsline {section}{\numberline {6.3}AnnouncementForm}{25}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Form Schema}{25}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Submitting the Form}{25}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.3}Rendering the Form}{25}{subsection.6.3.3}%
+\contentsline {subsection}{\numberline {6.3.4}UI Components}{26}{subsection.6.3.4}%
+\contentsline {subsection}{\numberline {6.3.5}Character Limits}{26}{subsection.6.3.5}%
+\contentsline {subsection}{\numberline {6.3.6}Form Submission}{26}{subsection.6.3.6}%
+\contentsline {section}{\numberline {6.4}ThemeProvider React Component Documentation}{26}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Overview}{26}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Key Components}{26}{subsection.6.4.2}%
+\contentsline {subsection}{\numberline {6.4.3}Usage}{27}{subsection.6.4.3}%
+\contentsline {section}{\numberline {6.5}ModeToggle React Component Documentation}{28}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}Overview}{28}{subsection.6.5.1}%
+\contentsline {subsection}{\numberline {6.5.2}Key Components}{28}{subsection.6.5.2}%
+\contentsline {subsection}{\numberline {6.5.3}Usage}{28}{subsection.6.5.3}%
+\contentsline {section}{\numberline {6.6}TutorTicketForm React Component Documentation}{29}{section.6.6}%
+\contentsline {subsection}{\numberline {6.6.1}Overview}{29}{subsection.6.6.1}%
+\contentsline {subsection}{\numberline {6.6.2}Usage}{29}{subsection.6.6.2}%
+\contentsline {chapter}{\numberline {7}Indices and tables}{31}{chapter.7}%
+\contentsline {chapter}{Python Module Index}{33}{section*.198}%
+\contentsline {chapter}{Index}{35}{section*.199}%

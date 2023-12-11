@@ -199,6 +199,15 @@
 <p class="caption" role="heading"><span class="caption-text">CSLC Portal Frontend</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../forms/index.html">Forms</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Forms</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../forms/ticket.html">TicketForm TypeScript Module Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forms/ticket.html#ticketform-react-component-documentation">TicketForm React Component Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forms/announcement.html">AnnouncementForm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forms/theme.html">ThemeProvider React Component Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forms/toggle.html">ModeToggle React Component Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forms/tutor.html">TutorTicketForm React Component Documentation</a></li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -236,58 +245,28 @@
           <section id="module-api.endpoints.ticket">
 <span id="ticket"></span><h1>Ticket<a class="headerlink" href="#module-api.endpoints.ticket" title="Link to this heading">#</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="api.endpoints.ticket.APITicketList">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">api.endpoints.ticket.</span></span><span class="sig-name descname"><span class="pre">APITicketList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/api/endpoints/ticket.html#APITicketList"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.endpoints.ticket.APITicketList" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="api.endpoints.ticket.APITicketDetail">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">api.endpoints.ticket.</span></span><span class="sig-name descname"><span class="pre">APITicketDetail</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/api/endpoints/ticket.html#APITicketDetail"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.endpoints.ticket.APITicketDetail" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">APIView</span></code></p>
 <dl class="py method">
-<dt class="sig sig-object py" id="api.endpoints.ticket.APITicketList.get">
-<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Request</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Response</span></span></span><a class="reference internal" href="../_modules/api/endpoints/ticket.html#APITicketList.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.endpoints.ticket.APITicketList.get" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="api.endpoints.ticket.APITicketDetail.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ticket_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Response</span></span></span><a class="reference internal" href="../_modules/api/endpoints/ticket.html#APITicketDetail.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.endpoints.ticket.APITicketDetail.get" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="api.endpoints.ticket.APITicketList.get_course_id">
-<span class="sig-name descname"><span class="pre">get_course_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">course_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../models/course.html#api.models.course.Course" title="api.models.course.Course"><span class="pre">Course</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/api/endpoints/ticket.html#APITicketList.get_course_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.endpoints.ticket.APITicketList.get_course_id" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="api.endpoints.ticket.APITicketList.get_issue_id">
-<span class="sig-name descname"><span class="pre">get_issue_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">issue_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../models/issue.html#api.models.issue.Issues" title="api.models.issue.Issues"><span class="pre">Issues</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/api/endpoints/ticket.html#APITicketList.get_issue_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.endpoints.ticket.APITicketList.get_issue_id" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="api.endpoints.ticket.APITicketList.get_professor_id">
-<span class="sig-name descname"><span class="pre">get_professor_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">professor_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../models/professor.html#api.models.professor.Professor" title="api.models.professor.Professor"><span class="pre">Professor</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/api/endpoints/ticket.html#APITicketList.get_professor_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.endpoints.ticket.APITicketList.get_professor_id" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="api.endpoints.ticket.APITicketList.get_querystring">
-<span class="sig-name descname"><span class="pre">get_querystring</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Request</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Response</span></span></span><a class="reference internal" href="../_modules/api/endpoints/ticket.html#APITicketList.get_querystring"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.endpoints.ticket.APITicketList.get_querystring" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="api.endpoints.ticket.APITicketList.get_user_id">
-<span class="sig-name descname"><span class="pre">get_user_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../models/user.html#api.models.user.User" title="api.models.user.User"><span class="pre">User</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/api/endpoints/ticket.html#APITicketList.get_user_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.endpoints.ticket.APITicketList.get_user_id" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="api.endpoints.ticket.APITicketList.post">
-<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Response</span></span></span><a class="reference internal" href="../_modules/api/endpoints/ticket.html#APITicketList.post"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.endpoints.ticket.APITicketList.post" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="api.endpoints.ticket.APITicketDetail.patch">
+<span class="sig-name descname"><span class="pre">patch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ticket_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Response</span></span></span><a class="reference internal" href="../_modules/api/endpoints/ticket.html#APITicketDetail.patch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.endpoints.ticket.APITicketDetail.patch" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="api.endpoints.ticket.APITicketList.renderer_classes">
-<span class="sig-name descname"><span class="pre">renderer_classes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(&lt;class</span> <span class="pre">'rest_framework.renderers.BrowsableAPIRenderer'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'rest_framework.renderers.JSONRenderer'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'rest_framework.renderers.HTMLFormRenderer'&gt;)</span></em><a class="headerlink" href="#api.endpoints.ticket.APITicketList.renderer_classes" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="api.endpoints.ticket.APITicketList.sanitize">
-<span class="sig-name descname"><span class="pre">sanitize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">querystring</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/api/endpoints/ticket.html#APITicketList.sanitize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.endpoints.ticket.APITicketList.sanitize" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="api.endpoints.ticket.APITicketDetail.renderer_classes">
+<span class="sig-name descname"><span class="pre">renderer_classes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(&lt;class</span> <span class="pre">'rest_framework.renderers.BrowsableAPIRenderer'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'rest_framework.renderers.JSONRenderer'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'rest_framework.renderers.HTMLFormRenderer'&gt;)</span></em><a class="headerlink" href="#api.endpoints.ticket.APITicketDetail.renderer_classes" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="api.endpoints.ticket.APITicketList.serializer_class">
-<span class="sig-name descname"><span class="pre">serializer_class</span></span><a class="headerlink" href="#api.endpoints.ticket.APITicketList.serializer_class" title="Link to this definition">#</a></dt>
-<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">TicketGetSerializer</span></code></p>
+<dt class="sig sig-object py" id="api.endpoints.ticket.APITicketDetail.serializer_class">
+<span class="sig-name descname"><span class="pre">serializer_class</span></span><a class="headerlink" href="#api.endpoints.ticket.APITicketDetail.serializer_class" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="../api.html#api.serializers.TicketGetSerializer" title="api.serializers.TicketGetSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">TicketGetSerializer</span></code></a></p>
 </dd></dl>
 
 </dd></dl>
@@ -303,7 +282,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="api.endpoints.ticket.APITicketView.get_querystring">
-<span class="sig-name descname"><span class="pre">get_querystring</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Request</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Response</span></span></span><a class="reference internal" href="../_modules/api/endpoints/ticket.html#APITicketView.get_querystring"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.endpoints.ticket.APITicketView.get_querystring" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">get_querystring</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Request</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a></span></span><a class="reference internal" href="../_modules/api/endpoints/ticket.html#APITicketView.get_querystring"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.endpoints.ticket.APITicketView.get_querystring" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -324,7 +303,7 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="api.endpoints.ticket.APITicketView.serializer_class">
 <span class="sig-name descname"><span class="pre">serializer_class</span></span><a class="headerlink" href="#api.endpoints.ticket.APITicketView.serializer_class" title="Link to this definition">#</a></dt>
-<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">TicketSerializer</span></code></p>
+<dd><p>alias of <a class="reference internal" href="../api.html#api.serializers.TicketSerializer" title="api.serializers.TicketSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">TicketSerializer</span></code></a></p>
 </dd></dl>
 
 </dd></dl>
@@ -387,17 +366,11 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Ticket</a><ul>
-<li><a class="reference internal" href="#api.endpoints.ticket.APITicketList"><code class="docutils literal notranslate"><span class="pre">APITicketList</span></code></a><ul>
-<li><a class="reference internal" href="#api.endpoints.ticket.APITicketList.get"><code class="docutils literal notranslate"><span class="pre">APITicketList.get()</span></code></a></li>
-<li><a class="reference internal" href="#api.endpoints.ticket.APITicketList.get_course_id"><code class="docutils literal notranslate"><span class="pre">APITicketList.get_course_id()</span></code></a></li>
-<li><a class="reference internal" href="#api.endpoints.ticket.APITicketList.get_issue_id"><code class="docutils literal notranslate"><span class="pre">APITicketList.get_issue_id()</span></code></a></li>
-<li><a class="reference internal" href="#api.endpoints.ticket.APITicketList.get_professor_id"><code class="docutils literal notranslate"><span class="pre">APITicketList.get_professor_id()</span></code></a></li>
-<li><a class="reference internal" href="#api.endpoints.ticket.APITicketList.get_querystring"><code class="docutils literal notranslate"><span class="pre">APITicketList.get_querystring()</span></code></a></li>
-<li><a class="reference internal" href="#api.endpoints.ticket.APITicketList.get_user_id"><code class="docutils literal notranslate"><span class="pre">APITicketList.get_user_id()</span></code></a></li>
-<li><a class="reference internal" href="#api.endpoints.ticket.APITicketList.post"><code class="docutils literal notranslate"><span class="pre">APITicketList.post()</span></code></a></li>
-<li><a class="reference internal" href="#api.endpoints.ticket.APITicketList.renderer_classes"><code class="docutils literal notranslate"><span class="pre">APITicketList.renderer_classes</span></code></a></li>
-<li><a class="reference internal" href="#api.endpoints.ticket.APITicketList.sanitize"><code class="docutils literal notranslate"><span class="pre">APITicketList.sanitize()</span></code></a></li>
-<li><a class="reference internal" href="#api.endpoints.ticket.APITicketList.serializer_class"><code class="docutils literal notranslate"><span class="pre">APITicketList.serializer_class</span></code></a></li>
+<li><a class="reference internal" href="#api.endpoints.ticket.APITicketDetail"><code class="docutils literal notranslate"><span class="pre">APITicketDetail</span></code></a><ul>
+<li><a class="reference internal" href="#api.endpoints.ticket.APITicketDetail.get"><code class="docutils literal notranslate"><span class="pre">APITicketDetail.get()</span></code></a></li>
+<li><a class="reference internal" href="#api.endpoints.ticket.APITicketDetail.patch"><code class="docutils literal notranslate"><span class="pre">APITicketDetail.patch()</span></code></a></li>
+<li><a class="reference internal" href="#api.endpoints.ticket.APITicketDetail.renderer_classes"><code class="docutils literal notranslate"><span class="pre">APITicketDetail.renderer_classes</span></code></a></li>
+<li><a class="reference internal" href="#api.endpoints.ticket.APITicketDetail.serializer_class"><code class="docutils literal notranslate"><span class="pre">APITicketDetail.serializer_class</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#api.endpoints.ticket.APITicketView"><code class="docutils literal notranslate"><span class="pre">APITicketView</span></code></a><ul>
