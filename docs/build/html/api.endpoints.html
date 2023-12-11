@@ -253,15 +253,32 @@
 <dt class="sig sig-object py" id="api.endpoints.authenticate.APIAuthenticateList">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">api.endpoints.authenticate.</span></span><span class="sig-name descname"><span class="pre">APIAuthenticateList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/api/endpoints/authenticate.html#APIAuthenticateList"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.endpoints.authenticate.APIAuthenticateList" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">APIView</span></code></p>
+<p>View for authenticating users in the CSLC Ticket Portal API.</p>
+<p>Attributes:
+- serializer_class: UserSerializer instance for serializing user data.
+- renderer_classes: Tuple of renderer classes for API view.</p>
+<p>Methods:
+- get: Retrieves a list of all users and returns serialized user data.
+- post: Creates a new user and returns serialized user data if valid.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="api.endpoints.authenticate.APIAuthenticateList.get">
 <span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Request</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Response</span></span></span><a class="reference internal" href="_modules/api/endpoints/authenticate.html#APIAuthenticateList.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.endpoints.authenticate.APIAuthenticateList.get" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Handles GET requests to retrieve a list of users.</p>
+<p>Args:
+request (Request): The HTTP request object.</p>
+<p>Returns:
+Response: A response containing a serialized list of users’ data.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="api.endpoints.authenticate.APIAuthenticateList.post">
 <span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Request</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Response</span></span></span><a class="reference internal" href="_modules/api/endpoints/authenticate.html#APIAuthenticateList.post"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.endpoints.authenticate.APIAuthenticateList.post" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Handles POST requests to create a new user or retrieve an existing user.</p>
+<p>Args:
+request (Request): The HTTP request object containing user data.</p>
+<p>Returns:
+Response: A response containing the serialized user data if the user is successfully created, or the error messages if the user data is invalid.</p>
+</dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="api.endpoints.authenticate.APIAuthenticateList.renderer_classes">

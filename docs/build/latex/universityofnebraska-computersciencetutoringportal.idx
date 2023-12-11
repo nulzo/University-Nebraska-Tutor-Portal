@@ -131,18 +131,23 @@
 \indexentry{api.models.ticket@\spxentry{api.models.ticket}!module@\spxentry{module}|hyperpage}{12}
 \indexentry{Ticket (class in api.models.ticket)@\spxentry{Ticket}\spxextra{class in api.models.ticket}|hyperpage}{12}
 \indexentry{CLOSED (api.models.ticket.Ticket attribute)@\spxentry{CLOSED}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{12}
+\indexentry{DIFFICULTY\_CHOICES (api.models.ticket.Ticket attribute)@\spxentry{DIFFICULTY\_CHOICES}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{12}
 \indexentry{Ticket.DoesNotExist@\spxentry{Ticket.DoesNotExist}|hyperpage}{12}
 \indexentry{Ticket.MultipleObjectsReturned@\spxentry{Ticket.MultipleObjectsReturned}|hyperpage}{12}
 \indexentry{NEW (api.models.ticket.Ticket attribute)@\spxentry{NEW}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{12}
 \indexentry{OPENED (api.models.ticket.Ticket attribute)@\spxentry{OPENED}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{12}
 \indexentry{STATUS\_CHOICES (api.models.ticket.Ticket attribute)@\spxentry{STATUS\_CHOICES}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{12}
+\indexentry{asst\_tutor (api.models.ticket.Ticket attribute)@\spxentry{asst\_tutor}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{12}
+\indexentry{asst\_tutor\_id (api.models.ticket.Ticket attribute)@\spxentry{asst\_tutor\_id}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{12}
 \indexentry{closed\_at (api.models.ticket.Ticket attribute)@\spxentry{closed\_at}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{12}
 \indexentry{course (api.models.ticket.Ticket attribute)@\spxentry{course}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{12}
 \indexentry{course\_id (api.models.ticket.Ticket attribute)@\spxentry{course\_id}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{12}
-\indexentry{created\_at (api.models.ticket.Ticket attribute)@\spxentry{created\_at}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{12}
-\indexentry{description (api.models.ticket.Ticket attribute)@\spxentry{description}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{12}
-\indexentry{generic (api.models.ticket.Ticket attribute)@\spxentry{generic}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{12}
-\indexentry{get\_next\_by\_created\_at() (api.models.ticket.Ticket method)@\spxentry{get\_next\_by\_created\_at()}\spxextra{api.models.ticket.Ticket method}|hyperpage}{12}
+\indexentry{created\_at (api.models.ticket.Ticket attribute)@\spxentry{created\_at}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{13}
+\indexentry{description (api.models.ticket.Ticket attribute)@\spxentry{description}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{13}
+\indexentry{difficulty (api.models.ticket.Ticket attribute)@\spxentry{difficulty}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{13}
+\indexentry{generic (api.models.ticket.Ticket attribute)@\spxentry{generic}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{13}
+\indexentry{get\_difficulty\_display() (api.models.ticket.Ticket method)@\spxentry{get\_difficulty\_display()}\spxextra{api.models.ticket.Ticket method}|hyperpage}{13}
+\indexentry{get\_next\_by\_created\_at() (api.models.ticket.Ticket method)@\spxentry{get\_next\_by\_created\_at()}\spxextra{api.models.ticket.Ticket method}|hyperpage}{13}
 \indexentry{get\_next\_by\_updated\_at() (api.models.ticket.Ticket method)@\spxentry{get\_next\_by\_updated\_at()}\spxextra{api.models.ticket.Ticket method}|hyperpage}{13}
 \indexentry{get\_previous\_by\_created\_at() (api.models.ticket.Ticket method)@\spxentry{get\_previous\_by\_created\_at()}\spxextra{api.models.ticket.Ticket method}|hyperpage}{13}
 \indexentry{get\_previous\_by\_updated\_at() (api.models.ticket.Ticket method)@\spxentry{get\_previous\_by\_updated\_at()}\spxextra{api.models.ticket.Ticket method}|hyperpage}{13}
@@ -151,9 +156,9 @@
 \indexentry{issue (api.models.ticket.Ticket attribute)@\spxentry{issue}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{13}
 \indexentry{issue\_id (api.models.ticket.Ticket attribute)@\spxentry{issue\_id}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{13}
 \indexentry{messages\_set (api.models.ticket.Ticket attribute)@\spxentry{messages\_set}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{13}
-\indexentry{name (api.models.ticket.Ticket attribute)@\spxentry{name}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{13}
-\indexentry{opened\_at (api.models.ticket.Ticket attribute)@\spxentry{opened\_at}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{13}
-\indexentry{professor (api.models.ticket.Ticket attribute)@\spxentry{professor}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{13}
+\indexentry{name (api.models.ticket.Ticket attribute)@\spxentry{name}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{14}
+\indexentry{opened\_at (api.models.ticket.Ticket attribute)@\spxentry{opened\_at}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{14}
+\indexentry{professor (api.models.ticket.Ticket attribute)@\spxentry{professor}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{14}
 \indexentry{professor\_id (api.models.ticket.Ticket attribute)@\spxentry{professor\_id}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{14}
 \indexentry{status (api.models.ticket.Ticket attribute)@\spxentry{status}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{14}
 \indexentry{student (api.models.ticket.Ticket attribute)@\spxentry{student}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{14}
@@ -162,11 +167,12 @@
 \indexentry{title (api.models.ticket.Ticket attribute)@\spxentry{title}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{14}
 \indexentry{tutor (api.models.ticket.Ticket attribute)@\spxentry{tutor}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{14}
 \indexentry{tutor\_id (api.models.ticket.Ticket attribute)@\spxentry{tutor\_id}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{14}
-\indexentry{updated\_at (api.models.ticket.Ticket attribute)@\spxentry{updated\_at}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{14}
-\indexentry{was\_reopened (api.models.ticket.Ticket attribute)@\spxentry{was\_reopened}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{14}
-\indexentry{was\_successful (api.models.ticket.Ticket attribute)@\spxentry{was\_successful}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{14}
-\indexentry{TicketManager (class in api.models.ticket)@\spxentry{TicketManager}\spxextra{class in api.models.ticket}|hyperpage}{14}
-\indexentry{get\_active() (api.models.ticket.TicketManager method)@\spxentry{get\_active()}\spxextra{api.models.ticket.TicketManager method}|hyperpage}{14}
+\indexentry{updated\_at (api.models.ticket.Ticket attribute)@\spxentry{updated\_at}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{15}
+\indexentry{was\_flagged (api.models.ticket.Ticket attribute)@\spxentry{was\_flagged}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{15}
+\indexentry{was\_reopened (api.models.ticket.Ticket attribute)@\spxentry{was\_reopened}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{15}
+\indexentry{was\_successful (api.models.ticket.Ticket attribute)@\spxentry{was\_successful}\spxextra{api.models.ticket.Ticket attribute}|hyperpage}{15}
+\indexentry{TicketManager (class in api.models.ticket)@\spxentry{TicketManager}\spxextra{class in api.models.ticket}|hyperpage}{15}
+\indexentry{get\_active() (api.models.ticket.TicketManager method)@\spxentry{get\_active()}\spxextra{api.models.ticket.TicketManager method}|hyperpage}{15}
 \indexentry{get\_all() (api.models.ticket.TicketManager method)@\spxentry{get\_all()}\spxextra{api.models.ticket.TicketManager method}|hyperpage}{15}
 \indexentry{get\_completed() (api.models.ticket.TicketManager method)@\spxentry{get\_completed()}\spxextra{api.models.ticket.TicketManager method}|hyperpage}{15}
 \indexentry{get\_course() (api.models.ticket.TicketManager method)@\spxentry{get\_course()}\spxextra{api.models.ticket.TicketManager method}|hyperpage}{15}
@@ -185,29 +191,29 @@
 \indexentry{get\_students() (api.models.user.StudentManager method)@\spxentry{get\_students()}\spxextra{api.models.user.StudentManager method}|hyperpage}{15}
 \indexentry{TutorManager (class in api.models.user)@\spxentry{TutorManager}\spxextra{class in api.models.user}|hyperpage}{15}
 \indexentry{get\_tutor() (api.models.user.TutorManager method)@\spxentry{get\_tutor()}\spxextra{api.models.user.TutorManager method}|hyperpage}{15}
-\indexentry{get\_tutors() (api.models.user.TutorManager method)@\spxentry{get\_tutors()}\spxextra{api.models.user.TutorManager method}|hyperpage}{15}
-\indexentry{User (class in api.models.user)@\spxentry{User}\spxextra{class in api.models.user}|hyperpage}{15}
-\indexentry{User.DoesNotExist@\spxentry{User.DoesNotExist}|hyperpage}{15}
-\indexentry{MSOID (api.models.user.User attribute)@\spxentry{MSOID}\spxextra{api.models.user.User attribute}|hyperpage}{15}
-\indexentry{User.MultipleObjectsReturned@\spxentry{User.MultipleObjectsReturned}|hyperpage}{15}
+\indexentry{get\_tutors() (api.models.user.TutorManager method)@\spxentry{get\_tutors()}\spxextra{api.models.user.TutorManager method}|hyperpage}{16}
+\indexentry{User (class in api.models.user)@\spxentry{User}\spxextra{class in api.models.user}|hyperpage}{16}
+\indexentry{User.DoesNotExist@\spxentry{User.DoesNotExist}|hyperpage}{16}
+\indexentry{MSOID (api.models.user.User attribute)@\spxentry{MSOID}\spxextra{api.models.user.User attribute}|hyperpage}{16}
+\indexentry{User.MultipleObjectsReturned@\spxentry{User.MultipleObjectsReturned}|hyperpage}{16}
 \indexentry{admin (api.models.user.User attribute)@\spxentry{admin}\spxextra{api.models.user.User attribute}|hyperpage}{16}
 \indexentry{courses\_taken (api.models.user.User attribute)@\spxentry{courses\_taken}\spxextra{api.models.user.User attribute}|hyperpage}{16}
 \indexentry{courses\_tutoring (api.models.user.User attribute)@\spxentry{courses\_tutoring}\spxextra{api.models.user.User attribute}|hyperpage}{16}
 \indexentry{email (api.models.user.User attribute)@\spxentry{email}\spxextra{api.models.user.User attribute}|hyperpage}{16}
 \indexentry{generic (api.models.user.User attribute)@\spxentry{generic}\spxextra{api.models.user.User attribute}|hyperpage}{16}
 \indexentry{hour\_set (api.models.user.User attribute)@\spxentry{hour\_set}\spxextra{api.models.user.User attribute}|hyperpage}{16}
-\indexentry{is\_active (api.models.user.User attribute)@\spxentry{is\_active}\spxextra{api.models.user.User attribute}|hyperpage}{16}
-\indexentry{is\_admin (api.models.user.User attribute)@\spxentry{is\_admin}\spxextra{api.models.user.User attribute}|hyperpage}{16}
-\indexentry{is\_tutor (api.models.user.User attribute)@\spxentry{is\_tutor}\spxextra{api.models.user.User attribute}|hyperpage}{16}
+\indexentry{is\_active (api.models.user.User attribute)@\spxentry{is\_active}\spxextra{api.models.user.User attribute}|hyperpage}{17}
+\indexentry{is\_admin (api.models.user.User attribute)@\spxentry{is\_admin}\spxextra{api.models.user.User attribute}|hyperpage}{17}
+\indexentry{is\_tutor (api.models.user.User attribute)@\spxentry{is\_tutor}\spxextra{api.models.user.User attribute}|hyperpage}{17}
 \indexentry{is\_working (api.models.user.User attribute)@\spxentry{is\_working}\spxextra{api.models.user.User attribute}|hyperpage}{17}
 \indexentry{messages\_set (api.models.user.User attribute)@\spxentry{messages\_set}\spxextra{api.models.user.User attribute}|hyperpage}{17}
 \indexentry{name (api.models.user.User attribute)@\spxentry{name}\spxextra{api.models.user.User attribute}|hyperpage}{17}
 \indexentry{student (api.models.user.User attribute)@\spxentry{student}\spxextra{api.models.user.User attribute}|hyperpage}{17}
 \indexentry{student\_nuid (api.models.user.User attribute)@\spxentry{student\_nuid}\spxextra{api.models.user.User attribute}|hyperpage}{17}
 \indexentry{student\_ticket (api.models.user.User attribute)@\spxentry{student\_ticket}\spxextra{api.models.user.User attribute}|hyperpage}{17}
-\indexentry{tutor (api.models.user.User attribute)@\spxentry{tutor}\spxextra{api.models.user.User attribute}|hyperpage}{17}
-\indexentry{tutor\_ticket (api.models.user.User attribute)@\spxentry{tutor\_ticket}\spxextra{api.models.user.User attribute}|hyperpage}{17}
-\indexentry{user\_bio (api.models.user.User attribute)@\spxentry{user\_bio}\spxextra{api.models.user.User attribute}|hyperpage}{17}
+\indexentry{tutor (api.models.user.User attribute)@\spxentry{tutor}\spxextra{api.models.user.User attribute}|hyperpage}{18}
+\indexentry{tutor\_ticket (api.models.user.User attribute)@\spxentry{tutor\_ticket}\spxextra{api.models.user.User attribute}|hyperpage}{18}
+\indexentry{user\_bio (api.models.user.User attribute)@\spxentry{user\_bio}\spxextra{api.models.user.User attribute}|hyperpage}{18}
 \indexentry{workinghours\_set (api.models.user.User attribute)@\spxentry{workinghours\_set}\spxextra{api.models.user.User attribute}|hyperpage}{18}
 \indexentry{module@\spxentry{module}!base.asgi@\spxentry{base.asgi}|hyperpage}{21}
 \indexentry{base.asgi@\spxentry{base.asgi}!module@\spxentry{module}|hyperpage}{21}

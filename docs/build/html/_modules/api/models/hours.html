@@ -198,6 +198,15 @@
 <p class="caption" role="heading"><span class="caption-text">CSLC Portal Frontend</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../about.html">About</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../forms/index.html">Forms</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Forms</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../forms/ticket.html">TicketForm TypeScript Module Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../forms/ticket.html#ticketform-react-component-documentation">TicketForm React Component Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../forms/announcement.html">AnnouncementForm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../forms/theme.html">ThemeProvider React Component Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../forms/toggle.html">ModeToggle React Component Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../forms/tutor.html">TutorTicketForm React Component Documentation</a></li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -241,6 +250,26 @@
 <div class="viewcode-block" id="HourManager">
 <a class="viewcode-back" href="../../../api.models.html#api.models.hours.HourManager">[docs]</a>
 <span class="k">class</span> <span class="nc">HourManager</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Manager</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;A manager for the Hour model that provides custom query methods for managing tutor hours.&quot;&quot;&quot;</span>
+
+<span class="sd">    def get_all_hours(self) -&gt; QuerySet:</span>
+<span class="sd">    &quot;&quot;&quot;Returns all tutor hours.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    QuerySet: A queryset containing all tutor hours.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    return super().get_queryset().all()</span>
+
+<span class="sd">    def get_tutor(self, name: str) -&gt; QuerySet:</span>
+<span class="sd">    &quot;&quot;&quot;Returns tutor hours filtered by tutor name.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">    name (str): The name of the tutor.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    QuerySet: A queryset containing tutor hours filtered by the given tutor name.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
 <div class="viewcode-block" id="HourManager.get_all_hours">
 <a class="viewcode-back" href="../../../api.models.html#api.models.hours.HourManager.get_all_hours">[docs]</a>
     <span class="k">def</span> <span class="nf">get_all_hours</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySet</span><span class="p">:</span>
@@ -258,9 +287,11 @@
 <div class="viewcode-block" id="Hour">
 <a class="viewcode-back" href="../../../api.models.html#api.models.hours.Hour">[docs]</a>
 <span class="k">class</span> <span class="nc">Hour</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A model to represent tutor hours.&quot;&quot;&quot;</span>
 <div class="viewcode-block" id="Hour.Day">
 <a class="viewcode-back" href="../../../api.models.html#api.models.hours.Hour.Day">[docs]</a>
     <span class="k">class</span> <span class="nc">Day</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">IntegerChoices</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;An enumeration of days of the week.&quot;&quot;&quot;</span>
         <span class="n">MONDAY</span> <span class="o">=</span> <span class="mi">1</span>
         <span class="n">TUESDAY</span> <span class="o">=</span> <span class="mi">2</span>
         <span class="n">WEDNESDAY</span> <span class="o">=</span> <span class="mi">3</span>
@@ -270,7 +301,8 @@
         <span class="n">SUNDAY</span> <span class="o">=</span> <span class="mi">7</span></div>
 
 
-    <span class="n">tutor</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">User</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">PROTECT</span><span class="p">)</span>
+    <span class="n">tutor</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span>
+        <span class="n">User</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">PROTECT</span><span class="p">)</span>
     <span class="n">day_id</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">choices</span><span class="o">=</span><span class="n">Day</span><span class="o">.</span><span class="n">choices</span><span class="p">)</span>
     <span class="n">time_in</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">()</span>
     <span class="n">time_out</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">()</span>

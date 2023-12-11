@@ -754,12 +754,14 @@ class built by <code class="docutils literal notranslate"><span class="pre">crea
 <span id="api-models-hours-module"></span><h2>api.models.hours module<a class="headerlink" href="#module-api.models.hours" title="Link to this heading">#</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="api.models.hours.Hour">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">api.models.hours.</span></span><span class="sig-name descname"><span class="pre">Hour</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tutor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">day_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_out</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/api/models/hours.html#Hour"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.models.hours.Hour" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">api.models.hours.</span></span><span class="sig-name descname"><span class="pre">Hour</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/api/models/hours.html#Hour"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.models.hours.Hour" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>A model to represent tutor hours.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="api.models.hours.Hour.Day">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/api/models/hours.html#Hour.Day"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.models.hours.Hour.Day" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">IntegerChoices</span></code></p>
+<p>An enumeration of days of the week.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="api.models.hours.Hour.Day.FRIDAY">
 <span class="sig-name descname"><span class="pre">FRIDAY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#api.models.hours.Hour.Day.FRIDAY" title="Link to this definition">#</a></dt>
@@ -896,6 +898,19 @@ one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
 <dt class="sig sig-object py" id="api.models.hours.HourManager">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">api.models.hours.</span></span><span class="sig-name descname"><span class="pre">HourManager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/api/models/hours.html#HourManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.models.hours.HourManager" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Manager</span></code></p>
+<p>A manager for the Hour model that provides custom query methods for managing tutor hours.”””</p>
+<p>def get_all_hours(self) -&gt; QuerySet:
+“””Returns all tutor hours.</p>
+<p>Returns:
+QuerySet: A queryset containing all tutor hours.
+“””
+return super().get_queryset().all()</p>
+<p>def get_tutor(self, name: str) -&gt; QuerySet:
+“””Returns tutor hours filtered by tutor name.</p>
+<p>Args:
+name (str): The name of the tutor.</p>
+<p>Returns:
+QuerySet: A queryset containing tutor hours filtered by the given tutor name.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="api.models.hours.HourManager.get_all_hours">
 <span class="sig-name descname"><span class="pre">get_all_hours</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">QuerySet</span></span></span><a class="reference internal" href="_modules/api/models/hours.html#HourManager.get_all_hours"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.models.hours.HourManager.get_all_hours" title="Link to this definition">#</a></dt>
@@ -1362,6 +1377,11 @@ reopened after it was closed.</p>
 <span class="sig-name descname"><span class="pre">CLOSED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'CLOSED'</span></em><a class="headerlink" href="#api.models.ticket.Ticket.CLOSED" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
+<dl class="py attribute">
+<dt class="sig sig-object py" id="api.models.ticket.Ticket.DIFFICULTY_CHOICES">
+<span class="sig-name descname"><span class="pre">DIFFICULTY_CHOICES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[('EASY',</span> <span class="pre">'Easy'),</span> <span class="pre">('MEDIUM',</span> <span class="pre">'Medium'),</span> <span class="pre">('HARD',</span> <span class="pre">'Hard')]</span></em><a class="headerlink" href="#api.models.ticket.Ticket.DIFFICULTY_CHOICES" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
 <dl class="py exception">
 <dt class="sig sig-object py" id="api.models.ticket.Ticket.DoesNotExist">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#api.models.ticket.Ticket.DoesNotExist" title="Link to this definition">#</a></dt>
@@ -1387,6 +1407,24 @@ reopened after it was closed.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="api.models.ticket.Ticket.STATUS_CHOICES">
 <span class="sig-name descname"><span class="pre">STATUS_CHOICES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[('NEW',</span> <span class="pre">'New'),</span> <span class="pre">('OPENED',</span> <span class="pre">'Opened'),</span> <span class="pre">('CLOSED',</span> <span class="pre">'Closed')]</span></em><a class="headerlink" href="#api.models.ticket.Ticket.STATUS_CHOICES" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="api.models.ticket.Ticket.asst_tutor">
+<span class="sig-name descname"><span class="pre">asst_tutor</span></span><a class="headerlink" href="#api.models.ticket.Ticket.asst_tutor" title="Link to this definition">#</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="api.models.ticket.Ticket.asst_tutor_id">
+<span class="sig-name descname"><span class="pre">asst_tutor_id</span></span><a class="headerlink" href="#api.models.ticket.Ticket.asst_tutor_id" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -1429,8 +1467,20 @@ object the first time, the query is executed.</p>
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="api.models.ticket.Ticket.difficulty">
+<span class="sig-name descname"><span class="pre">difficulty</span></span><a class="headerlink" href="#api.models.ticket.Ticket.difficulty" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="api.models.ticket.Ticket.generic">
 <span class="sig-name descname"><span class="pre">generic</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#api.models.ticket.Ticket.generic" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="api.models.ticket.Ticket.get_difficulty_display">
+<span class="sig-name descname"><span class="pre">get_difficulty_display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.CharField:</span> <span class="pre">difficulty&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#api.models.ticket.Ticket.get_difficulty_display" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -1588,6 +1638,13 @@ one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="api.models.ticket.Ticket.updated_at">
 <span class="sig-name descname"><span class="pre">updated_at</span></span><a class="headerlink" href="#api.models.ticket.Ticket.updated_at" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="api.models.ticket.Ticket.was_flagged">
+<span class="sig-name descname"><span class="pre">was_flagged</span></span><a class="headerlink" href="#api.models.ticket.Ticket.was_flagged" title="Link to this definition">#</a></dt>
 <dd><p>A wrapper for a deferred-loading field. When the value is read from this
 object the first time, the query is executed.</p>
 </dd></dl>
@@ -1831,6 +1888,21 @@ object the first time, the query is executed.</p>
 <dt class="sig sig-object py" id="api.models.user.User.admin">
 <span class="sig-name descname"><span class="pre">admin</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;api.models.user.AdminManager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#api.models.user.User.admin" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="api.models.user.User.assistant_tutor_ticket">
+<span class="sig-name descname"><span class="pre">assistant_tutor_ticket</span></span><a class="headerlink" href="#api.models.user.User.assistant_tutor_ticket" title="Link to this definition">#</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="api.models.user.User.courses_taken">
@@ -2415,17 +2487,22 @@ object the first time, the query is executed.</p>
 <li><a class="reference internal" href="#module-api.models.ticket">api.models.ticket module</a><ul>
 <li><a class="reference internal" href="#api.models.ticket.Ticket"><code class="docutils literal notranslate"><span class="pre">Ticket</span></code></a><ul>
 <li><a class="reference internal" href="#api.models.ticket.Ticket.CLOSED"><code class="docutils literal notranslate"><span class="pre">Ticket.CLOSED</span></code></a></li>
+<li><a class="reference internal" href="#api.models.ticket.Ticket.DIFFICULTY_CHOICES"><code class="docutils literal notranslate"><span class="pre">Ticket.DIFFICULTY_CHOICES</span></code></a></li>
 <li><a class="reference internal" href="#api.models.ticket.Ticket.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Ticket.DoesNotExist</span></code></a></li>
 <li><a class="reference internal" href="#api.models.ticket.Ticket.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Ticket.MultipleObjectsReturned</span></code></a></li>
 <li><a class="reference internal" href="#api.models.ticket.Ticket.NEW"><code class="docutils literal notranslate"><span class="pre">Ticket.NEW</span></code></a></li>
 <li><a class="reference internal" href="#api.models.ticket.Ticket.OPENED"><code class="docutils literal notranslate"><span class="pre">Ticket.OPENED</span></code></a></li>
 <li><a class="reference internal" href="#api.models.ticket.Ticket.STATUS_CHOICES"><code class="docutils literal notranslate"><span class="pre">Ticket.STATUS_CHOICES</span></code></a></li>
+<li><a class="reference internal" href="#api.models.ticket.Ticket.asst_tutor"><code class="docutils literal notranslate"><span class="pre">Ticket.asst_tutor</span></code></a></li>
+<li><a class="reference internal" href="#api.models.ticket.Ticket.asst_tutor_id"><code class="docutils literal notranslate"><span class="pre">Ticket.asst_tutor_id</span></code></a></li>
 <li><a class="reference internal" href="#api.models.ticket.Ticket.closed_at"><code class="docutils literal notranslate"><span class="pre">Ticket.closed_at</span></code></a></li>
 <li><a class="reference internal" href="#api.models.ticket.Ticket.course"><code class="docutils literal notranslate"><span class="pre">Ticket.course</span></code></a></li>
 <li><a class="reference internal" href="#api.models.ticket.Ticket.course_id"><code class="docutils literal notranslate"><span class="pre">Ticket.course_id</span></code></a></li>
 <li><a class="reference internal" href="#api.models.ticket.Ticket.created_at"><code class="docutils literal notranslate"><span class="pre">Ticket.created_at</span></code></a></li>
 <li><a class="reference internal" href="#api.models.ticket.Ticket.description"><code class="docutils literal notranslate"><span class="pre">Ticket.description</span></code></a></li>
+<li><a class="reference internal" href="#api.models.ticket.Ticket.difficulty"><code class="docutils literal notranslate"><span class="pre">Ticket.difficulty</span></code></a></li>
 <li><a class="reference internal" href="#api.models.ticket.Ticket.generic"><code class="docutils literal notranslate"><span class="pre">Ticket.generic</span></code></a></li>
+<li><a class="reference internal" href="#api.models.ticket.Ticket.get_difficulty_display"><code class="docutils literal notranslate"><span class="pre">Ticket.get_difficulty_display()</span></code></a></li>
 <li><a class="reference internal" href="#api.models.ticket.Ticket.get_next_by_created_at"><code class="docutils literal notranslate"><span class="pre">Ticket.get_next_by_created_at()</span></code></a></li>
 <li><a class="reference internal" href="#api.models.ticket.Ticket.get_next_by_updated_at"><code class="docutils literal notranslate"><span class="pre">Ticket.get_next_by_updated_at()</span></code></a></li>
 <li><a class="reference internal" href="#api.models.ticket.Ticket.get_previous_by_created_at"><code class="docutils literal notranslate"><span class="pre">Ticket.get_previous_by_created_at()</span></code></a></li>
@@ -2447,6 +2524,7 @@ object the first time, the query is executed.</p>
 <li><a class="reference internal" href="#api.models.ticket.Ticket.tutor"><code class="docutils literal notranslate"><span class="pre">Ticket.tutor</span></code></a></li>
 <li><a class="reference internal" href="#api.models.ticket.Ticket.tutor_id"><code class="docutils literal notranslate"><span class="pre">Ticket.tutor_id</span></code></a></li>
 <li><a class="reference internal" href="#api.models.ticket.Ticket.updated_at"><code class="docutils literal notranslate"><span class="pre">Ticket.updated_at</span></code></a></li>
+<li><a class="reference internal" href="#api.models.ticket.Ticket.was_flagged"><code class="docutils literal notranslate"><span class="pre">Ticket.was_flagged</span></code></a></li>
 <li><a class="reference internal" href="#api.models.ticket.Ticket.was_reopened"><code class="docutils literal notranslate"><span class="pre">Ticket.was_reopened</span></code></a></li>
 <li><a class="reference internal" href="#api.models.ticket.Ticket.was_successful"><code class="docutils literal notranslate"><span class="pre">Ticket.was_successful</span></code></a></li>
 </ul>
@@ -2504,6 +2582,7 @@ object the first time, the query is executed.</p>
 <li><a class="reference internal" href="#api.models.user.User.MSOID"><code class="docutils literal notranslate"><span class="pre">User.MSOID</span></code></a></li>
 <li><a class="reference internal" href="#api.models.user.User.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">User.MultipleObjectsReturned</span></code></a></li>
 <li><a class="reference internal" href="#api.models.user.User.admin"><code class="docutils literal notranslate"><span class="pre">User.admin</span></code></a></li>
+<li><a class="reference internal" href="#api.models.user.User.assistant_tutor_ticket"><code class="docutils literal notranslate"><span class="pre">User.assistant_tutor_ticket</span></code></a></li>
 <li><a class="reference internal" href="#api.models.user.User.courses_taken"><code class="docutils literal notranslate"><span class="pre">User.courses_taken</span></code></a></li>
 <li><a class="reference internal" href="#api.models.user.User.courses_tutoring"><code class="docutils literal notranslate"><span class="pre">User.courses_tutoring</span></code></a></li>
 <li><a class="reference internal" href="#api.models.user.User.email"><code class="docutils literal notranslate"><span class="pre">User.email</span></code></a></li>

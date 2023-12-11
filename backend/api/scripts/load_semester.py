@@ -18,6 +18,124 @@ from api.models.sections import Section
 
 
 class ParseSemester:
+    '''
+    A class used to parse and process semester data from a CSV file
+
+    ...
+
+    Attributes
+    ----------
+    courses : dict
+    a dictionary to store course data
+    sections : dict
+    a dictionary to store section data
+    professors : dict
+    a dictionary to store professor data
+    csv_file : str
+    the file directory of the CSV data
+    column_names : list
+    a list of column names from the CSV file
+    professor_data : pandas.DataFrame
+    a DataFrame to store professor data from the CSV file
+
+    Methods
+    -------
+    read_csv()
+    Reads the CSV file and processes the data into dictionaries for courses, sections, and professors
+    get_professors() -> dict
+    Returns the dictionary of professor data
+    get_courses() -> dict
+    Returns the dictionary of course data
+    get_sections() -> dict
+    Returns the dictionary of section data
+    normalize_text(text: str) -> str
+    Normalizes the input text and returns the normalized string
+    write_professors()
+    Writes professor data to the database
+    write_courses()
+    Writes course data to the database
+    write_sections()
+    Writes section data to the database
+    """
+    def __init__(self, file_dir: str) -> None:
+    pass
+
+    def read_csv(self):
+    """
+    Reads the CSV file and processes the data into dictionaries for courses, sections, and professors
+    """
+    pass
+
+    def get_professors(self) -> dict:
+    """
+    Returns the dictionary of professor data
+    """
+    pass
+
+    def get_courses(self) -> dict:
+    """
+    Returns the dictionary of course data
+    """
+    pass
+
+    def get_sections(self) -> dict:
+    """
+    Returns the dictionary of section data
+    """
+    pass
+
+    def normalize_text(self, text: str) -> str:
+    """
+    Normalizes the input text and returns the normalized string
+
+    Parameters
+    ----------
+    text : str
+    The text to be normalized
+
+    Returns
+    -------
+    str
+    The normalized text
+    """
+    pass
+
+    def write_professors(self) -> None:
+    """
+    Writes professor data to the database
+    """
+    pass
+
+    def write_courses(self) -> None:
+    """
+    Writes course data to the database
+    """
+    pass
+
+    def write_sections(self) -> None:
+    """
+    Writes section data to the database
+    """
+    pass
+
+
+    def run(csv_file: str | None = None) -> bool:
+    """
+    Runs the data processing and writing tasks for the CSV file
+
+    Parameters
+    ----------
+    csv_file : str, optional
+    The file directory of the CSV data
+
+    Returns
+    -------
+    bool
+    True if the process is successful, False otherwise
+    """
+    pass
+    '''
+
     def __init__(self, file_dir: str) -> None:
         self.courses: dict = {}
         self.sections: dict = {}

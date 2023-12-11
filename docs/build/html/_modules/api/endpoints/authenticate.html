@@ -198,6 +198,15 @@
 <p class="caption" role="heading"><span class="caption-text">CSLC Portal Frontend</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../about.html">About</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../forms/index.html">Forms</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Forms</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../forms/ticket.html">TicketForm TypeScript Module Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../forms/ticket.html#ticketform-react-component-documentation">TicketForm React Component Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../forms/announcement.html">AnnouncementForm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../forms/theme.html">ThemeProvider React Component Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../forms/toggle.html">ModeToggle React Component Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../forms/tutor.html">TutorTicketForm React Component Documentation</a></li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -252,12 +261,31 @@
 <div class="viewcode-block" id="APIAuthenticateList">
 <a class="viewcode-back" href="../../../api.endpoints.html#api.endpoints.authenticate.APIAuthenticateList">[docs]</a>
 <span class="k">class</span> <span class="nc">APIAuthenticateList</span><span class="p">(</span><span class="n">APIView</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;View for authenticating users in the CSLC Ticket Portal API.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">    - serializer_class: UserSerializer instance for serializing user data.</span>
+<span class="sd">    - renderer_classes: Tuple of renderer classes for API view.</span>
+
+<span class="sd">    Methods:</span>
+<span class="sd">    - get: Retrieves a list of all users and returns serialized user data.</span>
+<span class="sd">    - post: Creates a new user and returns serialized user data if valid.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">UserSerializer</span>
     <span class="n">renderer_classes</span> <span class="o">=</span> <span class="p">(</span><span class="n">BrowsableAPIRenderer</span><span class="p">,</span> <span class="n">JSONRenderer</span><span class="p">,</span> <span class="n">HTMLFormRenderer</span><span class="p">)</span>
 
 <div class="viewcode-block" id="APIAuthenticateList.get">
 <a class="viewcode-back" href="../../../api.endpoints.html#api.endpoints.authenticate.APIAuthenticateList.get">[docs]</a>
     <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Handles GET requests to retrieve a list of users.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        request (Request): The HTTP request object.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        Response: A response containing a serialized list of users&#39; data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">users</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">generic</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
         <span class="n">serializer</span> <span class="o">=</span> <span class="n">UserSerializer</span><span class="p">(</span><span class="n">users</span><span class="p">,</span> <span class="n">many</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">serializer</span><span class="o">.</span><span class="n">data</span><span class="p">)</span></div>
@@ -266,6 +294,15 @@
 <div class="viewcode-block" id="APIAuthenticateList.post">
 <a class="viewcode-back" href="../../../api.endpoints.html#api.endpoints.authenticate.APIAuthenticateList.post">[docs]</a>
     <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Handles POST requests to create a new user or retrieve an existing user.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        request (Request): The HTTP request object containing user data.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        Response: A response containing the serialized user data if the user is successfully created, or the error messages if the user data is invalid.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">user</span><span class="p">,</span> <span class="n">created</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">generic</span><span class="o">.</span><span class="n">get_or_create</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
         <span class="n">serializer</span> <span class="o">=</span> <span class="n">UserSerializer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>

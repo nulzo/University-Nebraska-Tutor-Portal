@@ -65,7 +65,8 @@ CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_ALL_ORIGINS = True
 
 ASGI_APPLICATION = "api.routing.application"
-CHANNEL_LAYERS = {"default": {"BACKEND": "channels.layers.InMemoryChannelLayer"}}
+CHANNEL_LAYERS = {"default": {
+    "BACKEND": "channels.layers.InMemoryChannelLayer"}}
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
 
@@ -126,3 +127,8 @@ USE_TZ = True
 STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+GRAPH_MODELS = {
+    "all_applications": True,
+    "group_models": True,
+}

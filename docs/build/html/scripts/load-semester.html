@@ -248,24 +248,96 @@
 <dt class="sig sig-object py" id="api.scripts.load_semester.ParseSemester">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">api.scripts.load_semester.</span></span><span class="sig-name descname"><span class="pre">ParseSemester</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/api/scripts/load_semester.html#ParseSemester"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.scripts.load_semester.ParseSemester" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="api.scripts.load_semester.ParseSemester.get_courses">
-<span class="sig-name descname"><span class="pre">get_courses</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a></span></span><a class="reference internal" href="../_modules/api/scripts/load_semester.html#ParseSemester.get_courses"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.scripts.load_semester.ParseSemester.get_courses" title="Link to this definition">#</a></dt>
+<p>A class used to parse and process semester data from a CSV file</p>
+<p>…</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="api.scripts.load_semester.ParseSemester.courses">
+<span class="sig-name descname"><span class="pre">courses</span></span><a class="headerlink" href="#api.scripts.load_semester.ParseSemester.courses" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)">dict</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">a</span> <span class="pre">dictionary</span> <span class="pre">to</span> <span class="pre">store</span> <span class="pre">course</span> <span class="pre">data</span></span></dt>
 <dd></dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="api.scripts.load_semester.ParseSemester.get_professors">
-<span class="sig-name descname"><span class="pre">get_professors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a></span></span><a class="reference internal" href="../_modules/api/scripts/load_semester.html#ParseSemester.get_professors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.scripts.load_semester.ParseSemester.get_professors" title="Link to this definition">#</a></dt>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="api.scripts.load_semester.ParseSemester.sections">
+<span class="sig-name descname"><span class="pre">sections</span></span><a class="headerlink" href="#api.scripts.load_semester.ParseSemester.sections" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)">dict</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">a</span> <span class="pre">dictionary</span> <span class="pre">to</span> <span class="pre">store</span> <span class="pre">section</span> <span class="pre">data</span></span></dt>
 <dd></dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="api.scripts.load_semester.ParseSemester.get_sections">
-<span class="sig-name descname"><span class="pre">get_sections</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a></span></span><a class="reference internal" href="../_modules/api/scripts/load_semester.html#ParseSemester.get_sections"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.scripts.load_semester.ParseSemester.get_sections" title="Link to this definition">#</a></dt>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="api.scripts.load_semester.ParseSemester.professors">
+<span class="sig-name descname"><span class="pre">professors</span></span><a class="headerlink" href="#api.scripts.load_semester.ParseSemester.professors" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)">dict</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">a</span> <span class="pre">dictionary</span> <span class="pre">to</span> <span class="pre">store</span> <span class="pre">professor</span> <span class="pre">data</span></span></dt>
 <dd></dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="api.scripts.load_semester.ParseSemester.normalize_text">
-<span class="sig-name descname"><span class="pre">normalize_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/api/scripts/load_semester.html#ParseSemester.normalize_text"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.scripts.load_semester.ParseSemester.normalize_text" title="Link to this definition">#</a></dt>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="api.scripts.load_semester.ParseSemester.csv_file">
+<span class="sig-name descname"><span class="pre">csv_file</span></span><a class="headerlink" href="#api.scripts.load_semester.ParseSemester.csv_file" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">the</span> <span class="pre">file</span> <span class="pre">directory</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">CSV</span> <span class="pre">data</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="api.scripts.load_semester.ParseSemester.column_names">
+<span class="sig-name descname"><span class="pre">column_names</span></span><a class="headerlink" href="#api.scripts.load_semester.ParseSemester.column_names" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)">list</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">a</span> <span class="pre">list</span> <span class="pre">of</span> <span class="pre">column</span> <span class="pre">names</span> <span class="pre">from</span> <span class="pre">the</span> <span class="pre">CSV</span> <span class="pre">file</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="api.scripts.load_semester.ParseSemester.professor_data">
+<span class="sig-name descname"><span class="pre">professor_data</span></span><a class="headerlink" href="#api.scripts.load_semester.ParseSemester.professor_data" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">a</span> <span class="pre">DataFrame</span> <span class="pre">to</span> <span class="pre">store</span> <span class="pre">professor</span> <span class="pre">data</span> <span class="pre">from</span> <span class="pre">the</span> <span class="pre">CSV</span> <span class="pre">file</span></span></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -274,18 +346,300 @@
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="api.scripts.load_semester.ParseSemester.write_courses">
-<span class="sig-name descname"><span class="pre">write_courses</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/api/scripts/load_semester.html#ParseSemester.write_courses"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.scripts.load_semester.ParseSemester.write_courses" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Reads</span> <span class="pre">the</span> <span class="pre">CSV</span> <span class="pre">file</span> <span class="pre">and</span> <span class="pre">processes</span> <span class="pre">the</span> <span class="pre">data</span> <span class="pre">into</span> <span class="pre">dictionaries</span> <span class="pre">for</span> <span class="pre">courses,</span> <span class="pre">sections,</span> <span class="pre">and</span> <span class="pre">professors</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="api.scripts.load_semester.ParseSemester.get_professors">
+<span class="sig-name descname"><span class="pre">get_professors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a></span></span><a class="reference internal" href="../_modules/api/scripts/load_semester.html#ParseSemester.get_professors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.scripts.load_semester.ParseSemester.get_professors" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Returns</span> <span class="pre">the</span> <span class="pre">dictionary</span> <span class="pre">of</span> <span class="pre">professor</span> <span class="pre">data</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="api.scripts.load_semester.ParseSemester.get_courses">
+<span class="sig-name descname"><span class="pre">get_courses</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a></span></span><a class="reference internal" href="../_modules/api/scripts/load_semester.html#ParseSemester.get_courses"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.scripts.load_semester.ParseSemester.get_courses" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Returns</span> <span class="pre">the</span> <span class="pre">dictionary</span> <span class="pre">of</span> <span class="pre">course</span> <span class="pre">data</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="api.scripts.load_semester.ParseSemester.get_sections">
+<span class="sig-name descname"><span class="pre">get_sections</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a></span></span><a class="reference internal" href="../_modules/api/scripts/load_semester.html#ParseSemester.get_sections"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.scripts.load_semester.ParseSemester.get_sections" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Returns</span> <span class="pre">the</span> <span class="pre">dictionary</span> <span class="pre">of</span> <span class="pre">section</span> <span class="pre">data</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="api.scripts.load_semester.ParseSemester.normalize_text">
+<span class="sig-name descname"><span class="pre">normalize_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/api/scripts/load_semester.html#ParseSemester.normalize_text"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.scripts.load_semester.ParseSemester.normalize_text" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Normalizes</span> <span class="pre">the</span> <span class="pre">input</span> <span class="pre">text</span> <span class="pre">and</span> <span class="pre">returns</span> <span class="pre">the</span> <span class="pre">normalized</span> <span class="pre">string</span></span></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="api.scripts.load_semester.ParseSemester.write_professors">
-<span class="sig-name descname"><span class="pre">write_professors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/api/scripts/load_semester.html#ParseSemester.write_professors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.scripts.load_semester.ParseSemester.write_professors" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">write_professors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/api/scripts/load_semester.html#ParseSemester.write_professors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.scripts.load_semester.ParseSemester.write_professors" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Writes</span> <span class="pre">professor</span> <span class="pre">data</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">database</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="api.scripts.load_semester.ParseSemester.write_courses">
+<span class="sig-name descname"><span class="pre">write_courses</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/api/scripts/load_semester.html#ParseSemester.write_courses"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.scripts.load_semester.ParseSemester.write_courses" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Writes</span> <span class="pre">course</span> <span class="pre">data</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">database</span></span></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="api.scripts.load_semester.ParseSemester.write_sections">
-<span class="sig-name descname"><span class="pre">write_sections</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/api/scripts/load_semester.html#ParseSemester.write_sections"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.scripts.load_semester.ParseSemester.write_sections" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">write_sections</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/api/scripts/load_semester.html#ParseSemester.write_sections"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#api.scripts.load_semester.ParseSemester.write_sections" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Writes</span> <span class="pre">section</span> <span class="pre">data</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">database</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">&quot;&quot;&quot;</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">def</span> <span class="pre">__init__(self,</span> <span class="pre">file_dir:</span> <span class="pre">str)</span> <span class="pre">-&gt;</span> <span class="pre">None:</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="api.scripts.load_semester.ParseSemester.pass">
+<span class="sig-name descname"><span class="pre">pass</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#api.scripts.load_semester.ParseSemester.pass" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">def</span> <span class="pre">read_csv(self):</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">&quot;&quot;&quot;</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Reads</span> <span class="pre">the</span> <span class="pre">CSV</span> <span class="pre">file</span> <span class="pre">and</span> <span class="pre">processes</span> <span class="pre">the</span> <span class="pre">data</span> <span class="pre">into</span> <span class="pre">dictionaries</span> <span class="pre">for</span> <span class="pre">courses,</span> <span class="pre">sections,</span> <span class="pre">and</span> <span class="pre">professors</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">&quot;&quot;&quot;</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">pass</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id0" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">def</span> <span class="pre">get_professors(self)</span> <span class="pre">-&gt;</span> <span class="pre">dict:</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">&quot;&quot;&quot;</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Returns</span> <span class="pre">the</span> <span class="pre">dictionary</span> <span class="pre">of</span> <span class="pre">professor</span> <span class="pre">data</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">&quot;&quot;&quot;</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">pass</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id1" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">def</span> <span class="pre">get_courses(self)</span> <span class="pre">-&gt;</span> <span class="pre">dict:</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">&quot;&quot;&quot;</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Returns</span> <span class="pre">the</span> <span class="pre">dictionary</span> <span class="pre">of</span> <span class="pre">course</span> <span class="pre">data</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">&quot;&quot;&quot;</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">pass</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id2" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">def</span> <span class="pre">get_sections(self)</span> <span class="pre">-&gt;</span> <span class="pre">dict:</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">&quot;&quot;&quot;</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Returns</span> <span class="pre">the</span> <span class="pre">dictionary</span> <span class="pre">of</span> <span class="pre">section</span> <span class="pre">data</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">&quot;&quot;&quot;</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id3">
+<span class="sig-name descname"><span class="pre">pass</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id3" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">def</span> <span class="pre">normalize_text(self,</span> <span class="pre">text:</span> <span class="pre">str)</span> <span class="pre">-&gt;</span> <span class="pre">str:</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">&quot;&quot;&quot;</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Normalizes</span> <span class="pre">the</span> <span class="pre">input</span> <span class="pre">text</span> <span class="pre">and</span> <span class="pre">returns</span> <span class="pre">the</span> <span class="pre">normalized</span> <span class="pre">string</span></span></dt>
+<dd></dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>) – </p></li>
+<li><p><strong>normalized</strong> (<em>The text to be</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>str</em></p></li>
+<li><p><em>The normalized text</em></p></li>
+<li><p><em>”””</em></p></li>
+<li><p><em>pass</em></p></li>
+<li><p><em>def write_professors(self) -&gt; None</em></p></li>
+<li><p><em>”””</em></p></li>
+<li><p><em>Writes professor data to the database</em></p></li>
+<li><p><em>”””</em></p></li>
+<li><p><em>pass</em></p></li>
+<li><p><em>def write_courses(self) -&gt; None</em></p></li>
+<li><p><em>”””</em></p></li>
+<li><p><em>Writes course data to the database</em></p></li>
+<li><p><em>”””</em></p></li>
+<li><p><em>pass</em></p></li>
+<li><p><em>def write_sections(self) -&gt; None</em></p></li>
+<li><p><em>”””</em></p></li>
+<li><p><em>Writes section data to the database</em></p></li>
+<li><p><em>”””</em></p></li>
+<li><p><em>pass</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p>def run(csv_file: str | None = None) -&gt; bool:
+“””
+Runs the data processing and writing tasks for the CSV file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>csv_file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>, </em><em>optional</em>) – </p></li>
+<li><p><strong>data</strong> (<em>The file directory</em><em> of </em><em>the CSV</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>bool</em></p></li>
+<li><p><em>True if the process is successful, False otherwise</em></p></li>
+<li><p><em>”””</em></p></li>
+<li><p><em>pass</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="id4">
+<span class="sig-name descname"><span class="pre">get_courses</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a></span></span><a class="reference internal" href="../_modules/api/scripts/load_semester.html#ParseSemester.get_courses"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id4" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id5">
+<span class="sig-name descname"><span class="pre">get_professors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a></span></span><a class="reference internal" href="../_modules/api/scripts/load_semester.html#ParseSemester.get_professors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id5" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id6">
+<span class="sig-name descname"><span class="pre">get_sections</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><span class="pre">dict</span></a></span></span><a class="reference internal" href="../_modules/api/scripts/load_semester.html#ParseSemester.get_sections"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id6" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id7">
+<span class="sig-name descname"><span class="pre">normalize_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/api/scripts/load_semester.html#ParseSemester.normalize_text"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id7" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id8">
+<span class="sig-name descname"><span class="pre">read_csv</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/api/scripts/load_semester.html#ParseSemester.read_csv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id8" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id9">
+<span class="sig-name descname"><span class="pre">write_courses</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/api/scripts/load_semester.html#ParseSemester.write_courses"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id9" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id10">
+<span class="sig-name descname"><span class="pre">write_professors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/api/scripts/load_semester.html#ParseSemester.write_professors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id10" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id11">
+<span class="sig-name descname"><span class="pre">write_sections</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/api/scripts/load_semester.html#ParseSemester.write_sections"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id11" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -336,14 +690,33 @@
             <ul>
 <li><a class="reference internal" href="#">Ticket</a><ul>
 <li><a class="reference internal" href="#api.scripts.load_semester.ParseSemester"><code class="docutils literal notranslate"><span class="pre">ParseSemester</span></code></a><ul>
-<li><a class="reference internal" href="#api.scripts.load_semester.ParseSemester.get_courses"><code class="docutils literal notranslate"><span class="pre">ParseSemester.get_courses()</span></code></a></li>
+<li><a class="reference internal" href="#api.scripts.load_semester.ParseSemester.courses"><code class="docutils literal notranslate"><span class="pre">ParseSemester.courses</span></code></a></li>
+<li><a class="reference internal" href="#api.scripts.load_semester.ParseSemester.sections"><code class="docutils literal notranslate"><span class="pre">ParseSemester.sections</span></code></a></li>
+<li><a class="reference internal" href="#api.scripts.load_semester.ParseSemester.professors"><code class="docutils literal notranslate"><span class="pre">ParseSemester.professors</span></code></a></li>
+<li><a class="reference internal" href="#api.scripts.load_semester.ParseSemester.csv_file"><code class="docutils literal notranslate"><span class="pre">ParseSemester.csv_file</span></code></a></li>
+<li><a class="reference internal" href="#api.scripts.load_semester.ParseSemester.column_names"><code class="docutils literal notranslate"><span class="pre">ParseSemester.column_names</span></code></a></li>
+<li><a class="reference internal" href="#api.scripts.load_semester.ParseSemester.professor_data"><code class="docutils literal notranslate"><span class="pre">ParseSemester.professor_data</span></code></a></li>
+<li><a class="reference internal" href="#api.scripts.load_semester.ParseSemester.read_csv"><code class="docutils literal notranslate"><span class="pre">ParseSemester.read_csv()</span></code></a></li>
 <li><a class="reference internal" href="#api.scripts.load_semester.ParseSemester.get_professors"><code class="docutils literal notranslate"><span class="pre">ParseSemester.get_professors()</span></code></a></li>
+<li><a class="reference internal" href="#api.scripts.load_semester.ParseSemester.get_courses"><code class="docutils literal notranslate"><span class="pre">ParseSemester.get_courses()</span></code></a></li>
 <li><a class="reference internal" href="#api.scripts.load_semester.ParseSemester.get_sections"><code class="docutils literal notranslate"><span class="pre">ParseSemester.get_sections()</span></code></a></li>
 <li><a class="reference internal" href="#api.scripts.load_semester.ParseSemester.normalize_text"><code class="docutils literal notranslate"><span class="pre">ParseSemester.normalize_text()</span></code></a></li>
-<li><a class="reference internal" href="#api.scripts.load_semester.ParseSemester.read_csv"><code class="docutils literal notranslate"><span class="pre">ParseSemester.read_csv()</span></code></a></li>
-<li><a class="reference internal" href="#api.scripts.load_semester.ParseSemester.write_courses"><code class="docutils literal notranslate"><span class="pre">ParseSemester.write_courses()</span></code></a></li>
 <li><a class="reference internal" href="#api.scripts.load_semester.ParseSemester.write_professors"><code class="docutils literal notranslate"><span class="pre">ParseSemester.write_professors()</span></code></a></li>
+<li><a class="reference internal" href="#api.scripts.load_semester.ParseSemester.write_courses"><code class="docutils literal notranslate"><span class="pre">ParseSemester.write_courses()</span></code></a></li>
 <li><a class="reference internal" href="#api.scripts.load_semester.ParseSemester.write_sections"><code class="docutils literal notranslate"><span class="pre">ParseSemester.write_sections()</span></code></a></li>
+<li><a class="reference internal" href="#api.scripts.load_semester.ParseSemester.pass"><code class="docutils literal notranslate"><span class="pre">ParseSemester.pass()</span></code></a></li>
+<li><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">ParseSemester.pass()</span></code></a></li>
+<li><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">ParseSemester.pass()</span></code></a></li>
+<li><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">ParseSemester.pass()</span></code></a></li>
+<li><a class="reference internal" href="#id3"><code class="docutils literal notranslate"><span class="pre">ParseSemester.pass()</span></code></a></li>
+<li><a class="reference internal" href="#id4"><code class="docutils literal notranslate"><span class="pre">ParseSemester.get_courses()</span></code></a></li>
+<li><a class="reference internal" href="#id5"><code class="docutils literal notranslate"><span class="pre">ParseSemester.get_professors()</span></code></a></li>
+<li><a class="reference internal" href="#id6"><code class="docutils literal notranslate"><span class="pre">ParseSemester.get_sections()</span></code></a></li>
+<li><a class="reference internal" href="#id7"><code class="docutils literal notranslate"><span class="pre">ParseSemester.normalize_text()</span></code></a></li>
+<li><a class="reference internal" href="#id8"><code class="docutils literal notranslate"><span class="pre">ParseSemester.read_csv()</span></code></a></li>
+<li><a class="reference internal" href="#id9"><code class="docutils literal notranslate"><span class="pre">ParseSemester.write_courses()</span></code></a></li>
+<li><a class="reference internal" href="#id10"><code class="docutils literal notranslate"><span class="pre">ParseSemester.write_professors()</span></code></a></li>
+<li><a class="reference internal" href="#id11"><code class="docutils literal notranslate"><span class="pre">ParseSemester.write_sections()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#api.scripts.load_semester.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
