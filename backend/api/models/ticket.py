@@ -94,7 +94,9 @@ class Ticket(models.Model):
     was_successful = models.BooleanField(default=False)
     was_reopened = models.BooleanField(default=False)
     was_flagged = models.BooleanField(default=False)
-    difficulty = models.CharField(max_length=20, choices=DIFFICULTY_CHOICES, blank=True, null=True)
+    difficulty = models.CharField(
+        max_length=20, choices=DIFFICULTY_CHOICES, blank=True, null=True
+    )
 
     generic = models.Manager()
     ticket = TicketManager()

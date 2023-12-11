@@ -26,6 +26,7 @@ class APIAuthenticateList(APIView):
     - get: Retrieves a list of all users and returns serialized user data.
     - post: Creates a new user and returns serialized user data if valid.
     """
+
     serializer_class = UserSerializer
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
 
@@ -51,7 +52,8 @@ class APIAuthenticateList(APIView):
         request (Request): The HTTP request object containing user data.
 
         Returns:
-        Response: A response containing the serialized user data if the user is successfully created, or the error messages if the user data is invalid.
+        Response: A response containing the serialized user data if the user is successfully
+        created, or the error messages if the user data is invalid.
         """
         user, created = User.generic.get_or_create(request.data)
         print(user)

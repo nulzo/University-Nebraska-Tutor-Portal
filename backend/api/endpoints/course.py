@@ -34,8 +34,7 @@ class APICourseList(APIView):
 
         if querystring:
             if department := querystring.get("department"):
-                courses = courses.filter(
-                    course_department=self.sanitize(department))
+                courses = courses.filter(course_department=self.sanitize(department))
 
             if name := querystring.get("name"):
                 courses = courses.filter(course_name=name)
@@ -47,8 +46,7 @@ class APICourseList(APIView):
                 courses = courses.filter(course_id=course_id)
 
             if course_id_contains := querystring.get("course-id-contains"):
-                courses = courses.filter(
-                    course_id__contains=course_id_contains)
+                courses = courses.filter(course_id__contains=course_id_contains)
 
             if greater_than_code := querystring.get("higher-than"):
                 courses = courses.filter(course_id__gt=greater_than_code)

@@ -34,8 +34,10 @@ class HourManager(models.Manager):
 
 class Hour(models.Model):
     """A model to represent tutor hours."""
+
     class Day(models.IntegerChoices):
         """An enumeration of days of the week."""
+
         MONDAY = 1
         TUESDAY = 2
         WEDNESDAY = 3
@@ -44,8 +46,7 @@ class Hour(models.Model):
         SATURDAY = 6
         SUNDAY = 7
 
-    tutor = models.ForeignKey(
-        User, blank=False, null=False, on_delete=models.PROTECT)
+    tutor = models.ForeignKey(User, blank=False, null=False, on_delete=models.PROTECT)
     day_id = models.IntegerField(choices=Day.choices)
     time_in = models.DateTimeField()
     time_out = models.DateTimeField()

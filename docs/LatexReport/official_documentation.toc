@@ -68,6 +68,5 @@
 \contentsline {section}{\numberline {8.9}Transcripts of Client Meetings}{108}{section.8.9}%
 \contentsline {subsection}{\numberline {8.9.1}{Transcript of Initial Client Meeting}}{108}{section*.3}%
 \contentsline {subsection}{\numberline {8.9.2}{Transcript of 19 October Client Check-In Meeting}}{120}{section*.3}%
-\contentsline {subsection}{\numberline {8.9.3}{Transcript of the Turbo Encabulator Meeting}}{155}{section*.3}%
-\contentsline {section}{\numberline {8.10}Rasterized Documentation of Module Interfaces}{158}{section.8.10}%
-\contentsline {chapter}{\numberline {9}References}{201}{chapter.9}%
+\contentsline {section}{\numberline {8.10}Rasterized Documentation of Module Interfaces}{155}{section.8.10}%
+\contentsline {chapter}{\numberline {9}References}{198}{chapter.9}%
