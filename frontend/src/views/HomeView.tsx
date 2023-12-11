@@ -1,6 +1,5 @@
 import { Announcement } from "@/components/display/Announcement";
 import Header from "@/components/typography/Header";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -33,7 +32,12 @@ export default function HomeView() {
       )}
       <div className="flex flex-col sm:block space-y-4">
         <div className="grid gap-4">
-        <Announcement className="" variant="info" title="Demo Day is Today!" body="We are excited to present our application on Thursday, Decemeber 7th!"/>
+          <Announcement
+            className=""
+            variant="info"
+            title="Demo Day is Today!"
+            body="We are excited to present our application on Thursday, Decemeber 7th!"
+          />
         </div>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-7">
           <Card className="sm:col-span-4 w-[100%] md:w-full">

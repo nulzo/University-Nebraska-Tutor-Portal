@@ -1,5 +1,3 @@
 export default function ProjectPoster() {
-    return (
-        <></>
-    )
+  return <></>;
 }

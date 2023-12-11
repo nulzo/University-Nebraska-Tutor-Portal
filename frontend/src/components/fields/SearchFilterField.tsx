@@ -13,13 +13,7 @@ import { ScrollArea } from "../ui/scroll-area";
 import { CheckIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-export default function SearchFilterField({
-  control,
-  name,
-  key,
-  items,
-  form,
-}: any) {
+export default function SearchFilterField({ control, name, key, items }: any) {
   return (
     <FormField
       control={control}
@@ -41,7 +35,9 @@ export default function SearchFilterField({
                 >
                   {field.value
                     ? items?.data.find(
-                        (tutor: any) => tutor.name === field.value || tutor.MSOID == field.value,
+                        (tutor: any) =>
+                          tutor.name === field.value ||
+                          tutor.MSOID == field.value,
                       )?.name
                     : "select a tutor"}
                   <CaretSortIcon
@@ -62,10 +58,10 @@ export default function SearchFilterField({
                 <CommandGroup key="issue_command_group">
                   <ScrollArea className="h-fit rounded-md border">
                     {items?.data.map((tutor: any) => (
-                      <CommandItem onSelect={field.onChange}
+                      <CommandItem
+                        onSelect={field.onChange}
                         value={tutor.MSOID}
                         key={`${tutor.name}${tutor.MSOID}`}
-                        
                       >
                         {tutor.name}
                         <CheckIcon

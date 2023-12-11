@@ -61,7 +61,7 @@ export default function TutorTicketForm({ ticket }: any) {
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
     mutation.mutate(data);
-    console.log("form")
+    console.log("form");
     toast({
       title: "Ticket updated!",
       description:
@@ -147,15 +147,24 @@ export default function TutorTicketForm({ ticket }: any) {
                             <DropdownMenuTrigger asChild>
                               <Button variant="outline" className="h-8 w-8 p-0">
                                 <span className="sr-only">Popout menu</span>
-                                { form.getValues("was_flagged") == false ? <FlagIcon className="h-4 w-4" /> : <FlagIcon className="h-4 w-4 stroke-orange-500" /> }
+                                {form.getValues("was_flagged") == false ? (
+                                  <FlagIcon className="h-4 w-4" />
+                                ) : (
+                                  <FlagIcon className="h-4 w-4 stroke-orange-500" />
+                                )}
                               </Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent align="end">
                               <DropdownMenuLabel>Actions</DropdownMenuLabel>
                               <DropdownMenuItem
-                                onClick={() =>
-                                  {console.log(form.setValue("was_flagged", !form.getValues("was_flagged")))}
-                                }
+                                onClick={() => {
+                                  console.log(
+                                    form.setValue(
+                                      "was_flagged",
+                                      !form.getValues("was_flagged"),
+                                    ),
+                                  );
+                                }}
                               >
                                 Flag ticket
                               </DropdownMenuItem>
@@ -279,7 +288,9 @@ export default function TutorTicketForm({ ticket }: any) {
                             onClick={() => form.resetField("description")}
                             disabled={!form.formState.isDirty}
                             variant="outline"
-                            className={"mt-4 border-warning/50 text-warning hover:bg-warning/20 hover:text-warning"}
+                            className={
+                              "mt-4 border-warning/50 text-warning hover:bg-warning/20 hover:text-warning"
+                            }
                           >
                             Discard
                           </Button>

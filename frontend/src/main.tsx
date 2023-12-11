@@ -28,9 +28,8 @@ import LoginView from "./views/LoginView.tsx";
 import { PublicClientApplication } from "@azure/msal-browser";
 import { MsalProvider } from "@azure/msal-react";
 import { msalConfig } from "./authConfig.ts";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+// import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { ThemeProvider } from "@/forms/ThemeProvider.tsx";
-import ProjectPoster from "./views/ProjectPoster.tsx";
 
 const queryClient = new QueryClient();
 
