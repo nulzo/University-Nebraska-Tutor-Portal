@@ -36,6 +36,7 @@ import { useMutation } from "@tanstack/react-query";
 import { useToast } from "@/components/ui/use-toast";
 import { createTicket } from "@/API/tickets/ticketRequests";
 import { useNavigate } from "react-router-dom";
+import useFetchSection from "@/API/sections/useFetchSection";
 
 const max_ticket_length = 500;
 
@@ -50,6 +51,19 @@ const FormSchema = z.object({
     .max(50, {
       message: "name must not be more than 50 characters.",
     }),
+    email: z
+    .string({
+      required_error: "you must enter your email.",
+    })
+    .min(4, {
+      message: "email must be more than 4 characters.",
+    })
+    .max(50, {
+      message: "email must not be more than 50 characters.",
+    })
+    .email(
+      {message: "must enter a valid email"}
+    ),
   title: z
     .string({
       required_error: "you must enter a title.",
@@ -63,7 +77,7 @@ const FormSchema = z.object({
   professor: z.number({
     required_error: "you must select a professor.",
   }),
-  course: z.number({
+  course: z.string({
     required_error: "you must select a course.",
   }),
   issue: z.number({
@@ -99,7 +113,7 @@ function TicketDescription({ children }: any) {
 
 export default function TicketForm() {
   const professors = useFetchProfessor();
-  // const sections = useFetchSection();
+  const sections = useFetchSection();
   const issues = useFetchIssue();
   const courses = useFetchCourse();
   const max_length = max_ticket_length;
@@ -130,6 +144,12 @@ export default function TicketForm() {
     },
   });
 
+  console.log(form)
+
+  function onProfessorChange(professor: number) {
+    console.log(professor)
+  }
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
@@ -152,6 +172,29 @@ export default function TicketForm() {
               <TicketDescription>
                 If you prefer to go by a different name than what is listed
                 here, navigate to the "Profile" tab and change it.
+              </TicketDescription>
+              <FormMessage className="text-warning" />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="email"
+          key="student-email-input"
+          render={({ field }: any) => (
+            <FormItem className="space-y-2">
+              <TicketLabel>Email Address</TicketLabel>
+              <FormControl>
+                <Input
+                  className="text-foreground"
+                  placeholder="Your email here..."
+                  autoComplete="off"
+                  autoCorrect="false"
+                  {...field}
+                />
+              </FormControl>
+              <TicketDescription>
+                Your email will be autofilled here if you are signed in.
               </TicketDescription>
               <FormMessage className="text-warning" />
             </FormItem>
@@ -224,6 +267,9 @@ export default function TicketForm() {
                                       "professor",
                                       professor.professor_id,
                                     );
+                                    {console.log(sections?.data.filter((section: any) => (section.professor === professor.full_name)))}
+                                    {console.log(professors)}
+                                    onProfessorChange(professor.professor_id);
                                   }}
                                 >
                                   {professor.full_name}
@@ -236,7 +282,8 @@ export default function TicketForm() {
                                     )}
                                   />
                                 </CommandItem>
-                              ))}
+                                )
+                              )}
                             </ScrollArea>
                           </CommandGroup>
                         </Command>
@@ -290,9 +337,10 @@ export default function TicketForm() {
                                 "text-muted-foreground font-normal",
                             )}
                           >
+                            {console.log(courses)}
                             {field.value
                               ? courses?.data.find(
-                                  (course: any) => course.id === field.value,
+                                  (course: any) => course.course_code === field.value,
                                 )?.course_code
                               : "select a course"}
                             <CaretSortIcon
@@ -320,10 +368,10 @@ export default function TicketForm() {
                                   value={`${course.course_code} - ${course.course_name}`}
                                   key={`${course.course_code}-${course.course_name}`}
                                   onSelect={() => {
-                                    form.setValue("course", course.id);
+                                    form.setValue("course", course.course_code);
                                   }}
                                 >
-                                  {course.course_code} - {course.course_name}
+                                  {`${course.course_code.padEnd(20, ' ')}  -  ${course.course_name}`}
                                   <CheckIcon
                                     key="course_check_icon"
                                     className={cn(
@@ -510,9 +558,11 @@ export default function TicketForm() {
             </FormItem>
           )}
         />
+        <div className="flex justify-end">
         <Button disabled={mutation.isPending} type="submit">
           Submit Ticket
         </Button>
+        </div>
       </form>
     </Form>
   );

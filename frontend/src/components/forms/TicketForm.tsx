@@ -31,7 +31,7 @@ import useFetchProfessor from "@/API/professors/useFetchProfessor";
 import useFetchCourse from "@/API/courses/useFetchCourse";
 import useFetchIssue from "@/API/issues/useFetchIssue";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import LoadingSelect from "@/components/loading/loading_select";
+import LoadingSelect from "@/components/fields/loading_select";
 import { useMutation } from "@tanstack/react-query";
 import { useToast } from "@/components/ui/use-toast";
 import { createTicket } from "@/API/tickets/ticketRequests";

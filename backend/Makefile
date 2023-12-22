@@ -42,6 +42,10 @@ start-backend-only:
 migrate:
 	python manage.py makemigrations && python manage.py migrate
 
+.PHONY db:
+db:
+	python manage.py makemigrations && python manage.py migrate && python manage.py createsuperuser --noinput
+
 .PHONY load-semester:
 load-semester:
 	python3 manage.py runscript load_semester

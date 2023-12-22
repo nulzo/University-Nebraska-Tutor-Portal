@@ -248,7 +248,7 @@ export default function TutorTicketForm({ ticket }: any) {
                               name={"tutor"}
                               value={ticket.tutor}
                               form={form}
-                              key={form.id}
+                              key={"tutor_key"}
                               items={tutors}
                               submit={onSubmit}
                             />
@@ -262,7 +262,7 @@ export default function TutorTicketForm({ ticket }: any) {
                               name={"asst_tutor"}
                               value={ticket.asst_tutor}
                               form={form}
-                              key={form.id}
+                              key={"assistant_tutor"}
                               items={tutors}
                             />
                           }

@@ -46,10 +46,10 @@ const bodyVariants = cva("", {
   variants: {
     variant: {
       default: "border-primary",
-      info: "text-foreground",
-      warning: "text-foreground",
-      tutor: "text-foreground",
-      alert: "text-foreground",
+      info: "text-info",
+      warning: "text-warning",
+      tutor: "text-tutor",
+      alert: "text-alert",
     },
   },
   defaultVariants: {

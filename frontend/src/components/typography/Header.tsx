@@ -1,10 +1,7 @@
 export default function Header({
   text,
   subtext,
-}: {
-  text: string;
-  subtext: string;
-}) {
+}: any) {
   return (
     <div className="mt-8 flex text-center pb-4 sm:text-start sm:block justify-center text-foreground dark:text-foreground">
       <div className="flex flex-col">

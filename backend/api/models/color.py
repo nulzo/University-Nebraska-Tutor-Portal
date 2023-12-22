@@ -7,9 +7,6 @@ class Color(models.Model):
     shown below. This just adds some flair to a profile, and increases
     seperation of concerns within tables (preventing monolithic tables).
 
-    Note:
-            Do not include the `self` parameter in the ``Args`` section.
-
     Attributes:
         color_id (:obj:`IntegerField`): Integer field for the color ID associated with the color
         the user chooses. This is from the **ColorChoices** class.

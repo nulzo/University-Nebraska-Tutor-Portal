@@ -1,6 +1,7 @@
 from django.db import models
 
 from .course import Course
+from .semester import Semester
 
 
 class Section(models.Model):
@@ -24,10 +25,12 @@ class Section(models.Model):
     professor = models.ForeignKey(
         "api.Professor", on_delete=models.PROTECT, null=True, blank=True
     )
+    semester = models.ForeignKey(Semester, on_delete=models.PROTECT)
     course = models.ForeignKey(Course, on_delete=models.PROTECT, null=True, blank=True)
     section_id = models.BigIntegerField(
         primary_key=True, unique=True, blank=False, null=False
     )
+    section_code = models.CharField(max_length=25)
 
     generic = models.Manager()
 

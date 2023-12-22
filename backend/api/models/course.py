@@ -21,13 +21,6 @@ class Course(models.Model):
     Manager:
         generic (:obj:`Manager`): The default manager for the `Course` model.
 
-    Example:
-        Examples can be given using either the ``Example`` or ``Examples``
-        sections. Sections support any reStructuredText formatting, including
-        literal blocks::
-
-        $ python example_google.py
-
     Todo:
         * For module TODOs
         * You have to also use ``sphinx.ext.todo`` extension
@@ -36,7 +29,7 @@ class Course(models.Model):
     course_department = models.CharField(max_length=10, blank=False, default="CSCI")
     course_name = models.CharField(max_length=100, blank=False)
     course_id = models.IntegerField(blank=False, null=False)
-    course_code = models.CharField(max_length=15, blank=False, null=False, unique=True)
+    course_code = models.CharField(primary_key=True, max_length=15, blank=False, null=False, unique=True)
 
     generic: models.Manager = models.Manager()
 

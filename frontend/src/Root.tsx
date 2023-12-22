@@ -8,13 +8,16 @@ import { useAccount, useIsAuthenticated, useMsal } from "@azure/msal-react";
 export default function Root() {
   // eslint-disable-next-line
   const isAuthenticated = useIsAuthenticated();
+  console.log(isAuthenticated)
   const { accounts } = useMsal();
   // eslint-disable-next-line
   const account = useAccount(accounts[0] || {});
+  console.log(account)
   // eslint-disable-next-line
   const tickets = useFetchTicket("new", "?status=NEW");
+  console.log(tickets)
   return (
-    <div className="bg-background pb-4">
+    <div className="bg-background pb-10">
       <Navbar />
       {/* <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 2xl:grid-cols-14 3xl:grid-cols-14"> */}
       <div className="">
