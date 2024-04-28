@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import { Separator } from "@/components/ui/separator";
 
-export default function ScheduleView() {
+export default function SchedulePage() {
   const tutors = useFetchTutor();
   if (tutors) console.log(tutors);
   return (

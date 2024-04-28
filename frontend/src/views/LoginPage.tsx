@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
-export default function LoginView({ className, ...props }: UserAuthFormProps) {
+export default function LoginPage({ className, ...props }: UserAuthFormProps) {
   const isAuthenticated = useIsAuthenticated();
   const { instance } = useMsal();
   const [isAuthCompleted, setIsAuthCompleted] = React.useState(false);

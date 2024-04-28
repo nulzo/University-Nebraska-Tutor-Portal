@@ -14,6 +14,7 @@ from rest_framework.views import APIView
 from api.models.user import User
 from api.serializers import UserSerializer
 
+
 # We don't need to check for duplicate class names and function names.
 # pylint: disable=E0102,E1101,R0914,R0801
 
@@ -29,7 +30,7 @@ class APIUserView(APIView):
         return querystring.upper()
 
     def get(self, request: Request) -> Response:
-        users = User.generic.all()
+        users = User.objects.all()
         querystring = self.get_querystring(request=request)
 
         if querystring:
@@ -49,7 +50,8 @@ class APIUserView(APIView):
                 users = users.filter(name__iendswith=last_name)
 
             if tutor := querystring.get("tutor"):
-                users = users.filter(is_tutor=tutor.capitalize())
+                print(users.filter(role=tutor))
+                users = users.filter(role=tutor)
 
             if admin := querystring.get("admin"):
                 users = users.filter(is_admin=admin.capitalize())
@@ -85,7 +87,7 @@ class APIUserDetail(APIView):
 
     def query_obj(self, pk: str) -> QueryDict | Any:
         try:
-            return User.generic.all().filter(pk=pk)
+            return User.objects.all().filter(pk=pk)
         except Exception as exc:
             raise Http404 from exc
 

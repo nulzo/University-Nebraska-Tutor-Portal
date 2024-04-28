@@ -1,61 +1,22 @@
 from django.db import models
-from django.db.models.query import QuerySet
-
-from .user import User
+from api.models.user import User
 
 
-class HourManager(models.Manager):
-    '''A manager for the Hour model that provides custom query methods for managing tutor hours."""
+class OpeningHours(models.Model):
+    WEEKDAY_CHOICES = [
+            ('MON', 'Monday'),
+            ('TUE', 'Tuesday'),
+            ('WED', 'Wednesday'),
+            ('THU', 'Thursday'),
+            ('FRI', 'Friday'),
+            ('SAT', 'Saturday'),
+            ('SUN', 'Sunday'),
+        ]
 
-    def get_all_hours(self) -> QuerySet:
-    """Returns all tutor hours.
+    tutor = models.ForeignKey(User, on_delete=models.CASCADE)
+    day_of_week = models.CharField(max_length=3, choices=WEEKDAY_CHOICES)
+    opening_time = models.TimeField()
+    closing_time = models.TimeField()
 
-    Returns:
-    QuerySet: A queryset containing all tutor hours.
-    """
-    return super().get_queryset().all()
-
-    def get_tutor(self, name: str) -> QuerySet:
-    """Returns tutor hours filtered by tutor name.
-
-    Args:
-    name (str): The name of the tutor.
-
-    Returns:
-    QuerySet: A queryset containing tutor hours filtered by the given tutor name.
-    '''
-
-    def get_all_hours(self) -> QuerySet:
-        return super().get_queryset().all()
-
-    def get_tutor(self, name: str) -> QuerySet:
-        return super().get_queryset().filter(tutor=name)
-
-
-class Hour(models.Model):
-    """A model to represent tutor hours."""
-
-    class Day(models.IntegerChoices):
-        """An enumeration of days of the week."""
-
-        MONDAY = 1
-        TUESDAY = 2
-        WEDNESDAY = 3
-        THURSDAY = 4
-        FRIDAY = 5
-        SATURDAY = 6
-        SUNDAY = 7
-
-    tutor = models.ForeignKey(User, blank=False, null=False, on_delete=models.PROTECT)
-    day_id = models.IntegerField(choices=Day.choices)
-    time_in = models.DateTimeField()
-    time_out = models.DateTimeField()
-
-    generic = models.Manager()
-    hours = HourManager()
-
-    def __str__(self) -> str:
-        return str(self.tutor) + " " + "Hours"
-
-    class Meta:
-        verbose_name_plural = "tutor_hours"
+    def __str__(self):
+        return f"{self.get_day_of_week_display()}: {self.opening_time.strftime('%I:%M %p')} - {self.closing_time.strftime('%I:%M %p')}"

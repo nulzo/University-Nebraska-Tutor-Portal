@@ -14,7 +14,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
 
-export default function ProfileView() {
+export default function ProfilePage() {
   return (
     <>
       <Header

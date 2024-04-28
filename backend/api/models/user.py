@@ -1,34 +1,4 @@
 from django.db import models
-from django.db.models.query import QuerySet
-
-from .course import Course
-
-
-class StudentManager(models.Manager):
-    def get_students(self) -> QuerySet:
-        return super().get_queryset().filter(is_tutor=False).filter(is_admin=False)
-
-    def get_student(self, name: str) -> QuerySet:
-        return (
-            super()
-            .get_queryset()
-            .filter(is_tutor=False)
-            .filter(is_admin=False)
-            .filter(name)
-        )
-
-
-class TutorManager(models.Manager):
-    def get_tutors(self) -> QuerySet:
-        return super().get_queryset().filter(is_tutor=True)
-
-    def get_tutor(self, name: str) -> QuerySet:
-        return super().get_queryset().filter(is_tutor=True).filter(name)
-
-
-class AdminManager(models.Manager):
-    def get_admins(self) -> QuerySet:
-        return super().get_queryset().filter(is_admin=True)
 
 
 class User(models.Model):
@@ -41,28 +11,11 @@ class User(models.Model):
     in the database, thus preventing empty fields (i.e. empty cells).
     """
 
-    student_nuid = models.BigIntegerField(
-        primary_key=True, unique=True, blank=False, null=False, default=1
-    )
-    courses_tutoring = models.ManyToManyField(
-        Course, related_name="usertocoursetutored", blank=True
-    )
-    courses_taken = models.ManyToManyField(
-        Course, related_name="usertocoursetaken", blank=True
-    )
-    name = models.CharField(max_length=100)
-    is_active = models.BooleanField(default=False)
-    is_working = models.BooleanField(default=False)
-    is_tutor = models.BooleanField(default=False)
-    is_admin = models.BooleanField(default=False)
-    user_bio = models.TextField(blank=True, max_length=500)
-    email = models.EmailField(blank=False, unique=True)
-    MSOID = models.CharField(max_length=75, unique=True)
-
-    generic = models.Manager()
-    student = StudentManager()
-    tutor = TutorManager()
-    admin = AdminManager()
+    info = models.ForeignKey("api.People", on_delete=models.CASCADE)
+    role = models.ForeignKey("api.Role", on_delete=models.SET_NULL, null=True)
+    settings = models.OneToOneField("api.UserSettings", on_delete=models.CASCADE)
+    last_login_date = models.DateTimeField(auto_now=True, null=True, blank=True)
+    created_at_date = models.DateField(auto_now_add=True, null=True)
 
     def __str__(self) -> str:
-        return str(self.name)
+        return str(self.info)

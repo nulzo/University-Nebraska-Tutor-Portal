@@ -75,6 +75,9 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { toast } from "@/components/ui/use-toast";
+import {useMutation} from "@tanstack/react-query";
+
+import {createAnnouncement} from "@/api/announcements/announcementRequests.ts";
 
 const max_announcement_length = 255;
 
@@ -89,7 +92,7 @@ const FormSchema = z.object({
     .max(30, {
       message: "title must not be more than 30 characters.",
     }),
-  body: z
+  content: z
     .string({
       required_error: "enter a body for the announcement.",
     })
@@ -99,34 +102,51 @@ const FormSchema = z.object({
     .max(max_announcement_length, {
       message: `body must not be more than ${max_announcement_length} characters.`,
     }),
-  variant: z.string({
+  type: z.number({
     required_error: "enter a variant for the announcement.",
-  }),
+  }).or(z.string()),
   start_date: z.date({
     required_error: "enter a start date for the announcement.",
   }),
   end_date: z.date({
     required_error: "enter an end date for the announcement.",
   }),
-  show_date: z
+  visible_end_date: z
     .boolean({
       invalid_type_error: "erm... you really broke something...",
     })
     .default(false),
 });
 
-function onSubmit(data: z.infer<typeof FormSchema>) {
-  toast({
-    title: "You submitted the following values:",
-    description: (
-      <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+export default function AnnouncementForm() {
+  const mutation = useMutation({
+    mutationFn: createAnnouncement,
+  });
+
+  function onSubmit(data: z.infer<typeof FormSchema>) {
+    data.type = 1;
+    // data.issuing_user = 1;
+    mutation.mutate(data);
+    if (mutation.isSuccess) {
+      toast({
+        title: "Success! You submitted the following values:",
+        description: (
+            <pre className="mt-2 w-[340px] rounded-md bg-background border-success p-4">
         <code className="text-white">{JSON.stringify(data, null, 2)}</code>
       </pre>
-    ),
-  });
-}
-
-export default function AnnouncementForm() {
+        ),
+      });
+    }
+    else {
+      toast({
+        title: "FAILUTE! YOU SUCKS!!!!",
+        description: (
+            <div>Faggot!</div>
+        ),
+        className: "border border-red"
+      });
+    }
+  }
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
   });
@@ -156,7 +176,7 @@ export default function AnnouncementForm() {
         />
         <FormField
           control={form.control}
-          name="body"
+          name="content"
           render={({ field }) => (
             <FormItem>
               <FormLabel className="text-foreground">
@@ -193,7 +213,7 @@ export default function AnnouncementForm() {
         />
         <FormField
           control={form.control}
-          name="variant"
+          name="type"
           render={({ field }) => (
             <FormItem className="">
               <div className="space-y-0.5 flex flex-row items-center justify-between rounded-lg border p-4">
@@ -211,7 +231,7 @@ export default function AnnouncementForm() {
                       <SelectTrigger className="text-foreground w-[240px]">
                         <SelectValue>
                           {field.value || (
-                            <span className="text-muted-foreground">
+                            <span className="text-muted-foreground hover:text-foreground">
                               select an announcement type
                             </span>
                           )}
@@ -334,7 +354,7 @@ export default function AnnouncementForm() {
         />
         <FormField
           control={form.control}
-          name="show_date"
+          name="visible_end_date"
           render={({ field }) => (
             <FormItem className="flex flex-row items-center justify-between rounded-lg border p-4">
               <div className="space-y-0.5">
@@ -343,7 +363,6 @@ export default function AnnouncementForm() {
                   Show the start and end dates in the announcement.
                 </FormDescription>
               </div>
-
               <FormControl>
                 <Switch
                   checked={field.value}
@@ -353,8 +372,10 @@ export default function AnnouncementForm() {
             </FormItem>
           )}
         />
-        <Button type="submit">Schedule</Button>
-      </form>
+        <div className="flex justify-items-end items-end justify-end pt-2">
+          <Button type="submit">Schedule</Button>
+        </div>
+        </form>
     </Form>
   );
 }

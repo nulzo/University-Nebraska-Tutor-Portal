@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/card";
 import { useAccount, useIsAuthenticated, useMsal } from "@azure/msal-react";
 
-export default function HomeView() {
+export default function HomePage() {
   const isAuthenticated = useIsAuthenticated();
   const { accounts } = useMsal();
   // eslint-disable-next-line

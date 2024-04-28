@@ -59,7 +59,7 @@ const getDate = () => {
   return file;
 };
 
-export default function AdminDownloadView() {
+export default function DownloadPage() {
   const [filename, setFilename] = useState(getDate);
   const [toDate, setToDate] = useState<Date>();
   const [open, setOpen] = useState(false);

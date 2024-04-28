@@ -364,7 +364,7 @@ function getTasks() {
   return z.array(taskSchema).parse(TableData);
 }
 
-export default function AdminBlame() {
+export default function BlamePage() {
   const tasks = getTasks();
   return (
     <>

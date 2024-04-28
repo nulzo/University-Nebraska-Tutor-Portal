@@ -1,6 +1,6 @@
 import { useRouteError } from "react-router-dom";
 
-export default function ErrorView() {
+export default function ErrorPage() {
   const error: any = useRouteError();
   return (
     <div className="text-center pt-[15vh] grid grid-cols-1">

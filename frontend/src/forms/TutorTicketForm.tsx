@@ -27,10 +27,11 @@ import DropdownField from "../components/fields/DropdownField";
 import useFetchTutor from "@/API/tutors/useFetchTutor";
 import SearchFilterField from "@/components/fields/SearchFilterField";
 import DropField from "@/components/fields/DropField";
-import CheckDropField from "@/components/fields/CheckDropField";
+
 import { useMutation } from "@tanstack/react-query";
 import { updateTicket } from "@/API/tickets/ticketRequests";
 import { toast } from "@/components/ui/use-toast";
+import CheckDropField from "@/components/fields/CheckDropField.tsx";
 
 function DetailLink({ label, content }: any) {
   return (
@@ -45,11 +46,11 @@ const FormSchema = z.object({
   id: z.number(),
   description: z.string().min(4).max(500),
   status: z.string().min(1).max(10),
-  tutor: z.string().nullable().or(z.number().nullable()),
-  asst_tutor: z.string().nullable().or(z.number().nullable()),
-  was_successful: z.boolean(),
+  principal_tutor: z.string().nullable().or(z.number().nullable()),
+  assistant_tutor: z.string().nullable().or(z.number().nullable()),
+  // was_successful: z.boolean(),
   difficulty: z.string().nullable().optional(),
-  was_flagged: z.boolean(),
+  flagged: z.boolean(),
 });
 
 export default function TutorTicketForm({ ticket }: any) {
@@ -61,7 +62,6 @@ export default function TutorTicketForm({ ticket }: any) {
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
     mutation.mutate(data);
-    console.log("form");
     toast({
       title: "Ticket updated!",
       description:
@@ -76,12 +76,12 @@ export default function TutorTicketForm({ ticket }: any) {
     defaultValues: {
       id: ticket.id,
       description: ticket.description,
-      status: ticket.status,
-      tutor: ticket.tutor,
-      asst_tutor: ticket.asst_tutor,
-      was_successful: ticket.was_successful,
-      difficulty: ticket.difficulty,
-      was_flagged: ticket.was_flagged,
+      status: ticket.status.name,
+      principal_tutor: ticket.principal_tutor.info.name,
+      assistant_tutor: ticket.assistant_tutor,
+      // was_successful: ticket.was_successful,
+      difficulty: ticket.difficulty.name,
+      flagged: ticket.flagged,
     },
   });
 
@@ -94,7 +94,7 @@ export default function TutorTicketForm({ ticket }: any) {
             <DotsHorizontalIcon className="h-4 w-4" />
           </Button>
         </AlertDialogTrigger>
-        <AlertDialogContent className="bg-background">
+        <AlertDialogContent className="bg-backgroundsecondary">
           <ScrollArea className="max-h-100">
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -147,7 +147,7 @@ export default function TutorTicketForm({ ticket }: any) {
                             <DropdownMenuTrigger asChild>
                               <Button variant="outline" className="h-8 w-8 p-0">
                                 <span className="sr-only">Popout menu</span>
-                                {form.getValues("was_flagged") == false ? (
+                                {form.getValues("flagged") == false ? (
                                   <FlagIcon className="h-4 w-4" />
                                 ) : (
                                   <FlagIcon className="h-4 w-4 stroke-orange-500" />
@@ -160,8 +160,8 @@ export default function TutorTicketForm({ ticket }: any) {
                                 onClick={() => {
                                   console.log(
                                     form.setValue(
-                                      "was_flagged",
-                                      !form.getValues("was_flagged"),
+                                      "flagged",
+                                      !form.getValues("flagged"),
                                     ),
                                   );
                                 }}
@@ -180,11 +180,11 @@ export default function TutorTicketForm({ ticket }: any) {
                         <DropdownField
                           control={form.control}
                           name={"status"}
-                          value={ticket.status}
+                          value={ticket.status?.name}
                           items={[
-                            { value: "NEW", text: "New" },
-                            { value: "OPENED", text: "Claimed" },
-                            { value: "CLOSED", text: "Closed" },
+                            { value: 1, text: "New" },
+                            { value: 2, text: "Claimed" },
+                            { value: 3, text: "Closed" },
                           ]}
                         />
                       </div>
@@ -226,12 +226,12 @@ export default function TutorTicketForm({ ticket }: any) {
                           Information provided by student.
                         </div>
                         <Separator />
-                        <DetailLink label="Student" content={ticket.name} />
+                        <DetailLink label="Student" content={ticket.issuing_user.info.name} />
                         <DetailLink
                           label="Professor"
-                          content={ticket.professor}
+                          content={ticket.professor.info.name}
                         />
-                        <DetailLink label="Course" content={ticket.course} />
+                        <DetailLink label="Course" content={ticket.section?.course.title} />
                         <DetailLink label="Modality" content="Online" />
                         <div className="font-medium text-sm text-foreground mt-4">
                           Tutor Details
@@ -245,10 +245,10 @@ export default function TutorTicketForm({ ticket }: any) {
                           content={
                             <SearchFilterField
                               control={form.control}
-                              name={"tutor"}
-                              value={ticket.tutor}
+                              name={"principal_tutor"}
+                              value={ticket.principal_tutor?.id}
                               form={form}
-                              key={"tutor_key"}
+                              key={"principal_tutor_key"}
                               items={tutors}
                               submit={onSubmit}
                             />
@@ -260,7 +260,7 @@ export default function TutorTicketForm({ ticket }: any) {
                             <SearchFilterField
                               control={form.control}
                               name={"asst_tutor"}
-                              value={ticket.asst_tutor}
+                              value={ticket.assistant_tutor.info && ticket.assistant_tutor?.info.name}
                               form={form}
                               key={"assistant_tutor"}
                               items={tutors}
@@ -274,7 +274,7 @@ export default function TutorTicketForm({ ticket }: any) {
                               variant="difficulty"
                               control={form.control}
                               name={"difficulty"}
-                              value={ticket.status}
+                              value={ticket.status?.name}
                               items={[
                                 { value: "EASY", text: "Easy" },
                                 { value: "MEDIUM", text: "Medium" },
@@ -283,7 +283,7 @@ export default function TutorTicketForm({ ticket }: any) {
                             />
                           }
                         />
-                        <div className="flex justify-end space-x-2">
+                        <div className={`${!form.formState.isDirty && "hidden"} flex justify-end space-x-2`}>
                           <Button
                             onClick={() => form.resetField("description")}
                             disabled={!form.formState.isDirty}

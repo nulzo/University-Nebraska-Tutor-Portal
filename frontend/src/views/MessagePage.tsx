@@ -1,7 +1,7 @@
 import Header from "@/components/typography/Header";
 import { Separator } from "@/components/ui/separator";
 
-export default function MessageView() {
+export default function MessagePage() {
   return (
     <>
       <Header

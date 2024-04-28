@@ -6,7 +6,7 @@ authors = ["Nolan Gregory <nolangregory@unomaha.edu>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = ">=3.11,<3.13"
+python = ">=3.10,<3.13"
 django = "^4.2.3"
 python-dotenv = "^1.0.0"
 pytest = "^7.4.0"

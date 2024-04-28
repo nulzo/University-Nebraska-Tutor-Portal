@@ -19,10 +19,9 @@ class Issues(models.Model):
     modify the issues with no consequence to the attributed tickets.
     """
 
-    issue_id = models.AutoField(primary_key=True, editable=False)
-    problem_type = models.CharField(
-        max_length=25, null=False, blank=False, default="Problem"
-    )
+    name = models.CharField(max_length=1000)
+    description = models.TextField()
+    discriminator = models.CharField(max_length=100)
     severity = models.CharField(
         max_length=1,
         choices=[("1", "1"), ("2", "2"), ("3", "3"), ("4", "4"), ("5", "5")],
@@ -30,10 +29,7 @@ class Issues(models.Model):
     )
 
     def __str__(self) -> str:
-        return str(self.problem_type)
-
-    # issue = IssueManager()
-    generic: models.Manager = models.Manager()
+        return str(self.name)
 
     class Meta:
         verbose_name_plural: str = "issue_types"

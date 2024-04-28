@@ -1,6 +1,8 @@
 from django.db import models
 from django.db.models.query import QuerySet
 
+from api.models.people import People
+
 
 class ProfessorManager(models.Manager):
     def get_professors(self) -> QuerySet:
@@ -22,17 +24,11 @@ class Professor(models.Model):
     return the str representation as well.
     """
 
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=50)
-    full_name = models.CharField(max_length=80)
-    email = models.CharField(max_length=50)
-    is_active = models.BooleanField(default=True)
-    professor_id = models.BigIntegerField(
-        unique=True, null=False, blank=False, primary_key=True
-    )
+    info = models.OneToOneField(People, on_delete=models.CASCADE)
+    active = models.BooleanField(default=False)
 
     professor = ProfessorManager()
     generic = models.Manager()
 
     def __str__(self) -> str:
-        return str(self.full_name)
+        return str(self.info)

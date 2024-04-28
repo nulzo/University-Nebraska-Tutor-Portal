@@ -2,34 +2,35 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./Root.tsx";
-import ErrorView from "./views/ErrorView.tsx";
+import ErrorPage from "./views/ErrorPage.tsx";
 import Zoom from "./views/ZoomView.tsx";
-import DownloadView from "./views/admin/AdminDownloadView.tsx";
+import DownloadView from "./views/admin/DownloadPage.tsx";
 import "./style/globals.css";
-import CreateTicketView from "./views/CreateTicketView.tsx";
-import ScheduleView from "./views/ScheduleView.tsx";
-import ProfileView from "./views/ProfileView.tsx";
-import MessageView from "./views/MessageView.tsx";
-import AdminAnnouncements from "./views/admin/AdminAnnouncements.tsx";
+import TicketPage from "./views/TicketPage.tsx";
+import SchedulePage from "./views/SchedulePage.tsx";
+import ProfilePage from "./views/ProfilePage.tsx";
+import MessagePage from "./views/MessagePage.tsx";
+import AnnouncementPage from "./views/admin/AnnouncementPage.tsx";
 import AdminSettings from "./views/admin/AdminSettings.tsx";
 import TutorDashboard from "./views/tutor/TutorDashboardView.tsx";
 import DevAPIView from "./views/development/DevAPIView.tsx";
 import DevSandbox from "./views/development/DevSandbox.tsx";
 import AdminDashboard from "./views/admin/AdminDashboard.tsx";
-import HomeView from "./views/HomeView.tsx";
-import HoursView from "./views/HoursView.tsx";
-import AdminBlame from "./views/admin/AdminBlame.tsx";
+import HomePage from "./views/HomePage.tsx";
+import HoursPage from "./views/HoursPage.tsx";
+import BlamePage from "./views/admin/BlamePage.tsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import TutorView from "./views/tutor/TutorView.tsx";
 import AdminRequired from "./routes/AdminRequired.tsx";
 import TutorRequired from "./routes/TutorRequired.tsx";
 import LoginRequired from "./routes/LoginRequired.tsx";
-import LoginView from "./views/LoginView.tsx";
+import LoginPage from "./views/LoginPage.tsx";
 import { PublicClientApplication } from "@azure/msal-browser";
 import { MsalProvider } from "@azure/msal-react";
 import { msalConfig } from "./authConfig.ts";
 // import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { ThemeProvider } from "@/forms/ThemeProvider.tsx";
+import {ReactQueryDevtools} from "@tanstack/react-query-devtools";
 
 const queryClient = new QueryClient();
 
@@ -37,16 +38,16 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    errorElement: <ErrorView />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "home/",
-        element: <HomeView />,
+        element: <HomePage />,
       },
       {
         path: "create/",
-        // element: <LoginRequired view={<CreateTicketView />} />,
-        element: <CreateTicketView />,
+        // element: <LoginRequired view={<TicketPage />} />,
+        element: <TicketPage />,
       },
       {
         path: "zoom/",
@@ -54,15 +55,15 @@ const router = createBrowserRouter([
       },
       {
         path: "hours/",
-        element: <HoursView />,
+        element: <HoursPage />,
       },
       {
         path: "profile/",
-        element: <LoginRequired view={<ProfileView />} />,
+        element: <LoginRequired view={<ProfilePage />} />,
       },
       {
         path: "messages/",
-        element: <LoginRequired view={<MessageView />} />,
+        element: <LoginRequired view={<MessagePage />} />,
       },
       {
         path: "admin/dashboard/",
@@ -70,11 +71,11 @@ const router = createBrowserRouter([
       },
       {
         path: "admin/blame/",
-        element: <AdminRequired view={<AdminBlame />} />,
+        element: <AdminRequired view={<BlamePage />} />,
       },
       {
         path: "admin/announcements/",
-        element: <AdminRequired view={<AdminAnnouncements />} />,
+        element: <AdminRequired view={<AnnouncementPage />} />,
       },
       {
         path: "admin/settings/",
@@ -86,7 +87,7 @@ const router = createBrowserRouter([
       },
       {
         path: "tutor/schedule/",
-        element: <TutorRequired view={<ScheduleView />} />,
+        element: <TutorRequired view={<SchedulePage />} />,
       },
       {
         path: "tutor/tutors/",
@@ -106,7 +107,7 @@ const router = createBrowserRouter([
       },
       {
         path: "login/",
-        element: <LoginView />,
+        element: <LoginPage />,
       },
     ],
   },
@@ -118,7 +119,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <MsalProvider instance={msalInstance}>
       <QueryClientProvider client={queryClient}>
-        {/* <ReactQueryDevtools /> */}
+         <ReactQueryDevtools />
         <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
           <RouterProvider router={router} />
         </ThemeProvider>

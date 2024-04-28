@@ -5,6 +5,7 @@ import { CSCIIcon } from "@/components/assets/DepartmentIcons";
 import { CheckIcon, CircleDashedIcon, CircleIcon, XIcon } from "lucide-react";
 
 export default function Ticket({ ticket }: any) {
+    console.log(ticket);
   return (
     <div className="border rounded-xl text-foreground px-4 pt-2">
       <div className="flex justify-between align-middle items-center mb-2">
@@ -18,7 +19,7 @@ export default function Ticket({ ticket }: any) {
             ) : (
               <XIcon size="15" className="text-error" />
             ))}
-          {ticket.status === "NEW" && (
+          {ticket.status === 1 && (
             <div className="relative">
               <CircleDashedIcon
                 width={16}

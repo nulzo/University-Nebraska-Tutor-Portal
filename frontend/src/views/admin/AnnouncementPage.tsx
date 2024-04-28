@@ -1,10 +1,17 @@
 import Header from "@/components/typography/Header";
 import { Separator } from "@/components/ui/separator";
 import AnnouncementForm from "@/forms/AnnouncementForm";
-import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {useQuery} from "@tanstack/react-query";
+import {fetchData} from "@/API/api.ts";
+import {Announcement} from "@/components/display/Announcement.tsx";
 
-export default function AdminAnnouncements() {
+export default function AnnouncementPage() {
+  const {data, isLoading, isError} = useQuery({
+    queryKey: ["announcements"],
+    queryFn: () => fetchData("announcements")
+  });
+  console.log(isError, isLoading, data);
   return (
     <>
       <div>
@@ -20,16 +27,24 @@ export default function AdminAnnouncements() {
             <TabsTrigger value="upcoming">Upcoming</TabsTrigger>
           </TabsList>
           <TabsContent value="create">
-            <Card className="mt-4">
-              <CardContent>
-                <div className="mt-5">
-                  <AnnouncementForm />
-                </div>
-              </CardContent>
-            </Card>
+            <div className="mt-5">
+              <AnnouncementForm />
+            </div>
           </TabsContent>
           <TabsContent value="current">
             <Separator className="my-4" />
+            {!data?.isLoading && (
+                <div className="my-4">
+                    {data?.map((announcement: any) => (
+                        <Announcement
+                            variant="info"
+                            title={announcement.title}
+                            body={announcement.content}
+                            className="my-4"
+                        />
+                    ))}
+                </div>
+            )}
           </TabsContent>
           <TabsContent value="past">
             <Separator className="my-4" />

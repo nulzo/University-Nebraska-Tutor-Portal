@@ -12,7 +12,7 @@ const announcementVariants = cva("", {
   variants: {
     variant: {
       default: "border-primary",
-      info: "border-info",
+      info: "border-info bg-info/5",
       warning: "border-warning",
       tutor: "border-fortutor",
       alert: "border-alert",

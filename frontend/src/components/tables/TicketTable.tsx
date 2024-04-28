@@ -39,7 +39,7 @@ import { TypeTicket } from "@/types/ticket_interface";
 
 export const columns: ColumnDef<TypeTicket>[] = [
   {
-    accessorKey: "course",
+    accessorKey: "section",
     header: ({ column }) => {
       return (
         <div className="flex justify-left">
@@ -54,7 +54,7 @@ export const columns: ColumnDef<TypeTicket>[] = [
       );
     },
     cell: ({ row }) => (
-      <div className="text-left ml-4 truncate">{row.getValue("course")}</div>
+      <div className="text-left ml-4 truncate">{row.getValue("section").course.title}</div>
     ),
   },
   {
@@ -70,7 +70,7 @@ export const columns: ColumnDef<TypeTicket>[] = [
     header: () => <div className="min-w-[20px]">Status</div>,
     cell: ({ row }) => (
       <div>
-        {row.getValue("status") === "NEW" && (
+        {row.getValue("status").id === 1 && (
           <div className="flex space-x-1 align-middle items-center content-center">
             <CircleDashedIcon width={16} height={16} viewBox="0 0 24 24" />
             <div>Unclaimed</div>
@@ -130,10 +130,10 @@ export default function TicketTable({ tickets }: any) {
           <Input
             placeholder="Filter courses..."
             value={
-              (table.getColumn("course")?.getFilterValue() as string) ?? ""
+              (table.getColumn("section")?.getFilterValue() as string) ?? ""
             }
             onChange={(event) =>
-              table.getColumn("course")?.setFilterValue(event.target.value)
+              table.getColumn("section")?.setFilterValue(event.target.value)
             }
             className="max-w-sm"
           />

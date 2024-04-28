@@ -28,7 +28,7 @@ class APITicketView(APIView):
         return querystring.upper()
 
     def get(self, request: Request) -> Response:
-        tickets = Ticket.generic.all()
+        tickets = Ticket.objects.all()
         querystring = self.get_querystring(request=request)
         if len(querystring) > 0:
             if department := querystring.get("department"):
@@ -56,13 +56,13 @@ class APITicketDetail(APIView):
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
 
     def get(self, request: Request, ticket_id: int) -> Response:
-        ticket = Ticket.generic.get(id=ticket_id)
+        ticket = Ticket.objects.get(id=ticket_id)
         serializer = TicketGetSerializer(ticket)
         return Response(serializer.data)
 
     def patch(self, request: Request, ticket_id: int) -> Response:
         try:
-            ticket = Ticket.generic.get(id=ticket_id)
+            ticket = Ticket.objects.get(id=ticket_id)
         except Ticket.DoesNotExist:
             return Response(
                 {"error": "Ticket not found"}, status=status.HTTP_404_NOT_FOUND

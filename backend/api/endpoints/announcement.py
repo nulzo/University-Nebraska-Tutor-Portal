@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from rest_framework import status
 from rest_framework.renderers import (
     BrowsableAPIRenderer,
@@ -8,14 +10,15 @@ from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from api.models.user import User
-from api.serializers import UserSerializer
+from api.models.announcement import Announcement
+from api.serializers import AnnouncementSerializer, AnnouncementPostSerializer
+
 
 # We don't need to check for duplicate class names and function names.
 # pylint: disable=E0102,E1101,R0914
 
 
-class APIAuthenticateList(APIView):
+class APIAnnouncementView(APIView):
     """View for authenticating users in the CSLC Ticket Portal API.
 
     Attributes:
@@ -27,7 +30,7 @@ class APIAuthenticateList(APIView):
     - post: Creates a new user and returns serialized user data if valid.
     """
 
-    serializer_class = UserSerializer
+    serializer_class = AnnouncementSerializer
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
 
     def get(self, request: Request) -> Response:
@@ -40,8 +43,8 @@ class APIAuthenticateList(APIView):
         Returns:
         Response: A response containing a serialized list of users' data.
         """
-        users = User.objects.all()
-        serializer = UserSerializer(users, many=True)
+        announcements = Announcement.objects.all()
+        serializer = AnnouncementSerializer(announcements, many=True)
         return Response(serializer.data)
 
     def post(self, request: Request) -> Response:
@@ -55,9 +58,13 @@ class APIAuthenticateList(APIView):
         Response: A response containing the serialized user data if the user is successfully
         created, or the error messages if the user data is invalid.
         """
-        user, created = User.objects.get_or_create(request.data)
-        print(user)
-        serializer = UserSerializer(data=request.data)
-        if serializer.is_valid() and created:
+        print(request.data)
+        request.data['start_date'] = datetime.strptime(request.data['start_date'], "%Y-%m-%dT%H:%M:%S.%fZ").date()
+        request.data['end_date'] = datetime.strptime(request.data['end_date'], "%Y-%m-%dT%H:%M:%S.%fZ").date()
+        print(request.data)
+        serializer = AnnouncementPostSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.data)
+        print(serializer.errors)
+        return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)

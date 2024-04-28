@@ -24,7 +24,7 @@ class APIIssueView(APIView):
     renderer_classes = (BrowsableAPIRenderer, JSONRenderer, HTMLFormRenderer)
 
     def get(self, request: Request) -> Response:
-        queryset = Issues.generic.all()
+        queryset = Issues.objects.all()
         serializer = IssueSerializer(queryset, many=True)
         return Response(serializer.data)
 
@@ -39,7 +39,7 @@ class APIIssueView(APIView):
 class APIIssueDetail(APIView):
     def query_obj(self, pk: str) -> QuerySet | Any:
         try:
-            return Issues.generic.get(pk=pk)
+            return Issues.objects.get(pk=pk)
         except Exception as exc:
             raise Http404 from exc
 

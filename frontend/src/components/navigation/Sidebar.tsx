@@ -25,8 +25,8 @@ import {
 import { useIsAuthenticated, useMsal } from "@azure/msal-react";
 import { useQueryClient } from "@tanstack/react-query";
 
-const isAdmin = false;
-const isTutor = true;
+const isAdmin = true;
+const isTutor = false;
 const isStudent = false;
 const isDeveloper = false;
 
@@ -205,7 +205,6 @@ export function Sidebar({ isPopout = false }: any) {
             isActive={path === "/hours"}
             onClick={() => navigate("/hours")}
             text="CSLC Hours"
-            disabled={true}
             icon={
               <CalendarClockIcon
                 width={20}
@@ -254,7 +253,6 @@ export function Sidebar({ isPopout = false }: any) {
           isActive={path === "/tutor/schedule"}
           onClick={() => navigate("/tutor/schedule")}
           text="Schedule"
-          disabled={true}
           icon={
             <CalendarIcon
               viewBox="0 0 24 24"
@@ -297,7 +295,7 @@ export function Sidebar({ isPopout = false }: any) {
             isActive={path === "/profile"}
             onClick={() => navigate("/profile")}
             text="Profile"
-            disabled={true}
+            disabled={false}
             icon={
               <UserIcon
                 viewBox="0 0 24 24"
@@ -313,7 +311,7 @@ export function Sidebar({ isPopout = false }: any) {
             isActive={path === "/messages"}
             onClick={() => navigate("/messages")}
             text="Messages"
-            disabled={true}
+            disabled={false}
             icon={
               <MessagesSquareIcon
                 viewBox="0 0 24 24"
@@ -329,7 +327,7 @@ export function Sidebar({ isPopout = false }: any) {
             isActive={path === "/settings"}
             onClick={() => navigate("/settings")}
             text="Settings"
-            disabled={true}
+            disabled={false}
             icon={
               <SettingsIcon
                 viewBox="0 0 24 24"
@@ -503,29 +501,24 @@ export function Sidebar({ isPopout = false }: any) {
 
   return (
     <div className="hidden sticky lg:flex text-foreground lg:col-span-2 xl:col-span-2 3xl:col-span-1">
-      <div className="h-screen fixed col-span-1 top-10 border-r w-[15rem]">
+      <div className="h-screen fixed bg-backgroundsecondary col-span-1 top-10 border-r w-[15rem]">
         <div className="hidden lg:block">
           <div className="space-y-4">
             <ScrollArea className=" overflow-y-auto py-4 h-screen">
               <div className="">
                 <HomeSection />
                 {/* If the user is an admin */}
-                {isAdmin && (
-                  <>
-                    <AdminSection />
-                    <GeneralSection />
-                  </>
-                )}
+                <AdminSection />
+                <GeneralSection />
                 {/* If the user is a tutor */}
-                {isTutor && isAuthenticated && (
-                  <>
-                    <TutorSection />
-                  </>
-                )}
+                {/*{isTutor && isAuthenticated && (*/}
+                <TutorSection />
+
+                {/*)}*/}
                 {/* If the user is a student */}
                 <GeneralSection />
                 {/* If the user is a developer */}
-                {isDeveloper && <DevSettings />}
+                 <DevSettings />
                 {isAuthenticated && <AccountSettings />}
                 {!isAuthenticated && <LoginSection />}
               </div>

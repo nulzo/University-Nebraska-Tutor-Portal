@@ -17,14 +17,16 @@ import {
   LayersIcon,
   RatIcon,
 } from "lucide-react";
-import useFetchTicket from "@/API/tickets/useFetchTicket";
+
 import TicketTable from "@/components/tables/TicketTable";
+import {useQuery} from "@tanstack/react-query";
+import {fetchData} from "@/API/api.ts";
 
 export default function TutorDashboard() {
-  const unclaimedTickets = useFetchTicket("new", "?status=NEW");
-  const openTickets = useFetchTicket("opened", "?status=OPENED");
-  const closedTickets = useFetchTicket("closed", "?status=CLOSED");
-  const allTickets = useFetchTicket("all", "");
+  const tickets = useQuery({
+    queryKey: ["tickets"],
+    queryFn: () => fetchData("tickets")
+  });
   return (
     <>
       <Header text="Admin Dashboard" subtext=""></Header>
@@ -58,7 +60,7 @@ export default function TutorDashboard() {
                   </CardHeader>
                   <CardContent>
                     <div className="text-2xl font-bold">
-                      {!allTickets?.isLoading && allTickets?.data.length}
+                      {!tickets?.isLoading && tickets?.data.length}
                     </div>
                     <p className="text-xs text-muted-foreground">
                       {/* +20.1% from last month */}
@@ -80,8 +82,8 @@ export default function TutorDashboard() {
                   </CardHeader>
                   <CardContent>
                     <div className="text-2xl font-bold">
-                      {!unclaimedTickets?.isLoading &&
-                        unclaimedTickets?.data.length}
+                      {!tickets?.isLoading &&
+                        tickets?.data.length}
                     </div>
                     <p className="text-xs text-muted-foreground">
                       {/* +19% from last month */}
@@ -99,7 +101,7 @@ export default function TutorDashboard() {
                   </CardHeader>
                   <CardContent>
                     <div className="text-2xl font-bold">
-                      {!openTickets?.isLoading && openTickets?.data.length}
+                      {!tickets?.isLoading && tickets?.data.length}
                     </div>
                     <p className="text-xs text-muted-foreground">
                       {/* +1 since last hour */}
@@ -122,7 +124,7 @@ export default function TutorDashboard() {
                   </CardHeader>
                   <CardContent>
                     <div className="text-2xl font-bold">
-                      {!closedTickets?.isLoading && closedTickets?.data.length}
+                      {!tickets?.isLoading && tickets?.data.length}
                     </div>
                     <p className="text-xs text-muted-foreground">
                       {/* data here */}
@@ -141,7 +143,7 @@ export default function TutorDashboard() {
                       sortable on command.
                     </CardDescription>
                   </CardHeader>
-                  {!allTickets?.isLoading && allTickets?.data.length < 1 && (
+                  {!tickets?.isLoading && tickets?.data.length < 1 && (
                     <CardContent className="pl-2 min-h-[30vh] flex justify-center text-center content-center place-content-center items-center align-center font-medium text-muted-foreground">
                       <div>
                         <div className="flex justify-center place-self-center">
@@ -151,8 +153,8 @@ export default function TutorDashboard() {
                       </div>
                     </CardContent>
                   )}
-                  {!allTickets?.isLoading && allTickets?.data.length > 0 && (
-                    <TicketTable tickets={allTickets?.data} />
+                  {!tickets?.isLoading && tickets?.data.length > 0 && (
+                    <TicketTable tickets={tickets?.data} />
                   )}
                 </Card>
               </div>
@@ -168,9 +170,9 @@ export default function TutorDashboard() {
             </CardDescription>
             <Separator className="mb-4 mt-2" />
             <CardContent className="space-y-4 p-0">
-              {!unclaimedTickets?.isLoading &&
-                unclaimedTickets?.data &&
-                unclaimedTickets.data.map((ticket: any) => (
+              {!tickets?.isLoading &&
+                tickets?.data &&
+                tickets.data.map((ticket: any) => (
                   <Ticket ticket={ticket} />
                 ))}
             </CardContent>
@@ -183,9 +185,9 @@ export default function TutorDashboard() {
             </CardDescription>
             <Separator className="mb-4 mt-2" />
             <CardContent className="space-y-4 p-0">
-              {!openTickets?.isLoading &&
-                openTickets?.data &&
-                openTickets?.data.map((ticket: any) => (
+              {!tickets?.isLoading &&
+                tickets?.data &&
+                tickets?.data.map((ticket: any) => (
                   <Ticket ticket={ticket} />
                 ))}
             </CardContent>
@@ -198,9 +200,9 @@ export default function TutorDashboard() {
             </CardDescription>
             <Separator className="mb-4 mt-2" />
             <CardContent className="space-y-4 p-0">
-              {!closedTickets?.isLoading &&
-                closedTickets?.data &&
-                closedTickets.data.map((ticket: any) => (
+              {!tickets?.isLoading &&
+                tickets?.data &&
+                tickets.data.map((ticket: any) => (
                   <Ticket ticket={ticket} />
                 ))}
             </CardContent>
