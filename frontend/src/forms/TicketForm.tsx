@@ -76,13 +76,13 @@ const FormSchema = z.object({
     professor: z.number({
         required_error: "you must select a professor.",
     }),
-    course: z.number({
+    section: z.number({
         required_error: "you must select a course.",
     }),
     issue: z.number({
         required_error: "you must select an issue type.",
     }),
-    description: z
+    content: z
         .string({
             required_error: "you must enter a description.",
         })
@@ -137,7 +137,7 @@ export default function TicketForm() {
     });
 
     function onSubmit(data: z.infer<typeof FormSchema>) {
-        // mutation.mutate(data);
+        mutation.mutate(data);
         toast({
             title: `Thanks, ${data.name}!`,
             description:
@@ -332,14 +332,14 @@ export default function TicketForm() {
                 {!sections?.isLoading && (
                     <FormField
                         control={form.control}
-                        name="course"
-                        key="course_field"
+                        name="section"
+                        key="section_field"
                         render={({field}: any) => (
-                            <FormItem className="flex flex-col" key="course_form_item">
+                            <FormItem className="flex flex-col" key="section_form_item">
                                 <div
                                     className="space-y-0.5 block md:flex md:flex-row items-center justify-between rounded-lg md:border md:p-4 text-foreground">
                                     <div className="space-y-0.5 pb-2 md:pb-0">
-                                        <FormLabel key="course_form_label">Course</FormLabel>
+                                        <FormLabel key="section_form_label">Course</FormLabel>
                                         <FormDescription className="hidden md:block">
                                             Select the course that you are coming in for help with.
                                         </FormDescription>
@@ -351,7 +351,7 @@ export default function TicketForm() {
                                                     <Button
                                                         variant="dropdown"
                                                         role="combobox"
-                                                        key="course_button"
+                                                        key="section_button"
                                                         className={cn(
                                                             "w-full md:w-[35vw] lg:w-[30vw] xl:w-[40vw] justify-between",
                                                             !field.value &&
@@ -388,7 +388,7 @@ export default function TicketForm() {
                                                                     value={`${section.course.course_id} - ${section.course.title}`}
                                                                     key={`${section.course.course_id}-${section.course.title}`}
                                                                     onSelect={() => {
-                                                                        form.setValue("course", section.id);
+                                                                        form.setValue("section", section.id);
                                                                     }}
                                                                 >
                                                                     {`${section.course.title}`}
@@ -541,7 +541,7 @@ export default function TicketForm() {
                 />
                 <FormField
                     control={form.control}
-                    name="description"
+                    name="content"
                     render={({field}: any) => (
                         <FormItem>
                             <FormLabel className="text-foreground">

@@ -274,7 +274,7 @@ class ParseSemester:
             semester_code = 3
         else:
             semester_code = 2
-        semester = Semester(year=int(semester_term_name[-4:]), semester_term_name=semester_term_name, semester_code=semester_code, semester_id=semester_id)
+        semester = Semester(year=int(semester_term_name[-4:]), name=semester_term_name, semester=semester_code, discriminator=semester_id)
         semester.save()
         self.logger.log_success("Successfully logged semester to database!")
     

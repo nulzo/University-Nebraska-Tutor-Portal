@@ -30,7 +30,7 @@ export default function Navbar() {
                   className="hidden lg:block mx-2"
                 />
                 <div className="hidden lg:block ml-1">
-                  <div className="text-sm font-bold leading-3">
+                  <div className="text-sm font-black leading-4">
                     University of Nebraska
                   </div>
                   <div className="text-sm font-base leading-4">

@@ -114,26 +114,27 @@ export function Sidebar({ isPopout = false }: any) {
           />
           <Navlink
             className="w-full justify-start"
+            isActive={path === "/admin/download"}
+            onClick={() => navigate("/admin/download")}
+            text="Data Viewer"
+            icon={
+              <DatabaseZapIcon
+                viewBox="0 0 24 24"
+                shapeRendering={shape_rendering}
+                width={20}
+                height={20}
+                strokeWidth={stroke_width}
+              />
+            }
+            notification={false}
+          />
+          <Navlink
+            className="w-full justify-start"
             isActive={path === "/admin/announcements"}
             onClick={() => navigate("/admin/announcements")}
             text="Announcements"
             icon={
               <MegaphoneIcon
-                viewBox="0 0 24 24"
-                width={20}
-                height={20}
-                strokeWidth={stroke_width}
-                shapeRendering={shape_rendering}
-              />
-            }
-          />
-          <Navlink
-            className="w-full justify-start"
-            isActive={path === "/admin/download"}
-            onClick={() => navigate("/admin/download")}
-            text="Extract Data"
-            icon={
-              <DownloadIcon
                 viewBox="0 0 24 24"
                 width={20}
                 height={20}

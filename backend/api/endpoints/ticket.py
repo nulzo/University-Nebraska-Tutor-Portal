@@ -44,6 +44,7 @@ class APITicketView(APIView):
         return Response(serializer.data)
 
     def post(self, request: Request) -> Response:
+        print(request.data)
         serializer = TicketSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()

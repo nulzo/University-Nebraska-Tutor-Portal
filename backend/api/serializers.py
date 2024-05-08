@@ -84,7 +84,7 @@ class AnnouncementPostSerializer(serializers.ModelSerializer):
 
 class TicketSerializer(serializers.ModelSerializer):
     professor = serializers.PrimaryKeyRelatedField(queryset=Professor.generic.all())
-    course = serializers.PrimaryKeyRelatedField(queryset=Course.generic.all())
+    section = serializers.PrimaryKeyRelatedField(queryset=Section.generic.all())
     issue = serializers.PrimaryKeyRelatedField(queryset=Issues.objects.all())
 
     class Meta:

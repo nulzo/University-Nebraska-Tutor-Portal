@@ -23,7 +23,7 @@ class Ticket(models.Model):
     difficulty = models.ForeignKey("api.Difficulty", on_delete=models.SET_NULL, null=True)
     status = models.ForeignKey("api.Status", on_delete=models.SET_NULL, null=True)
     title = models.CharField(max_length=250)
-    description = models.CharField(max_length=500)
+    description = models.CharField(max_length=500, blank=True)
     content = models.TextField()
     flagged = models.BooleanField(default=False)
     created_at_date = models.DateTimeField(auto_now_add=True)
