@@ -58,10 +58,10 @@ const bodyVariants = cva("", {
 });
 
 interface AnnouncementProps {
-  className: string;
   variant: any;
   title: string;
-  body: string;
+  className?: string;
+  body?: string;
 }
 
 function AnnouncementIcon({ variant }: any) {
