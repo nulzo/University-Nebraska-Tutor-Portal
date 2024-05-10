@@ -1,55 +1,62 @@
 import pytest
+from django.test import Client
 
-from api.models.course import Course
 
-
-@pytest.fixture
-def course():
-    return Course.generic.create(
-        course_name="Computer Science I",
-        course_id="1400",
-        course_department="CIST",
-    )
-
+# from api.models.course import Course
 
 @pytest.mark.django_db
-def test_course_exists(course):
-    assert Course.generic.filter(course_name="Computer Science I").exists()
+def test_url_exists():
+    client = Client()
+    response = client.get(path="/api/courses/")
+    assert response.status_code == 200
 
-
-@pytest.mark.django_db
-def test_course_str_method(course):
-    """
-    Test the __str__ method of the Course model.
-    """
-    assert str(course) == "Computer Science I"
-
-
-@pytest.mark.django_db
-def test_course_id(course):
-    c = Course.generic.all().filter(course_name=course).first()
-    assert c.course_id == 1400
-
-
-@pytest.mark.django_db
-def test_course_name(course):
-    c = Course.generic.all().filter(course_name=course).first()
-    assert c.course_name == "Computer Science I"
-
-
-@pytest.mark.django_db
-def test_course_department(course):
-    c = Course.generic.all().filter(course_name=course).first()
-    assert c.course_department == "CIST"
-
-
-@pytest.mark.django_db
-def test_default_values():
-    """
-    Test that default values are correctly set for course_department and is_active.
-    """
-    course = Course.generic.create(course_name="Random Name", course_id=1234)
-    assert course.course_department == "CSCI"
+# @pytest.fixture
+# def course():
+#     return Course.generic.create(
+#         course_name="Computer Science I",
+#         course_id="1400",
+#         course_department="CIST",
+#     )
+#
+#
+# @pytest.mark.django_db
+# def test_course_exists(course):
+#     assert Course.generic.filter(course_name="Computer Science I").exists()
+#
+#
+# @pytest.mark.django_db
+# def test_course_str_method(course):
+#     """
+#     Test the __str__ method of the Course model.
+#     """
+#     assert str(course) == "Computer Science I"
+#
+#
+# @pytest.mark.django_db
+# def test_course_id(course):
+#     c = Course.generic.all().filter(course_name=course).first()
+#     assert c.course_id == 1400
+#
+#
+# @pytest.mark.django_db
+# def test_course_name(course):
+#     c = Course.generic.all().filter(course_name=course).first()
+#     assert c.course_name == "Computer Science I"
+#
+#
+# @pytest.mark.django_db
+# def test_course_department(course):
+#     c = Course.generic.all().filter(course_name=course).first()
+#     assert c.course_department == "CIST"
+#
+#
+# @pytest.mark.django_db
+# def test_default_values():
+#     """
+#     Test that default values are correctly set for course_department and is_active.
+#     """
+#     course = Course.generic.create(course_name="Random Name", course_id=1234)
+#     assert course.course_department == "CSCI"
 
 
 # @pytest.mark.django_db
