@@ -3,11 +3,11 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Link } from "@radix-ui/themes";
-import UNO from "@/components/assets/UNO";
+import Uno from "@/components/assets/uno.tsx";
 import { useIsAuthenticated } from "@azure/msal-react";
 import { useMsal } from "@azure/msal-react";
 import { loginRequest } from "../authConfig";
-import MicrosoftIcon from "@/components/assets/MicrosoftIcon";
+import MicrosoftIcon from "@/components/assets/microsoft-icon.tsx";
 import { useNavigate } from "react-router-dom";
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
@@ -67,7 +67,7 @@ export default function LoginPage({ className, ...props }: UserAuthFormProps) {
                 </div>
               </div>
               <Button variant="outline" type="button">
-                <UNO width="24" height="24" />
+                <Uno width="24" height="24" />
                 Single Sign On
               </Button>
             </div>
@@ -90,7 +90,7 @@ export default function LoginPage({ className, ...props }: UserAuthFormProps) {
             </p>
           </div>
           {/* <div className="flex pt-10 items-center text-center justify-end text-lg font-medium">
-            <UNO width="16" height="16" />
+            <Uno width="16" height="16" />
             <div className="pl-2 text-sm">University of Nebraska - Omaha</div>
           </div> */}
         </div>

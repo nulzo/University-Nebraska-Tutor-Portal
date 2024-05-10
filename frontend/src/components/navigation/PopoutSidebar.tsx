@@ -5,7 +5,7 @@ import {
   SheetHeader,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import MenuIcon from "../assets/MenuIcon";
+import MenuIcon from "../assets/menu-icon.tsx";
 import { Sidebar } from "./Sidebar";
 
 export default function PopoutSidebar() {

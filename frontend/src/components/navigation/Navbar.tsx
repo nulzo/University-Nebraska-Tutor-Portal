@@ -1,10 +1,10 @@
 import { GithubIcon } from "lucide-react";
 import { ModeToggle } from "@/forms/ModeToggle";
 import { Button } from "@/components/ui/button";
-import UNOIcon from "@/components/assets/UNOIcon";
+import UnoIcon from "@/components/assets/uno-icon.tsx";
 import { Separator } from "@/components/ui/separator";
 import PopoutSidebar from "@/components/navigation/PopoutSidebar";
-import CanvasIcon from "@/components/assets/CanvasIcon";
+import CanvasIcon from "@/components/assets/canvas-icon.tsx";
 import {
   Tooltip,
   TooltipContent,
@@ -24,7 +24,7 @@ export default function Navbar() {
           <div className="left-sidebar flex col-span-1">
             <div className="flex flex-wrap justify-items-start content-center">
               <div className="hidden sm:flex items-center">
-                <UNOIcon />
+                <UnoIcon />
                 <Separator
                   orientation="vertical"
                   className="hidden lg:block mx-2"

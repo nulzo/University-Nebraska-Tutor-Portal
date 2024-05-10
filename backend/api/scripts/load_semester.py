@@ -1,6 +1,6 @@
 # Author:   Nolan Gregory
 # Date:     October 21st, 2023
-# Desc:     This file loads in CSV data that is provided by the UNO Registrar
+# Desc:     This file loads in CSV data that is provided by the Uno Registrar
 #           on a semester-to-semester basis. It uses Pandas to extract the required
 #           data, and then loads it into the database.
 

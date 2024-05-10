@@ -1,4 +1,4 @@
-export default function UNO({
+export default function Uno({
   width,
   height,
 }: {

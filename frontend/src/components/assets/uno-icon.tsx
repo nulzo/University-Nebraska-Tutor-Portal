@@ -1,4 +1,4 @@
-export default function UNOIcon() {
+export default function UnoIcon() {
   return (
     <svg
       id="svg"

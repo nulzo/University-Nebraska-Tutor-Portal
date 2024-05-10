@@ -1,7 +1,7 @@
 import { CardDescription, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import TutorTicketForm from "@/forms/TutorTicketForm";
-import { CSCIIcon } from "@/components/assets/DepartmentIcons";
+import { CSCIIcon } from "@/components/assets/department-icons.tsx";
 import { CheckIcon, CircleDashedIcon, CircleIcon, XIcon } from "lucide-react";
 
 export default function Ticket({ ticket }: any) {
