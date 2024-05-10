@@ -2,29 +2,29 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./Root.tsx";
-import ErrorPage from "./views/ErrorPage.tsx";
-import Zoom from "./views/ZoomView.tsx";
-import DownloadView from "./views/admin/DownloadPage.tsx";
+import ErrorPage from "@/pages/ErrorPage.tsx";
+import InfoPage from "@/pages/info-page.tsx";
+import DownloadView from "@/pages/admin/DownloadPage.tsx";
 import "./style/globals.css";
-import TicketPage from "./views/TicketPage.tsx";
-import SchedulePage from "./views/SchedulePage.tsx";
-import ProfilePage from "./views/ProfilePage.tsx";
-import MessagePage from "./views/MessagePage.tsx";
-import AnnouncementPage from "./views/admin/AnnouncementPage.tsx";
-import AdminSettings from "./views/admin/AdminSettings.tsx";
-import TutorDashboard from "./views/tutor/TutorDashboardView.tsx";
-import DevAPIView from "./views/development/DevAPIView.tsx";
-import DevSandbox from "./views/development/DevSandbox.tsx";
-import AdminDashboard from "./views/admin/AdminDashboard.tsx";
-import HomePage from "./views/HomePage.tsx";
-import HoursPage from "./views/HoursPage.tsx";
-import BlamePage from "./views/admin/BlamePage.tsx";
+import TicketPage from "@/pages/TicketPage.tsx";
+import SchedulePage from "@/pages/SchedulePage.tsx";
+import ProfilePage from "@/pages/ProfilePage.tsx";
+import MessagePage from "@/pages/MessagePage.tsx";
+import AnnouncementPage from "@/pages/admin/AnnouncementPage.tsx";
+import AdminSettings from "@/pages/admin/AdminSettings.tsx";
+import TutorDashboard from "@/pages/tutor/TutorDashboardView.tsx";
+import DevAPIView from "@/pages/development/DevAPIView.tsx";
+import DevSandbox from "@/pages/development/DevSandbox.tsx";
+import AdminDashboard from "@/pages/admin/AdminDashboard.tsx";
+import HomePage from "@/pages/HomePage.tsx";
+import HoursPage from "@/pages/HoursPage.tsx";
+import BlamePage from "@/pages/admin/BlamePage.tsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import TutorView from "./views/tutor/TutorView.tsx";
+import TutorView from "@/pages/tutor/TutorView.tsx";
 import AdminRequired from "./routes/AdminRequired.tsx";
 import TutorRequired from "./routes/TutorRequired.tsx";
 import LoginRequired from "./routes/LoginRequired.tsx";
-import LoginPage from "./views/LoginPage.tsx";
+import LoginPage from "@/pages/LoginPage.tsx";
 import { PublicClientApplication } from "@azure/msal-browser";
 import { MsalProvider } from "@azure/msal-react";
 import { msalConfig } from "./authConfig.ts";
@@ -41,7 +41,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "home/",
+        path: "/",
         element: <HomePage />,
       },
       {
@@ -50,8 +50,8 @@ const router = createBrowserRouter([
         element: <TicketPage />,
       },
       {
-        path: "zoom/",
-        element: <Zoom />,
+        path: "info/",
+        element: <InfoPage />,
       },
       {
         path: "hours/",
@@ -96,10 +96,6 @@ const router = createBrowserRouter([
       {
         path: "tutor/dashboard/",
         element: <TutorRequired view={<TutorDashboard />} />,
-      },
-      {
-        path: "test-api/",
-        element: <DevAPIView />,
       },
       {
         path: "sandbox/",

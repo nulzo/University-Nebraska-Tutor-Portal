@@ -8,22 +8,22 @@
       "@/assets": [
         "./assets"
       ],
-      "@components/*": [
+      "@/components/*": [
         "./components/*"
       ],
-      "@ui/*": [
+      "@/ui/*": [
         "./components/common/ui/*"
       ],
-      "@pages/*": [
+      "@/pages/*": [
         "./pages/*"
       ],
-      "@hooks/*": [
+      "@/hooks/*": [
         "./hooks/*"
       ],
-      "@api/*": [
+      "@/api/*": [
         "./api/*"
       ],
-      "@utils/*": [
+      "@/utils/*": [
         "./utils/*"
       ]
     },

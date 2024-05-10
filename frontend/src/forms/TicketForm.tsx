@@ -144,8 +144,7 @@ export default function TicketForm() {
                 "We have successfully received your ticket, and a tutor will be with you shortly to assist you.",
             className: "text-success border-success",
         });
-        console.log(data);
-        // navigate("/home");
+        navigate("/home");
     }
 
     const name = account?.name;
