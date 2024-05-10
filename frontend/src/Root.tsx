@@ -11,27 +11,22 @@ import {
 import {SidebarContent} from "@/components/nav.tsx";
 import {useEffect, useState} from "react";
 import {cn} from "@/lib/utils.ts";
-import {useIssues} from "@/hooks/use-issues.ts";
-import {useProfessors} from "@/hooks/use-professors.ts";
-import {useTickets} from "@/hooks/use-tickets.ts";
-import {useAnnouncements} from "@/hooks/use-announcements.ts";
-import {useCourses} from "@/hooks/use-courses.ts";
-import {useTutors} from "@/hooks/use-tutors.ts";
+import Cookies from "js-cookie";
+
+const defaultCollapsed: boolean = Cookies.get("sidebarIsCollapsed") === "true";
 
 export default function Root() {
-    const [isCollapsed, setIsCollapsed] = useState(false);
+    const [isCollapsed, setIsCollapsed] = useState(defaultCollapsed);
     const [path, setPath] = useState("");
-    const issues = useIssues();
-    const professors = useProfessors();
     const location = useLocation();
-    const tickets = useTickets();
-    const announcements = useAnnouncements();
-    const courses = useCourses();
-    const tutors = useTutors();
     useEffect(() => {
         setPath(location.pathname);
     }, [location]);
-    console.log(issues, professors, tickets, tutors, announcements, courses);
+
+    function onCollapse() {
+        setIsCollapsed(true);
+        Cookies.set("sidebarIsCollapsed", "true");
+    }
 
     return (
         <div className="bg-background">
@@ -50,7 +45,7 @@ export default function Root() {
                         defaultSize={100}
                         collapsedSize={3}
                         collapsible={true}
-                        onCollapse={() => (setIsCollapsed(true))}
+                        onCollapse={() => (onCollapse())}
                         onExpand={() => (setIsCollapsed(false))}
                         minSize={13}
                         maxSize={17}
@@ -61,7 +56,6 @@ export default function Root() {
                     >
                         <SidebarContent
                             sectionTitle="General Section"
-
                             isCollapsed={isCollapsed}
                             links={[
                                 {
@@ -147,7 +141,7 @@ export default function Root() {
                             ]}
                         />
                     </ResizablePanel>
-                    <ResizableHandle withHandle/>
+                    <ResizableHandle />
                     <ResizablePanel>
                         <div className="pt-4">
                             <div className="mx-20 mb-6">
