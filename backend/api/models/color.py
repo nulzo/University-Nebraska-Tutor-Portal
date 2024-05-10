@@ -10,4 +10,4 @@ class Color(models.Model):
         verbose_name_plural = "colors"
 
     def __str__(self):
-        return self.name
+        return str(self.name)

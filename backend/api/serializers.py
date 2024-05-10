@@ -4,6 +4,7 @@ from .models.announcement import Announcement
 from .models.color import Color
 from .models.course import Course
 from .models.difficulty import Difficulty
+from .models.hours import OpeningHours
 from .models.issue import Issues
 from .models.messages import Messages
 from .models.people import People
@@ -15,7 +16,6 @@ from .models.semester import Semester
 from .models.status import Status
 from .models.ticket import Ticket
 from .models.user import User
-from .models.hours import OpeningHours
 
 
 class ColorSerializer(serializers.ModelSerializer):
@@ -24,7 +24,7 @@ class ColorSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class SemesterSerializer(serializers.Serializer):
+class SemesterSerializer(serializers.ModelSerializer):
     class Meta:
         model = Semester
         fields = "__all__"
@@ -85,7 +85,7 @@ class AnnouncementPostSerializer(serializers.ModelSerializer):
 class TicketSerializer(serializers.ModelSerializer):
     professor = serializers.PrimaryKeyRelatedField(queryset=Professor.generic.all())
     section = serializers.PrimaryKeyRelatedField(queryset=Section.generic.all())
-    issue = serializers.PrimaryKeyRelatedField(queryset=Issues.objects.all())
+    issue = serializers.PrimaryKeyRelatedField(queryset=Issues.generic.all())
 
     class Meta:
         model = Ticket
@@ -161,6 +161,7 @@ class MessageSerializer(serializers.ModelSerializer):
 
 class HourSerializer(serializers.ModelSerializer):
     tutor = UserSerializer()
+
     class Meta:
         model = OpeningHours
         fields = "__all__"

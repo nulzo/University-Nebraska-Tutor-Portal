@@ -28,6 +28,8 @@ class Issues(models.Model):
         default="1",
     )
 
+    generic: models.Manager = models.Manager()
+
     def __str__(self) -> str:
         return str(self.name)
 

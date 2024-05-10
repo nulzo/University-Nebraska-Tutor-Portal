@@ -1,7 +1,7 @@
 from typing import Any
 
-from django.http import Http404, QueryDict
 from django.db.models import QuerySet
+from django.http import QueryDict
 from rest_framework import status
 from rest_framework.renderers import (
     BrowsableAPIRenderer,
@@ -14,7 +14,6 @@ from rest_framework.views import APIView
 
 from api.models.hours import OpeningHours
 from api.serializers import HourSerializer
-
 
 # We don't need to check for duplicate class names and function names.
 # pylint: disable=E0102,E1101,R0914,R0801
@@ -47,6 +46,7 @@ class APIHourView(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.data)
+
 
 #
 # class APIUserDetail(APIView):

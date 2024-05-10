@@ -1,10 +1,28 @@
 from django.contrib import admin
 
-from .models import (ticket, announcement_type, announcement, status, semester, color, comments, course, difficulty,
-                     hours, issue, loved_comments, loved_tickets, people, professor, priority, roles, sections,
-                     user_settings, user)
+from .models import (
+    announcement,
+    announcement_type,
+    color,
+    comments,
+    course,
+    difficulty,
+    hours,
+    issue,
+    loved_comments,
+    loved_tickets,
+    people,
+    priority,
+    professor,
+    roles,
+    sections,
+    semester,
+    status,
+    ticket,
+    user,
+    user_settings,
+)
 
-# Register your models here.
 admin.site.register(ticket.Ticket)
 admin.site.register(professor.Professor)
 admin.site.register(course.Course)

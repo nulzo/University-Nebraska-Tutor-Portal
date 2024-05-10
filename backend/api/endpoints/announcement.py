@@ -11,8 +11,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from api.models.announcement import Announcement
-from api.serializers import AnnouncementSerializer, AnnouncementPostSerializer
-
+from api.serializers import AnnouncementPostSerializer, AnnouncementSerializer
 
 # We don't need to check for duplicate class names and function names.
 # pylint: disable=E0102,E1101,R0914
@@ -59,9 +58,12 @@ class APIAnnouncementView(APIView):
         created, or the error messages if the user data is invalid.
         """
         print(request.data)
-        request.data['start_date'] = datetime.strptime(request.data['start_date'], "%Y-%m-%dT%H:%M:%S.%fZ").date()
-        request.data['end_date'] = datetime.strptime(request.data['end_date'], "%Y-%m-%dT%H:%M:%S.%fZ").date()
-        print(request.data)
+        request.data["start_date"] = datetime.strptime(
+            request.data["start_date"], "%Y-%m-%dT%H:%M:%S.%fZ"
+        ).date()
+        request.data["end_date"] = datetime.strptime(
+            request.data["end_date"], "%Y-%m-%dT%H:%M:%S.%fZ"
+        ).date()
         serializer = AnnouncementPostSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()

@@ -11,4 +11,4 @@ class Priority(models.Model):
         verbose_name_plural = "priorities"
 
     def __str__(self):
-        return self.name
+        return str(self.name)

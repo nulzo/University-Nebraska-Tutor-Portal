@@ -13,11 +13,20 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-
 from django.contrib import admin
 from django.urls import path
 
-from api.endpoints import authenticate, course, issue, professor, section, ticket, user, announcement, hours
+from api.endpoints import (
+    announcement,
+    authenticate,
+    course,
+    hours,
+    issue,
+    professor,
+    section,
+    ticket,
+    user,
+)
 
 urlpatterns = [
     # API Config URLS
@@ -75,6 +84,6 @@ urlpatterns = [
     # path("api/announcements/<str:annonucement_id>")
     # Course URLS
     path("api/courses/", view=course.APICourseList.as_view(), name="Course List View"),
-    path("api/hours/", view=hours.APIHourView.as_view(), name="Hours List View")
+    path("api/hours/", view=hours.APIHourView.as_view(), name="Hours List View"),
     # path("api/courses/<str:course_pk>", view=routing.MessageViewSet.as_view()),
 ]

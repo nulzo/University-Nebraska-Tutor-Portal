@@ -14,7 +14,9 @@ class Messages(models.Model):
     The admin has the option to display the date within the announcment as well.
     """
 
-    ticket = models.ForeignKey("api.Ticket", on_delete=models.SET_NULL, null=True, blank=False)
+    ticket = models.ForeignKey(
+        "api.Ticket", on_delete=models.SET_NULL, null=True, blank=False
+    )
     sender = models.ForeignKey("api.User", on_delete=models.PROTECT, blank=False)
     message_content = models.TextField(max_length=128)
     created_date = models.DateTimeField(auto_now_add=True)

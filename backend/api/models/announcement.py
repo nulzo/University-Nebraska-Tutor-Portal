@@ -17,10 +17,15 @@ class Announcement(models.Model):
     end_date = models.DateField(blank=True)
     created_at_date = models.DateTimeField(auto_now_add=True)
     visible_end_date = models.BooleanField(default=False)
-    type = models.ForeignKey("api.AnnouncementType", on_delete=models.SET_NULL, null=True)
+    type = models.ForeignKey(
+        "api.AnnouncementType", on_delete=models.SET_NULL, null=True
+    )
     content = models.TextField(blank=True)
     title = models.TextField(blank=True)
     issuing_user = models.ForeignKey("api.User", on_delete=models.SET_NULL, null=True)
 
     class Meta:
         verbose_name_plural = "announcements"
+
+    def __str__(self):
+        return str(self.title)

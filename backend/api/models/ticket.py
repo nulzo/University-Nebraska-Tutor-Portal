@@ -14,13 +14,28 @@ class Ticket(models.Model):
     ticket was closed, additional tutor comments, and if the ticket was
     reopened after it was closed.
     """
+
     professor = models.ForeignKey("api.Professor", on_delete=models.SET_NULL, null=True)
     section = models.ForeignKey("api.Section", on_delete=models.SET_NULL, null=True)
-    issuing_user = models.ForeignKey("api.User", on_delete=models.SET_NULL, null=True, related_name="ticket_issuing_user")
-    principal_tutor = models.ForeignKey("api.User", on_delete=models.SET_NULL, null=True, related_name="ticket_principal_tutor")
-    assistant_tutor = models.ManyToManyField("api.User", related_name="assistant_tutors", blank=True)
+    issuing_user = models.ForeignKey(
+        "api.User",
+        on_delete=models.SET_NULL,
+        null=True,
+        related_name="ticket_issuing_user",
+    )
+    principal_tutor = models.ForeignKey(
+        "api.User",
+        on_delete=models.SET_NULL,
+        null=True,
+        related_name="ticket_principal_tutor",
+    )
+    assistant_tutor = models.ManyToManyField(
+        "api.User", related_name="assistant_tutors", blank=True
+    )
     issue = models.ForeignKey("api.Issues", on_delete=models.SET_NULL, null=True)
-    difficulty = models.ForeignKey("api.Difficulty", on_delete=models.SET_NULL, null=True)
+    difficulty = models.ForeignKey(
+        "api.Difficulty", on_delete=models.SET_NULL, null=True
+    )
     status = models.ForeignKey("api.Status", on_delete=models.SET_NULL, null=True)
     title = models.CharField(max_length=250)
     description = models.CharField(max_length=500, blank=True)
@@ -28,7 +43,12 @@ class Ticket(models.Model):
     flagged = models.BooleanField(default=False)
     created_at_date = models.DateTimeField(auto_now_add=True)
     last_updated_at_date = models.DateTimeField(blank=True, null=True)
-    last_updated_by_user = models.ForeignKey("api.User", on_delete=models.SET_NULL, null=True, related_name="ticket_last_updated_by_user")
+    last_updated_by_user = models.ForeignKey(
+        "api.User",
+        on_delete=models.SET_NULL,
+        null=True,
+        related_name="ticket_last_updated_by_user",
+    )
     priority = models.IntegerField(default=0)
 
     def __str__(self) -> str:

@@ -136,7 +136,7 @@ article {
   display: none !important;
 }
 
-/* Mobile views */
+/* Mobile pages */
 .sb-page-width {
   width: 100%;
 }
@@ -161,7 +161,7 @@ article {
   }
 }
 
-/* Tablet views */
+/* Tablet pages */
 @media (min-width: 42rem) {
   .sb-article-container {
     width: auto;
@@ -199,7 +199,7 @@ article {
   }
 }
 
-/* Tablet views */
+/* Tablet pages */
 @media (min-width: 59rem) {
   .sb-sidebar-secondary {
     position: static;
@@ -240,7 +240,7 @@ article {
   }
 }
 
-/* Desktop views */
+/* Desktop pages */
 @media (min-width: 76rem) {
   .sb-sidebar-primary {
     position: static;
@@ -259,7 +259,7 @@ article {
   }
 }
 
-/* Full desktop views */
+/* Full desktop pages */
 @media (min-width: 80rem) {
   .sb-article,
   .match-content-width {
