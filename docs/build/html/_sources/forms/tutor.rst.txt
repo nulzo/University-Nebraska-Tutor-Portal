@@ -18,7 +18,7 @@ The `TutorTicketForm` component consists of several key sections and components:
 
 - **Dropdown Menus**: The form includes two dropdown menus with various actions, such as copying ticket details or flagging the ticket.
 
-- **CheckDropField**: A custom checkbox field (`CheckDropField`) is used to toggle the `was_successful` property.
+- **CheckDropdown**: A custom checkbox field (`CheckDropdown`) is used to toggle the `was_successful` property.
 
 - **TextareaField**: A custom textarea field (`TextareaField`) is used for entering and displaying the ticket description.
 

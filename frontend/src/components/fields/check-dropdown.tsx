@@ -8,7 +8,7 @@ import {
 } from "../ui/dropdown-menu";
 import { FormField, FormItem, FormMessage } from "../ui/form";
 
-export default function CheckDropField({ control, name }: any) {
+export default function CheckDropdown({ control, name }: any) {
   return (
     <FormField
       control={control}

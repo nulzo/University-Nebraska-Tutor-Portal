@@ -22,16 +22,16 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Form } from "@/components/ui/form";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import TextareaField from "../components/fields/TextareaField";
-import DropdownField from "../components/fields/DropdownField";
+import TextareaField from "@/components/fields/textarea-field.tsx";
+import DropdownField from "@/components/fields/dropdown-field.tsx";
 import useFetchTutor from "@/API/tutors/useFetchTutor";
-import SearchFilterField from "@/components/fields/SearchFilterField";
-import DropField from "@/components/fields/DropField";
+import SearchFilterField from "@/components/fields/search-filter-field.tsx";
+import DropField from "@/components/fields/drop-field.tsx";
 
 import { useMutation } from "@tanstack/react-query";
 import { updateTicket } from "@/API/tickets/ticketRequests";
 import { toast } from "@/components/ui/use-toast";
-import CheckDropField from "@/components/fields/CheckDropField.tsx";
+import CheckDropdown from "@/components/fields/check-dropdown.tsx";
 
 function DetailLink({ label, content }: any) {
   return (
@@ -170,7 +170,7 @@ export default function TutorTicketForm({ ticket }: any) {
                               </DropdownMenuItem>
                             </DropdownMenuContent>
                           </DropdownMenu>
-                          <CheckDropField
+                          <CheckDropdown
                             control={form.control}
                             name="was_successful"
                           />

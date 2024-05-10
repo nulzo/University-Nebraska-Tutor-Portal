@@ -1,4 +1,4 @@
-import LargeAvatar from "@/components/display/LargeAvatar";
+import LargeAvatar from "@/components/display/large-avatar.tsx";
 import Header from "@/components/typography/Header";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";

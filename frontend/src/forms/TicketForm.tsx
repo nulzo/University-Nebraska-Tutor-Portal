@@ -29,7 +29,7 @@ import {
 } from "@/components/ui/form";
 
 import {ScrollArea} from "@/components/ui/scroll-area";
-import LoadingSelect from "@/components/fields/loading_select";
+import LoadingSelect from "@/components/fields/loading-select.tsx";
 import {useMutation, useQuery} from "@tanstack/react-query";
 import {useToast} from "@/components/ui/use-toast";
 import {createTicket} from "@/API/tickets/ticketRequests";

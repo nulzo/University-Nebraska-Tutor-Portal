@@ -1,5 +1,5 @@
 import useFetchTutor from "@/API/tutors/useFetchTutor";
-import Avatar from "@/components/display/Avatar";
+import Avatar from "@/components/display/avatar.tsx";
 import Header from "@/components/typography/Header";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";

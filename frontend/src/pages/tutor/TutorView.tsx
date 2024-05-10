@@ -1,6 +1,6 @@
 import useFetchTutor from "@/API/tutors/useFetchTutor";
-import Avatar from "@/components/display/Avatar";
-import LargeAvatar from "@/components/display/LargeAvatar";
+import Avatar from "@/components/display/avatar.tsx";
+import LargeAvatar from "@/components/display/large-avatar.tsx";
 import Header from "@/components/typography/Header";
 import { Button } from "@/components/ui/button";
 import {
