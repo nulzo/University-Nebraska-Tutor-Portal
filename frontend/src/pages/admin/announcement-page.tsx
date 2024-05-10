@@ -1,6 +1,6 @@
 import Header from "@/components/typography/Header";
 import { Separator } from "@/components/ui/separator";
-import AnnouncementForm from "@/forms/AnnouncementForm";
+import AnnouncementForm from "@/forms/announcement-form.tsx";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {useQuery} from "@tanstack/react-query";
 import {fetchData} from "@/API/api.ts";

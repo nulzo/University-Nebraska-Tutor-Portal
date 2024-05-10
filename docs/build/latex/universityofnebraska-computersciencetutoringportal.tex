@@ -3199,16 +3199,16 @@ const \{ theme, setTheme \} = useTheme();
 \sphinxstepscope
 
 
-\section{ModeToggle React Component Documentation}
+\section{ToggleMode React Component Documentation}
 \label{\detokenize{forms/toggle:modetoggle-react-component-documentation}}\label{\detokenize{forms/toggle::doc}}
 \sphinxAtStartPar
-The \sphinxtitleref{ModeToggle} component is a React component that provides a mode toggle button for changing the theme of a ticketing portal. It utilizes icons for the sun and moon to represent light and dark themes, respectively. The component is implemented using the \sphinxtitleref{lucide\sphinxhyphen{}react} library for icon components and leverages the \sphinxtitleref{DropdownMenu} component for the theme selection options.
+The \sphinxtitleref{ToggleMode} component is a React component that provides a mode toggle button for changing the theme of a ticketing portal. It utilizes icons for the sun and moon to represent light and dark themes, respectively. The component is implemented using the \sphinxtitleref{lucide\sphinxhyphen{}react} library for icon components and leverages the \sphinxtitleref{DropdownMenu} component for the theme selection options.
 
 
 \subsection{Overview}
 \label{\detokenize{forms/toggle:overview}}
 \sphinxAtStartPar
-The \sphinxtitleref{ModeToggle} component offers a user\sphinxhyphen{}friendly way to switch between light, dark, and system (default) themes in the ticketing portal. Users can click on the button to reveal a dropdown menu with theme options.
+The \sphinxtitleref{ToggleMode} component offers a user\sphinxhyphen{}friendly way to switch between light, dark, and system (default) themes in the ticketing portal. Users can click on the button to reveal a dropdown menu with theme options.
 
 
 \subsection{Key Components}
@@ -3235,21 +3235,21 @@ The \sphinxtitleref{useTheme} hook from \sphinxtitleref{@/forms/ThemeProvider} i
 \subsection{Usage}
 \label{\detokenize{forms/toggle:usage}}
 \sphinxAtStartPar
-To use the \sphinxtitleref{ModeToggle} component, integrate it into a parent component or page within a React application. Ensure that the necessary dependencies are imported, and handle theme changes accordingly.
+To use the \sphinxtitleref{ToggleMode} component, integrate it into a parent component or page within a React application. Ensure that the necessary dependencies are imported, and handle theme changes accordingly.
 
 \sphinxAtStartPar
 Example:
 
 \sphinxAtStartPar
 {\color{red}\bfseries{}\textasciigrave{}\textasciigrave{}}{\color{red}\bfseries{}\textasciigrave{}}jsx
-import ModeToggle from “@/path/to/ModeToggle”;
+import ToggleMode from “@/path/to/ToggleMode”;
 \begin{description}
 \sphinxlineitem{function ThemeSettingsPage() \{}\begin{description}
 \sphinxlineitem{return (}\begin{description}
 \sphinxlineitem{\textless{}div\textgreater{}}
 \sphinxAtStartPar
 \textless{}h1\textgreater{}Theme Settings\textless{}/h1\textgreater{}
-\textless{}ModeToggle /\textgreater{}
+\textless{}ToggleMode /\textgreater{}
 
 \end{description}
 

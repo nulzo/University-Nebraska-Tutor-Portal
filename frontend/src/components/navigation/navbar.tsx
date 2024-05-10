@@ -1,5 +1,5 @@
 import { GithubIcon } from "lucide-react";
-import { ModeToggle } from "@/forms/ModeToggle";
+import { ToggleMode } from "@/forms/toggle-mode.tsx";
 import { Button } from "@/components/ui/button";
 import UnoIcon from "@/components/assets/uno-icon.tsx";
 import { Separator } from "@/components/ui/separator";
@@ -100,7 +100,7 @@ export default function Navbar() {
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger>
-                  <ModeToggle />
+                  <ToggleMode />
                 </TooltipTrigger>
                 <TooltipContent className="bg-background border border-border text-foreground">
                   <p>Color Theme</p>

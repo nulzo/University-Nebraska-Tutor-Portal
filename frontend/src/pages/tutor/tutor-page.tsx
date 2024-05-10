@@ -20,7 +20,7 @@ import {
 import { CalendarIcon } from "@radix-ui/react-icons";
 import { TableCell } from "@radix-ui/themes";
 
-export default function TutorView() {
+export default function TutorPage() {
   const tutors = useFetchTutor();
   return (
     <>

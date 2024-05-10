@@ -1,4 +1,4 @@
-import TutorTicketForm from "@/forms/TutorTicketForm";
+import TutorTicketForm from "@/forms/tutor-ticket-form.tsx";
 import { Button } from "@/components/ui/button";
 import {
   Table,

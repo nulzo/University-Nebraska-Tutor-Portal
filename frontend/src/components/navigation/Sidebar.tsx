@@ -2,7 +2,7 @@ import ZoomIcon from "@/components/assets/zoom-icon.tsx";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import Navlink from "@/components/navigation/Navlink";
+import Navlink from "@/components/navigation/navlink.tsx";
 import {
   BugIcon,
   CalendarClockIcon,

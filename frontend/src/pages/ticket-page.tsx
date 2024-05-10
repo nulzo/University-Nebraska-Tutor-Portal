@@ -1,4 +1,4 @@
-import TicketForm from "@/forms/TicketForm";
+import TicketForm from "@/forms/ticket-form.tsx";
 import Header from "@/components/typography/Header";
 import {Separator} from "@/components/ui/separator";
 import {Announcement} from "@/components/display/announcement.tsx";

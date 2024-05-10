@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useCallback } from "react";
 import useWebSocket, { ReadyState } from "react-use-websocket";
 
-export default function WebSocketView() {
+export default function WebsocketPage() {
   // const [websocket, setWebsocket] = useState({
   //   filledForm: false,
   //   messages: [],

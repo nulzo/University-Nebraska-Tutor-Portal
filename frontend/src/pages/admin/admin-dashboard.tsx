@@ -1,4 +1,4 @@
-import Ticket from "@/components/tickets/Ticket";
+import Ticket from "@/components/tickets/ticket.tsx";
 import Header from "@/components/typography/Header";
 import {
   Card,

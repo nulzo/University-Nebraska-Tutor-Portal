@@ -6,7 +6,7 @@ import { Link } from "@radix-ui/themes";
 import Uno from "@/components/assets/uno.tsx";
 import { useIsAuthenticated } from "@azure/msal-react";
 import { useMsal } from "@azure/msal-react";
-import { loginRequest } from "../authConfig";
+import { loginRequest } from "../auth-config.ts";
 import MicrosoftIcon from "@/components/assets/microsoft-icon.tsx";
 import { useNavigate } from "react-router-dom";
 

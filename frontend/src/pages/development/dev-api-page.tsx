@@ -2,7 +2,7 @@
 // import useFetchTicket from "@/API/tickets/useFetchTicket";
 // import useFetchTutor from "@/API/tutors/useFetchTutor";
 
-export default function DevAPIView() {
+export default function DevApiPage() {
   // const professors = useFetchProfessor();
   // const tutors = useFetchTutor();
   // const tickets = useFetchTicket();

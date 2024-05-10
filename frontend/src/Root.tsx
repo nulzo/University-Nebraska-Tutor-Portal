@@ -1,5 +1,5 @@
 import {Outlet, useLocation, useNavigate} from "react-router-dom";
-import Navbar from "@/components/navigation/Navbar";
+import Navbar from "@/components/navigation/navbar.tsx";
 import { Toaster } from "@/components/ui/toaster";
 import {TooltipProvider} from "@/components/ui/tooltip.tsx";
 import {ResizableHandle, ResizablePanel, ResizablePanelGroup} from "@/components/ui/resizable.tsx";

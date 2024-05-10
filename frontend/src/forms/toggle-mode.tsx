@@ -7,33 +7,33 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useTheme } from "@/forms/ThemeProvider";
+import { useTheme } from "@/forms/theme-provider.tsx";
 
 /*
- * ModeToggle component provides a theme toggling mechanism with a dropdown menu.
+ * ToggleMode component provides a theme toggling mechanism with a dropdown menu.
  *
  * This component utilizes the useTheme hook to manage theme changes.
  * It renders a button with sun and moon icons, allowing users to toggle between
  * light, dark, and system themes through a dropdown menu.
  *
- * @returns {JSX.Element} The JSX element representing the ModeToggle component.
+ * @returns {JSX.Element} The JSX element representing the ToggleMode component.
  *
  * @example
- * // Example usage of ModeToggle component:
- * import { ModeToggle } from './ModeToggle';
+ * // Example usage of ToggleMode component:
+ * import { ToggleMode } from './ToggleMode';
  *
  * function App() {
  *   return (
  *     <div>
  *       <h1>My App</h1>
- *       <ModeToggle />
+ *       <ToggleMode />
  *        ...
  *     </div>
  *   );
  * }
  */
 
-export function ModeToggle() {
+export function ToggleMode() {
   const { setTheme } = useTheme();
 
   return (

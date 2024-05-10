@@ -41,7 +41,7 @@
 \contentsline {subsection}{\numberline {6.4.1}Overview}{26}{subsection.6.4.1}%
 \contentsline {subsection}{\numberline {6.4.2}Key Components}{26}{subsection.6.4.2}%
 \contentsline {subsection}{\numberline {6.4.3}Usage}{27}{subsection.6.4.3}%
-\contentsline {section}{\numberline {6.5}ModeToggle React Component Documentation}{28}{section.6.5}%
+\contentsline {section}{\numberline {6.5}ToggleMode React Component Documentation}{28}{section.6.5}%
 \contentsline {subsection}{\numberline {6.5.1}Overview}{28}{subsection.6.5.1}%
 \contentsline {subsection}{\numberline {6.5.2}Key Components}{28}{subsection.6.5.2}%
 \contentsline {subsection}{\numberline {6.5.3}Usage}{28}{subsection.6.5.3}%
