@@ -1,28 +1,38 @@
-import {Outlet, useLocation, useNavigate} from "react-router-dom";
+import {Outlet, useLocation} from "react-router-dom";
 import Navbar from "@/components/navigation/navbar.tsx";
 import { Toaster } from "@/components/ui/toaster";
 import {TooltipProvider} from "@/components/ui/tooltip.tsx";
 import {ResizableHandle, ResizablePanel, ResizablePanelGroup} from "@/components/ui/resizable.tsx";
 import {
     AreaChart, Calendar,
-    Clock,
     Home, LifeBuoy, LogOut, MessageSquare,
     PenSquare, Settings, User, Users,
-    Video,
 } from "lucide-react";
 import {NewNav} from "@/components/new-nav.tsx";
 import {useEffect, useState} from "react";
 import {cn} from "@/lib/utils.ts";
 import {Separator} from "@/components/ui/separator.tsx";
+import {useIssues} from "@/hooks/use-issues.ts";
+import {useProfessors} from "@/hooks/use-professors.ts";
+import {useTickets} from "@/hooks/use-tickets.ts";
+import {useAnnouncements} from "@/hooks/use-announcements.ts";
+import {useCourses} from "@/hooks/use-courses.ts";
+import {useTutors} from "@/hooks/use-tutors.ts";
 
 export default function Root() {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [path, setPath] = useState("");
-  // const navigate = useNavigate();
+  const issues = useIssues();
+  const professors = useProfessors();
   const location = useLocation();
+  const tickets = useTickets();
+    const announcements = useAnnouncements();
+    const courses = useCourses();
+    const tutors = useTutors();
   useEffect(() => {
     setPath(location.pathname);
   }, [location]);
+  console.log(issues, professors, tickets, tutors, announcements, courses);
 
   return (
       <div className="bg-background">
@@ -74,9 +84,9 @@ export default function Root() {
                           title: "CSLC Info",
                           label: "",
                           icon: LifeBuoy,
-                          isActive: path === "/zoom",
+                          isActive: path === "/info",
                           isPinging: false,
-                          path: "/zoom"
+                          path: "/info"
                       }
                   ]}
               />
