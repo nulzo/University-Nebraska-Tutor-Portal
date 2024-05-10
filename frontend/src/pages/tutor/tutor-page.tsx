@@ -1,4 +1,3 @@
-import useFetchTutor from "@/API/tutors/useFetchTutor";
 import Avatar from "@/components/display/avatar.tsx";
 import LargeAvatar from "@/components/display/large-avatar.tsx";
 import Header from "@/components/typography/Header";
@@ -19,9 +18,10 @@ import {
 } from "@/components/ui/table";
 import { CalendarIcon } from "@radix-ui/react-icons";
 import { TableCell } from "@radix-ui/themes";
+import {useTutors} from "@/hooks/use-tutors.ts";
 
 export default function TutorPage() {
-  const tutors = useFetchTutor();
+  const tutors = useTutors();
   return (
     <>
       <Header

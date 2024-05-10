@@ -1,6 +1,6 @@
 import TicketForm from "@/forms/ticket-form.tsx";
-import Header from "@/components/typography/Header";
-import {Separator} from "@/components/ui/separator";
+import Header from "@/components/typography/Header.tsx";
+import {Separator} from "@/components/ui/separator.tsx";
 import {Announcement} from "@/components/display/announcement.tsx";
 import {useIsAuthenticated} from "@azure/msal-react";
 

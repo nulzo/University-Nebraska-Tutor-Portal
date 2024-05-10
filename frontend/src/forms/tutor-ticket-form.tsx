@@ -24,14 +24,13 @@ import { Form } from "@/components/ui/form";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import TextareaField from "@/components/fields/textarea-field.tsx";
 import DropdownField from "@/components/fields/dropdown-field.tsx";
-import useFetchTutor from "@/API/tutors/useFetchTutor";
 import SearchFilterField from "@/components/fields/search-filter-field.tsx";
 import DropField from "@/components/fields/drop-field.tsx";
-
 import { useMutation } from "@tanstack/react-query";
-import { updateTicket } from "@/API/tickets/ticketRequests";
 import { toast } from "@/components/ui/use-toast";
 import CheckDropdown from "@/components/fields/check-dropdown.tsx";
+import {useTutors} from "@/hooks/use-tutors.ts";
+import {Instance} from "@/services/axios.ts";
 
 function DetailLink({ label, content }: any) {
   return (
@@ -53,11 +52,13 @@ const FormSchema = z.object({
   flagged: z.boolean(),
 });
 
+const instance: Instance = new Instance();
+
 export default function TutorTicketForm({ ticket }: any) {
-  const tutors = useFetchTutor();
+  const tutors = useTutors();
 
   const mutation = useMutation({
-    mutationFn: updateTicket,
+    mutationFn: instance.updateTicket,
   });
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
@@ -75,13 +76,13 @@ export default function TutorTicketForm({ ticket }: any) {
     resolver: zodResolver(FormSchema),
     defaultValues: {
       id: ticket.id,
-      description: ticket.description,
-      status: ticket.status.name,
-      principal_tutor: ticket.principal_tutor.info.name,
-      assistant_tutor: ticket.assistant_tutor,
+      description: ticket.description || "",
+      status: ticket.status?.name || "",
+      principal_tutor: ticket.principal_tutor?.info?.name || "",
+      assistant_tutor: ticket.assistant_tutor || "",
       // was_successful: ticket.was_successful,
-      difficulty: ticket.difficulty.name,
-      flagged: ticket.flagged,
+      difficulty: ticket.difficulty?.name || "",
+      flagged: ticket.flagged || false,
     },
   });
 
@@ -226,12 +227,12 @@ export default function TutorTicketForm({ ticket }: any) {
                           Information provided by student.
                         </div>
                         <Separator />
-                        <DetailLink label="Student" content={ticket.issuing_user.info.name} />
+                        <DetailLink label="Student" content={ticket.issuing_user?.info?.name} />
                         <DetailLink
                           label="Professor"
-                          content={ticket.professor.info.name}
+                          content={ticket.professor?.info?.name}
                         />
-                        <DetailLink label="Course" content={ticket.section?.course.title} />
+                        <DetailLink label="Course" content={ticket.section?.course?.title} />
                         <DetailLink label="Modality" content="Online" />
                         <div className="font-medium text-sm text-foreground mt-4">
                           Tutor Details
@@ -260,7 +261,7 @@ export default function TutorTicketForm({ ticket }: any) {
                             <SearchFilterField
                               control={form.control}
                               name={"asst_tutor"}
-                              value={ticket.assistant_tutor.info && ticket.assistant_tutor?.info.name}
+                              value={ticket.assistant_tutor?.info && ticket.assistant_tutor?.info?.name}
                               form={form}
                               key={"assistant_tutor"}
                               items={tutors}

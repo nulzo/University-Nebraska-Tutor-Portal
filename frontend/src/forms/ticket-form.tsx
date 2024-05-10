@@ -30,12 +30,14 @@ import {
 
 import {ScrollArea} from "@/components/ui/scroll-area";
 import LoadingSelect from "@/components/fields/loading-select.tsx";
-import {useMutation, useQuery} from "@tanstack/react-query";
+import {useMutation} from "@tanstack/react-query";
 import {useToast} from "@/components/ui/use-toast";
-import {createTicket} from "@/API/tickets/ticketRequests";
 import {useNavigate} from "react-router-dom";
-import {fetchData} from "@/API/api.ts";
 import {useAccount, useMsal} from "@azure/msal-react";
+import {useProfessors} from "@/hooks/use-professors.ts";
+import {useSections} from "@/hooks/use-sections.ts";
+import {useIssues} from "@/hooks/use-issues.ts";
+import {Instance} from "@/services/axios.ts";
 
 const max_ticket_length = 500;
 
@@ -110,19 +112,12 @@ function TicketDescription({children}: any) {
     );
 }
 
+const instance: Instance = new Instance();
+
 export default function TicketForm() {
-    const professors = useQuery({
-        queryKey: ["professors"],
-        queryFn: () => fetchData("professors")
-    });
-    const sections = useQuery({
-        queryKey: ["sections"],
-        queryFn: () => fetchData("sections")
-    });
-    const issues = useQuery({
-        queryKey: ["issues"],
-        queryFn: () => fetchData("issues")
-    });
+    const professors = useProfessors();
+    const sections = useSections();
+    const issues = useIssues();
 
     const {accounts} = useMsal();
     // eslint-disable-next-line
@@ -133,7 +128,7 @@ export default function TicketForm() {
     const navigate = useNavigate();
 
     const mutation = useMutation({
-        mutationFn: createTicket,
+        mutationFn: instance.createTicket,
     });
 
     function onSubmit(data: z.infer<typeof FormSchema>) {

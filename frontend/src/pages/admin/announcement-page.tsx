@@ -2,16 +2,12 @@ import Header from "@/components/typography/Header";
 import { Separator } from "@/components/ui/separator";
 import AnnouncementForm from "@/forms/announcement-form.tsx";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {useQuery} from "@tanstack/react-query";
-import {fetchData} from "@/API/api.ts";
 import {Announcement} from "@/components/display/announcement.tsx";
+import {useAnnouncements} from "@/hooks/use-announcements.ts";
+
 
 export default function AnnouncementPage() {
-  const {data, isLoading, isError} = useQuery({
-    queryKey: ["announcements"],
-    queryFn: () => fetchData("announcements")
-  });
-  console.log(isError, isLoading, data);
+  const announcements = useAnnouncements();
   return (
     <>
       <div>
@@ -33,9 +29,9 @@ export default function AnnouncementPage() {
           </TabsContent>
           <TabsContent value="current">
             <Separator className="my-4" />
-            {!data?.isLoading && (
+            {!announcements?.isLoading && (
                 <div className="my-4">
-                    {data?.map((announcement: any) => (
+                    {announcements?.data?.map((announcement: any) => (
                         <Announcement
                             variant="info"
                             title={announcement.title}

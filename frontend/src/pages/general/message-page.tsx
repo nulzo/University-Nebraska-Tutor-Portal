@@ -1,5 +1,5 @@
-import Header from "@/components/typography/Header";
-import { Separator } from "@/components/ui/separator";
+import Header from "@/components/typography/Header.tsx";
+import { Separator } from "@/components/ui/separator.tsx";
 
 export default function MessagePage() {
   return (

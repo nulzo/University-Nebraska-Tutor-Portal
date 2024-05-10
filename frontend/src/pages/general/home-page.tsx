@@ -1,13 +1,13 @@
 import {Announcement} from "@/components/display/announcement.tsx";
-import Header from "@/components/typography/Header";
-import {Button} from "@/components/ui/button";
+import Header from "@/components/typography/Header.tsx";
+import {Button} from "@/components/ui/button.tsx";
 import {
     Card,
     CardContent,
     CardDescription, CardFooter,
     CardHeader,
     CardTitle,
-} from "@/components/ui/card";
+} from "@/components/ui/card.tsx";
 import {useAccount, useIsAuthenticated, useMsal} from "@azure/msal-react";
 import {
     Table,
@@ -16,8 +16,8 @@ import {
     TableHead,
     TableHeader,
     TableRow,
-} from "@/components/ui/table";
-import {Badge} from "@/components/ui/badge";
+} from "@/components/ui/table.tsx";
+import {Badge} from "@/components/ui/badge.tsx";
 
 export interface Link {
     path: string

@@ -1,28 +1,22 @@
-import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
-import Header from "@/components/typography/Header";
-import { Separator } from "@/components/ui/separator";
-import { Button } from "@/components/ui/button";
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card.tsx";
+import { Button } from "@/components/ui/button.tsx";
 import {ExternalLink, ZoomInIcon} from "lucide-react";
-import {useQuery} from "@tanstack/react-query";
-import {fetchData} from "@/API/api.ts";
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@/components/ui/table.tsx";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
+} from "@/components/ui/accordion.tsx";
 import {Skeleton} from "@/components/ui/skeleton.tsx";
 import {Announcement} from "@/components/display/announcement.tsx";
+import {useHours} from "@/hooks/use-hours.ts";
 
 export default function InfoPage() {
   function onClick() {
     window.open("https://unomaha.zoom.us/s/94531042940");
   }
-  const hours = useQuery({
-    queryKey: ["hours"],
-    queryFn: () => fetchData("hours")
-  });
+  const hours = useHours();
 
   return (
     <>
@@ -80,7 +74,7 @@ export default function InfoPage() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            {(hours.isFetching || hours.isLoading) && (
+            {(hours?.isFetching || hours?.isLoading) && (
                 <>
                   <Skeleton className="w-full h-12"></Skeleton>
                   <Skeleton className="w-full mt-2 h-6"></Skeleton>
@@ -91,7 +85,7 @@ export default function InfoPage() {
                   <Skeleton className="w-full mt-2 h-6"></Skeleton>
                 </>
             )}
-            {hours.isError && (
+            {hours?.isError && (
                 <Announcement
                     variant="warning"
                     title="Failed to successfully load in CSLC hours!"
@@ -201,41 +195,8 @@ export default function InfoPage() {
 
             </CardContent>
           </Card>
-          <Card className="text-foreground">
+          <Card className="text-foreground col-span-2">
           <CardHeader>
-              <CardTitle>
-                Request Accommodations
-              </CardTitle>
-              <CardDescription>
-                etc
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <Accordion type="single" collapsible className="w-full">
-                <AccordionItem value="item-1">
-                  <AccordionTrigger>Is it accessible?</AccordionTrigger>
-                  <AccordionContent>
-                    Yes. It adheres to the WAI-ARIA design pattern.
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="item-2">
-                  <AccordionTrigger>Is it styled?</AccordionTrigger>
-                  <AccordionContent>
-                    Yes. It comes with default styles that matches the other
-                    components&apos; aesthetic.
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="item-3">
-                  <AccordionTrigger>Is it animated?</AccordionTrigger>
-                  <AccordionContent>
-                    Yes. It's animated by default, but you can disable it if you prefer.
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
-            </CardContent>
-          </Card>
-          <Card className="text-foreground">
-            <CardHeader>
               <CardTitle>
                 University Information
               </CardTitle>

@@ -70,7 +70,7 @@ export const columns: ColumnDef<TypeTicket>[] = [
     header: () => <div className="min-w-[20px]">Status</div>,
     cell: ({ row }) => (
       <div>
-        {row.getValue("status").id === 1 && (
+        {row.getValue("status")?.id === 1 && (
           <div className="flex space-x-1 align-middle items-center content-center">
             <CircleDashedIcon width={16} height={16} viewBox="0 0 24 24" />
             <div>Unclaimed</div>

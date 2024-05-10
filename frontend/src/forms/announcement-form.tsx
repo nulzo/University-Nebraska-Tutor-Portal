@@ -76,10 +76,10 @@ import {
 } from "@/components/ui/form";
 import { toast } from "@/components/ui/use-toast";
 import {useMutation} from "@tanstack/react-query";
-
-import {createAnnouncement} from "@/api/announcements/announcementRequests.ts";
+import {Instance} from "@/services/axios.ts";
 
 const max_announcement_length = 255;
+const instance: Instance = new Instance();
 
 const FormSchema = z.object({
   title: z
@@ -120,7 +120,7 @@ const FormSchema = z.object({
 
 export default function AnnouncementForm() {
   const mutation = useMutation({
-    mutationFn: createAnnouncement,
+    mutationFn: instance.createAnnouncement,
   });
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
@@ -141,7 +141,7 @@ export default function AnnouncementForm() {
       toast({
         title: "FAILUTE! YOU SUCKS!!!!",
         description: (
-            <div>Faggot!</div>
+            <div>!</div>
         ),
         className: "border border-red"
       });

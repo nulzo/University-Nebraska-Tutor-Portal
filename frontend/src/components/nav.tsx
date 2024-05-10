@@ -22,7 +22,7 @@ interface NavProps {
     sectionTitle: string
 }
 
-export function NewNav({links, isCollapsed, sectionTitle}: NavProps) {
+export function SidebarContent({links, isCollapsed, sectionTitle}: NavProps) {
     const navigate = useNavigate();
     return (
         <div

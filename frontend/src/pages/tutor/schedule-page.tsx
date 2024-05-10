@@ -1,13 +1,12 @@
-import useFetchTutor from "@/API/tutors/useFetchTutor";
 import Avatar from "@/components/display/avatar.tsx";
-import Header from "@/components/typography/Header";
-import { Button } from "@/components/ui/button";
-import { Calendar } from "@/components/ui/calendar";
-import { Separator } from "@/components/ui/separator";
+import Header from "@/components/typography/Header.tsx";
+import { Button } from "@/components/ui/button.tsx";
+import { Calendar } from "@/components/ui/calendar.tsx";
+import { Separator } from "@/components/ui/separator.tsx";
+import {useTutors} from "@/hooks/use-tutors.ts";
 
 export default function SchedulePage() {
-  const tutors = useFetchTutor();
-  if (tutors) console.log(tutors);
+  const tutors = useTutors();
   return (
     <>
       <Header text="Tutor Schedules" subtext="View your schedule." />

@@ -17,16 +17,11 @@ import {
   LayersIcon,
   RatIcon,
 } from "lucide-react";
-
 import TicketTable from "@/components/tables/TicketTable";
-import {useQuery} from "@tanstack/react-query";
-import {fetchData} from "@/API/api.ts";
+import {useTickets} from "@/hooks/use-tickets.ts";
 
 export default function TutorDashboard() {
-  const tickets = useQuery({
-    queryKey: ["tickets"],
-    queryFn: () => fetchData("tickets")
-  });
+  const tickets = useTickets();
 
   return (
     <>

@@ -1,7 +1,7 @@
 import LargeAvatar from "@/components/display/large-avatar.tsx";
-import Header from "@/components/typography/Header";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import Header from "@/components/typography/Header.tsx";
+import { Button } from "@/components/ui/button.tsx";
+import { Input } from "@/components/ui/input.tsx";
 import {
   Select,
   SelectContent,
@@ -10,9 +10,9 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { Separator } from "@/components/ui/separator";
-import { Textarea } from "@/components/ui/textarea";
+} from "@/components/ui/select.tsx";
+import { Separator } from "@/components/ui/separator.tsx";
+import { Textarea } from "@/components/ui/textarea.tsx";
 
 export default function ProfilePage() {
   return (

@@ -111,4 +111,15 @@ export class Instance {
     async getTutors() {
         return await this.get("users/?tutor=1");
     }
+
+    async createHours(data: any) {
+        const csrf: string | undefined = this.cookie("csrftoken");
+        return await this.post("hours", data, {
+            headers: {"X-CSRFToken": csrf},
+        });
+    }
+
+    async getHours() {
+        return await this.get("hours");
+    }
 }

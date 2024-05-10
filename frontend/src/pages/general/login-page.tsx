@@ -1,12 +1,12 @@
 import * as React from "react";
 
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils.ts";
+import { Button } from "@/components/ui/button.tsx";
 import { Link } from "@radix-ui/themes";
 import Uno from "@/components/assets/uno.tsx";
 import { useIsAuthenticated } from "@azure/msal-react";
 import { useMsal } from "@azure/msal-react";
-import { loginRequest } from "../auth-config.ts";
+import { loginRequest } from "../../auth-config.ts";
 import MicrosoftIcon from "@/components/assets/microsoft-icon.tsx";
 import { useNavigate } from "react-router-dom";
 
