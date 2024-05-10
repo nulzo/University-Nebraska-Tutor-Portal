@@ -29,7 +29,6 @@ export default function HoursPage() {
             schedling changes have occured."
             />
             <Separator className="mb-4"/>
-
                 {!hours?.isLoading && (
                     <div className="rounded-md border bg-backgroundsecondary">
                     <Table className="rounded-md">

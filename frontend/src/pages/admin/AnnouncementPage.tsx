@@ -4,7 +4,7 @@ import AnnouncementForm from "@/forms/AnnouncementForm";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {useQuery} from "@tanstack/react-query";
 import {fetchData} from "@/API/api.ts";
-import {Announcement} from "@/components/display/Announcement.tsx";
+import {Announcement} from "@/components/display/announcement.tsx";
 
 export default function AnnouncementPage() {
   const {data, isLoading, isError} = useQuery({

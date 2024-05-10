@@ -1,7 +1,7 @@
 import TicketForm from "@/forms/TicketForm";
 import Header from "@/components/typography/Header";
 import {Separator} from "@/components/ui/separator";
-import {Announcement} from "@/components/display/Announcement";
+import {Announcement} from "@/components/display/announcement.tsx";
 import {useIsAuthenticated} from "@azure/msal-react";
 
 export default function TicketPage() {
