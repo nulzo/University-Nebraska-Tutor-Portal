@@ -28,5 +28,5 @@ class Comment(models.Model):
     class Meta:
         verbose_name_plural = "comments"
 
-    def __str__(self):
+    def __str__(self) -> str:
         return str(self.issuing_user)

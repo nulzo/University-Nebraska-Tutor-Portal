@@ -7,5 +7,5 @@ class AnnouncementType(models.Model):
     color = models.ForeignKey("api.Color", on_delete=models.SET_NULL, null=True)
     icon = models.CharField(max_length=255)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return str(self.name)

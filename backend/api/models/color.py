@@ -9,5 +9,5 @@ class Color(models.Model):
     class Meta:
         verbose_name_plural = "colors"
 
-    def __str__(self):
+    def __str__(self) -> str:
         return str(self.name)

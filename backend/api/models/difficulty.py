@@ -12,5 +12,5 @@ class Difficulty(models.Model):
     class Meta:
         verbose_name_plural = "difficulties"
 
-    def __str__(self):
+    def __str__(self) -> str:
         return str(self.name)

@@ -8,5 +8,5 @@ class Role(models.Model):
     color = models.ForeignKey(Color, on_delete=models.SET_NULL, null=True)
     description = models.TextField()
 
-    def __str__(self):
+    def __str__(self) -> str:
         return str(self.name)

@@ -27,5 +27,5 @@ class Announcement(models.Model):
     class Meta:
         verbose_name_plural = "announcements"
 
-    def __str__(self):
+    def __str__(self) -> str:
         return str(self.title)

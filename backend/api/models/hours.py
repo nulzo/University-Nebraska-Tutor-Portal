@@ -21,7 +21,7 @@ class OpeningHours(models.Model):
     opening_time = models.TimeField()
     closing_time = models.TimeField()
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"""{self.get_day_of_week_display()}:
         {self.opening_time.strftime('%I:%M %p')} -
         {self.closing_time.strftime('%I:%M %p')}"""
