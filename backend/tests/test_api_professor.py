@@ -1,7 +1,6 @@
 import pytest
 from django.test import Client
 
-
 # @pytest.fixture
 # def create_object():
 #     client = Client()

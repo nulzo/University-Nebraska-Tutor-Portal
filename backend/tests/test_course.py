@@ -1,14 +1,15 @@
 import pytest
 from django.test import Client
 
-
 # from api.models.course import Course
+
 
 @pytest.mark.django_db
 def test_url_exists():
     client = Client()
     response = client.get(path="/api/courses/")
     assert response.status_code == 200
+
 
 # @pytest.fixture
 # def course():
